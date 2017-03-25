@@ -1,7 +1,6 @@
 syntax enable
 set ruler
 set number
-set nowrap
 set numberwidth=4
 
 " Tab settings
@@ -31,10 +30,6 @@ nnoremap L gt
 if $TERM == "xterm-256color"
 	set t_Co=256
 endif
-
-" Persistent undo
-set undodir=~/.vim//
-set undofile
 
 colorscheme quantum
 
