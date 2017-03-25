@@ -1,5 +1,4 @@
 syntax enable
-set ruler
 set number
 set numberwidth=4
 
