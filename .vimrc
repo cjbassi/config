@@ -31,9 +31,5 @@ set directory^=~/.vim//
 nnoremap H gT
 nnoremap L gt
 
-if $TERM == "xterm-256color"
-	set t_Co=256
-endif
-
 set laststatus=2
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
