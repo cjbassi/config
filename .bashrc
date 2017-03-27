@@ -1,6 +1,6 @@
 # Set vim as default editor
-export VISUAL=/usr/bin/vim
-export EDITOR=/usr/bin/vim
+export VISUAL='vim'
+export EDITOR='vim'
 
 # Set terminal to 256 color mode for vim
 export TERM=xterm-256color
