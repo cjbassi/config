@@ -1,5 +1,3 @@
 #!/bin/bash
-ln -s ~/dotfiles/.bashrc ~/
-ln -s ~/dotfiles/.inputrc ~/
-ln -s ~/dotfiles/.screenrc ~/
-ln -s ~/dotfiles/.vimrc ~/
+
+find ~/dotfiles -name '*rc' -exec ln -s {} ~/ ';'
