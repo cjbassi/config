@@ -10,12 +10,10 @@ set number
 set numberwidth=4
 
 " Indent settings
+set tabstop=4
 set autoindent
 set expandtab
-set tabstop=4
-set softtabstop=4
 set shiftwidth=4
-set smarttab
 set shiftround
 
 " Search settings
@@ -32,10 +30,13 @@ set backupdir=~/.vim/temp//
 set undodir=~/.vim/undodir//
 set undofile
 
-"set smartindent
+" Map Y to yank until EOL
+map Y y$
+" Map <C-L> (redraw screen) to also :noh
+nnoremap <C-L> :nohl<CR><C-L>
+
+set ruler
+set wildmenu
+set showcmd
+
 "filetype on
-"filetype plugin on
-"set wildmenu
-"set wildmode=list:longest,full
-"set hlsearch
-"set ruler
