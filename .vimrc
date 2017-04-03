@@ -1,6 +1,3 @@
-"match ColorColumn "\%80v."
-match ColorColumn "\%>80v.\+"
-
 " Color settings
 syntax enable
 set t_Co=256
@@ -12,6 +9,7 @@ colorscheme solarized
 set number
 set relativenumber
 set numberwidth=4
+set cursorline
 
 " Indent settings
 set tabstop=4
@@ -24,6 +22,10 @@ set shiftround
 set incsearch
 set smartcase
 set hlsearch
+
+" Highlight text paste 80 columns
+"match ColorColumn "\%80v."
+match ColorColumn "\%>80v.\+"
 
 " Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
@@ -39,9 +41,10 @@ map Y y$
 " Map <C-L> (redraw screen) to also :noh
 nnoremap <C-L> :nohl<CR><C-L>
 
-set cursorline
 set ruler
 set wildmenu
 set laststatus=2
+hi StatusLine ctermbg=232 ctermfg=241
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 "filetype on
