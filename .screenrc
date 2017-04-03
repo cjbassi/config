@@ -1,3 +1,6 @@
+# Removes ESC delay in screen
+maptimeout 5
+
 # Bind 'R' to reload .screenrc file
 bind R eval "source $HOME/.screenrc" "select 4" "kill" "select 3" "kill"
 
@@ -28,6 +31,9 @@ select 1
 
 # Quits screen
 bind K quit
+
+# Fix for Name column in windowlist only show "bash"
+windowlist string "%4n %h%=%f"
 
 # Removes ESC keypress delay
 #set -s escape-time 0
