@@ -1,3 +1,6 @@
+"match ColorColumn "\%80v."
+match ColorColumn "\%>80v.\+"
+
 " Color settings
 syntax enable
 set t_Co=256
