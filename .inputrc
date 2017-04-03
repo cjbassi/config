@@ -1,2 +1,3 @@
 set editing-mode vi
 set keyseq-timeout 10
+set show-mode-in-prompt on
