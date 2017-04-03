@@ -10,6 +10,7 @@ colorscheme solarized
 
 " Numberline settings
 set number
+set relativenumber
 set numberwidth=4
 
 " Indent settings
@@ -38,8 +39,9 @@ map Y y$
 " Map <C-L> (redraw screen) to also :noh
 nnoremap <C-L> :nohl<CR><C-L>
 
+set cursorline
 set ruler
 set wildmenu
-set showcmd
+set laststatus=2
 
 "filetype on
