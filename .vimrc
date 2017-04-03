@@ -1,3 +1,4 @@
+" Color settings
 syntax enable
 set t_Co=256
 let g:solarized_termcolors=256
@@ -20,6 +21,7 @@ set shiftround
 " Search settings
 set incsearch
 set smartcase
+set hlsearch
 
 " Increases responsiveness of ESC
 set timeoutlen=1000 ttimeoutlen=0
