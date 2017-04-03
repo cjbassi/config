@@ -9,7 +9,7 @@ colorscheme solarized
 set number
 set numberwidth=4
 
-" Tab settings
+" Indent settings
 set autoindent
 set expandtab
 set tabstop=4
@@ -23,18 +23,14 @@ set incsearch
 set smartcase
 set hlsearch
 
-" Increases responsiveness of ESC
+" Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
 
-"set laststatus=2
-"set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
-
-" Swap and backup directory
-"set directory^=~/.vim//
-
-" Persistent undo
-"set undodir=~/.vim//
-"set undofile
+" Swap, backup, and undo directories
+set directory=~/.vim/temp//
+set backupdir=~/.vim/temp//
+set undodir=~/.vim/undodir//
+set undofile
 
 "set smartindent
 "filetype on
