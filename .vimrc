@@ -40,8 +40,11 @@ set undofile
 map Y y$
 " Map <C-L> (redraw screen) to also :noh
 nnoremap <C-L> :nohl<CR><C-L>
+nnoremap H gT
+nnoremap L gt
 
 set ruler
+set wildmode=longest,list,full
 set wildmenu
 set laststatus=2
 hi StatusLine ctermbg=232 ctermfg=241
