@@ -44,7 +44,7 @@ nnoremap H gT
 nnoremap L gt
 
 set ruler
-set wildmode=longest,list,full
+set wildmode=longest:full,full
 set wildmenu
 set laststatus=2
 hi StatusLine ctermbg=232 ctermfg=241

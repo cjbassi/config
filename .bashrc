@@ -34,3 +34,8 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Makes bash tabing working like Vim
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
