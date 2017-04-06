@@ -23,7 +23,7 @@ set incsearch
 set smartcase
 set hlsearch
 
-" Highlight text paste 80 columns
+" Highlight text past 80 columns
 "match ColorColumn "\%80v."
 match ColorColumn "\%>80v.\+"
 
@@ -38,16 +38,20 @@ set undofile
 
 " Map Y to yank until EOL
 map Y y$
+
 " Map <C-L> (redraw screen) to also :noh
 nnoremap <C-L> :nohl<CR><C-L>
+
+" Map H and L to navigate tabs
 nnoremap H gT
 nnoremap L gt
 
-set ruler
+" Tab settings in command bar
 set wildmode=longest:full,full
 set wildmenu
+
+" StatusLine settings
+set ruler
 set laststatus=2
 hi StatusLine ctermbg=232 ctermfg=241
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-"filetype on
