@@ -10,7 +10,7 @@ altscreen on
 # Turn welcome message off
 startup_message off
 
-# Informative statusbar
+# Statusbar
 hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][%{B} %m-%d %{W} %c %{g}]'
 
 # Base-index from 0 to 1
@@ -21,10 +21,10 @@ bind 0 select 10
 # Turn off visual bell
 vbell off
 
-# Messages display for 1 second
+# Message duration 
 msgwait 5
 
-# Screen windows
+# Screen startup windows
 screen -t Vim 1
 screen -t bash 2
 select 1
@@ -35,10 +35,12 @@ bind K quit
 # Fix for Name column in windowlist only show "bash"
 windowlist string "%4n %h%=%f"
 
+# Bind h and l to switch windows
 bind h prev
 bind ^h prev
 bind l next
 bind ^l next
+
 # Use Alt-vim keys without prefix key to switch panes
 #bind -n M-h select-pane -L
 #bind -n M-j select-pane -D 
