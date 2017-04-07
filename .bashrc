@@ -39,7 +39,5 @@ shopt -s extglob
 
 history -a
 
-# Makes bash tabing working like Vim
+# Tab through possible matches without showing list
 bind 'TAB:menu-complete'
-bind 'set show-all-if-ambiguous on'
-bind 'set menu-complete-display-prefix on'
