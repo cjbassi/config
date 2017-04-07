@@ -22,7 +22,10 @@ bind 0 select 10
 vbell off
 
 # Message duration 
-msgwait 5
+msgwait 2
+
+# Fix for Name column in windowlist only show "bash"
+windowlist string "%4n %h%=%f"
 
 # Screen startup windows
 screen -t Vim 1
@@ -31,9 +34,6 @@ select 1
 
 # Quits screen
 bind K quit
-
-# Fix for Name column in windowlist only show "bash"
-windowlist string "%4n %h%=%f"
 
 # Bind h and l to switch windows
 bind h prev
