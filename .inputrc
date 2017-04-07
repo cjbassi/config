@@ -1,2 +1,3 @@
 set editing-mode vi
 set keyseq-timeout 10
+Tab: menu-complete
