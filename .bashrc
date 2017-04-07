@@ -23,7 +23,7 @@ LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS
 
 # Aliases
 alias ls='ls --color=auto'
-alias ll='ls -AhlX ' #--group-directories-first'
+alias ll='ls -AhlX --group-directories-first'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
