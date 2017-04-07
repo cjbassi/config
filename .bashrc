@@ -11,11 +11,15 @@ export VISUAL=vim
 export EDITOR=vim
 
 # Set terminal to 256 color mode for vim
-export TERM=xterm-256color
+#export TERM=xterm-256color
+#export TERM=xterm
 
 # Prompt
 #PS1='\e[01;32m\u@\h\e[0m:\e[01;34m\w\e[0m\$ '
 PS1='\e[1;38;5;34m\u@\h\e[0m:\e[1;38;5;27m\w\e[0m\$ '
+
+# Change directory color
+LS_COLORS=$LS_COLORS:'di=38;5;27:' ; export LS_COLORS
 
 # Aliases
 alias ls='ls --color=auto'
