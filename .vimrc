@@ -27,6 +27,10 @@ set hlsearch
 "match ColorColumn "\%80v."
 match ColorColumn "\%>80v.\+"
 
+" Highlight trailing whitspace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
+
 " Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
 
