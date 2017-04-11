@@ -16,12 +16,12 @@ hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t
 # Base-index from 0 to 1
 bind c screen 1
 bind ^c screen 1
-bind 0 select 10                                                            
+bind 0 select 10
 
 # Turn off visual bell
 vbell off
 
-# Message duration 
+# Message duration
 msgwait 2
 
 # Fix for Name column in windowlist only show "bash"
@@ -43,7 +43,7 @@ bind ^l next
 
 # Use Alt-vim keys without prefix key to switch panes
 #bind -n M-h select-pane -L
-#bind -n M-j select-pane -D 
+#bind -n M-j select-pane -D
 #bind -n M-k select-pane -U
 #bind -n M-l select-pane -R
 
