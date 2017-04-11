@@ -33,6 +33,12 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
 
+" Makes ESC not move cursor left
+let CursorColumnI = 0 "the cursor column position in INSERT
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+
 " Swap, backup, and undo directories
 set directory=~/.vim/temp//
 set backupdir=~/.vim/temp//
