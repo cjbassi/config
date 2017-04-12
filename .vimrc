@@ -1,8 +1,8 @@
 " Color settings
 syntax enable
 set t_Co=256
-let g:solarized_termcolors=256
 set background=dark
+let g:solarized_termcolors=256
 colorscheme solarized
 
 " Numberline settings
@@ -23,11 +23,15 @@ set smartcase
 set hlsearch
 
 " Highlight text past 80 columns
-"match ColorColumn "\%80v."
 call matchadd('ColorColumn', '\%>80v.\+')
 
+" Shows indents
+"set list listchars=tab:\|\ ,
+"highlight Tabs ctermbg=234
+"call matchadd('Tabs', '\t')
+
 " Highlight trailing whitspace
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red
 call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
 
 " Remove ESC delay in Vim
