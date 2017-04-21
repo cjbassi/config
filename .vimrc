@@ -62,6 +62,11 @@ nnoremap L gt
 " Tab settings in command bar
 set wildmode=longest:full,full
 set wildmenu
+set wildignore=*.swp,*.bak
+set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
+set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
+set wildignore+=tags
+set wildignore+=*.tar.*
 
 " StatusLine settings
 set ruler
