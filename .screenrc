@@ -1,4 +1,0 @@
-# Screen startup windows
-screen -t Vim 1
-screen -t bash 2
-select 1
