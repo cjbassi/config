@@ -11,8 +11,7 @@ export VISUAL=vim
 export EDITOR=vim
 
 # Set terminal to 256 color mode for vim
-#export TERM=xterm-256color
-#export TERM=xterm
+export TERM=xterm-256color
 
 # Prompt
 #PS1='\e[01;32m\u@\h\e[0m:\e[01;34m\w\e[0m\$ '
