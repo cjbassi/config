@@ -10,8 +10,15 @@ fi
 export VISUAL=vim
 export EDITOR=vim
 
+# History settings
+HISTSIZE=1000
+HISTFILESIZE=2000
+HISTCONTROL=ignoreboth
+shopt -s histappend
+history -a
+
 # Set terminal to 256 color mode for vim
-export TERM=xterm-256color
+if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 # Prompt
 #PS1='\e[01;32m\u@\h\e[0m:\e[01;34m\w\e[0m\$ '
@@ -30,10 +37,7 @@ alias egrep='egrep --color=auto'
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# shopt settings
 shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s dotglob
 shopt -s extglob
-
-history -a
