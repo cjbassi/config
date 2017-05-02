@@ -58,6 +58,7 @@ set directory=~/.vim/temp//
 set backupdir=~/.vim/temp//
 set undodir=~/.vim/undodir//
 set undofile
+set undolevels=100 " Limits undo level to 100, limit file size
 
 " StatusLine settings
 set ruler
