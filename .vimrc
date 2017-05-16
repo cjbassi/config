@@ -10,6 +10,7 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
 nnoremap H gT
 nnoremap L gt
+nnoremap <C-J> i<CR><Esc>k$
 
 " Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
