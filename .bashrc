@@ -31,6 +31,8 @@ BLUE="\[\e[1;38;5;27m\]"
 PS1="${GREEN}\u@\h${CLEAR}:${BLUE}\w${CLEAR}\$ "
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
