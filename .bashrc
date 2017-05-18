@@ -25,7 +25,10 @@ shopt -s extglob
 
 # Colors
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
-PS1='\e[1;38;5;34m\u@\h\e[0m:\e[1;38;5;27m\w\e[0m\$ '
+GREEN="\[\e[1;38;5;34m\]"
+CLEAR="\[\e[0m\]"
+BLUE="\[\e[1;38;5;27m\]"
+PS1="${GREEN}\u@\h${CLEAR}:${BLUE}\w${CLEAR}\$ "
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
