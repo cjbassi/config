@@ -48,11 +48,19 @@ autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
 " Highlight text past 80 columns
-call matchadd('ColorColumn', '\%>80v.\+')
+"call matchadd('ColorColumn', '\%>80v.\+')
+augroup colorcolumn
+	au!
+	au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
+augroup END
 
 " Highlight trailing whitspace
 highlight ExtraWhitespace ctermbg=red
-call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
+"call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
+augroup whitespace
+	au!
+	au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
+augroup END
 
 " Swap, backup, and undo directories
 set directory=~/.vim/temp//
