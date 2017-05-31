@@ -139,7 +139,8 @@ new_window 1pixel
 exec_always feh --bg-scale /home/cbassi/Downloads/wallpaper.png
 
 # 144hz
-exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
+#exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
+exec_always xrandr --output DVI-D-0 --mode 1920x1080
 
 # Remap caps lock to escape
-exec_always xmodmap /home/cbassi/dotfiles/keymap
+exec_always xmodmap /home/cbassi/dotfiles/xkeys
