@@ -75,6 +75,8 @@ set laststatus=2
 hi StatusLine ctermbg=232 ctermfg=241
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
+set clipboard=unnamedplus
+
 " Shows indents
 "set list listchars=tab:\|\ ,
 "highlight Tabs ctermbg=234
