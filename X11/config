@@ -47,9 +47,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+t split h
+bindsym $mod+v split h
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+t split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -72,8 +72,8 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 set $workspace1 "1: Chrome"
-set $workspace2 "2: tmux"
-set $workspace3 "3: Discord"
+set $workspace2 "2: Discord"
+set $workspace3 "3: Music"
 set $workspace4 "4: Music"
 
 # switch to workspace
@@ -133,7 +133,9 @@ bar {
 }
 
 # Custom commands
-new_window 1pixel
+
+#new_window normal 0 px
+new_window none
 
 # Wallpaper
 exec_always feh --bg-scale /home/cbassi/Downloads/wallpaper.png
@@ -143,4 +145,4 @@ exec_always feh --bg-scale /home/cbassi/Downloads/wallpaper.png
 exec_always xrandr --output DVI-D-0 --mode 1920x1080
 
 # Remap caps lock to escape
-exec_always xmodmap /home/cbassi/dotfiles/xkeys
+exec_always xmodmap /home/cbassi/config/keys/xkeys

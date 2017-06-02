@@ -12,6 +12,8 @@ nnoremap H gT
 nnoremap L gt
 nnoremap <C-J> i<CR><Esc>k$
 
+set cursorline
+
 " Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -19,7 +21,6 @@ set timeoutlen=1000 ttimeoutlen=0
 set number
 set relativenumber
 set numberwidth=4
-set cursorline
 
 " Indent settings
 set tabstop=4
@@ -29,6 +30,7 @@ set shiftround
 
 " Search settings
 set incsearch
+set ignorecase
 set smartcase
 set hlsearch
 
