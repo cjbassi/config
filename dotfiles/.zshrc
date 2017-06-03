@@ -8,6 +8,7 @@ SAVEHIST=10000
 setopt appendhistory notify
 setopt histignoredups
 setopt histignorespace
+export HISTORY_IGNORE="(ll|cd)"
 
 # Vim
 bindkey -v
