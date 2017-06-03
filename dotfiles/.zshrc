@@ -5,9 +5,10 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-setopt appendhistory notify
-setopt histignoredups
-setopt histignorespace
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 export HISTORY_IGNORE="(ll|cd)"
 
 # Vim
