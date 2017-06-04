@@ -1,9 +1,53 @@
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+" Make sure you use single quotes
+call plug#begin('~/.vim/plugged')
+
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'google/vim-searchindex'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'raimondi/delimitmate'
+
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-syntastic/syntastic'
+
+Plug 'altercation/vim-colors-solarized'
+
+" Multiple Plug commands can be written in a single line using | separators
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" On-demand loading
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" You complete me
+" Using a non-master branch
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+"Plug 'fatih/vim-go', { 'tag': '*' }
+" Plugin options
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+" Plugin outside ~/.vim/plugged with post-update hook
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Unmanaged plugin (manually installed and updated)
+"Plug '~/my-prototype-plugin'
+" Initialize plugin system
+
+call plug#end()
+
 " Colors
 syntax enable
 set t_Co=256
 set background=dark
+
 let g:solarized_termcolors=256
 colorscheme solarized
+
+" Disables comments on new lines
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Opens new panes on the right
+set splitright
 
 " Keybinds
 map Y y$
@@ -79,7 +123,44 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 set clipboard=unnamedplus
 
+execute "set <M-h>=\eh"
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+execute "set <M-l>=\el"
+
+"nnoremap <silent> <M-h> <C-w>h
+"nnoremap <silent> <M-j> <C-w>j
+"nnoremap <silent> <M-k> <C-w>k
+"nnoremap <silent> <M-l> <C-w>l
+
 " Shows indents
 "set list listchars=tab:\|\ ,
 "highlight Tabs ctermbg=234
 "call matchadd('Tabs', '\t')
+
+"auto-install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'

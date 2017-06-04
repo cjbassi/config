@@ -53,3 +53,8 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 # Aliases
 alias ll='ls -AhlX --group-directories-first'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'

@@ -40,3 +40,5 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 # Aliases
 alias ll='ls -AhlX --group-directories-first'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

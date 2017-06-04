@@ -49,13 +49,13 @@ bindsym $mod+Shift+l move right
 # split in horizontal orientation
 bindsym $mod+v split h
 # split in vertical orientation
-bindsym $mod+t split v
+bindsym $mod+s split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+t layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -103,12 +103,12 @@ bindsym $mod+Shift+0 move container to workspace 10
 assign [class="Google-chrome"] $workspace1
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+R restart
 
 # Resizing
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+c mode "resize"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
