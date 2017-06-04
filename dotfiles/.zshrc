@@ -58,3 +58,5 @@ alias ll='ls -AhlX --group-directories-first'
 
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+#export RANGER_LOAD_DEFAULT_RC=FALSE
