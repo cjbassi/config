@@ -174,3 +174,5 @@ function RangerExplorer()
     redraw!
 endfun
 map <Leader>x :call RangerExplorer()<CR>
+
+set updatetime=250
