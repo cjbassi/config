@@ -39,3 +39,5 @@ Vi-mode:
 v - edit current command in Vim
 
 ^L to clear screen
+
+journalctl -u sshd | vimpager
