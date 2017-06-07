@@ -9,7 +9,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-export HISTORY_IGNORE="(ll|cd)"
+export HISTORY_IGNORE="(ll|cd|cd ..)"
 
 # Vim
 bindkey -v
@@ -63,3 +63,5 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 export PAGER='vimpager'
 alias less=$PAGER
+
+alias glances='glances -1 --disable-memswap --disable-diskio --disable-alert --process-short-name --byte'

@@ -1,7 +1,7 @@
 if tmux join-pane -h -t :$1 ; then
-	exit
+    exit
 elif tmux break-pane -t :$1 ; then
-	exit
+    exit
 else
-	tmux move-window -t :$1
+    tmux move-window -t :$1
 fi
