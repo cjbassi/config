@@ -1,0 +1,34 @@
+#i"string" - insert string # times
+
+`. - jump to last edit
+
+* - jump to next occurrence of word under cursor
+# - jump to previous occurrence of word under cursor
+
+:%s/tofind/toreplace/g - search and replace
+
+D - delete rest of line
+c - delete and enter insert mode
+C - delete rest of line and enter insert mode
+cc or S - delete entire line and enter insert mode
+
+diw - delete word
+daw - delete word and a whitespace
+caw - delete word and enter insert mode
+
+:set paste
+:set nopaste
+:tab help ...
+
+C-o/C-i - forward and back through jumplist
+
+:7y - yank line #7
+:7t14 - paste line #7 below line #14
+
+vim -p files in each tab
+
+Tabe instead of tabedit
+
+Tabm +-
+
+retab`

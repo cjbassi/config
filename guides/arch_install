@@ -1,0 +1,20 @@
+useradd -m -G wheel cbassi
+passwd cbassi
+
+systemctl enable dhcpcd@().service
+
+pacman:
+sudo openssh git python3 java gcc ag xterm
+vim tmux zsh ranger vimpager glances highlight
+
+visudo; search root and find wheel line
+
+systemctl enable sshd.service
+
+fbcon=scrollback:64k
+
+chsh -s $(which zsh)
+
+
+aur:
+chrome i3-gaps discord neofetch
