@@ -24,3 +24,7 @@ setup ssh
 Vim newline indents for programming
 
 ethereum wallet
+
+clipboard sync
+
+where to backup sshd_config, wallet, ssh key

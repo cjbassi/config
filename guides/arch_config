@@ -1,30 +1,38 @@
+# Add user
 useradd -m -G wheel cbassi
 passwd cbassi
 
+# Setup up internet
 systemctl enable dhcpcd@().service
 
-pacman:
+# Install using pacman
 sudo openssh git python3 java gcc ag xterm ntp
 vim tmux zsh ranger vimpager glances highlight
 
+# Enable user to use root
 visudo; search root and find wheel line
 
+# Enable sshd daemon
 systemctl enable sshd.service
 
+# Lengths shell history
 fbcon=scrollback:64k
 
+# Changes shell
 chsh -s $(which zsh)
 
+# Sets time
 sudo timedatectl set-local-rtc 0
 sudo timedatectl set-timezone America/Los_Angeles
 systemctl enable ntpd.service
 
-journalctl -u sshd | vimpager
-
+# Creates key and adds it to agent
 ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"
 eval $(ssh-agent)
 ssh-add ~/.ssh/id_ed25519
 
+# Sets up authorized keys for remote login
+cat ~/chromebook_key.pub >> ~/.ssh/authorized_keys
 
-aur:
+# Install using aur
 chrome i3-gaps discord neofetch
