@@ -4,13 +4,17 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 Plug 'google/vim-searchindex'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-surround'
+
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
 Plug 'vim-syntastic/syntastic'
 
 Plug 'altercation/vim-colors-solarized'
@@ -208,3 +212,22 @@ set nrformats-=octal
 
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+function! s:setup_paste() abort
+  let s:paste = &paste
+  set paste
+  augroup unimpaired_paste
+    autocmd!
+    autocmd InsertLeave *
+          \ if exists('s:paste') |
+          \   let &paste = s:paste |
+          \   unlet s:paste |
+          \ endif |
+          \ autocmd! unimpaired_paste
+  augroup END
+endfunction
+
+nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>
+
+nnoremap <silent> yo  :call <SID>setup_paste()<CR>o
+nnoremap <silent> yO  :call <SID>setup_paste()<CR>O

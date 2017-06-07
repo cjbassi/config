@@ -64,4 +64,11 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export PAGER='vimpager'
 alias less=$PAGER
 
-alias glances='glances -1 --disable-memswap --disable-diskio --disable-alert --process-short-name --byte'
+alias glances='glances -1 --disable-memswap --disable-diskio --process-short-name --byte'
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
