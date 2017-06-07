@@ -9,7 +9,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'raimondi/delimitmate'
-
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-syntastic/syntastic'
@@ -43,6 +42,8 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
+filetype plugin indent on
+
 " Disables comments on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -51,7 +52,7 @@ set splitright
 
 " Keybinds
 map Y y$
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 nnoremap H gT
 nnoremap L gt
 nnoremap <C-J> i<CR><Esc>k$
@@ -66,11 +67,15 @@ set number
 set relativenumber
 set numberwidth=4
 
-" Indent settings
+" Tab settings
+set expandtab
 set tabstop=4
-set autoindent
+set softtabstop=4
 set shiftwidth=4
 set shiftround
+
+" Indent settings
+set autoindent
 
 " Search settings
 set incsearch
@@ -96,16 +101,16 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 " Highlight text past 80 columns
 "call matchadd('ColorColumn', '\%>80v.\+')
 augroup colorcolumn
-	au!
-	au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
+    au!
+    au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
 augroup END
 
 " Highlight trailing whitspace
 highlight ExtraWhitespace ctermbg=red
 "call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
 augroup whitespace
-	au!
-	au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
+    au!
+    au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
 augroup END
 
 " Swap, backup, and undo directories
@@ -140,9 +145,9 @@ execute "set <M-l>=\el"
 
 "auto-install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall
+    silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
 endif
 
 let g:tmux_navigator_no_mappings = 1
@@ -176,3 +181,30 @@ endfun
 map <Leader>x :call RangerExplorer()<CR>
 
 set updatetime=250
+
+set scrolloff=1
+set sidescrolloff=5
+set display+=lastline
+set encoding=utf-8
+set formatoptions+=j " Delete comment character when joining commented lines"
+set autoread
+set tabpagemax=50
+set history=1000
+
+if has('path_extra')
+    setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+if !empty(&viminfo)
+    set viminfo^=!
+endif
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+    runtime! macros/matchit.vim
+endif
+
+set sessionoptions-=options
+set complete-=i
+set nrformats-=octal
+
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>

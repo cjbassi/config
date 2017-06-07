@@ -1,33 +1,33 @@
 [user]
-	name = Caleb Bassi
-	email = calebjbassi@gmail.com
+    name = Caleb Bassi
+    email = calebjbassi@gmail.com
 [github]
     user = Lurby
 
 [core]
-	editor = vim
-	pager = vimpager
+    editor = vim
+    pager = vimpager
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
     prompt = false
 
 [color]
-	ui = auto
+    ui = auto
 [color "branch"]
-	current = yellow bold
-	local = green bold
-	remote = cyan bold
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
 [color "diff"]
-	meta = yellow bold
-	frag = cyan bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    meta = yellow bold
+    frag = cyan bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 [color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = red bold
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
 
 [alias]
     lg = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

@@ -1,2 +1,7 @@
 set editing-mode vi
 set keyseq-timeout 10
+
+#set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+set completion-prefix-display-length 2
