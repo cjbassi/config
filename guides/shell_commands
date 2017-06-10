@@ -1,7 +1,6 @@
 jobs
 diff
 vimdiff
-less
 find -delete
 whoami - prints user name
 uname - prints server name
@@ -22,8 +21,6 @@ Here strings uses a string inputted on the command line as STDIN for a program u
 Subshells use parenthesis as a sort of order of operations for commands
 Seperate commands to be executed in order with '';''
 
-* - matches any letter any number of times
-
 brace expansion
 
 C-z - pauses current process
@@ -35,9 +32,6 @@ bg - run process in background
 kill
 C-d - EOF
 
-Vi-mode:
 v - edit current command in Vim
 
 ^L to clear screen
-
-journalctl -u sshd | vimpager
