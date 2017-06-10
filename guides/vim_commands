@@ -7,14 +7,9 @@
 
 :%s/tofind/toreplace/g - search and replace
 
-D - delete rest of line
 c - delete and enter insert mode
 C - delete rest of line and enter insert mode
 cc or S - delete entire line and enter insert mode
-
-diw - delete word
-daw - delete word and a whitespace
-caw - delete word and enter insert mode
 
 :set paste
 :set nopaste
@@ -31,4 +26,4 @@ Tabe instead of tabedit
 
 Tabm +-
 
-retab`
+retab
