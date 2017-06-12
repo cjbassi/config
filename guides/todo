@@ -12,6 +12,10 @@ i3 bar
 # Vim config
 Vim newline indents for programming
 clipboard sync
+only bind gk and gj if not in vimpager
+ctrl-space vs \b and fuzzy
+sneak vs easy motion vs others
+ctrlp vs FZF
 
 backup ethereum wallet and ssh key
 learn how to use removable media
@@ -19,3 +23,5 @@ learn how to use removable media
 tmux/i3 resize
 
 show ranger in bottom when it's running
+
+zsh default fuzzy
