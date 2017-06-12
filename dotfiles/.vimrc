@@ -20,17 +20,6 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 "Plug 'easymotion/vim-easymotion'
 "Plug 'justinmk/vim-sneak'
 
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
-" Plug 'plasticboy/vim-markdown'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'raimondi/delimitmate'
-" Plug 'lifepillar/vim-solarized8'
-" Plug 'bling/vim-bufferline'
-" Plug 'vim-airline/vim-airline'
-" Plug 'powerline/powerline'
-" Plug 'itchyny/lightline-powerful'
-
 call plug#end()
 
 "" <Leader>f{char} to move to {char}
@@ -66,23 +55,16 @@ call plug#end()
 ""let g:sneak#label_esc = "\<Esc>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors
+" Visuals
 
-"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 syntax enable
 set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-set noshowmode
-" let g:airline_theme='solarized'
-" let g:airline_solarized_bg='dark'
 
-" if &background == "dark"
-"     let s:base03 = "NONE"
-"     let s:base02 = "NONE"
-" endif
+set noshowmode
+set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
@@ -95,10 +77,6 @@ nnoremap L gt
 nnoremap <C-J> i<CR><Esc>k$
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
-
-"inoremap <CR> <CR>x<BS>
-"nnoremap o ox<BS>
-"nnoremap O Ox<BS>
 
 nmap <silent> j gj
 nmap <silent> k gk
@@ -132,21 +110,22 @@ nnoremap <silent> yO  :call <SID>setup_paste()<CR>O
 " Settings
 
 filetype plugin indent on
-set autoindent
+set encoding=utf-8
+
 set splitright " Opens new panes on the right
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
-set cursorline
-set timeoutlen=1000 ttimeoutlen=0 " Remove ESC delay in Vim
+autocmd FileType help wincmd L "Opens help pane on the right
+
 set scrolloff=1
 set sidescrolloff=5
+
+set timeoutlen=1000 ttimeoutlen=0 " Remove ESC delay in Vim
 set display+=lastline
-set encoding=utf-8
 set formatoptions+=j " Delete comment character when joining commented lines"
 set autoread
 set tabpagemax=50
 set history=1000
-autocmd FileType help wincmd L
 set hidden
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
 
 set sessionoptions-=options
 set complete-=i
@@ -157,7 +136,8 @@ set number
 set relativenumber
 set numberwidth=4
 
-" Tab settings
+" Indent settings
+set autoindent
 set expandtab
 set tabstop=4
 set softtabstop=4
@@ -276,24 +256,6 @@ function! RangerExplorer()
 endfun
 map <Leader>r :call RangerExplorer()<CR>
 
-" bufferline
-" let g:bufferline_active_buffer_left = ''
-" let g:bufferline_active_buffer_right = ''
-" let g:bufferline_modified = ' [+]'
-" let g:bufferline_show_bufnr = 0
-" let g:bufferline_echo = 0
-" autocmd VimEnter *
-"     \ let &statusline='%{bufferline#refresh_status()}'
-"         \ .bufferline#get_status_string()
-
-" Airline
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
-
-" delimimate
-"let delimitMate_expand_cr = 1
-"let g:AutoPairsFlyMode = 1
-
 " lightline
 let g:lightline = {
     \ 'active': {
@@ -361,3 +323,46 @@ endif
 "call matchadd('Tabs', '\t')
 
 "call matchadd('ColorColumn', '\%>80v.\+')
+
+" bufferline
+" let g:bufferline_active_buffer_left = ''
+" let g:bufferline_active_buffer_right = ''
+" let g:bufferline_modified = ' [+]'
+" let g:bufferline_show_bufnr = 0
+" let g:bufferline_echo = 0
+" autocmd VimEnter *
+"     \ let &statusline='%{bufferline#refresh_status()}'
+"         \ .bufferline#get_status_string()
+
+" Airline
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+
+" delimimate
+"let delimitMate_expand_cr = 1
+"let g:AutoPairsFlyMode = 1
+
+"inoremap <CR> <CR>x<BS>
+"nnoremap o ox<BS>
+"nnoremap O Ox<BS>
+
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" let g:airline_theme='solarized'
+" let g:airline_solarized_bg='dark'
+
+" if &background == "dark"
+"     let s:base03 = "NONE"
+"     let s:base02 = "NONE"
+" endif
+
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'plasticboy/vim-markdown'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'raimondi/delimitmate'
+" Plug 'lifepillar/vim-solarized8'
+" Plug 'bling/vim-bufferline'
+" Plug 'vim-airline/vim-airline'
+" Plug 'powerline/powerline'
+" Plug 'itchyny/lightline-powerful'
