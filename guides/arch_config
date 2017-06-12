@@ -6,8 +6,9 @@ passwd cbassi
 systemctl enable dhcpcd@().service
 
 # Install using pacman
-base-devel
-sudo openssh git python3 java gcc ag xterm ntp jdk8-openjdk python-pip
+packages:
+    base-devel i3
+openssh git python3 java ag xterm ntp jdk8-openjdk python-pip tig
 vim tmux zsh ranger vimpager glances highlight powerline
 
 # Enable user to use root

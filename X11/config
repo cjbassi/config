@@ -145,4 +145,4 @@ exec_always feh --bg-scale /home/cbassi/Downloads/wallpaper.png
 exec_always xrandr --output DVI-D-0 --mode 1920x1080
 
 # Remap caps lock to escape
-exec_always xmodmap /home/cbassi/config/keys/xkeys
+exec_always xmodmap /home/cbassi/config/keyboard/xkeys

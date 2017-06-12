@@ -1,30 +1,69 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'google/vim-searchindex'
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
-
-" Plug 'bling/vim-bufferline'
-" Plug 'vim-airline/vim-airline'
-Plug 'itchyny/lightline.vim'
-
-"Plug 'raimondi/delimitmate'
 Plug 'jiangmiao/auto-pairs'
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'itchyny/lightline.vim'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'PeterRincker/vim-bumblebee'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'justinmk/vim-sneak'
 
-Plug 'altercation/vim-colors-solarized'
-Plug 'lifepillar/vim-solarized8'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'plasticboy/vim-markdown'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'raimondi/delimitmate'
+" Plug 'lifepillar/vim-solarized8'
+" Plug 'bling/vim-bufferline'
+" Plug 'vim-airline/vim-airline'
+" Plug 'powerline/powerline'
+" Plug 'itchyny/lightline-powerful'
 
 call plug#end()
+
+"" <Leader>f{char} to move to {char}
+"map  <Leader>f <Plug>(easymotion-bd-f)
+"nmap <Leader>f <Plug>(easymotion-overwin-f)
+"noremap s s
+"noremap S S
+
+"" s{char}{char} to move to {char}{char}
+"" nmap s <Plug>(easymotion-overwin-f2)
+
+"" Move to line
+"map <Leader>L <Plug>(easymotion-bd-jk)
+"nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+"" Move to word
+"map  <Leader>w <Plug>(easymotion-bd-w)
+"nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+"" nmap s <Plug>(easymotion-s2)
+"" nmap t <Plug>(easymotion-t2)
+
+"nmap / <Plug>(easymotion-sn)
+"xmap / <Esc><Plug>(easymotion-sn)\v%V
+"omap / <Plug>(easymotion-tn)
+"nnoremap g/ /
+""let g:sneak#streak = 1
+"let g:sneak#label = 1
+"map f <Plug>Sneak_f
+"map F <Plug>Sneak_F
+"map t <Plug>Sneak_t
+"map T <Plug>Sneak_T
+""let g:sneak#label_esc = "\<Esc>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -36,9 +75,9 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+set noshowmode
 " let g:airline_theme='solarized'
 " let g:airline_solarized_bg='dark'
-set noshowmode
 
 " if &background == "dark"
 "     let s:base03 = "NONE"
@@ -48,6 +87,7 @@ set noshowmode
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
 
+nnoremap <leader>b :ls<CR>:b<space>
 map Y y$
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 nnoremap H gT
@@ -60,19 +100,29 @@ inoremap <c-w> <c-g>u<c-w>
 "nnoremap o ox<BS>
 "nnoremap O Ox<BS>
 
+nmap <silent> j gj
+nmap <silent> k gk
+
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``
+
 " yo and yO to set paste and nopaste
 function! s:setup_paste() abort
-  let s:paste = &paste
-  set paste
-  augroup unimpaired_paste
-    autocmd!
-    autocmd InsertLeave *
-          \ if exists('s:paste') |
-          \   let &paste = s:paste |
-          \   unlet s:paste |
-          \ endif |
-          \ autocmd! unimpaired_paste
-  augroup END
+    let s:paste = &paste
+    set paste
+    augroup unimpaired_paste
+        autocmd!
+        autocmd InsertLeave *
+            \ if exists('s:paste') |
+            \   let &paste = s:paste |
+            \   unlet s:paste |
+            \ endif |
+            \ autocmd! unimpaired_paste
+    augroup END
 endfunction
 nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>
 nnoremap <silent> yo  :call <SID>setup_paste()<CR>o
@@ -95,6 +145,8 @@ set formatoptions+=j " Delete comment character when joining commented lines"
 set autoread
 set tabpagemax=50
 set history=1000
+autocmd FileType help wincmd L
+set hidden
 
 set sessionoptions-=options
 set complete-=i
@@ -142,18 +194,21 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlighting
 
-" Highlight text past 80 columns
-augroup colorcolumn
-    au!
-    au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
-augroup END
+if !exists('g:vimpager.enabled') && &modifiable
 
-" Highlight trailing whitspace
-highlight ExtraWhitespace ctermbg=red
-augroup whitespace
-    au!
-    au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
-augroup END
+    " Highlight text past 80 columns
+    augroup colorcolumn
+        au!
+        au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
+    augroup END
+
+    " Highlight trailing whitspace
+    highlight ExtraWhitespace ctermbg=red
+    augroup whitespace
+        au!
+        au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
+    augroup END
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " External stuff
@@ -211,7 +266,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 set updatetime=250
 
 " Ranger explorer
-function RangerExplorer()
+function! RangerExplorer()
     exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
     if filereadable('/tmp/vim_ranger_current_file')
         exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
@@ -219,7 +274,7 @@ function RangerExplorer()
     endif
     redraw!
 endfun
-map <Leader>x :call RangerExplorer()<CR>
+map <Leader>r :call RangerExplorer()<CR>
 
 " bufferline
 " let g:bufferline_active_buffer_left = ''
@@ -232,44 +287,59 @@ map <Leader>x :call RangerExplorer()<CR>
 "         \ .bufferline#get_status_string()
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 
 " delimimate
 "let delimitMate_expand_cr = 1
+"let g:AutoPairsFlyMode = 1
 
 " lightline
 let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename' ] ],
-      \   'right': [ [ 'lineinfo'  ],
-      \              [ 'column'  ],
-      \              [ 'filetype'  ] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ 'component': {
-      \   'lineinfo': "%{printf('%03d/%03d', line('.'),  line('$'))}",
-      \   'column': "%{printf('%02d', col('.'))}"
-      \ },
-      \ }
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'filename' ] ],
+    \   'right': [ [ 'lineinfo'  ],
+    \              [ 'column'  ],
+    \              [ 'filetype'  ] ]
+    \ },
+    \ 'inactive': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'filename' ] ],
+    \   'right': [ [ 'lineinfo'  ],
+    \              [ 'column'  ],
+    \              [ 'filetype'  ] ]
+    \ },
+    \ 'tabline': {
+    \   'left': [ [ 'tabs' ] ],
+    \   'right': []
+    \ },
+    \ 'component_function': {
+    \   'filename': 'LightlineFilename',
+    \   'gitbranch': 'fugitive#head'
+    \ },
+    \ 'component': {
+    \   'lineinfo': "%{printf('%03d/%03d', line('.'),  line('$'))}",
+    \   'column': "%{printf('%02d', col('.'))}"
+    \ },
+    \ }
 function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let modified = &modified ? ' +' : ''
+    return filename . modified
 endfunction
-" let g:lightline.tab = {
-"       \ 'active': [],
-"       \ 'inactive': [],
-"       \ }
-let g:lightline.tabline = {
-    \ 'left': [ [ 'tabs' ] ],
-    \ 'right': [] }
-let g:lightline.tabline_separator = { 'left': '', 'right': '' }
-let g:lightline.tabline_subseparator = { 'left': '|', 'right': '|' }
+
+" vimpager
+if exists('g:vimpager.enabled')
+    let g:vimpager = {}
+    let g:less     = {}
+    let g:less.enabled = 0
+    set nonumber
+    set norelativenumber
+    nunmap j
+    nunmap k
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Todo
