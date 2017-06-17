@@ -4,24 +4,34 @@ amd drivers
 
 # Appearence
 vim blue background
-airline
-zsh, tmux, and vim arrow things
-tmux bottom bar
 i3 bar
+zsh prompt
+zsh file appearence
+zsh background
 
 # Vim config
-Vim newline indents for programming
 clipboard sync
-only bind gk and gj if not in vimpager
-ctrl-space vs \b and fuzzy
 sneak vs easy motion vs others
-ctrlp vs FZF
+parenthesis plugins
+unite
 
+partition usb, put arch, wallet and ssh key, and empty space
 backup ethereum wallet and ssh key
-learn how to use removable media
 
 tmux/i3 resize
+tmux close window when switching from one that only has zsh?
+    maybe if the zsh is in the home directory
+    or maybe if just a zsh, because if I'm in any other directory it should be through ranger right?
 
-show ranger in bottom when it's running
+zsh default fuzzy autocompletion or fzf
+replace tab list with fzf
 
-zsh default fuzzy
+# rm
+prompt once
+remove empty directories
+remove non empty directories without -r?
+list files and directories?
+
+show directory in tmux windows?
+
+ranger shortcuts

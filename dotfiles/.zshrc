@@ -46,6 +46,7 @@ export USE_EDITOR=vim
 setopt globdots         # Tab completion includes dot files
 setopt kshglob          # Addes more globbs
 CASE_SENSITIVE="true"   # Case sensitive completion
+stty -ixon              # Disables C-s and C-q
 
 ################################################################################
 # Locales
@@ -69,39 +70,91 @@ PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
 alias ls='ls --color=auto'
+
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias pcregrep='pcregrep --color=auto'
+
+alias watch='watch --color'
+
+alias diff='diff --color=auto'
+
+alias ip='ip -c'
+
+alias dmesg='dmesg --color=auto'
+alias tree='tree -C'
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+alias fdisk='fdisk --color=auto'
+
+# Arch colors
+alias cower='cower --color=auto'
+alias pactree='pactree -c'
 
 ################################################################################
 # Aliases
 
-alias ll='ls -AhlX --group-directories-first'
-alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
+alias ll='ls -AhgoX --group-directories-first'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -v' # Irdf
+alias w='w -f'
+alias df='df -h'
+alias du='du -h'
+
 alias java='bash ~/config/java_script.sh'
-alias say='echo $1'
+alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
+
+rm() {
+    # ll $4
+    # ignore -I
+    #
+
+    # echo -n 'rm: remove # '
+    #/usr/bin/rm: remove 1 argument recursively?
+    echo -n 'rm: continue with removal? '
+    read
+    if [[ $REPLY == 'y' ]] || [[ $REPLY == 'yes' ]]; then
+        /usr/bin/rm "$@"
+    fi
+}
 
 ################################################################################
-# Plugins
+# Other programs
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+#export FZF_COMPLETION_TRIGGER='/'
 
-# Ranger
+# ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 ranger() {
-    # If we are not in zsh within a ranger
-    if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger "$@"
-    # If we are in a zsh within a ranger
-    else
+    if [ -n "$RANGER_LEVEL" ]; then
         exit
+    elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+        tmux rename-window "ranger"
+        /usr/bin/ranger "$@"
+        tmux setw automatic-rename on
+    else
+        /usr/bin/ranger "$@"
+    fi
+}
+
+# glances
+glances() {
+    if [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+        tmux rename-window "glances"
+        /usr/bin/glances "$@"
+        tmux setw automatic-rename on
+    else
+        /usr/bin/glances "$@"
     fi
 }
 
@@ -109,6 +162,9 @@ ranger() {
 export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
+
+# zsh-syntax-highlighting
+source /home/cbassi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ################################################################################
 

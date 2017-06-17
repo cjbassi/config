@@ -2,6 +2,11 @@
 useradd -m -G wheel cbassi
 passwd cbassi
 
+# Enable user to use root
+visudo; search root and find wheel line
+
+mkdir Downloads
+
 # Setup up internet
 systemctl enable dhcpcd@().service
 
@@ -10,9 +15,6 @@ packages:
     base-devel i3
 openssh git python3 java ag xterm ntp jdk8-openjdk python-pip tig
 vim tmux zsh ranger vimpager glances highlight powerline
-
-# Enable user to use root
-visudo; search root and find wheel line
 
 # Enable sshd daemon
 systemctl enable sshd.service
@@ -42,3 +44,8 @@ PasswordAuthentication no
 
 # Install using AUR
 chrome i3-gaps discord neofetch
+
+zsh-syntax-highlighting
+
+pacman.conf Color
+pacman.conf TotalDownload
