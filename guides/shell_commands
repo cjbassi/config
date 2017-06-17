@@ -35,3 +35,7 @@ C-d - EOF
 v - edit current command in Vim
 
 ^L to clear screen
+
+wall
+
+echo to a terminal

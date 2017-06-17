@@ -5,6 +5,7 @@ mkdir ~/.vim/temp ~/.vim/undodir
 
 # Ranger config
 ln -s ~/config/rc.conf ~/.config/ranger/rc.conf
+ln -s ~/config/commands.py ~/.config/ranger/commands.py
 
 # i3 config
 ln -s ~/config/X11/config ~/.config/i3/

@@ -7,6 +7,8 @@ Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -14,9 +16,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'PeterRincker/vim-bumblebee'
-Plug 'vim-ctrlspace/vim-ctrlspace'
 "Plug 'easymotion/vim-easymotion'
 "Plug 'justinmk/vim-sneak'
 
@@ -69,7 +68,10 @@ set cursorline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
 
-nnoremap <leader>b :ls<CR>:b<space>
+"nnoremap <leader>b :ls<CR>:b<space>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>e :FZF<CR>
+nnoremap <silent> <leader>gd :Gvdiff<CR>
 map Y y$
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 nnoremap H gT
@@ -200,7 +202,8 @@ set undodir=~/.vim/undodir//
 set undofile
 set undolevels=100 " Limits undo level to 100, limits file size
 
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 execute "set <M-h>=\eh"
 execute "set <M-j>=\ej"
@@ -241,6 +244,10 @@ let g:syntastic_check_on_wq = 0
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit' }
 
 " gitgutter
 set updatetime=250
@@ -298,10 +305,9 @@ if exists('g:vimpager.enabled')
     let g:less.enabled = 0
     set nonumber
     set norelativenumber
-    nunmap j
-    nunmap k
+"    nunmap j
+"    nunmap k
 endif
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Todo
@@ -366,3 +372,5 @@ endif
 " Plug 'vim-airline/vim-airline'
 " Plug 'powerline/powerline'
 " Plug 'itchyny/lightline-powerful'
+" Plug 'vim-ctrlspace/vim-ctrlspace'
+" Plug 'PeterRincker/vim-bumblebee'
