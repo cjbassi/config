@@ -19,12 +19,6 @@ partition usb, put arch, wallet and ssh key, and empty space
 backup ethereum wallet and ssh key
 
 tmux/i3 resize
-tmux close window when switching from one that only has zsh?
-    maybe if the zsh is in the home directory
-    or maybe if just a zsh, because if I'm in any other directory it should be through ranger right?
-
-zsh default fuzzy autocompletion or fzf
-replace tab list with fzf
 
 # rm
 prompt once
@@ -35,3 +29,5 @@ list files and directories?
 show directory in tmux windows?
 
 ranger shortcuts
+
+show each pane in w

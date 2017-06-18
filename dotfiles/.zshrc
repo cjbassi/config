@@ -65,8 +65,6 @@ LC_ALL="en_US.UTF-8"
 
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
-PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
-
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
 alias ls='ls --color=auto'
@@ -95,6 +93,22 @@ alias fdisk='fdisk --color=auto'
 # Arch colors
 alias cower='cower --color=auto'
 alias pactree='pactree -c'
+
+################################################################################
+# Prompt
+
+# PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
+INSERT=$'%{\e[1;38;5;34m%}>%{\e[0m%}%{\e[1;38;5;27m%}_%{\e[0m%} '
+NORMAL=$'%{\e[1;38;5;34m%}>%{\e[0m%}%{\e[1;38;5;27m%} %{\e[0m%} '
+
+function zle-line-init zle-keymap-select
+{
+    PROMPT="${${KEYMAP/vicmd/$NORMAL}/main/$INSERT}"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 ################################################################################
 # Aliases
@@ -131,6 +145,28 @@ rm() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+bindkey -M vicmd '/' fzf-history-widget
+bindkey -r '^r'
+bindkey -r '^t'
+bindkey -r '^[c'
+
+function expand-or-cd-or-fzf() {
+    if [[ $BUFFER == "cd " ]]; then
+        # BUFFER="ls "
+        # CURSOR=3
+        # zle list-choices
+        # zle backward-kill-word
+        fzf-cd-widget
+    # elif cursor is next to a space
+    elif [[ $BUFFER =~ \ $ ]] ; then
+        fzf-file-widget
+    else
+        zle expand-or-complete
+    fi
+}
+zle -N expand-or-cd-or-fzf
+bindkey '^I' expand-or-cd-or-fzf
+
 #export FZF_COMPLETION_TRIGGER='/'
 
 # ranger
@@ -178,3 +214,4 @@ source /home/cbassi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # . ~/.vim/plugged/powerline/powerline/bindings/zsh/powerline.zsh
 # powerline-daemon -q
 # . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+# zle vi-cmd-mode
