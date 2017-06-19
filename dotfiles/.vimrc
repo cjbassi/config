@@ -218,12 +218,19 @@ inoremap ì <Esc>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 
-" Auto-install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-endif
+" " Auto-install vim-plug
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"     silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"     autocmd VimEnter * PlugInstall
+" endif
+
+" " Automatically install vim-plug and run PlugInstall if vim-plug is not found.
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
 
 " vim-tmux-nagivagor
 let g:tmux_navigator_no_mappings = 1

@@ -23,9 +23,9 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 
 # allow v to edit the command line (standard behaviour)
-zle -N edit-command-line
-autoload -Uz edit-command-line
-bindkey -M vicmd 'v' edit-command-line
+#zle -N edit-command-line
+#autoload -Uz edit-command-line
+#bindkey -M vicmd 'v' edit-command-line
 
 ################################################################################
 # Completion
@@ -100,6 +100,7 @@ alias pactree='pactree -c'
 # PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
 INSERT=$'%{\e[1;38;5;34m%}>%{\e[0m%}%{\e[1;38;5;27m%}_%{\e[0m%} '
 NORMAL=$'%{\e[1;38;5;34m%}>%{\e[0m%}%{\e[1;38;5;27m%} %{\e[0m%} '
+# RPS1=$""
 
 function zle-line-init zle-keymap-select
 {
@@ -214,4 +215,5 @@ source /home/cbassi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # . ~/.vim/plugged/powerline/powerline/bindings/zsh/powerline.zsh
 # powerline-daemon -q
 # . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # zle vi-cmd-mode
