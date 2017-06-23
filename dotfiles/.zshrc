@@ -122,6 +122,8 @@ alias w='w -f'
 alias df='df -h'
 alias du='du -h'
 
+alias pwd='echo -e "${PWD/${HOME}/~}"'
+
 alias java='bash ~/config/java_script.sh'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 
@@ -158,6 +160,7 @@ function expand-or-cd-or-fzf() {
         # zle list-choices
         # zle backward-kill-word
         fzf-cd-widget
+        BUFFER=""
     # elif cursor is next to a space
     elif [[ $BUFFER =~ \ $ ]] ; then
         fzf-file-widget
