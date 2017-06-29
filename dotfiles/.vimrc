@@ -72,13 +72,29 @@ set cursorline
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
+nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
+
 map Y y$
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
 nnoremap H gT
 nnoremap L gt
+
 nnoremap <C-J> i<CR><Esc>k$
+
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+nnoremap <silent> o o<Esc>i
+" nnoremap <silent> O O<Esc> :<C-u>execute "normal! " . v:count1 . "k"<CR>
+" nnoremap <silent> O :<C-u>exe "normal! " . v:count1 . "O" \| if v:count == 0exe "normal! " . (v:count - 1) . "k" \| echo (v:count1) (v:count)<CR>
+" nnoremap <silent> O O<Esc> :call <SID>o_fixer(v:count)<CR>
+nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call <SID>o_fixer(v:count)<CR>i
+function! s:o_fixer(var)
+    if a:var > 0
+        :exe "normal! " . (a:var - 1) . "k"
+    endif
+endfunction
 
 nmap <silent> j gj
 nmap <silent> k gk
@@ -90,7 +106,6 @@ cnoremap $m <CR>:m''<CR>
 cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
 
-" yo and yO to set paste and nopaste
 function! s:setup_paste() abort
     let s:paste = &paste
     set paste
@@ -105,8 +120,7 @@ function! s:setup_paste() abort
     augroup END
 endfunction
 nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>
-nnoremap <silent> yo  :call <SID>setup_paste()<CR>o
-nnoremap <silent> yO  :call <SID>setup_paste()<CR>O
+nnoremap <silent> <leader>i :call <SID>setup_paste()<CR>i
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
@@ -128,6 +142,7 @@ set tabpagemax=50
 set history=1000
 set hidden
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
+autocmd BufRead,BufNewFile *.md setlocal spell
 set nowrap
 
 set sessionoptions-=options
