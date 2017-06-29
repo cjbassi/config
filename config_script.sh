@@ -18,3 +18,8 @@ sudo ln -sf ~/config/X11/50-mouse.conf /etc/X11/xorg.conf.d/
 
 # Home directory config files
 ln -sf ~/config/dotfiles/.* ~/
+
+# Vim-plug
+if ! [[ -e ~/.vim/autoload/plug.vim ]]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
