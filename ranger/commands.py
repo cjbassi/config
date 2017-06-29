@@ -45,6 +45,7 @@ class fzf_select(Command):
             else:
                 self.fm.select_file(fzf_file)
 
+
 class my_edit(Command):
     # The so-called doc-string of the class will be visible in the built-in
     # help that is accessible by typing "?c" inside ranger.

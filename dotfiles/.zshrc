@@ -174,7 +174,6 @@ bindkey '^I' expand-or-cd-or-fzf
 #export FZF_COMPLETION_TRIGGER='/'
 
 # ranger
-export RANGER_LOAD_DEFAULT_RC=FALSE
 ranger() {
     if [ -n "$RANGER_LEVEL" ]; then
         exit
