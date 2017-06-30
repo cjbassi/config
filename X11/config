@@ -128,9 +128,11 @@ mode "resize" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+#         status_command      i3status
+#         position            bottom
+#         workspace_buttons   yes
+# }
 
 # Custom commands
 
@@ -149,3 +151,6 @@ exec_always xmodmap /home/cbassi/config/keyboard/xkeys
 
 gaps inner 10
 gaps outer 0
+
+# exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
+exec_always --no-startup-id ~/config/X11/launch.sh

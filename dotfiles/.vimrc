@@ -69,7 +69,7 @@ set cursorline
 
 "nnoremap <leader>b :ls<CR>:b<space>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF<CR>
+nnoremap <silent> <leader>e :FZF ~<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
 nnoremap <silent> <leader>w :StripWhitespace<CR>
