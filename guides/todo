@@ -1,4 +1,5 @@
-# Monitor
+Plug 'ntpeters/vim-airline-colornum'
+6 Monitor
 fix 144hz
 amd drivers
 
@@ -7,16 +8,22 @@ vim blue background
 terminal background
 i3 bar
 
+# Rofi
+fix going up and down list
+
 # zsh
 prompt
-file appearence
+appereance of objects in ll
 error on right
+timer and cpu usage showing up
 
 # Vim
 clipboard sync
 sneak vs easy motion vs others
 parenthesis plugins
 unite
+vim ntpeters highlight left side
+i3 tmux vim navigator
 
 # tmux
 tmux/i3 resize
