@@ -34,8 +34,8 @@ grep -A1 --no-group-separator "United States" /etc/pacman.d/mirrorlist | grep "S
 # Install packages
 pacstrap /mnt \
     base base-devel xorg i3 \
-    openssh git xterm ag highlight \
-    tig vim tmux zsh ranger vimpager fzf \
+    openssh git xterm ag highlight qbittorrent \
+    tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
 ################################################################################

@@ -29,7 +29,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exit
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -146,3 +146,6 @@ exec_always xrandr --output DVI-D-0 --mode 1920x1080
 
 # Remap caps lock to escape
 exec_always xmodmap /home/cbassi/config/keyboard/xkeys
+
+gaps inner 10
+gaps outer 0

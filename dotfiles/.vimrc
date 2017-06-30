@@ -7,6 +7,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -70,7 +71,8 @@ set cursorline
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
-nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
+" nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
+nnoremap <silent> <leader>w :StripWhitespace<CR>
 
 map Y y$
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -126,6 +128,7 @@ nnoremap <silent> <leader>i :call <SID>setup_paste()<CR>i
 filetype plugin indent on
 set encoding=utf-8
 
+set splitbelow
 set splitright " Opens new panes on the right
 autocmd FileType help wincmd L "Opens help pane on the right
 
@@ -198,12 +201,12 @@ if !exists('g:vimpager.enabled') && &modifiable
         au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
     augroup END
 
-    " Highlight trailing whitspace
-    highlight ExtraWhitespace ctermbg=red
-    augroup whitespace
-        au!
-        au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
-    augroup END
+    " " Highlight trailing whitspace
+    " highlight ExtraWhitespace ctermbg=red
+    " augroup whitespace
+    "     au!
+    "     au VimEnter,WinEnter * call matchadd('ExtraWhitespace', '\s\+\%#\@<!$')
+    " augroup END
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
