@@ -219,8 +219,8 @@ set undodir=~/.vim/undodir//
 set undofile
 set undolevels=100 " Limits undo level to 100, limits file size
 
-set clipboard+=unnamedplus
-set clipboard+=unnamed
+" set clipboard+=unnamedplus
+set clipboard=unnamed
 
 execute "set <M-h>=\eh"
 execute "set <M-j>=\ej"
