@@ -1,25 +1,14 @@
-! XTerm.vt100.locale: true
-! XTerm.vt100.metaSendsEscape: true
-! XTerm.vt100.saveLines: 4096
-! XTerm.vt100.selectToClipboard: true
-! XTerm.vt100.translations: #override \n\
-!     Ctrl <Key>f: maximize() \n\
-!     Ctrl <Key>b: restore()
-! XTerm.vt100.foreground: white
-! XTerm.vt100.background: black
-! XTerm.vt100.color0: rgb:28/28/28
-! ! ...
-! XTerm.vt100.color15: rgb:e4/e4/e4
-! xterm*borderWidth: 0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Rofi
 
-! ROFI Color theme
+! Theme
 rofi.color-enabled: true
 rofi.color-window: #002b37, #002b37, #003642
 rofi.color-normal: #002b37, #819396, #003643, #008ed4, #ffffff
 rofi.color-active: #002b37, #008ed4, #003643, #008ed4, #66c6ff
 rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
 
-! Rofi size
+! Size
 rofi.width:             22
 rofi.lines:             8
 rofi.bw:                1
@@ -27,14 +16,20 @@ rofi.padding:           5
 rofi.hide-scrollbar:    true
 rofi.separator-style:   solid
 
-! Rofi keybinds
+! Keybinds
 rofi.kb-row-up:         Control+k,Shift+Tab
 rofi.kb-row-down:       Control+j,Tab
 
-! Term color
-! #define _foreground    #dcdccc
-! #define _background    #1f1f1f
-! URxvt*foreground     : _foreground
-! URxvt*background     : _background
-! URxvt.foreground: rgb:a8/a8/a8
-! URxvt.background: rgb:00/00/00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! urxvt
+
+URxvt*scrollBar:    false
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+URxvt*foreground: #dcdccc
+URxvt*background: #1f1f1f
+/* URxvt.perl-ext-common: selection-to-clipboard, */
+
+! XTerm.vt100.translations: #override \n\
+!     Ctrl <Key>f: maximize() \n\
+!     Ctrl <Key>b: restore()
