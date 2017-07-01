@@ -34,7 +34,7 @@ grep -A1 --no-group-separator "United States" /etc/pacman.d/mirrorlist | grep "S
 # Install packages
 pacstrap /mnt \
     base base-devel xorg i3 alsa-utils \
-    openssh git xterm ag highlight qbittorrent \
+    openssh git urxvt ag highlight qbittorrent \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
@@ -123,6 +123,7 @@ fbcon=scrollback:64k
 
 # Install using AUR
 #chrome i3-gaps discord neofetch pacaur gitflow-avh gitflow-zshcompletion-avh polybar
+# google-play-music-desktop-player-bin
 
 #zsh-syntax-highlighting
 
