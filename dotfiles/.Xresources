@@ -23,12 +23,48 @@ rofi.kb-row-down:       Control+j,Tab
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! urxvt
 
-URxvt*scrollBar:    false
-URxvt.iso14755: true
-URxvt.iso14755_52: false
-URxvt*foreground: #dcdccc
-URxvt*background: #1f1f1f
-/* URxvt.perl-ext-common: selection-to-clipboard, */
+URxvt.urgentOnBell:     true
+
+URxvt.saveLines:        10000
+
+URxvt*scrollBar:        true
+URxvt.scrollBar_right:  true
+URxvt.scrollBar_floating: true
+
+URxvt.iso14755:         false
+URxvt.iso14755_52:      false
+
+URxvt*foreground:       #dcdccc
+URxvt*background:       #1f1f1f
+URxvt*font:             xft:Inconsolata:pixelsize=12
+/* URxvt*font: xft:DejaVu Sans Mono for Powerline:size=9 */
+URxvt.letterSpace: -2
+
+/* URxvt.perl-ext: default,url-select */
+/* URxvt.keysym.M-u: perl:url-select:select_next */
+/* URxvt.url-select.launcher: /usr/bin/xdg-open */
+/* URxvt.url-select.underline: true */
+
+/* URxvt.keysym.C-C: perl:clipboard:copy */
+/* URxvt.keysym.C-V: perl:clipboard:paste_escaped */
+
+/* rxvt*perl-lib: /home/erszcz/src/urxvt-vim-scrollback */
+/* rxvt*perl-ext-common: -searchable-scrollback,vim-scrollback */
+/* rxvt.vim-scrollback: M-s */
+/* URxvt.keysym.C-V: perl:clipboard:paste */
+/* URxvt.keysym.C-A-V: perl:clipboard:paste_escaped */
+
+/* URxvt.keysym.M-c:   perl:clipboard:copy */
+/* URxvt.keysym.M-v:   perl:clipboard:paste */
+/* URxvt.perl-ext-common:  default,clipboard */
+/* URxvt.perl-ext-common:  default,url-select */
+/* URxvt.keysym.M-u:       perl:url-select:select_next */
+/* URxvt.urlLauncher:      /usr/bin/conkeror */
+/* URxvt.underlineURLs:    true */
+
+/* URxvt.insecure:         true */
+
+URxvt.perl-ext-common: selection-to-clipboard,
 
 ! XTerm.vt100.translations: #override \n\
 !     Ctrl <Key>f: maximize() \n\

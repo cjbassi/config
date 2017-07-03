@@ -1,5 +1,5 @@
 Plug 'ntpeters/vim-airline-colornum'
-6 Monitor
+# Monitor
 fix 144hz
 amd drivers
 
@@ -49,3 +49,9 @@ format SD cards to fat32
 setup usb drive for live arch, ethereum wallet and ssh keys, and free space
 setup arch install script
 reinstall arch
+
+gvim vs vim clipbaord
+fonts
+light line and polybar format decimal places
+underline fs polybar
+i3 resizing
