@@ -8,6 +8,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -85,11 +86,11 @@ nnoremap <C-J> i<CR><Esc>k$
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-nnoremap <silent> o o<Esc>i
+nnoremap <silent> o o<Esc>
 " nnoremap <silent> O O<Esc> :<C-u>execute "normal! " . v:count1 . "k"<CR>
 " nnoremap <silent> O :<C-u>exe "normal! " . v:count1 . "O" \| if v:count == 0exe "normal! " . (v:count - 1) . "k" \| echo (v:count1) (v:count)<CR>
 " nnoremap <silent> O O<Esc> :call <SID>o_fixer(v:count)<CR>
-nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call <SID>o_fixer(v:count)<CR>i
+nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call <SID>o_fixer(v:count)<CR>
 function! s:o_fixer(var)
     if a:var > 0
         :exe "normal! " . (a:var - 1) . "k"
@@ -153,7 +154,7 @@ set nrformats-=octal
 " Numberline settings
 set number
 set relativenumber
-set numberwidth=4
+set numberwidth=3
 
 " Indent settings
 set autoindent
@@ -219,8 +220,8 @@ set undodir=~/.vim/undodir//
 set undofile
 set undolevels=100 " Limits undo level to 100, limits file size
 
-" set clipboard+=unnamedplus
-set clipboard=unnamed
+" set clipboard=unnamed
+set clipboard=unnamedplus
 
 execute "set <M-h>=\eh"
 execute "set <M-j>=\ej"

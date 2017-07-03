@@ -98,8 +98,8 @@ alias pactree='pactree -c'
 # Prompt
 
 # PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
-INSERT=$'%{\e[1;38;5;34m%}>%{\e[0m%}%{\e[1;38;5;27m%}_%{\e[0m%} '
-NORMAL=$'%{\e[1;38;5;34m%}>%{\e[0m%}%{\e[1;38;5;27m%} %{\e[0m%} '
+INSERT=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%}_%{\e[0m%} '
+NORMAL=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%} %{\e[0m%} '
 # RPS1=$""
 
 function zle-line-init zle-keymap-select
@@ -177,25 +177,25 @@ bindkey '^I' expand-or-cd-or-fzf
 ranger() {
     if [ -n "$RANGER_LEVEL" ]; then
         exit
-    elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
-        tmux rename-window "ranger"
-        /usr/bin/ranger "$@"
-        tmux setw automatic-rename on
+    # elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+    #     tmux rename-window "ranger"
+    #     /usr/bin/ranger "$@"
+    #     tmux setw automatic-rename on
     else
         /usr/bin/ranger "$@"
     fi
 }
 
 # glances
-glances() {
-    if [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
-        tmux rename-window "glances"
-        /usr/bin/glances "$@"
-        tmux setw automatic-rename on
-    else
-        /usr/bin/glances "$@"
-    fi
-}
+# glances() {
+#     if [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+#         tmux rename-window "glances"
+#         /usr/bin/glances "$@"
+#         tmux setw automatic-rename on
+#     else
+#         /usr/bin/glances "$@"
+#     fi
+# }
 
 # vimpager
 export PAGER=vimpager
@@ -204,6 +204,42 @@ alias zless=$PAGER
 
 # zsh-syntax-highlighting
 source /home/cbassi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias tmuxn='tmux new-session -s $$'
+_trap_exit() { tmux kill-session -t $$; }
+trap _trap_exit EXIT
+
+if [ "$TMUX" = "" ]; then
+    # tmux list-sessions | grep -v attached | cut -d: -f1 |  xargs -t -n1 tmux kill-session -t
+    tmuxn;
+fi
+
+vi-prepend-x-selection () {
+    BUFFER=$LBUFFER$(xclip -o -sel c </dev/null)$RBUFFER;
+    # CURSOR=$CURSOR 
+}
+zle -N vi-prepend-x-selection
+bindkey -a 'P' vi-prepend-x-selection
+
+# vi-append-x-selection () {
+#     RBUFFER=$RBUFFER$(xclip -o -sel c </dev/null);
+# }
+# zle -N vi-append-x-selection
+# bindkey -a 'P' vi-append-x-selection
+
+zsh-y-x-selection () {
+    zle vi-yank
+    echo -n $CUTBUFFER | xclip -i -sel c;
+}
+zle -N zsh-y-x-selection
+bindkey -a 'y' zsh-y-x-selection
+
+zsh-Y-x-selection () {
+    zle vi-yank-eol
+    echo -n $CUTBUFFER | xclip -i -sel c;
+}
+zle -N zsh-Y-x-selection
+bindkey -a 'Y' zsh-Y-x-selection
 
 ################################################################################
 
