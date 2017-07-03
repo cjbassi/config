@@ -4,6 +4,7 @@
 set $mod Mod1
 
 bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec tmux
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exit
@@ -14,6 +15,11 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+# bindsym $mod+h exec "i3-vim-focus left"
+# bindsym $mod+j exec "i3-vim-focus down"
+# bindsym $mod+k exec "i3-vim-focus up"
+# bindsym $mod+l exec "i3-vim-focus right"
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -100,6 +106,8 @@ exec_always --no-startup-id ~/config/X11/launch.sh
 
 # Xresources
 exec_always [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+
+exec_always xbindkeys -p
 
 ################################################################################
 # Old config

@@ -40,7 +40,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = 
-modules-right = filesystem memory cpu day date time
+modules-right = volume my_filesystem memory cpu eth wlan day date time
 
 tray-position = right
 tray-padding = 2
@@ -57,6 +57,14 @@ tray-padding = 2
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
+
+[module/my_filesystem]
+type = custom/script
+interval = 30
+label = %{F#0a81f5}/%{F-} : %output%B
+exec = ~/config/filesystem.sh
+format-prefix = " "
+format-underline = #006400
 
 [module/xwindow]
 type = internal/xwindow
@@ -80,7 +88,7 @@ label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 25
+interval = 30
 
 mount-0 = /
 
@@ -179,15 +187,15 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-prefix = " "
+; format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = CPU %percentage:2%%
 
 [module/memory]
 type = internal/memory
-interval = 2
-format-prefix = " "
+interval = 1
+; format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = RAM %percentage_used%%
@@ -195,7 +203,7 @@ label = RAM %percentage_used%%
 [module/wlan]
 type = internal/network
 interface = net1
-interval = 3.0
+interval = 1
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
@@ -217,12 +225,19 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = enp4s0
-interval = 3.0
+interval = 1
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+; format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = Up: %upspeed:7% Down: %downspeed:7%
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -232,7 +247,7 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = %m-%d-%y
 
@@ -243,7 +258,7 @@ label = %date%
 
 [module/day]
 type = internal/date
-interval = 5
+interval = 1
 
 date = %a
 
@@ -254,7 +269,7 @@ label = %date%
 
 [module/time]
 type = internal/date
-interval = 5
+interval = 1
 
 time = %H:%M
 
@@ -264,32 +279,67 @@ format-underline = #0a6cf5
 label = %time%
 
 [module/volume]
-type = internal/volume
+type = custom/script
+interval = 1
+label = %output%
+; label-padding = 1
+exec = ~/config/volume.sh
+format-underline = #ffff00
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
+; type = internal/volume
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+; format-volume = <label-volume><bar-volume>
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; label-volume = VOL
+; label-volume-foreground = ${root.foreground}
+
+; label-muted = sound muted
+; format-muted-foreground = ${colors.foreground-alt}
+
+; Soundcard to be used
+; master-soundcard = default
+; speaker-soundcard = default
+; headphone-soundcard = default
+
+; Name of the master mixer
+; master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Use the following command to list available mixer controls:
+; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
+; Default: none
+; speaker-mixer = Speaker
+; Default: none
+; headphone-mixer = Headphone
+
+; NOTE: This is required if headphone_mixer is defined
+; Use the following command to list available device controls
+; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
+; Default: none
+; headphone-id = 9
+
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+; mapped = true
+
+; format-muted-prefix = " "
+
+; bar-volume-width = 10
+; bar-volume-foreground-0 = #55aa55
+; bar-volume-foreground-1 = #55aa55
+; bar-volume-foreground-2 = #55aa55
+; bar-volume-foreground-3 = #55aa55
+; bar-volume-foreground-4 = #55aa55
+; bar-volume-foreground-5 = #f5a70a
+; bar-volume-foreground-6 = #ff5555
+; bar-volume-gradient = false
+; bar-volume-indicator = |
+; bar-volume-indicator-font = 2
+; bar-volume-fill = ─
+; bar-volume-fill-font = 2
+; bar-volume-empty = ─
+; bar-volume-empty-font = 2
+; bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
