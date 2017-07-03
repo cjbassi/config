@@ -9,6 +9,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'jwilm/i3-vim-focus'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -237,12 +238,17 @@ inoremap ì <Esc>l
 " Plugin settings
 
 " vim-tmux-nagivagor
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+    " let g:tmux_navigator_no_mappings = 1
+    " nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+    " nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+    " nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+    " nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+" map gwl :call Focus('right', 'l')<CR>
+" map gwh :call Focus('left', 'h')<CR>
+" map gwk :call Focus('up', 'k')<CR>
+" map gwj :call Focus('down', 'j')<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
