@@ -20,3 +20,5 @@ sudo ln -sf ~/config/X11/50-mouse.conf /etc/X11/xorg.conf.d/
 
 # dotfiles
 ln -sf ~/config/dotfiles/.* ~/
+
+ln -sf ~/config/opacity.ds ~/.devilspie/

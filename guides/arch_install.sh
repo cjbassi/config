@@ -38,6 +38,9 @@ pacstrap /mnt \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
+# compton
+# urxvt-perls
+# feh
 # i3 lock
 # xclip
 
@@ -104,6 +107,8 @@ bash config/config_script.sh
 
 # Lengthens shell history
 fbcon=scrollback:64k
+
+# clone urxvt-vim-scrollback
 
 ################################################################################
 

@@ -12,7 +12,7 @@ i3 bar
 fix going up and down list
 
 # zsh
-prompt
+prompt powerline
 appereance of objects in ll
 error on right
 timer and cpu usage showing up
@@ -53,5 +53,6 @@ reinstall arch
 gvim vs vim clipbaord
 fonts
 light line and polybar format decimal places
-underline fs polybar
 i3 resizing
+song preview polybar
+vim scrollback github
