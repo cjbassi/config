@@ -5,7 +5,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -62,7 +62,9 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-
+" 244
+hi Normal guibg=NONE ctermbg=NONE
+hi StatusLine ctermbg=232 ctermfg=241
 set noshowmode
 set cursorline
 
@@ -189,7 +191,6 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 " StatusLine settings
 set ruler
 set laststatus=2
-hi StatusLine ctermbg=232 ctermfg=241
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

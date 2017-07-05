@@ -40,7 +40,8 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = 
-modules-right = volume my_filesystem memory cpu eth wlan day date time
+modules-right = volume memory cpu day date time
+; my_filesystem eth battery wlan (wirelessn name)
 
 tray-position = right
 tray-padding = 2
@@ -249,7 +250,8 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = %m-%d-%y
+; date = %m-%d-%y
+date = " %B %d "
 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
@@ -265,7 +267,7 @@ date = %a
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %date%
+label = "%date%"
 
 [module/time]
 type = internal/date

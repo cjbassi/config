@@ -205,14 +205,14 @@ alias zless=$PAGER
 # zsh-syntax-highlighting
 source /home/cbassi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias tmuxn='tmux new-session -s $$'
-_trap_exit() { tmux kill-session -t $$; }
-trap _trap_exit EXIT
+# alias tmuxn='tmux new-session -s $$; exit'
+# _trap_exit() { tmux kill-session -t $$; }
+# trap _trap_exit EXIT
 
-if [ "$TMUX" = "" ]; then
-    # tmux list-sessions | grep -v attached | cut -d: -f1 |  xargs -t -n1 tmux kill-session -t
-    tmuxn;
-fi
+# if [ "$TMUX" = "" ]; then
+#     # tmux list-sessions | grep -v attached | cut -d: -f1 |  xargs -t -n1 tmux kill-session -t
+#     tmuxn;
+# fi
 
 vi-prepend-x-selection () {
     BUFFER=$LBUFFER$(xclip -o -sel c </dev/null)$RBUFFER;

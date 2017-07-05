@@ -48,7 +48,7 @@ mode "resize" {
 set $ws1 "1: Shell"
 set $ws2 "2: Chrome"
 set $ws3 "3: Music"
-set $ws4 "4: Discord"
+set $ws4 "4: Chat"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -80,21 +80,21 @@ assign [class="discord"] $ws4
 # Custom commands
 
 # new_window normal 0 px
-# new_window none
+new_window none
 # for_window [class="^.*"] border pixel 5
 # client.unfocused #000000 #000000 #000000 #000000
-new_window 1pixel
+# new_window 1pixel
 client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 
 # Wallpaper
-exec_always feh --bg-scale /home/cbassi/Downloads/wallpaper.png
+exec_always --no-startup-id feh --bg-scale /home/cbassi/Downloads/wallpaper.png
 
 # 144hz
 #exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
-exec_always xrandr --output DVI-D-0 --mode 1920x1080
+exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080
 
 # Remap caps lock to escape
-exec_always xmodmap /home/cbassi/config/keyboard/xkeys
+exec_always --no-startup-id xmodmap /home/cbassi/config/keyboard/xkeys
 
 gaps inner 10
 gaps outer 0
@@ -105,9 +105,14 @@ gaps outer 0
 exec_always --no-startup-id ~/config/X11/launch.sh
 
 # Xresources
-exec_always [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+exec_always --no-startup-id [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-exec_always xbindkeys -p
+exec_always --no-startup-id xbindkeys -p
+
+exec --no-startup-id sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%"
+
+exec --no-startup-id compton -b --config ~/config/compton.conf
+exec --no-startup-id devilspie -a
 
 ################################################################################
 # Old config
