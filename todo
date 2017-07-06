@@ -56,3 +56,4 @@ light line and polybar format decimal places
 i3 resizing
 song preview polybar
 vim scrollback github
+make sure autostart x is safe, other terminals etc

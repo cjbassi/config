@@ -11,14 +11,15 @@ fi
 ln -sf ~/config/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -sf ~/config/ranger/commands.py ~/.config/ranger/commands.py
 
-# i3
-ln -sf ~/config/X11/config ~/.config/i3/
-sudo ln -sf ~/config/X11/i3status.conf /etc/
+# wm
+ln -sf ~/config/wm/config ~/.config/i3/
+ln -sf ~/config/wm/opacity.ds ~/.devilspie/
 
 # X11 mouse acceleration and speed
-sudo ln -sf ~/config/X11/50-mouse.conf /etc/X11/xorg.conf.d/
+sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 
 # dotfiles
 ln -sf ~/config/dotfiles/.* ~/
 
-ln -sf ~/config/opacity.ds ~/.devilspie/
+# polybar
+ln -sf ~/config/polybar/config ~/.config/polybar/
