@@ -1,5 +1,5 @@
-sudo loadkeys ~/config/keyboard/consolekeys
+# sudo loadkeys ~/config/keyboard/consolekeys
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx
+  startx
 fi

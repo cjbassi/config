@@ -121,6 +121,7 @@ alias rm='rm -v' # Irdf
 alias w='w -f'
 alias df='df -h'
 alias du='du -h'
+alias mkdir='mkdir -v'
 
 alias pwd='echo -e "${PWD/${HOME}/~}"'
 alias cat='vimcat'

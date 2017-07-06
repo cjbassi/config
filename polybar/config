@@ -285,7 +285,7 @@ type = custom/script
 interval = 1
 label = %output%
 ; label-padding = 1
-exec = ~/config/volume.sh
+exec = ~/config/polybar/volume.sh
 format-underline = #ffff00
 
 ; type = internal/volume

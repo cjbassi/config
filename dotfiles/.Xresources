@@ -121,7 +121,7 @@ URxvt.shading:                      1
 term.depth: 32
 term.background: [90]#191919
 
-urxvt*perl-ext-common:              selection-to-clipboard,vim-scrollback
+urxvt*perl-ext-common:              -searchable-scrollback,selection-to-clipboard,vim-scrollback
 
 URxvt.perl-ext:                     default,url-select
 URxvt.keysym.M-u:                   perl:url-select:select_next

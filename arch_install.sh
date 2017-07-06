@@ -38,6 +38,9 @@ pacstrap /mnt \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
+# devilspie
+# transset-df
+# wmctrl
 # compton
 # urxvt-perls
 # feh

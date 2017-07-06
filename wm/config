@@ -7,7 +7,7 @@ bindsym $mod+Return exec urxvt
 # bindsym $mod+Return exec tmux
 
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
 
 bindsym $mod+d exec rofi -show run -terminal urxvt
 
@@ -84,17 +84,17 @@ new_window none
 # for_window [class="^.*"] border pixel 5
 # client.unfocused #000000 #000000 #000000 #000000
 # new_window 1pixel
-client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+# client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale /home/cbassi/Downloads/wallpaper.png
+exec_always --no-startup-id feh --bg-scale ~/Downloads/wallpaper.png
 
 # 144hz
 #exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
 exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080
 
 # Remap caps lock to escape
-exec_always --no-startup-id xmodmap /home/cbassi/config/keyboard/xkeys
+exec_always --no-startup-id xmodmap ~/config/peripherals/xkeys
 
 gaps inner 10
 gaps outer 0
@@ -102,7 +102,7 @@ gaps outer 0
 # exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
 
 # Polybar
-exec_always --no-startup-id ~/config/X11/launch.sh
+exec_always --no-startup-id ~/config/polybar/launch.sh
 
 # Xresources
 exec_always --no-startup-id [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
@@ -111,7 +111,7 @@ exec_always --no-startup-id xbindkeys -p
 
 exec --no-startup-id sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%"
 
-exec --no-startup-id compton -b --config ~/config/compton.conf
+exec --no-startup-id compton -b --config ~/config/wm/compton.conf
 exec --no-startup-id devilspie -a
 
 ################################################################################
