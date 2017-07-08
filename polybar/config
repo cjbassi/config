@@ -262,7 +262,7 @@ label = %date%
 type = internal/date
 interval = 1
 
-date = %a
+date = %A
 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
