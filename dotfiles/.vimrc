@@ -5,54 +5,47 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
-" Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jwilm/i3-vim-focus'
+Plug 'haya14busa/incsearch.vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ap/vim-css-color'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-"Plug 'easymotion/vim-easymotion'
-"Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
+
+" Plug 'severin-lemaignan/vim-minimap'
+
+" Plug 'haya14busa/vim-easyoperator-line'
+" Plug 'majutsushi/tagbar'
+" Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-misc'
 
 call plug#end()
 
-"" <Leader>f{char} to move to {char}
-"map  <Leader>f <Plug>(easymotion-bd-f)
-"nmap <Leader>f <Plug>(easymotion-overwin-f)
-"noremap s s
-"noremap S S
+" let g:EasyOperator_line_do_mapping = 0
 
-"" s{char}{char} to move to {char}{char}
-"" nmap s <Plug>(easymotion-overwin-f2)
+map <Leader>l  <Plug>(easyoperator-line-select)
+map <Leader>dl <Plug>(easyoperator-line-delete)
+map <Leader>pl <Plug>(easyoperator-line-yank)
 
-"" Move to line
-"map <Leader>L <Plug>(easymotion-bd-jk)
-"nmap <Leader>L <Plug>(easymotion-overwin-line)
+let g:easytags_events = ['BufWritePost']
 
-"" Move to word
-"map  <Leader>w <Plug>(easymotion-bd-w)
-"nmap <Leader>w <Plug>(easymotion-overwin-w)
+let g:tagbar_sort=0
+let g:tagbar_width = 25
+let g:tagbar_zoomwidth = 0
+let g:tagbar_compact = 1
+let g:tagbar_show_visibility = 1
+let g:tagbar_show_linenumbers = 0
+let g:tagbar_autopreview = 1
 
-"" nmap s <Plug>(easymotion-s2)
-"" nmap t <Plug>(easymotion-t2)
-
-"nmap / <Plug>(easymotion-sn)
-"xmap / <Esc><Plug>(easymotion-sn)\v%V
-"omap / <Plug>(easymotion-tn)
-"nnoremap g/ /
-""let g:sneak#streak = 1
-"let g:sneak#label = 1
-"map f <Plug>Sneak_f
-"map F <Plug>Sneak_F
-"map t <Plug>Sneak_t
-"map T <Plug>Sneak_T
-""let g:sneak#label_esc = "\<Esc>"
+" autocmd BufEnter *.py,*.java nested :call tagbar#autoopen(0)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visuals
@@ -71,12 +64,17 @@ set cursorline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
 
+map Q <Nop>
+map q: <Nop>
+
 "nnoremap <leader>b :ls<CR>:b<space>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF ~<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
 nnoremap <silent> <leader>w :StripWhitespace<CR>
+nnoremap <silent> <leader>s :source /home/cbassi/.vimrc <bar> :nohlsearch<CR>
+nnoremap <silent> <leader>t :Tags<CR>
 
 map Y y$
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -104,10 +102,8 @@ nmap <silent> j gj
 nmap <silent> k gk
 
 " allows incsearch highlighting for range commands
-cnoremap $t <CR>:t''<CR>
-cnoremap $T <CR>:T''<CR>
+cnoremap $y <CR>:t''<CR>
 cnoremap $m <CR>:m''<CR>
-cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
 
 function! s:setup_paste() abort
@@ -157,7 +153,7 @@ set nrformats-=octal
 " Numberline settings
 set number
 set relativenumber
-set numberwidth=3
+set numberwidth=4
 
 " Indent settings
 set autoindent
@@ -238,6 +234,14 @@ inoremap ì <Esc>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 
+nnoremap <silent> <M-h> :echo "hi"<CR>
+nnoremap <silent> <M-j> :echo "hi"<CR>
+nnoremap <silent> <M-k> :echo "hi"<CR>
+nnoremap <silent> <M-l> :echo "hi"<CR>
+
+
+
+
 " vim-tmux-nagivagor
     " let g:tmux_navigator_no_mappings = 1
     " nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
@@ -261,7 +265,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " FZF
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
+let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
@@ -326,6 +331,18 @@ if exists('g:vimpager.enabled')
 "    nunmap j
 "    nunmap k
 endif
+
+" incsearch.vim
+map ? <Nop>
+map / <Plug>(incsearch-stay)
+
+" easymotion
+map f <Plug>(easymotion-f2)
+"nmap f <Plug>(easymotion-overwin-f2)
+map F <Plug>(easymotion-F2)
+
+map t <Plug>(easymotion-t2)
+map T <Plug>(easymotion-T2)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Todo
@@ -393,3 +410,4 @@ endif
 " Plug 'vim-ctrlspace/vim-ctrlspace'
 " Plug 'PeterRincker/vim-bumblebee'
 " Plug 'jiangmiao/auto-pairs'
+" Plug 'christoomey/vim-tmux-navigator'

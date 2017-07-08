@@ -38,6 +38,7 @@ pacstrap /mnt \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
+# ctags
 # devilspie
 # transset-df
 # wmctrl
@@ -94,7 +95,7 @@ useradd -m -G wheel -s $(which zsh) cbassi
 passwd cbassi
 
 # Enable sshd daemon
-systemctl enable sshd.service
+# systemctl enable sshd.service
 
 # Edit pacman.conf
 sed -i "s/#Color/Color/g" /etc/pacman.conf
@@ -106,10 +107,12 @@ cd ~
 mkdir Downloads
 pip install glances
 git clone git@gitlab.com:calebjbassi/{config,euler,school,GPM,scripts}.git
-bash config/config_script.sh
+bash config/setup.sh
 
 # Lengthens shell history
 fbcon=scrollback:64k
+
+bash config/pacaur_install.sh
 
 # clone urxvt-vim-scrollback
 
@@ -131,10 +134,19 @@ fbcon=scrollback:64k
 #!!!!!May need to change other things!!!!!
 
 # Install using AUR
-#chrome i3-gaps discord neofetch pacaur gitflow-avh gitflow-zshcompletion-avh polybar
-# google-play-music-desktop-player-bin
+#cower
+#discord
+#gitflow-avh
+#gitflow-zshcompletion-avh
+#google-chrome
+#i3-gaps
+#i3lock-color-git
+#neofetch
+#pacaur
+#polybar
+#unclutter-xfixes-git
 
-#zsh-syntax-highlighting
+#zsh-fast-syntax-highlighting
 
 ################################################################################
 

@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+i3lock -e --blur=sigma -k -u --timestr="%H:%M" --datestr="%A, %B %d" --timesize=75 --datesize=25 --datepos="tx:ty+40" --timecolor=e5e5e5DD

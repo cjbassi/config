@@ -4,7 +4,7 @@ OPTIONS="Lock i3\nExit i3\nReboot\nShutdown"
 # Log-off, Suspend, Hibernate
 
 LAUNCHER="rofi -dmenu -i -p rofi-power:"
-LOCKER="i3lock"
+LOCKER="/home/cbassi/config/wm/i3lock"
 
 close_apps(){
     wmctrl -l | awk '{print $1}' | while read APP; do
@@ -27,16 +27,16 @@ if [ ${#option} -gt 0 ] ; then
         Log-off)
             ;;
         Reboot)
-            close_apps
-            if [[ $(echo -e $PROMPT | $SHUTDOWN | tr -d '\r\n') == 'Yes' ]] ; then
+            # close_apps
+            # if [[ $(echo -e $PROMPT | $SHUTDOWN | tr -d '\r\n') == 'Yes' ]] ; then
                 shutdown -r now
-            fi
+            # fi
             ;;
         Shutdown)
-            close_apps
-            if [[ $(echo -e $PROMPT | $SHUTDOWN | tr -d '\r\n') == 'Yes' ]] ; then
+            # close_apps
+            # if [[ $(echo -e $PROMPT | $SHUTDOWN | tr -d '\r\n') == 'Yes' ]] ; then
                 shutdown now
-            fi
+            # fi
             ;;
         Suspend)
             $LOCKER

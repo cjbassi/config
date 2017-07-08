@@ -50,3 +50,11 @@ fi
 # Clean up...
 cd ~
 rm -r /tmp/pacaur_install
+
+
+# sys.path.insert(0, '/usr/lib/python3.6/site-packages')
+
+# pac search vs pacaur
+# how to use pacaur
+# ag .ignore
+# ag better version github

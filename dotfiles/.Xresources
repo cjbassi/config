@@ -95,6 +95,8 @@ rofi.kb-cancel:                     Escape
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! urxvt
 
+/* URxvt.modifier:                     alt */
+
 URxvt.urgentOnBell:                 true
 
 URxvt.saveLines:                    10000
@@ -133,6 +135,14 @@ urxvt.vim-scrollback:               M-c
 urxvt*urlLauncher:                  /usr/bin/xdg-open
 urxvt.vim-scrollback-bg:            0
 urxvt.vim-scrollback-fg:            10
+
+
+
+
+
+
+
+
 
 
 /* URxvt*font: xft:DejaVu Sans Mono for Powerline:size=9 */
