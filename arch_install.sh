@@ -33,21 +33,13 @@ grep -A1 --no-group-separator "United States" /etc/pacman.d/mirrorlist | grep "S
 
 # Install packages
 pacstrap /mnt \
-    base base-devel xorg i3 pulseaudio xbindkeys \
-    openssh git rxvt-unicode the_silver_searcher highlight qbittorrent maim \
+    base base-devel xorg i3 pulseaudio pulseaudio-alsa xbindkeys \
+    devilspie transset-df wmctrl compton urxvt-perls feh xclip \
+    openssh git rxvt-unicode the_silver_searcher highlight qbittorrent \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
 #alsa-utils
-#pulseaudio-alsa
-
-# devilspie
-# transset-df
-# wmctrl
-# compton
-# urxvt-perls
-# feh
-# xclip
 
 ################################################################################
 # Configure the system
@@ -106,8 +98,12 @@ sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 su cbassi
 cd ~
 mkdir Downloads
-pip install glances
-git clone git@gitlab.com:calebjbassi/{config,euler,school,GPM,scripts}.git
+sudo pip install glances
+git clone git@gitlab.com:cjbassi/euler
+git clone git@gitlab.com:cjbassi/school
+git clone git@gitlab.com:cjbassi/GPM
+git clone git@gitlab.com:cjbassi/scripts
+git clone git@github.com:cjbassi/config
 bash config/setup.sh
 
 # Lengthens shell history
