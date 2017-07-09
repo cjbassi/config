@@ -1,0 +1,6 @@
+"amixer set PCM 5%- unmute"
+    XF86AudioLowerVolume
+"amixer set PCM 5%+ unmute"
+    XF86AudioRaiseVolume
+"pactl set-sink-mute 0 toggle"
+    XF86AudioMute

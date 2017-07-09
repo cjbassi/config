@@ -33,10 +33,13 @@ grep -A1 --no-group-separator "United States" /etc/pacman.d/mirrorlist | grep "S
 
 # Install packages
 pacstrap /mnt \
-    base base-devel xorg i3 alsa-utils pulseaudio xbindkeys \
+    base base-devel xorg i3 pulseaudio xbindkeys \
     openssh git urxvt ag highlight qbittorrent maim \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
+
+#alsa-utils
+#pulseaudio-alsa
 
 # devilspie
 # transset-df
@@ -44,7 +47,6 @@ pacstrap /mnt \
 # compton
 # urxvt-perls
 # feh
-# i3 lock
 # xclip
 
 ################################################################################
