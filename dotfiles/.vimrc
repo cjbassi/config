@@ -136,7 +136,6 @@ set history=1000
 set hidden
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
 autocmd BufRead,BufNewFile *.md setlocal spell
-set nowrap
 
 set sessionoptions-=options
 set complete-=i
@@ -226,10 +225,10 @@ inoremap ì <Esc>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 
-nnoremap <silent> <M-h> :echo "hi"<CR>
-nnoremap <silent> <M-j> :echo "hi"<CR>
-nnoremap <silent> <M-k> :echo "hi"<CR>
-nnoremap <silent> <M-l> :echo "hi"<CR>
+" nnoremap <silent> <M-h> :echo "hi"<CR>
+" nnoremap <silent> <M-j> :echo "hi"<CR>
+" nnoremap <silent> <M-k> :echo "hi"<CR>
+" nnoremap <silent> <M-l> :echo "hi"<CR>
 
 
 
