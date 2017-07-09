@@ -38,7 +38,6 @@ pacstrap /mnt \
     tig vim tmux zsh ranger vimpager fzf rofi \
     python3 jdk8-openjdk python-pip
 
-# ctags
 # devilspie
 # transset-df
 # wmctrl
@@ -115,6 +114,7 @@ fbcon=scrollback:64k
 bash config/pacaur_install.sh
 
 # clone urxvt-vim-scrollback
+# vim mardown preview
 
 ################################################################################
 
@@ -145,6 +145,7 @@ bash config/pacaur_install.sh
 #pacaur
 #polybar
 #unclutter-xfixes-git
+#universal-ctags-git
 
 #zsh-fast-syntax-highlighting
 

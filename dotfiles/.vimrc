@@ -8,7 +8,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jwilm/i3-vim-focus'
 Plug 'haya14busa/incsearch.vim'
 
 Plug 'itchyny/lightline.vim'
@@ -19,13 +18,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'easymotion/vim-easymotion'
-
-" Plug 'severin-lemaignan/vim-minimap'
+Plug 'shime/vim-livedown'
 
 " Plug 'haya14busa/vim-easyoperator-line'
-" Plug 'majutsushi/tagbar'
-" Plug 'xolox/vim-easytags'
-" Plug 'xolox/vim-misc'
+" Plug 'jwilm/i3-vim-focus'
 
 call plug#end()
 
@@ -35,17 +31,10 @@ map <Leader>l  <Plug>(easyoperator-line-select)
 map <Leader>dl <Plug>(easyoperator-line-delete)
 map <Leader>pl <Plug>(easyoperator-line-yank)
 
-let g:easytags_events = ['BufWritePost']
+" let g:easytags_events = ['BufWritePost']
 
-let g:tagbar_sort=0
-let g:tagbar_width = 25
-let g:tagbar_zoomwidth = 0
-let g:tagbar_compact = 1
-let g:tagbar_show_visibility = 1
-let g:tagbar_show_linenumbers = 0
-let g:tagbar_autopreview = 1
+nmap <C-p> :LivedownToggle<CR>
 
-" autocmd BufEnter *.py,*.java nested :call tagbar#autoopen(0)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visuals
@@ -66,6 +55,9 @@ set cursorline
 
 map Q <Nop>
 map q: <Nop>
+
+noremap zh zH
+noremap zl zL
 
 "nnoremap <leader>b :ls<CR>:b<space>
 nnoremap <silent> <leader>b :Buffers<CR>
@@ -337,12 +329,12 @@ map ? <Nop>
 map / <Plug>(incsearch-stay)
 
 " easymotion
-map f <Plug>(easymotion-f2)
+map f <Plug>(easymotion-f)
 "nmap f <Plug>(easymotion-overwin-f2)
-map F <Plug>(easymotion-F2)
+map F <Plug>(easymotion-F)
 
-map t <Plug>(easymotion-t2)
-map T <Plug>(easymotion-T2)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Todo
