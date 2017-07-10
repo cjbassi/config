@@ -338,12 +338,12 @@ map T <Plug>(easymotion-T)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Todo
 
-if has('path_extra')
-    setglobal tags-=./tags tags-=./tags; tags^=./tags;
-endif
-if !empty(&viminfo)
-    set viminfo^=!
-endif
+" if has('path_extra')
+"     setglobal tags-=./tags tags-=./tags; tags^=./tags;
+" endif
+" if !empty(&viminfo)
+"     set viminfo^=!
+" endif
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
     runtime! macros/matchit.vim
