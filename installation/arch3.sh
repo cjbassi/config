@@ -1,4 +1,4 @@
-rm /home/cbassi/arch3.sh
+rm -f arch3.sh
 
 mkdir Downloads
 
