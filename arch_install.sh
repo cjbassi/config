@@ -63,7 +63,7 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo arch > /etc/hostname
 
 # Network configuration
-systemctl enable dhcpcd@eno1.service
+#systemctl enable dhcpcd@eno1.service
 
 # Root password
 passwd
@@ -86,9 +86,6 @@ FIND="%wheel ALL=(ALL) NOPASSWD: ALL" ; sed -i "s/# $FIND/$FIND/g" /etc/sudoers
 # Add user
 useradd -m -G wheel -s $(which zsh) cbassi
 passwd cbassi
-
-# Enable sshd daemon
-# systemctl enable sshd.service
 
 # Edit pacman.conf
 sed -i "s/#Color/Color/g" /etc/pacman.conf
@@ -118,8 +115,6 @@ bash config/pacaur_install.sh
 
 # Copy keys from usb to ~/.ssh/
 
-# Sets up authorized keys for remote login
-#cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
 
 #ntp
 # Sets time
@@ -146,6 +141,15 @@ bash config/pacaur_install.sh
 #universal-ctags-git
 
 #zsh-fast-syntax-highlighting
+
+################################################################################
+# ssh-server
+
+# Enable sshd daemon
+#systemctl enable sshd.service
+
+# Sets up authorized keys for remote login
+#cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
 
 ################################################################################
 
