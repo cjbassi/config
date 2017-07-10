@@ -54,5 +54,5 @@ sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 
 cd /home/cbassi/
 touch .zshrc
-curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch2.sh > arch2.sh
+curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch3.sh > arch3.sh
 su cbassi
