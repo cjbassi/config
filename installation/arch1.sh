@@ -39,7 +39,7 @@ pacstrap /mnt \
     devilspie transset-df wmctrl compton urxvt-perls feh xclip \
     openssh git rxvt-unicode the_silver_searcher highlight qbittorrent \
     tig vim tmux zsh ranger vimpager fzf rofi \
-    python3 jdk8-openjdk python-pip
+    python jdk8-openjdk python-pip
 
 #alsa-utils
 
