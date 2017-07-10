@@ -8,7 +8,7 @@ git clone https://github.com/cjbassi/config
 bash config/installation/config_files.sh
 bash config/installation/pacaur.sh
 
-pacaur -y\
+pacaur -y \
 discord\
 gitflow-avh\
 gitflow-zshcompletion-avh\
@@ -25,7 +25,8 @@ echo "
 # 1) :PlugInstall
 # 2) edit /boot/loader/entries/arch.conf
 # 3) systemctl enable ...
-###########################################"
+###########################################
+"
 
 # clone urxvt-vim-scrollback
 # install vim mardown preview
