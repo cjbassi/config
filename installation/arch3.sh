@@ -1,7 +1,5 @@
 rm /home/cbassi/arch2.sh
 
-cd ~
-
 mkdir Downloads
 
 sudo pip install glances
