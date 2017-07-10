@@ -52,6 +52,7 @@ sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 ################################################################################
 # As non root
 
+touch /home/cbassi/.zshrc
 su cbassi
 cd ~
 
