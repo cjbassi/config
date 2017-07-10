@@ -20,9 +20,10 @@ unclutter-xfixes-git\
 universal-ctags-git
 
 echo "
-##################
-1) :PlugInstall
-2) edit /boot/loader/entries/arch.conf
+###########################################
+# 1) :PlugInstall
+# 2) edit /boot/loader/entries/arch.conf
+###########################################"
 
 # clone urxvt-vim-scrollback
 # install vim mardown preview
