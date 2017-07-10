@@ -2,10 +2,10 @@
 # Pre-installation
 
 # Verify the boot mode
-ls /sys/firmware/efi/efivars
+#ls /sys/firmware/efi/efivars
 
 # Conect to the internet
-ping archlinux.org
+#ping archlinux.org
 
 # Update the system clock
 timedatectl set-ntp true
@@ -29,7 +29,7 @@ timedatectl set-ntp true
 # Installation
 
 # Select the mirrors
-grep -A1 --no-group-separator "United States" /etc/pacman.d/mirrorlist | grep "Server" > /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > /etc/pacman.d/mirrorlist
 
 # Install packages
 pacstrap /mnt \
