@@ -35,7 +35,7 @@ timedatectl set-ntp true
 
 # Install packages
 pacstrap /mnt \
-    base base-devel xorg i3 pulseaudio pulseaudio-alsa xbindkeys parted \
+    base base-devel xorg i3 pulseaudio pulseaudio-alsa xbindkeys parted xorg-xinit \
     devilspie transset-df wmctrl compton urxvt-perls feh xclip \
     openssh git rxvt-unicode the_silver_searcher highlight qbittorrent \
     tig vim tmux zsh ranger vimpager fzf rofi \
