@@ -31,6 +31,5 @@ echo "
 # clone urxvt-vim-scrollback
 # install vim mardown preview
 
-#i3-gaps
 #zsh-fast-syntax-highlighting
 #gitflow-avh vs gitflow-avh-git

@@ -92,7 +92,7 @@ new_window none
 # client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Downloads/wallpaper.png
+exec_always --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
 
 # 144hz
 #exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144

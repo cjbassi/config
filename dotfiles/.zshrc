@@ -146,7 +146,8 @@ rm() {
 # Other programs
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 bindkey -M vicmd '/' fzf-history-widget
@@ -203,9 +204,6 @@ export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
 
-# zsh-syntax-highlighting
-source /home/cbassi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # alias tmuxn='tmux new-session -s $$; exit'
 # _trap_exit() { tmux kill-session -t $$; }
 # trap _trap_exit EXIT
@@ -241,6 +239,9 @@ zsh-Y-x-selection () {
 }
 zle -N zsh-Y-x-selection
 bindkey -a 'Y' zsh-Y-x-selection
+
+# zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ################################################################################
 
