@@ -20,7 +20,7 @@ passwd
 
 # Boot loader
 pacman -S intel-ucode
-bootctl --path=esp install
+bootctl --path=/boot install
 
 echo "
 default arch
