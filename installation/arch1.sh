@@ -1,3 +1,5 @@
+curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch1.sh > arch1.sh
+
 ################################################################################
 # Pre-installation
 
