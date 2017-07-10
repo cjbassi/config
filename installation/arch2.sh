@@ -29,13 +29,14 @@ editor  0" \
 > /boot/loader/loader.conf
 
 echo "\
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /intel-ucode.img
-initrd  /initramfs-linux.img" \
+title       Arch Linux
+linux       /vmlinuz-linux
+initrd      /intel-ucode.img
+initrd      /initramfs-linux.img
+#options     root=... rw" \
 > /boot/loader/entries/arch.conf
 
-#options root=... rw"
+
 
 ################################################################################
 # Post-installation
