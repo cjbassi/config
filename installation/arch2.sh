@@ -22,17 +22,20 @@ passwd
 pacman -S intel-ucode
 bootctl --path=/boot install
 
-echo "
+echo "\
 default arch
 #timeout 4
-editor  0" > /boot/loader/loader.conf
+editor  0" \
+> /boot/loader/loader.conf
 
-echo "
+echo "\
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
-initrd  /initramfs-linux.img
-#options root=... rw" > /boot/loader/entries/arch.conf
+initrd  /initramfs-linux.img" \
+> /boot/loader/entries/arch.conf
+
+#options root=... rw"
 
 ################################################################################
 # Post-installation
