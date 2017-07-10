@@ -69,12 +69,20 @@ echo arch > /etc/hostname
 passwd
 
 # Boot loader
-    # An EFI System Partition is needed for the boot partition
-pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
-pacman -S intel-ucode # For intel CPU's
-grub-mkconfig -o /boot/grub/grub.cfg
-# Get grub to list windows TODO
+pacman -S intel-ucode
+bootctl --path=esp install
+
+echo "
+default arch
+#timeout 4
+editor  0" > /boot/loader/loader.conf
+
+echo "
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+#options root=... rw" > /boot/loader/entries/arch.conf
 
 ################################################################################
 # Post-installation
