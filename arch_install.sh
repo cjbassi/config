@@ -12,7 +12,7 @@ timedatectl set-ntp true
 
 # Partition the disks
     # boot partition
-        # Create a 512 MiB FAT32 partition in Parted
+        # Create a 512 MiB FAT32 partition in parted
         # Set the boot flag (not legacy_boot)
     # root partition
         # Format to ext4
@@ -33,7 +33,7 @@ cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | g
 
 # Install packages
 pacstrap /mnt \
-    base base-devel xorg i3 pulseaudio pulseaudio-alsa xbindkeys \
+    base base-devel xorg i3 pulseaudio pulseaudio-alsa xbindkeys parted \
     devilspie transset-df wmctrl compton urxvt-perls feh xclip \
     openssh git rxvt-unicode the_silver_searcher highlight qbittorrent \
     tig vim tmux zsh ranger vimpager fzf rofi \
@@ -109,36 +109,33 @@ mkdir Downloads
 
 sudo pip install glances
 
-git clone git@gitlab.com:cjbassi/euler
-git clone git@gitlab.com:cjbassi/school
-git clone git@gitlab.com:cjbassi/GPM
-git clone git@gitlab.com:cjbassi/scripts
-git clone git@github.com:cjbassi/config
-
+git clone https://github.com/cjbassi/config
 bash config/setup.sh
-
 bash config/pacaur_install.sh
+
+pacaur -y\
+discord\
+gitflow-avh\
+gitflow-zshcompletion-avh\
+google-chrome\
+i3lock-color-git\
+neofetch\
+polybar\
+unclutter-xfixes-git\
+universal-ctags-git
 
 # clone urxvt-vim-scrollback
 # install vim mardown preview
 
-# Copy keys from usb to ~/.ssh/
-
-# Install using AUR
-#cower
-#discord
-#gitflow-avh
-#gitflow-zshcompletion-avh
-#google-chrome
 #i3-gaps
-#i3lock-color-git
-#neofetch
-#pacaur
-#polybar
-#unclutter-xfixes-git
-#universal-ctags-git
-
 #zsh-fast-syntax-highlighting
+#gitflow-avh vs gitflow-avh-git
+
+# Copy keys from usb to ~/.ssh/
+#git clone git@gitlab.com:cjbassi/euler
+#git clone git@gitlab.com:cjbassi/school
+#git clone git@gitlab.com:cjbassi/GPM
+#git clone git@gitlab.com:cjbassi/scripts
 
 ################################################################################
 # ssh-server
