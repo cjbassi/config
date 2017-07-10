@@ -9,15 +9,15 @@ bash config/installation/config_files.sh
 bash config/installation/pacaur.sh
 
 pacaur -y \
-discord\
-gitflow-avh\
-gitflow-zshcompletion-avh\
-google-chrome\
-i3-gaps\
-i3lock-color-git\
-neofetch\
-polybar\
-unclutter-xfixes-git\
+discord \
+gitflow-avh \
+gitflow-zshcompletion-avh \
+google-chrome \
+i3-gaps \
+i3lock-color-git \
+neofetch \
+polybar \
+unclutter-xfixes-git \
 universal-ctags-git
 
 echo "
