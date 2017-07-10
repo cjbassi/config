@@ -1,3 +1,5 @@
+rm /arch2.sh
+
 # Time Zone
 ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 hwclock --systohc
@@ -58,8 +60,8 @@ mkdir Downloads
 sudo pip install glances
 
 git clone https://github.com/cjbassi/config
-bash config/setup.sh
-bash config/pacaur_install.sh
+bash config/installation/config_files.sh
+bash config/pacaur.sh
 
 pacaur -y\
 discord\
