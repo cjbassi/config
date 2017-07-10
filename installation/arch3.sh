@@ -13,6 +13,7 @@ discord\
 gitflow-avh\
 gitflow-zshcompletion-avh\
 google-chrome\
+i3-gaps\
 i3lock-color-git\
 neofetch\
 polybar\
