@@ -74,7 +74,6 @@ pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 pacman -S intel-ucode # For intel CPU's
 grub-mkconfig -o /boot/grub/grub.cfg
-
 # Get grub to list windows TODO
 
 ################################################################################
@@ -94,13 +93,17 @@ sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 
 su cbassi
 cd ~
+
 mkdir Downloads
+
 sudo pip install glances
+
 git clone git@gitlab.com:cjbassi/euler
 git clone git@gitlab.com:cjbassi/school
 git clone git@gitlab.com:cjbassi/GPM
 git clone git@gitlab.com:cjbassi/scripts
 git clone git@github.com:cjbassi/config
+
 bash config/setup.sh
 
 # Lengthens shell history
@@ -109,12 +112,9 @@ fbcon=scrollback:64k
 bash config/pacaur_install.sh
 
 # clone urxvt-vim-scrollback
-# vim mardown preview
-
-################################################################################
+# install vim mardown preview
 
 # Copy keys from usb to ~/.ssh/
-
 
 #ntp
 # Sets time
