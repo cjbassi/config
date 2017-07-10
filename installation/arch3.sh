@@ -23,6 +23,7 @@ echo "
 ###########################################
 # 1) :PlugInstall
 # 2) edit /boot/loader/entries/arch.conf
+# 3) systemctl enable ...
 ###########################################"
 
 # clone urxvt-vim-scrollback
