@@ -52,6 +52,7 @@ sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 ################################################################################
 # As non root
 
-touch /home/cbassi/.zshrc
-curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch2.sh > /home/cbassi/arch2.sh
+cd /home/cbassi/
+touch .zshrc
+curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch2.sh > arch2.sh
 su cbassi
