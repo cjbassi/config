@@ -91,6 +91,9 @@ sed -i "s/#Color/Color/g" /etc/pacman.conf
 sed -i "s/#TotalDownload/TotalDownload/g" /etc/pacman.conf
 sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 
+################################################################################
+# As non root
+
 su cbassi
 cd ~
 
@@ -106,25 +109,12 @@ git clone git@github.com:cjbassi/config
 
 bash config/setup.sh
 
-# Lengthens shell history
-fbcon=scrollback:64k
-
 bash config/pacaur_install.sh
 
 # clone urxvt-vim-scrollback
 # install vim mardown preview
 
 # Copy keys from usb to ~/.ssh/
-
-#ntp
-# Sets time
-#sudo timedatectl set-local-rtc 0
-#sudo timedatectl set-timezone America/Los_Angeles
-#systemctl enable ntpd.service
-
-# /etc/ssh/sshd_config
-#PasswordAuthentication no
-#!!!!!May need to change other things!!!!!
 
 # Install using AUR
 #cower
@@ -151,9 +141,22 @@ bash config/pacaur_install.sh
 # Sets up authorized keys for remote login
 #cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
 
+# /etc/ssh/sshd_config
+#PasswordAuthentication no
+#!!!!!May need to change other things!!!!!
+
 ################################################################################
 
 # Creates key and adds it to agent
 #ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"
 #eval $(ssh-agent)
 #ssh-add ~/.ssh/id_ed25519
+
+# Lengthens shell history
+#fbcon=scrollback:64k
+
+#ntp
+# Sets time
+#sudo timedatectl set-local-rtc 0
+#sudo timedatectl set-timezone America/Los_Angeles
+#systemctl enable ntpd.service
