@@ -6,7 +6,7 @@ sudo pip install glances
 
 git clone https://github.com/cjbassi/config
 bash config/installation/config_files.sh
-bash config/pacaur.sh
+bash config/installation/pacaur.sh
 
 pacaur -y\
 discord\
