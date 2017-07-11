@@ -124,6 +124,8 @@ exec --no-startup-id unclutter --timeout 5
 
 exec_always --no-startup-id xset r rate 250 25
 
+# exec --no-startup-id powerline-daemon -q
+
 ################################################################################
 # Old config
 

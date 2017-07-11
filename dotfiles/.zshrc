@@ -97,19 +97,19 @@ alias pactree='pactree -c'
 ################################################################################
 # Prompt
 
-# PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
-INSERT=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%}_%{\e[0m%} '
-NORMAL=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%} %{\e[0m%} '
-# RPS1=$""
+# # PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
+# INSERT=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%}_%{\e[0m%} '
+# NORMAL=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%} %{\e[0m%} '
+# # RPS1=$""
 
-function zle-line-init zle-keymap-select
-{
-    PROMPT="${${KEYMAP/vicmd/$NORMAL}/main/$INSERT}"
-    zle reset-prompt
-}
+# function zle-line-init zle-keymap-select
+# {
+#     PROMPT="${${KEYMAP/vicmd/$NORMAL}/main/$INSERT}"
+#     zle reset-prompt
+# }
 
-zle -N zle-line-init
-zle -N zle-keymap-select
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 
 ################################################################################
 # Aliases
@@ -214,17 +214,22 @@ alias zless=$PAGER
 # fi
 
 vi-prepend-x-selection () {
-    BUFFER=$LBUFFER$(xclip -o -sel c </dev/null)$RBUFFER;
-    # CURSOR=$CURSOR 
+    PASTE=$(xclip -o -sel c </dev/null)
+    LEN=${#PASTE}
+    BUFFER=$LBUFFER$PASTE$RBUFFER;
+    CURSOR=$CURSOR+LEN-1
 }
 zle -N vi-prepend-x-selection
 bindkey -a 'P' vi-prepend-x-selection
 
-# vi-append-x-selection () {
-#     RBUFFER=$RBUFFER$(xclip -o -sel c </dev/null);
-# }
-# zle -N vi-append-x-selection
-# bindkey -a 'P' vi-append-x-selection
+vi-append-x-selection () {
+    PASTE=$(xclip -o -sel c </dev/null)
+    LEN=${#PASTE}
+    BUFFER=${BUFFER:0:$CURSOR+1}$PASTE${BUFFER:$CURSOR+1};
+    CURSOR=$CURSOR+LEN
+}
+zle -N vi-append-x-selection
+bindkey -a 'p' vi-append-x-selection
 
 zsh-y-x-selection () {
     zle vi-yank
@@ -240,17 +245,28 @@ zsh-Y-x-selection () {
 zle -N zsh-Y-x-selection
 bindkey -a 'Y' zsh-Y-x-selection
 
+function zle-keymap-select
+{
+    if [[ $KEYMAP = 'vicmd' ]] ; then
+        CURSOR=$CURSOR+1
+    fi
+}
+zle -N zle-keymap-select
+
+################################################################################
+# promptline
+
+# ZLE_RPROMPT_INDENT=0
+source ~/.promptline.sh
+# source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+################################################################################
 # zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 ################################################################################
 
-# Start ranger for each shell
-# if [ -z "$RANGER_LEVEL" ]; then
-#     /usr/bin/ranger "$@"
-# fi
-
-# Powerline stuff
 # export PATH="$HOME/.vim/bundle/powerline/scripts/:$PATH"
 # . ~/.vim/plugged/powerline/powerline/bindings/zsh/powerline.zsh
 # powerline-daemon -q

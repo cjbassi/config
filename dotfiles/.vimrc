@@ -9,6 +9,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'haya14busa/incsearch.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'shime/vim-livedown'
+Plug 'farmergreg/vim-lastplace'
+Plug 'edkolev/promptline.vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -17,8 +21,7 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'easymotion/vim-easymotion'
-Plug 'shime/vim-livedown'
+Plug 'terryma/vim-smooth-scroll'
 
 " Plug 'haya14busa/vim-easyoperator-line'
 " Plug 'jwilm/i3-vim-focus'
@@ -34,6 +37,11 @@ map <Leader>pl <Plug>(easyoperator-line-yank)
 " let g:easytags_events = ['BufWritePost']
 
 nmap <C-p> :LivedownToggle<CR>
+
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -312,6 +320,14 @@ function! LightlineFilename()
     return filename . modified
 endfunction
 
+let g:promptline_preset = {
+        \'a' : [ '$vim_mode' ],
+        \'b' : [ promptline#slices#cwd() ],
+        \'c' : [ promptline#slices#jobs() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'z' : [ promptline#slices#git_status() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
 " vimpager
 if exists('g:vimpager.enabled')
     let g:vimpager = {}
@@ -319,8 +335,8 @@ if exists('g:vimpager.enabled')
     let g:less.enabled = 0
     set nonumber
     set norelativenumber
-"    nunmap j
-"    nunmap k
+    " unmap j
+    " unmap k
 endif
 
 " incsearch.vim
