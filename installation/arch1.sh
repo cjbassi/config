@@ -43,6 +43,7 @@ pacstrap /mnt \
     python jdk8-openjdk python-pip \
     powerline-fonts ttf-dejavu \
 
+#ttf-insonsolata
 #alsa-utils
 #vimpager
 

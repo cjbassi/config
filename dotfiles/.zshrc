@@ -114,18 +114,19 @@ alias pactree='pactree -c'
 ################################################################################
 # Aliases
 
-alias ll='ls -AhgoX --group-directories-first'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -v' # Irdf
+alias rmdir='rmdir -v'
+alias mkdir='mkdir -v'
+
 alias w='w -f'
 alias df='df -h'
 alias du='du -h'
-alias mkdir='mkdir -v'
 
+alias ll='ls -AhgoXd --group-directories-first *'
 alias pwd='echo -e "${PWD/${HOME}/~}"'
 alias cat='vimcat'
-alias java='bash ~/config/java_script.sh'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 
 rm() {

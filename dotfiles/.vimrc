@@ -13,6 +13,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'shime/vim-livedown'
 Plug 'farmergreg/vim-lastplace'
 Plug 'edkolev/promptline.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'cjbassi/i3-vim-navigator'
 
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -21,12 +24,16 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'terryma/vim-smooth-scroll'
+" Plug 'yonchu/accelerated-smooth-scroll'
 
 " Plug 'haya14busa/vim-easyoperator-line'
 " Plug 'jwilm/i3-vim-focus'
 
 call plug#end()
+
+" let g:ac_smooth_scroll_du_sleep_time_msec=0
+" let g:ac_smooth_scroll_fb_sleep_time_msec=0
+" let g:ac_smooth_scroll_enable_accelerating=0
 
 " let g:EasyOperator_line_do_mapping = 0
 
@@ -38,10 +45,10 @@ map <Leader>pl <Plug>(easyoperator-line-yank)
 
 nmap <C-p> :LivedownToggle<CR>
 
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,6 +70,31 @@ set cursorline
 
 map Q <Nop>
 map q: <Nop>
+
+nnoremap d "_d
+vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
+
+function! RestoreRegister()
+    let @" = s:restore_reg
+    if &clipboard == "unnamedplus"
+        let @+ = s:restore_reg
+    endif
+    return ''
+endfunction
+
+function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+endfunction
+
+" NB: this supports "rp that replaces the selection by the contents of @r
+vnoremap <silent> <expr> p <sid>Repl()
 
 noremap zh zH
 noremap zl zL
@@ -91,10 +123,10 @@ nnoremap <silent> o o<Esc>
 " nnoremap <silent> O O<Esc> :<C-u>execute "normal! " . v:count1 . "k"<CR>
 " nnoremap <silent> O :<C-u>exe "normal! " . v:count1 . "O" \| if v:count == 0exe "normal! " . (v:count - 1) . "k" \| echo (v:count1) (v:count)<CR>
 " nnoremap <silent> O O<Esc> :call <SID>o_fixer(v:count)<CR>
-nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call <SID>o_fixer(v:count)<CR>
-function! s:o_fixer(var)
-    if a:var > 0
-        :exe "normal! " . (a:var - 1) . "k"
+nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call O_fixer(v:count)<CR>
+function! O_fixer(count)
+    if a:count > 0
+        :exe "normal! " . (a:count - 1) . "k"
     endif
 endfunction
 
@@ -259,9 +291,28 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 1
+
+
+function! SyntasticError() abort
+  if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'errors') && len(b:syntastic_loclist.errors())
+    return substitute(substitute(substitute(substitute(b:syntastic_loclist.errors()[0].text, '%', '%%', 'g'), '\[Char\]', 'String', 'g'), '\%(note: \|\(.*unable to load package\|In the second argument of\|Declared at: \| or explicitly provide\).*\|‘\|’\|Perhaps you .*\| (imported from[^)]*)\|(visible) \|It could refer to either.*\|It is a member of the .*\|In the expression:.*\|Probable cause:.*\|GHC\.\w\+\.\|In the [a-z]\+ argument of.*\|integer-gmp:\|Data\.\w\+\.\)', '', 'g'), 'Found\zs:.*\zeWhy not:', '. ', '')
+  endif
+  return ''
+endfunction
+
+function! SyntasticWarning() abort
+  if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'warnings') && has_key(b:syntastic_loclist, 'errors')
+        \ && len(b:syntastic_loclist.warnings()) && !len(b:syntastic_loclist.errors())
+    return substitute(substitute(substitute(substitute(substitute(b:syntastic_loclist.warnings()[0].text, '%', '%%', 'g'), '\[Char\]', 'String', 'g'), '\.hs:\d\+:\d\+-\d\+\zs.*', '', ''), '\(\(Defaulting the following constraint\|: Patterns not matched\| except perhaps to import instances from \).*\|forall [a-z]\. \|GHC\.\w\+\.\|integer-gmp:\|Data\.\w\+\.\)', '', 'g'), 'Found\zs:.*\zeWhy not:', '. ', '')
+  endif
+  return ''
+endfunction
+
+
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
@@ -288,30 +339,43 @@ map <Leader>r :call RangerExplorer()<CR>
 " lightline
 let g:lightline = {
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'filename' ] ],
-    \   'right': [ [ 'lineinfo'  ],
-    \              [ 'column'  ],
-    \              [ 'filetype'  ] ]
+    \   'left': [
+    \               [ 'mode', 'paste' ],
+    \               [ 'gitbranch', 'filename' ],
+    \               [ 'syntastic' ],
+    \   ],
+    \   'right': [
+    \               [ 'lineinfo'  ],
+    \               [ 'column'  ],
+    \               [ 'filetype'  ],
+    \   ],
     \ },
     \ 'inactive': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'filename' ] ],
-    \   'right': [ [ 'lineinfo'  ],
-    \              [ 'column'  ],
-    \              [ 'filetype'  ] ]
+    \   'left': [
+    \               [ 'mode', 'paste' ],
+    \               [ 'gitbranch', 'filename' ],
+    \   ],
+    \   'right': [
+    \               [ 'lineinfo'  ],
+    \               [ 'column'  ],
+    \               [ 'filetype'  ],
+    \   ],
     \ },
     \ 'tabline': {
-    \   'left': [ [ 'tabs' ] ],
-    \   'right': []
+    \   'left': [
+    \               [ 'tabs' ],
+    \   ],
+    \   'right': [
+    \   ],
     \ },
     \ 'component_function': {
     \   'filename': 'LightlineFilename',
-    \   'gitbranch': 'fugitive#head'
+    \   'gitbranch': 'fugitive#head',
+    \   'syntastic': 'SyntasticError',
     \ },
     \ 'component': {
     \   'lineinfo': "%{printf('%03d/%03d', line('.'),  line('$'))}",
-    \   'column': "%{printf('%02d', col('.'))}"
+    \   'column': '%02c',
     \ },
     \ }
 function! LightlineFilename()
