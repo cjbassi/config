@@ -38,12 +38,12 @@ cd Downloads
 git clone https://github.com/rkitover/vimpager
 cd vimpager
 sudo make install
+cd ~
 
 sudo pip install glances
 
 git clone https://github.com/ervandew/urxvt-vim-scrollback
 
-bash config/installation/config_files.sh
 bash config/installation/pacaur.sh
 
 pacaur -y --noconfirm \
