@@ -46,7 +46,7 @@ git clone https://github.com/ervandew/urxvt-vim-scrollback
 bash config/installation/config_files.sh
 bash config/installation/pacaur.sh
 
-pacaur -y \
+pacaur -y --noconfirm \
 discord \
 gitflow-avh \
 gitflow-zshcompletion-avh \
