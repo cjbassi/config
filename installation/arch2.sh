@@ -34,7 +34,7 @@ title       Arch Linux
 linux       /vmlinuz-linux
 initrd      /intel-ucode.img
 initrd      /initramfs-linux.img
-#options     root=$part rw" \
+options     root=$part rw" \
 > /boot/loader/entries/arch.conf
 
 
