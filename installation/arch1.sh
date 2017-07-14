@@ -40,7 +40,7 @@ pacstrap /mnt \
     pulseaudio pulseaudio-alsa \
     xbindkeys xclip \
     parted \
-    dialog \
+    dialog wpa_supplicant \
     powerline highlight w3m \
     devilspie transset-df wmctrl compton feh \
     urxvt-perls rxvt-unicode \
