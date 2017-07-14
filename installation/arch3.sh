@@ -2,6 +2,8 @@ rm -f arch3.sh
 
 mkdir Downloads
 
+git clone https://github.com/cjbassi/config
+
 # Ranger
 mkdir -p ~/.config/ranger
 ln -sf ~/config/ranger/rc.conf ~/.config/ranger/rc.conf
@@ -41,7 +43,6 @@ sudo pip install glances
 
 git clone https://github.com/ervandew/urxvt-vim-scrollback
 
-git clone https://github.com/cjbassi/config
 bash config/installation/config_files.sh
 bash config/installation/pacaur.sh
 
@@ -60,10 +61,10 @@ zsh-fast-syntax-highlighting-git \
 
 echo "
 ###########################################
-# 1) :PlugInstall
-# 2) edit /boot/loader/entries/arch.conf
-# 3) systemctl enable ...
-# 4) Configure audio
+1) :PlugInstall
+2) Edit /boot/loader/entries/arch.conf
+3) Configure internet
+4) Configure audio
     - set-default-source ...
     - set-default-sink ...
 ###########################################
