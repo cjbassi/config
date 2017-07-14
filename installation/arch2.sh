@@ -19,7 +19,7 @@ echo arch > /etc/hostname
 passwd
 
 # Boot loader
-pacman -S intel-ucode
+pacman -S --noconfirm intel-ucode
 bootctl --path=/boot install
 
 echo "\
