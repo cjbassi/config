@@ -28,14 +28,14 @@ default arch
 editor  0" \
 > /boot/loader/loader.conf
 
+part="$(df -h . | tail -1 | awk '{print $1}')"
 echo "\
 title       Arch Linux
 linux       /vmlinuz-linux
 initrd      /intel-ucode.img
 initrd      /initramfs-linux.img
-#options     root=... rw" \
+#options     root=$part rw" \
 > /boot/loader/entries/arch.conf
-
 
 
 ################################################################################
