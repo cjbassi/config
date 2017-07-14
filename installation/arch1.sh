@@ -35,14 +35,21 @@ timedatectl set-ntp true
 
 # Install packages
 pacstrap /mnt \
-    base base-devel xorg \
-    pulseaudio pulseaudio-alsa xbindkeys parted xorg-xinit \
-    devilspie transset-df wmctrl compton urxvt-perls feh xclip powerline \
-    openssh git rxvt-unicode the_silver_searcher highlight qbittorrent \
-    tig gvim tmux zsh ranger fzf rofi \
+    base base-devel \
+    xorg xorg-xinit \
+    pulseaudio pulseaudio-alsa \
+    xbindkeys xclip \
+    parted \
+    powerline highlight w3m \
+    devilspie transset-df wmctrl compton feh \
+    urxvt-perls rxvt-unicode \
+    openssh git the_silver_searcher \
+    qbittorrent \
+    tig gvim zsh ranger fzf rofi \
     python jdk8-openjdk python-pip \
     powerline-fonts ttf-dejavu \
 
+#tmux
 #ttf-insonsolata
 #alsa-utils
 #vimpager

@@ -20,6 +20,18 @@ sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 mkdir -p ~/.config/polybar
 ln -sf ~/config/polybar/config ~/.config/polybar/
 
+# mutt
+ln -sf ~/config/mutt/.muttrc ~/
+
+# Vim
+mkdir -p ~/.vim/temp ~/.vim/undodir
+if ! [[ -e ~/.vim/autoload/plug.vim ]]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# dotfiles
+ln -sf ~/config/dotfiles/.* ~/
+
 cd Downloads
 git clone https://github.com/rkitover/vimpager
 cd vimpager

@@ -124,7 +124,9 @@ alias w='w -f'
 alias df='df -h'
 alias du='du -h'
 
-alias ll='ls -AhgoXd --group-directories-first *'
+ll() {
+    ls -AhgoX --group-directories-first --color=always "$@" | tail --lines=+2
+}
 alias pwd='echo -e "${PWD/${HOME}/~}"'
 alias cat='vimcat'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'

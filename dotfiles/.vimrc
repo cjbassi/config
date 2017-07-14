@@ -71,14 +71,19 @@ set cursorline
 map Q <Nop>
 map q: <Nop>
 
-nnoremap d "_d
-vnoremap d "_d
-nnoremap D "_D
-vnoremap D "_D
+" nnoremap d "_d
+" vnoremap d "_d
+" nnoremap D "_D
+" vnoremap D "_D
 nnoremap c "_c
 vnoremap c "_c
 nnoremap C "_C
 vnoremap C "_C
+
+nnoremap x "_x
+vnoremap x "_x
+nnoremap X "_X
+vnoremap X "_X
 
 function! RestoreRegister()
     let @" = s:restore_reg
