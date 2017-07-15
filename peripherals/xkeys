@@ -1,2 +1,11 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Escape
+! Remove Caps_Lock modifier from real Caps Lock key
+clear Lock
+! Set real Caps Lock key to present as (left) control
+keycode 66 = Control_L
+! Set real Escape key to present as Caps Lock
+keycode 9 = Caps_Lock
+! Make a fake key to hold the Escape keysym, so xcape can use it
+keycode 255 = Escape
+! Make Caps_Lock and Control_L work as one would expect
+add Lock = Caps_Lock
+add Control = Control_L

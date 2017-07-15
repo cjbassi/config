@@ -113,11 +113,11 @@ URxvt.iso14755_52:                  false
 URxvt*foreground:                   #dcdccc
 /* URxvt*background:                   #1f1f1f */
 URxvt*background:                   #1a1a1a
-/* URxvt*font:                         xft:Inconsolata:size=9 */
+URxvt*font:                         xft:Inconsolata:size=15
 /* URxvt.font: xft:Source Code Pro Medium,xft:Source Code Pro Medium for Powerline */
 /* urxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=12,xft:Source\ Code\ Pro\ Medium\ for\ Powerline:pixelsize=12 */
 /* urxvt256c-ml*font: xft:Terminus:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12 */
-URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+/* URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true */
 URxvt.letterSpace:                  -2
 
 URxvt.transparent:                  false

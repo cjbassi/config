@@ -79,6 +79,10 @@ nnoremap c "_c
 vnoremap c "_c
 nnoremap C "_C
 vnoremap C "_C
+nnoremap s "_s
+vnoremap s "_s
+nnoremap S "_S
+vnoremap S "_S
 
 nnoremap x "_x
 vnoremap x "_x
@@ -172,6 +176,7 @@ autocmd FileType help wincmd L "Opens help pane on the right
 set scrolloff=1
 set sidescrolloff=5
 
+set linebreak
 set timeoutlen=1000 ttimeoutlen=0 " Remove ESC delay in Vim
 set display+=lastline
 set formatoptions+=j " Delete comment character when joining commented lines"
@@ -180,7 +185,7 @@ set tabpagemax=50
 set history=1000
 set hidden
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
-autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
 
 set sessionoptions-=options
 set complete-=i

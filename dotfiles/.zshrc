@@ -128,8 +128,9 @@ ll() {
     ls -AhgoX --group-directories-first --color=always "$@" | tail --lines=+2
 }
 alias pwd='echo -e "${PWD/${HOME}/~}"'
-alias cat='vimcat'
+# alias cat='vimcat'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
+alias makepkg='makepkg -si'
 
 rm() {
     # ll $4

@@ -8,6 +8,7 @@ git clone https://github.com/cjbassi/config
 mkdir -p ~/.config/ranger
 ln -sf ~/config/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -sf ~/config/ranger/commands.py ~/.config/ranger/commands.py
+ranger --copy-config=scope
 
 # wm
 mkdir -p ~/.config/i3
@@ -47,24 +48,26 @@ git clone https://github.com/ervandew/urxvt-vim-scrollback
 bash config/installation/pacaur.sh
 
 pacaur -y \
-discord \
-gitflow-avh \
-gitflow-zshcompletion-avh \
-google-chrome \
-i3-gaps \
-i3lock-color-git \
-neofetch \
-polybar \
-unclutter-xfixes-git \
-universal-ctags-git \
-zsh-fast-syntax-highlighting-git \
+    discord \
+    gitflow-avh \
+    gitflow-zshcompletion-avh \
+    google-chrome \
+    i3-gaps \
+    i3lock-color-git \
+    lemonbar-xft-git \
+    neofetch \
+    ttf-font-awesome \
+    unclutter-xfixes-git \
+    universal-ctags-git \
+    zsh-fast-syntax-highlighting-git \
+
+# polybar
 
 echo "
 ###########################################
 1) :PlugInstall
-2) Edit /boot/loader/entries/arch.conf
-3) Configure internet
-4) Configure audio
+2) Configure internet
+3) Configure audio
     - set-default-source ...
     - set-default-sink ...
 ###########################################

@@ -4,7 +4,6 @@
 set $mod Mod1
 
 bindsym $mod+Return exec urxvt
-# bindsym $mod+Return exec tmux
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
@@ -75,56 +74,51 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # assign [title="Google Chrome"] $ws2
-
 # assign [title="Google Play Music"] $ws3
-
 # assign [title="Discord"] $ws4
 # assign [title="Gmail"] $w4
 
 ################################################################################
-# Custom commands
+# Windows
 
-# new_window normal 0 px
 new_window none
+# new_window normal 0 px
 # for_window [class="^.*"] border pixel 5
 # client.unfocused #000000 #000000 #000000 #000000
 # new_window 1pixel
 # client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
-
-# 144hz
-#exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
-exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080
-
-# Remap caps lock to escape
-exec_always --no-startup-id xmodmap ~/config/peripherals/xkeys
-
 gaps inner 10
 gaps outer 0
 
-# exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
+################################################################################
+# Custom commands
 
-# Polybar
-exec_always --no-startup-id ~/config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
 
-# Xresources
+exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 1.25
+
 exec_always --no-startup-id [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-exec_always --no-startup-id xbindkeys -p
+exec        --no-startup-id sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%"
 
-exec --no-startup-id sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%"
-# exec --no-startup-id amixer set PCM 30% unmute
+exec        --no-startup-id unclutter --timeout 5
 
-exec --no-startup-id compton -b --config ~/config/wm/compton.conf
-exec --no-startup-id devilspie -a
+exec        --no-startup-id redshift-gtk
 
-exec --no-startup-id unclutter --timeout 5
-
+exec        --no-startup-id xbindkeys -p
+exec_always --no-startup-id xmodmap ~/config/peripherals/xkeys
+exec_always --no-startup-id xcape -e '#66=Escape'
 exec_always --no-startup-id xset r rate 250 25
 
+exec        --no-startup-id compton -b --config ~/config/wm/compton.conf
+exec        --no-startup-id devilspie -a
+exec_always --no-startup-id ~/config/polybar/launch.sh
+
 # exec --no-startup-id powerline-daemon -q
+# exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
+# exec --no-startup-id amixer set PCM 30% unmute
+#exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
 
 ################################################################################
 # Old config
@@ -151,11 +145,12 @@ exec_always --no-startup-id xset r rate 250 25
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command      i3status
-#         position            bottom
-#         workspace_buttons   yes
-# }
+bar {
+    i3bar_command lemonbar
+
+    status_command python /usr/lib/python3.6/site-packages/powerline/bindings/i3/powerline-i3.py
+    font pango:DejavuSansMonoforPowerline 12
+}
 
 ################################################################################
 # vim:filetype=i3

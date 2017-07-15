@@ -39,10 +39,11 @@ pacstrap /mnt \
     xorg xorg-xinit \
     pulseaudio pulseaudio-alsa \
     xbindkeys xclip \
+    redshift python-gobject python-xdg librsvg \
     parted \
     dialog wpa_supplicant \
-    powerline highlight w3m \
-    devilspie transset-df wmctrl compton feh \
+    highlight w3m \
+    powerline devilspie transset-df wmctrl compton feh \
     urxvt-perls rxvt-unicode \
     openssh git the_silver_searcher \
     qbittorrent \
