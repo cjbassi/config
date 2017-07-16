@@ -3,7 +3,7 @@
 
 set $mod Mod1
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
@@ -106,10 +106,13 @@ exec        --no-startup-id unclutter --timeout 5
 
 exec        --no-startup-id redshift-gtk
 
+exec        --no-startup-id powerline-daemon -q
+
 exec        --no-startup-id xbindkeys -p
 exec_always --no-startup-id xmodmap ~/config/peripherals/xkeys
 exec_always --no-startup-id xcape -e '#66=Escape'
 exec_always --no-startup-id xset r rate 250 25
+exec_always --no-startup-id xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1
 
 exec        --no-startup-id compton -b --config ~/config/wm/compton.conf
 exec        --no-startup-id devilspie -a

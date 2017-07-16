@@ -1,0 +1,13 @@
+[options]
+font =              Inconsolata
+scrollback_lines =  10000
+cursor_blink =      off
+urgent_on_bell =    true
+browser =           xdg-open
+
+[colors]
+foreground =        #dcdccc
+background =        #1a1a1a
+highlight =         #2f2f2f
+
+# vim: ft=dosini cms=#%s

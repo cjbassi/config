@@ -12,12 +12,12 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'shime/vim-livedown'
 Plug 'farmergreg/vim-lastplace'
-Plug 'edkolev/promptline.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'cjbassi/i3-vim-navigator'
+" Plug 'cjbassi/i3-vim-navigator'
 
-Plug 'itchyny/lightline.vim'
+" Plug 'edkolev/promptline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 
@@ -30,6 +30,10 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'jwilm/i3-vim-focus'
 
 call plug#end()
+
+let g:powerline_pycmd = "py3"
+set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
+
 
 " let g:ac_smooth_scroll_du_sleep_time_msec=0
 " let g:ac_smooth_scroll_fb_sleep_time_msec=0
@@ -346,61 +350,61 @@ function! RangerExplorer()
 endfun
 map <Leader>r :call RangerExplorer()<CR>
 
-" lightline
-let g:lightline = {
-    \ 'active': {
-    \   'left': [
-    \               [ 'mode', 'paste' ],
-    \               [ 'gitbranch', 'filename' ],
-    \               [ 'syntastic' ],
-    \   ],
-    \   'right': [
-    \               [ 'lineinfo'  ],
-    \               [ 'column'  ],
-    \               [ 'filetype'  ],
-    \   ],
-    \ },
-    \ 'inactive': {
-    \   'left': [
-    \               [ 'mode', 'paste' ],
-    \               [ 'gitbranch', 'filename' ],
-    \   ],
-    \   'right': [
-    \               [ 'lineinfo'  ],
-    \               [ 'column'  ],
-    \               [ 'filetype'  ],
-    \   ],
-    \ },
-    \ 'tabline': {
-    \   'left': [
-    \               [ 'tabs' ],
-    \   ],
-    \   'right': [
-    \   ],
-    \ },
-    \ 'component_function': {
-    \   'filename': 'LightlineFilename',
-    \   'gitbranch': 'fugitive#head',
-    \   'syntastic': 'SyntasticError',
-    \ },
-    \ 'component': {
-    \   'lineinfo': "%{printf('%03d/%03d', line('.'),  line('$'))}",
-    \   'column': '%02c',
-    \ },
-    \ }
-function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-    let modified = &modified ? ' +' : ''
-    return filename . modified
-endfunction
+" " lightline
+" let g:lightline = {
+"     \ 'active': {
+"     \   'left': [
+"     \               [ 'mode', 'paste' ],
+"     \               [ 'gitbranch', 'filename' ],
+"     \               [ 'syntastic' ],
+"     \   ],
+"     \   'right': [
+"     \               [ 'lineinfo'  ],
+"     \               [ 'column'  ],
+"     \               [ 'filetype'  ],
+"     \   ],
+"     \ },
+"     \ 'inactive': {
+"     \   'left': [
+"     \               [ 'mode', 'paste' ],
+"     \               [ 'gitbranch', 'filename' ],
+"     \   ],
+"     \   'right': [
+"     \               [ 'lineinfo'  ],
+"     \               [ 'column'  ],
+"     \               [ 'filetype'  ],
+"     \   ],
+"     \ },
+"     \ 'tabline': {
+"     \   'left': [
+"     \               [ 'tabs' ],
+"     \   ],
+"     \   'right': [
+"     \   ],
+"     \ },
+"     \ 'component_function': {
+"     \   'filename': 'LightlineFilename',
+"     \   'gitbranch': 'fugitive#head',
+"     \   'syntastic': 'SyntasticError',
+"     \ },
+"     \ 'component': {
+"     \   'lineinfo': "%{printf('%03d/%03d', line('.'),  line('$'))}",
+"     \   'column': '%02c',
+"     \ },
+"     \ }
+" function! LightlineFilename()
+"     let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+"     let modified = &modified ? ' +' : ''
+"     return filename . modified
+" endfunction
 
-let g:promptline_preset = {
-        \'a' : [ '$vim_mode' ],
-        \'b' : [ promptline#slices#cwd() ],
-        \'c' : [ promptline#slices#jobs() ],
-        \'y' : [ promptline#slices#vcs_branch() ],
-        \'z' : [ promptline#slices#git_status() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
+" let g:promptline_preset = {
+"         \'a' : [ '$vim_mode' ],
+"         \'b' : [ promptline#slices#cwd() ],
+"         \'c' : [ promptline#slices#jobs() ],
+"         \'y' : [ promptline#slices#vcs_branch() ],
+"         \'z' : [ promptline#slices#git_status() ],
+"         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 " vimpager
 if exists('g:vimpager.enabled')

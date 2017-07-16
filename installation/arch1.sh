@@ -38,12 +38,13 @@ pacstrap /mnt \
     base base-devel \
     xorg xorg-xinit \
     pulseaudio pulseaudio-alsa \
-    xbindkeys xclip \
+    xbindkeys xclip xcape \
     redshift python-gobject python-xdg librsvg \
     parted \
     dialog wpa_supplicant \
     highlight w3m \
-    powerline devilspie transset-df wmctrl compton feh \
+    powerline powerline-vim \
+    devilspie transset-df wmctrl compton feh \
     urxvt-perls rxvt-unicode \
     openssh git the_silver_searcher \
     qbittorrent \

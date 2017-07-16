@@ -119,6 +119,7 @@ alias mv='mv -iv'
 alias rm='rm -v' # Irdf
 alias rmdir='rmdir -v'
 alias mkdir='mkdir -v'
+alias ln='ln -v'
 
 alias w='w -f'
 alias df='df -h'
@@ -168,7 +169,9 @@ function expand-or-cd-or-fzf() {
         fzf-cd-widget
         BUFFER=""
     # elif cursor is next to a space
-    elif [[ $BUFFER =~ \ $ ]] ; then
+    # elif [[ $BUFFER =~ \ $ ]] ; then
+    #     fzf-file-widget
+    elif [[ $BUFFER = "vim " ]]; then
         fzf-file-widget
     else
         zle expand-or-complete
@@ -261,8 +264,8 @@ zle -N zle-keymap-select
 # promptline
 
 # ZLE_RPROMPT_INDENT=0
-source ~/.promptline.sh
-# source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+# source ~/.promptline.sh
+source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 ################################################################################
 # zsh-syntax-highlighting

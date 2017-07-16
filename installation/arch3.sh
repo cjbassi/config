@@ -32,6 +32,14 @@ if ! [[ -e ~/.vim/autoload/plug.vim ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# termite
+mkdir -p ~/.config/termite/
+ln -sf ~/config/termite/config  ~/.config/termite/
+
+# rofi
+mkdir -p ~/.config/rofi/
+ln -sf ~/config/rofi/config ~/.config/rofi/
+
 # dotfiles
 ln -sf ~/config/dotfiles/.* ~/
 
