@@ -90,3 +90,5 @@ rofi.kb-toggle-case-sensitivity:
 rofi.kb-toggle-sort:
 ! "Quit rofi"
 rofi.kb-cancel:                     Escape
+
+# vim:filetype=xdefaults

@@ -1,47 +1,38 @@
 rm -f arch3.sh
 
 mkdir Downloads
+mkdir -p .config
 
 git clone https://github.com/cjbassi/config
 
-# Ranger
-mkdir -p ~/.config/ranger
-ln -sf ~/config/ranger/rc.conf ~/.config/ranger/rc.conf
-ln -sf ~/config/ranger/commands.py ~/.config/ranger/commands.py
+systemctl enable suspend@cbassi
+
+################################################################################
+# Symlinks
+
+ln -sf ~/config/ranger ~/.config/ranger
 ranger --copy-config=scope
 
-# wm
-mkdir -p ~/.config/i3
-ln -sf ~/config/wm/config ~/.config/i3/
-mkdir -p .devilspie
-ln -sf ~/config/wm/opacity.ds ~/.devilspie/
+ln -sf ~/config/i3 ~/.config/i3
 
-# X11 mouse acceleration and speed
+ln -sf ~/config/devilspie ~/.devilspie
+
 sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 
-# polybar
-mkdir -p ~/.config/polybar
-ln -sf ~/config/polybar/config ~/.config/polybar/
-
-# mutt
-ln -sf ~/config/mutt/.muttrc ~/
-
-# Vim
 mkdir -p ~/.vim/temp ~/.vim/undodir
 if ! [[ -e ~/.vim/autoload/plug.vim ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# termite
-mkdir -p ~/.config/termite/
-ln -sf ~/config/termite/config  ~/.config/termite/
+ln -sf ~/config/termite  ~/.config/termite
 
-# rofi
-mkdir -p ~/.config/rofi/
-ln -sf ~/config/rofi/config ~/.config/rofi/
+ln -sf ~/config/rofi ~/.config/rofi
 
-# dotfiles
+ln -sf ~/config/powerline ~/.config/powerline
+
 ln -sf ~/config/dotfiles/.* ~/
+
+################################################################################
 
 cd Downloads
 git clone https://github.com/rkitover/vimpager
@@ -50,8 +41,7 @@ sudo make install
 cd ~
 
 sudo pip install glances
-
-git clone https://github.com/ervandew/urxvt-vim-scrollback
+sudo pip install i3ipc
 
 bash config/installation/pacaur.sh
 
@@ -64,12 +54,13 @@ pacaur -y \
     i3lock-color-git \
     lemonbar-xft-git \
     neofetch \
-    ttf-font-awesome \
+    powerline-vim \
     unclutter-xfixes-git \
     universal-ctags-git \
     zsh-fast-syntax-highlighting-git \
 
 # polybar
+# ttf-font-awesome \
 
 echo "
 ###########################################
@@ -89,3 +80,5 @@ echo "
     #ttf-font-awesome
     #awesome-terminal-fonts
     #fonts on bar
+
+# git clone https://github.com/ervandew/urxvt-vim-scrollback

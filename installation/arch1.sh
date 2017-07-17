@@ -37,25 +37,31 @@ timedatectl set-ntp true
 pacstrap /mnt \
     base base-devel \
     xorg xorg-xinit \
-    pulseaudio pulseaudio-alsa \
+    pulseaudio pulseaudio-alsa pavucontrol \
     xbindkeys xclip xcape \
     redshift python-gobject python-xdg librsvg \
-    parted \
-    dialog wpa_supplicant \
-    highlight w3m \
-    powerline powerline-vim \
-    devilspie transset-df wmctrl compton feh \
-    urxvt-perls rxvt-unicode \
-    openssh git the_silver_searcher \
-    qbittorrent \
-    tig gvim zsh ranger fzf rofi \
+    powerline powerline-vim powerline-fonts \
+    devilspie transset-df \
     python jdk8-openjdk python-pip \
-    powerline-fonts ttf-dejavu \
+    ttf-dejavu ttf-symbola \
+    termite gvim zsh \
+    ranger highlight w3m \
+    fzf the_silver_searcher \
+    git tig \
+    rofi \
+    openssh \
+    qbittorrent \
+    compton \
+    feh \
+    wmctrl \
+    parted \
 
 #tmux
 #ttf-insonsolata
 #alsa-utils
 #vimpager
+# dialog wpa_supplicant \
+# urxvt-perls rxvt-unicode \
 
 ################################################################################
 # Configure the system

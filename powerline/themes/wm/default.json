@@ -1,0 +1,48 @@
+{
+	"segments": {
+        "left": [
+            {
+                "function": "powerline.segments.i3wm.workspaces",
+                "draw_inner_divider": true
+            },
+            {
+                "function": "powerline.segments.i3wm.mode"
+            }
+        ],
+		"right": [
+            {
+                "function": "powerline.segments.common.sys.cpu_load_percent",
+                "width": 4,
+                "before": "CPU: "
+            },
+            {
+                "function": "powerline.segments.common.bat.battery",
+                "before": "Battery:"
+            },
+			{
+				"function": "powerline.segments.common.time.date",
+                "name": "day",
+				"args": {
+					"format": "%a",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+                "name": "date",
+				"args": {
+					"format": "%B %d",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
+				"args": {
+					"format": "%H:%M",
+					"istime": true
+				}
+			}
+		]
+	}
+}

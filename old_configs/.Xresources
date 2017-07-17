@@ -1,1 +1,179 @@
-/home/cbassi/config/dotfiles/.Xresources
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Rofi
+
+! Theme
+rofi.color-enabled:                 true
+rofi.color-window:                  #002b37, #002b37, #003642
+rofi.color-normal:                  #002b37, #819396, #003643, #008ed4, #ffffff
+rofi.color-active:                  #002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:                  #002b37, #da4281, #003643, #008ed4, #890661
+
+! Size
+rofi.width:                         22
+rofi.lines:                         8
+rofi.bw:                            1
+rofi.padding:                       5
+rofi.hide-scrollbar:                true
+rofi.separator-style:               solid
+
+rofi.terminal:                      termite
+
+! Keybinds
+
+! "Paste primary selection"
+rofi.kb-primary-paste:
+! "Paste clipboard"
+rofi.kb-secondary-paste:            Alt+p
+! "Clear input line"
+rofi.kb-clear-line:
+! "Beginning of line"
+rofi.kb-move-front:
+! "End of line"
+rofi.kb-move-end:
+! "Move back one word"
+rofi.kb-move-word-back:             Alt+b
+! "Move forward one word"
+rofi.kb-move-word-forward:          Alt+w
+! "Move back one char"
+rofi.kb-move-char-back:             Alt+h
+! "Move forward one char"
+rofi.kb-move-char-forward:          Alt+l
+! "Delete previous word"
+rofi.kb-remove-word-back:Control+BackSpace
+! "Delete next word"
+rofi.kb-remove-word-forward:
+! "Delete next char"
+rofi.kb-remove-char-forward:        Alt+x
+! "Delete previous char"
+rofi.kb-remove-char-back:           BackSpace,Alt+X
+! "Delete till the end of line"
+rofi.kb-remove-to-eol:              Alt+D
+! "Delete till the start of line"
+rofi.kb-remove-to-sol:
+! "Accept entry"
+rofi.kb-accept-entry:               Return,KP_Enter
+! "Use entered text as command (in ssh/run modi)"
+rofi.kb-accept-custom:
+! "Use alternate accept command."
+rofi.kb-accept-alt:                 Shift+Return
+! "Delete entry from history"
+rofi.kb-delete-entry:
+! "Switch to the next mode."
+rofi.kb-mode-next:                  Control+Tab
+! "Switch to the previous mode."
+rofi.kb-mode-previous:              Control+Shift+Tab
+! "Go to the previous column"
+rofi.kb-row-left:
+! "Go to the next column"
+rofi.kb-row-right:
+! "Select previous entry"
+rofi.kb-row-up:                     Control+k,Shift+Tab
+! "Select next entry"
+rofi.kb-row-down:                   Control+j,Tab
+! "Go to next row, if one left, accept it, if no left next mode."
+rofi.kb-row-tab:
+! "Go to the previous page"
+rofi.kb-page-prev:
+! "Go to the next page"
+rofi.kb-page-next:
+! "Go to the first entry"
+rofi.kb-row-first:
+! "Go to the last entry"
+rofi.kb-row-last:
+! "Set selected item as input text"
+rofi.kb-row-select:
+! "Take a screenshot of the rofi window"
+rofi.kb-screenshot:
+! "Toggle case sensitivity"
+rofi.kb-toggle-case-sensitivity:
+! "Toggle sort"
+rofi.kb-toggle-sort:
+! "Quit rofi"
+rofi.kb-cancel:                     Escape
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! urxvt
+
+/* URxvt.modifier:                     alt */
+
+URxvt.urgentOnBell:                 true
+
+URxvt.saveLines:                    10000
+
+URxvt.insecure:                     true
+
+URxvt*scrollBar:                    false
+URxvt.scrollBar_right:              true
+URxvt.scrollBar_floating:           true
+
+URxvt.iso14755:                     false
+URxvt.iso14755_52:                  false
+
+URxvt*foreground:                   #dcdccc
+/* URxvt*background:                   #1f1f1f */
+URxvt*background:                   #1a1a1a
+URxvt*font:                         xft:Inconsolata:size=15
+/* URxvt.font: xft:Source Code Pro Medium,xft:Source Code Pro Medium for Powerline */
+/* urxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=12,xft:Source\ Code\ Pro\ Medium\ for\ Powerline:pixelsize=12 */
+/* urxvt256c-ml*font: xft:Terminus:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12 */
+/* URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true */
+URxvt.letterSpace:                  -2
+
+URxvt.transparent:                  false
+URxvt.tintColor:                    white
+URxvt.shading:                      1
+
+term.depth: 32
+term.background: [90]#191919
+
+urxvt*perl-ext-common:              -searchable-scrollback,selection-to-clipboard,vim-scrollback
+
+URxvt.perl-ext:                     default,url-select
+URxvt.keysym.M-u:                   perl:url-select:select_next
+URxvt.url-select.launcher:          /usr/bin/xdg-open
+URxvt.url-select.underline:         false
+
+urxvt*perl-lib:                     /home/cbassi/urxvt-vim-scrollback
+urxvt.vim-scrollback:               M-c
+urxvt*urlLauncher:                  /usr/bin/xdg-open
+urxvt.vim-scrollback-bg:            0
+urxvt.vim-scrollback-fg:            10
+
+
+
+
+
+
+
+
+
+
+/* URxvt*font: xft:DejaVu Sans Mono for Powerline:size=9 */
+/* URxvt.perl-ext: default,url-select */
+/* URxvt.keysym.M-u: perl:url-select:select_next */
+/* URxvt.url-select.launcher: /usr/bin/xdg-open */
+/* URxvt.url-select.underline: true */
+
+/* URxvt.keysym.C-C: perl:clipboard:copy */
+/* URxvt.keysym.C-V: perl:clipboard:paste_escaped */
+
+/* rxvt*perl-lib: /home/erszcz/src/urxvt-vim-scrollback */
+/* rxvt*perl-ext-common: -searchable-scrollback,vim-scrollback */
+/* rxvt.vim-scrollback: M-s */
+/* URxvt.keysym.C-V: perl:clipboard:paste */
+/* URxvt.keysym.C-A-V: perl:clipboard:paste_escaped */
+
+/* URxvt.keysym.M-c:   perl:clipboard:copy */
+/* URxvt.keysym.M-v:   perl:clipboard:paste */
+/* URxvt.perl-ext-common:  default,clipboard */
+/* URxvt.perl-ext-common:  default,url-select */
+/* URxvt.keysym.M-u:       perl:url-select:select_next */
+/* URxvt.urlLauncher:      /usr/bin/conkeror */
+/* URxvt.underlineURLs:    true */
+
+/* URxvt.insecure:         true */
+
+! XTerm.vt100.translations: #override \n\
+!     Ctrl <Key>f: maximize() \n\
+!     Ctrl <Key>b: restore()
