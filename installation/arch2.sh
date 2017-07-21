@@ -41,6 +41,8 @@ options     root=$part rw" \
 ################################################################################
 # Post-installation
 
+mkdir /mnt/usb
+
 # Enable members of 'wheel' group to use root
 FIND="%wheel ALL=(ALL) NOPASSWD: ALL" ; sed -i "s/# $FIND/$FIND/g" /etc/sudoers
 

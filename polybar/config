@@ -246,12 +246,11 @@ type = internal/i3
 format = <label-state>
 
 label-focused = "%name% "
-label-focused-foreground = ${colors.background}
+label-focused-foreground = ${colors.dark_grey}
 label-focused-background = ${colors.blue}
 
 label-unfocused =
 label-urgent =
-
 
 [module/mpd]
 type = internal/mpd

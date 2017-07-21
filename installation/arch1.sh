@@ -47,6 +47,8 @@ pacstrap /mnt \
     termite gvim zsh \
     ranger highlight w3m \
     fzf the_silver_searcher \
+    networkmanager network-manager-applet \
+    gnome-keyring libsecret \
     git tig \
     rofi \
     openssh \

@@ -1,3 +1,5 @@
+nm-applet &
+
 feh --bg-scale ~/Downloads/wallpaper.* &
 
 dropbox &

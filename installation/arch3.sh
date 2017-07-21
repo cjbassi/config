@@ -1,17 +1,20 @@
 rm -f arch3.sh
 
 mkdir Downloads
+mkdir .ssh
 mkdir -p .config
 
 git clone https://github.com/cjbassi/config
 
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 systemctl enable suspend@cjbassi
+systemctl enable NetworkManager.service
 
 ################################################################################
 # Symlinks
 
-ln -sf ~/config/ranger ~/.config/ranger
+mkdir -p ~/.config/ranger
+ln -sf ~/config/ranger/* ~/.config/ranger/
 ranger --copy-config=scope
 
 ln -sf ~/config/i3 ~/.config/i3
@@ -66,10 +69,12 @@ pacaur -y \
     i3-gaps \
     i3lock-color-git \
     neofetch \
-    polybar-git \
     unclutter-xfixes-git \
     universal-ctags-git \
     zsh-fast-syntax-highlighting-git \
+
+pacaur -y \
+    polybar-git \
 
 # lemonbar-xft-git \
 # ttf-font-awesome \
@@ -77,10 +82,7 @@ pacaur -y \
 echo "
 ###########################################
 1) :PlugInstall
-2) Configure internet
-3) Configure audio
-    - set-default-source ...
-    - set-default-sink ...
+2) Configure pavucontrol
 ###########################################
 "
 
