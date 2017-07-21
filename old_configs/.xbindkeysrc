@@ -1,6 +1,12 @@
-"amixer set PCM 5%- unmute"
+"pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
     XF86AudioLowerVolume
-"amixer set PCM 5%+ unmute"
+"pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
     XF86AudioRaiseVolume
 "pactl set-sink-mute 0 toggle"
     XF86AudioMute
+"pactl set-source-mute 1 toggle"
+    XF86AudioMicMute
+"echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 106)) | sudo tee /sys/class/backlight/intel_backlight/brightness"
+    XF86MonBrightnessDown
+"echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 106)) | sudo tee /sys/class/backlight/intel_backlight/brightness"
+    XF86MonBrightnessUp

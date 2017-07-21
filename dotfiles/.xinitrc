@@ -1,8 +1,8 @@
 nm-applet &
+dropbox &
+blueman-applet &
 
 feh --bg-scale ~/Downloads/wallpaper.* &
-
-dropbox &
 
 xrandr --output DVI-D-0 --mode 1920x1080 1.25 &
 

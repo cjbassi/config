@@ -9,6 +9,7 @@ git clone https://github.com/cjbassi/config
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 systemctl enable suspend@cjbassi
 systemctl enable NetworkManager.service
+systemctl enable bluetooth
 
 ################################################################################
 # Symlinks
@@ -64,7 +65,6 @@ pacaur -y \
     discord \
     dropbox \
     gitflow-avh \
-    gitflow-zshcompletion-avh \
     google-chrome \
     i3-gaps \
     i3lock-color-git \
@@ -74,6 +74,7 @@ pacaur -y \
     zsh-fast-syntax-highlighting-git \
 
 pacaur -y \
+    gitflow-zshcompletion-avh \
     polybar-git \
 
 # lemonbar-xft-git \

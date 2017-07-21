@@ -38,12 +38,14 @@ pacstrap /mnt \
     base base-devel \
     xorg xorg-xinit \
     pulseaudio pulseaudio-alsa pavucontrol \
+    alsa-utils \
+    blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils \
     xbindkeys xclip xcape \
     redshift python-gobject python-xdg librsvg \
     powerline powerline-vim powerline-fonts \
     devilspie transset-df \
     python jdk8-openjdk python-pip \
-    ttf-dejavu ttf-symbola \
+    ttf-dejavu ttf-symbola awesome-terminal-fonts \
     termite gvim zsh \
     ranger highlight w3m \
     fzf the_silver_searcher \

@@ -18,6 +18,8 @@ blue =          #0050FF
 black =         #000000
 red =           #ee3333
 green =         #20ad80
+purple =        #875faf
+pink =          #d75f87
 
 background =    ${colors.dark_grey}
 foreground =    ${colors.white}
@@ -51,16 +53,18 @@ font-0 = fixed:pixelsize=12;3
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;3
 font-3 = siji:pixelsize=10;3
 font-2 = Inconsolata for Powerline:pixelsize=20;4
+font-4 = Font Awesome:pixelsize=12;4
 
-modules-left = i3 left_arrow1 i3index left_arrow2
-modules-center =
+modules-left = i3 blue_arrow1 i3index blue_arrow2
+modules-center = left_arrow_dark day left_arrow_light date right_arrow_light time right_arrow_dark
 ; modules-right = memory arrow1 cpu arrow1 day arrow1 date arrow1 time
-modules-right = right_arrow1 ram right_arrow2 cpu right_arrow1 battery right_arrow2 volume right_arrow1 day right_arrow2 date right_arrow1 time right_arrow2
+; modules-right = right_arrow1 ram right_arrow2 cpu right_arrow1 battery right_arrow2 volume right_arrow1 day right_arrow2 date right_arrow1 time right_arrow2
+modules-right = left_arrow_dark ram left_arrow_light cpu left_arrow_dark battery left_arrow_light volume left_arrow_dark
 
 tray-position = right
 ; tray-padding = 4
-;tray-transparent = true
-;tray-background = #0063ff
+; tray-transparent = true
+tray-background = ${colors.dark_grey}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -73,28 +77,42 @@ tray-position = right
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
-[module/left_arrow1]
+[module/blue_arrow1]
 type = custom/text
 content = " "
 content-font = 2
 content-foreground = ${colors.dark_grey}
 content-background = ${colors.blue}
 
-[module/left_arrow2]
+[module/blue_arrow2]
 type = custom/text
 content = " "
 content-font = 2
 content-foreground = ${colors.blue}
 content-background = ${colors.light_grey}
 
-[module/right_arrow1]
+[module/right_arrow_dark]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.dark_grey}
+content-background = ${colors.light_grey}
+
+[module/right_arrow_light]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.light_grey}
+content-background = ${colors.dark_grey}
+
+[module/left_arrow_dark]
 type = custom/text
 content = " "
 content-font = 2
 content-foreground = ${colors.dark_grey}
 content-background = ${colors.light_grey}
 
-[module/right_arrow2]
+[module/left_arrow_light]
 type = custom/text
 content = " "
 content-font = 2
@@ -145,18 +163,18 @@ format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.dark_grey}
 
-label-charging = "CHR %percentage%%"
-label-discharging = "BAT %percentage%%"
+label-charging = " %percentage%%"
+label-discharging = "%percentage%%"
 label-discharging-foreground = ${colors.green}
-label-full = "BAT %percentage%%"
+label-full = " %percentage%%"
 
-ramp-capacity-0 =
+ramp-capacity-0 = "   "
 ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1 =
+ramp-capacity-1 = "  "
 ramp-capacity-1-foreground = ${colors.red}
-ramp-capacity-2 =
-ramp-capacity-3 =
-ramp-capacity-4 =
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
 animation-charging-0 =
 animation-charging-1 =
 animation-charging-2 =
@@ -291,20 +309,20 @@ card = intel_backlight
 type = internal/cpu
 interval = 1
 format-prefix = " CPU "
-format-prefix-foreground = ${colors.white}
+format-prefix-foreground = ${colors.purple}
 format-prefix-background = ${colors.light_grey}
 label = %percentage%%
-label-foreground = ${colors.white}
+label-foreground = ${colors.purple}
 label-background = ${colors.light_grey}
 
 [module/ram]
 type = internal/memory
 interval = 1
 format-prefix = " RAM "
-format-prefix-foreground = ${colors.white}
+format-prefix-foreground = ${colors.pink}
 format-prefix-background = ${colors.dark_grey}
 label = %percentage_used%%
-label-foreground = ${colors.white}
+label-foreground = ${colors.pink}
 label-background = ${colors.dark_grey}
 
 [module/wlan]
@@ -393,22 +411,22 @@ format-volume = <ramp-volume><label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${colors.blue}
 label-volume-background = ${colors.light_grey}
-label-muted = " MUTED "
+label-muted = " MUTED"
 label-muted-foreground = ${colors.blue}
 label-muted-background = ${colors.light_grey}
 
-ramp-volume-0 = " VOL "
+ramp-volume-0 = "  "
 ramp-volume-0-foreground = ${colors.blue}
 ramp-volume-0-background = ${colors.light_grey}
-ramp-volume-1 = " VOL "
+ramp-volume-1 = "  "
 ramp-volume-1-foreground = ${colors.blue}
 ramp-volume-1-background = ${colors.light_grey}
-ramp-volume-2 = " VOL "
+ramp-volume-2 = "  "
 ramp-volume-2-foreground = ${colors.blue}
 ramp-volume-2-background = ${colors.light_grey}
-ramp-volume-3 = " VOL "
-ramp-volume-3-foreground = ${colors.blue}
-ramp-volume-3-background = ${colors.light_grey}
+; ramp-volume-3 = "  "
+; ramp-volume-3-foreground = ${colors.blue}
+; ramp-volume-3-background = ${colors.light_grey}
 
 ; [module/volume]
 ; type = custom/script
