@@ -5,7 +5,8 @@ mkdir -p .config
 
 git clone https://github.com/cjbassi/config
 
-systemctl enable suspend@cbassi
+sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
+systemctl enable suspend@cjbassi
 
 ################################################################################
 # Symlinks
@@ -32,34 +33,45 @@ ln -sf ~/config/powerline ~/.config/powerline
 
 ln -sf ~/config/dotfiles/.* ~/
 
+ln -sf ~/config/polybar ~/.config/polybar
+
 ################################################################################
 
 cd Downloads
 git clone https://github.com/rkitover/vimpager
 cd vimpager
 sudo make install
+cd ..
+rm -rf vimpager
+cd ~
+
+cd Downloads
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
 cd ~
 
 sudo pip install glances
-sudo pip install i3ipc
 
 bash config/installation/pacaur.sh
 
 pacaur -y \
     discord \
+    dropbox \
     gitflow-avh \
     gitflow-zshcompletion-avh \
     google-chrome \
     i3-gaps \
     i3lock-color-git \
-    lemonbar-xft-git \
     neofetch \
-    powerline-vim \
+    polybar-git \
     unclutter-xfixes-git \
     universal-ctags-git \
     zsh-fast-syntax-highlighting-git \
 
-# polybar
+# lemonbar-xft-git \
 # ttf-font-awesome \
 
 echo "
@@ -73,7 +85,6 @@ echo "
 "
 
 #install vim mardown preview
-#gitflow-avh vs gitflow-avh-git
 #fonts
     #noto-fonts-emoji
     #ttf-symbola

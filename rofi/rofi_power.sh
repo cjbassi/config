@@ -4,7 +4,7 @@ OPTIONS="Lock i3\nExit i3\nReboot\nShutdown"
 # Log-off, Suspend, Hibernate
 
 LAUNCHER="rofi -dmenu -i -p rofi-power:"
-LOCKER="/home/cbassi/config/i3lock/i3lock"
+LOCKER="/home/cjbassi/config/i3lock/i3lock"
 
 close_apps(){
     wmctrl -l | awk '{print $1}' | while read APP; do

@@ -45,8 +45,8 @@ options     root=$part rw" \
 FIND="%wheel ALL=(ALL) NOPASSWD: ALL" ; sed -i "s/# $FIND/$FIND/g" /etc/sudoers
 
 # Add user
-useradd -m -G wheel -s $(which zsh) cbassi
-passwd cbassi
+useradd -m -G wheel -s $(which zsh) cjbassi
+passwd cjbassi
 
 # Edit pacman.conf
 sed -i "s/#Color/Color/g" /etc/pacman.conf
@@ -56,7 +56,7 @@ sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 ################################################################################
 # As non root
 
-cd /home/cbassi/
+cd /home/cjbassi/
 touch .zshrc
 curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch3.sh > arch3.sh
-su cbassi
+su cjbassi

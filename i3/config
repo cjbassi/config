@@ -46,15 +46,10 @@ mode "resize" {
 ################################################################################
 # Workspaces
 
-set $ws1 " "
-set $ws2 " "
-set $ws3 " "
-set $ws4 " "
-
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -62,10 +57,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -81,43 +76,56 @@ bindsym $mod+Shift+0 move container to workspace 10
 ################################################################################
 # Windows
 
-new_window none
+# new_window none
 # new_window normal 0 px
 # for_window [class="^.*"] border pixel 5
 # client.unfocused #000000 #000000 #000000 #000000
-# new_window 1pixel
-# client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+new_window pixel
+# class                         border  backgr. text
+# client.focused                  #FF0000 #FF0000 #181818 #ee66aa
+# client.unfocused                #181818 #181818 #315858
+# client.focused_inactive         #181818 #181818 #2c2e2f
+# client.urgent                   #383a3b #00ccff #ee0000
+
+client.focused #FF0000 #FF0000 #FF0000 #FF0000
 
 gaps inner 10
 gaps outer 0
 
+focus_follows_mouse no
+smart_borders on
+
 ################################################################################
 # Custom commands
 
-exec_always --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
+# exec        --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
 
-exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 1.25
+# exec        --no-startup-id dropbox
 
-exec        --no-startup-id sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%"
+# exec        --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 1.25
 
-exec        --no-startup-id unclutter --timeout 5
+# exec        --no-startup-id sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%"
 
-exec        --no-startup-id echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness
+# exec        --no-startup-id unclutter --timeout 5
 
-exec        --no-startup-id redshift-gtk
+# exec        --no-startup-id echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness
 
-exec        --no-startup-id powerline-daemon -q
+# exec        --no-startup-id redshift-gtk
 
-exec_always --no-startup-id xbindkeys -p
-exec        --no-startup-id xmodmap ~/config/peripherals/xkeys
-exec        --no-startup-id xcape -e '#66=Escape'
-exec_always --no-startup-id xset r rate 250 25
-exec        --no-startup-id xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1
+# exec        --no-startup-id powerline-daemon -q
 
-exec        --no-startup-id compton -b --config ~/config/compton/compton.conf
-exec        --no-startup-id devilspie -a
+# exec        --no-startup-id xbindkeys -p
+# exec        --no-startup-id xmodmap ~/config/peripherals/xkeys
+# exec        --no-startup-id xcape -e '#66=Escape'
+# exec        --no-startup-id xset r rate 250 25
+# exec        --no-startup-id xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1
 
-exec_always --no-startup-id pkill lemonbar; python /usr/lib/python3.6/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --height 30 --i3 -- -f "Font Awesome" -f "Inconsolata for Powerline-12" -p -b -B \#1a1a1a
+# exec        --no-startup-id compton -b --config ~/config/compton/compton.conf
+# exec        --no-startup-id devilspie -a
+
+# exec_always --no-startup-id pkill lemonbar; python /usr/lib/python3.6/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --height 30 --i3 -- -f "Font Awesome" -f "Inconsolata for Powerline-12" -p -b -B \#1a1a1a
+
+exec_always --no-startup-id ~/config/polybar/launch.sh
 
 # exec_always --no-startup-id ~/config/polybar/launch.sh
 # exec_always --no-startup-id [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources

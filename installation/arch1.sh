@@ -53,15 +53,15 @@ pacstrap /mnt \
     qbittorrent \
     compton \
     feh \
-    wmctrl \
     parted \
 
+#wmctrl \
 #tmux
 #ttf-insonsolata
 #alsa-utils
 #vimpager
-# dialog wpa_supplicant \
-# urxvt-perls rxvt-unicode \
+#dialog wpa_supplicant \
+#urxvt-perls rxvt-unicode \
 
 ################################################################################
 # Configure the system
