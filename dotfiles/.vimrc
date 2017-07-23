@@ -14,25 +14,28 @@ Plug 'shime/vim-livedown'
 Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-unimpaired'
 Plug 'terryma/vim-smooth-scroll'
-" Plug 'cjbassi/i3-vim-navigator'
+Plug 'craigemery/vim-autotag'
 
-" Plug 'edkolev/promptline.vim'
-" Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Plug 'yonchu/accelerated-smooth-scroll'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-airline-colornum'
+Plug 'edkolev/promptline.vim'
 
 " Plug 'haya14busa/vim-easyoperator-line'
+
+" Plug 'cjbassi/i3-vim-navigator'
 " Plug 'jwilm/i3-vim-focus'
 
 call plug#end()
 
-let g:powerline_pycmd = "py3"
-set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
+" let g:powerline_pycmd = "py3"
+" set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
 
 
 " let g:ac_smooth_scroll_du_sleep_time_msec=0
@@ -118,7 +121,7 @@ nnoremap <silent> <leader>e :FZF ~<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
 nnoremap <silent> <leader>w :StripWhitespace<CR>
-nnoremap <silent> <leader>s :source /home/cbassi/.vimrc <bar> :nohlsearch<CR>
+nnoremap <silent> <leader>s :source /home/cjbassi/.vimrc <bar> :nohlsearch<CR>
 nnoremap <silent> <leader>t :Tags<CR>
 
 map Y y$
@@ -151,21 +154,21 @@ cnoremap $y <CR>:t''<CR>
 cnoremap $m <CR>:m''<CR>
 cnoremap $d <CR>:d<CR>``
 
-function! s:setup_paste() abort
-    let s:paste = &paste
-    set paste
-    augroup unimpaired_paste
-        autocmd!
-        autocmd InsertLeave *
-            \ if exists('s:paste') |
-            \   let &paste = s:paste |
-            \   unlet s:paste |
-            \ endif |
-            \ autocmd! unimpaired_paste
-    augroup END
-endfunction
-nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>
-nnoremap <silent> <leader>i :call <SID>setup_paste()<CR>i
+" function! s:setup_paste() abort
+"     let s:paste = &paste
+"     set paste
+"     augroup unimpaired_paste
+"         autocmd!
+"         autocmd InsertLeave *
+"             \ if exists('s:paste') |
+"             \   let &paste = s:paste |
+"             \   unlet s:paste |
+"             \ endif |
+"             \ autocmd! unimpaired_paste
+"     augroup END
+" endfunction
+" nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>
+" nnoremap <silent> <leader>i :call <SID>setup_paste()<CR>i
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
@@ -190,6 +193,20 @@ set history=1000
 set hidden
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
 autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
+
+set noshowcmd
+
+" syn match myExCapitalWords +\<\w*[A-Z]\K*\>+ contains=@NoSpell
+" syn match myExCapitalWords +\<\w*[A-Z]\K*\>\|'s+ contains=@NoSpell
+
+" Ignore CamelCase words when spell checking
+" fun! IgnoreCamelCaseSpell()
+"   syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
+"   syn cluster Spell add=CamelCase
+" endfun
+" autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
+
+set spellcapcheck=
 
 set sessionoptions-=options
 set complete-=i
@@ -266,10 +283,10 @@ set undolevels=100 " Limits undo level to 100, limits file size
 " set clipboard=unnamed
 set clipboard=unnamedplus
 
-execute "set <M-h>=\eh"
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
-execute "set <M-l>=\el"
+" execute "set <M-h>=\eh"
+" execute "set <M-j>=\ej"
+" execute "set <M-k>=\ek"
+" execute "set <M-l>=\el"
 
 inoremap è <Esc>h
 inoremap ê <Esc>j
@@ -278,6 +295,33 @@ inoremap ì <Esc>l
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
+
+let g:airline_powerline_fonts = 1
+let g:airline_inactive_collapse = 0
+let g:airline_theme='powerlineish'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+
+let g:airline_section_y = airline#section#create([' ', '%02c'])
+let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
+
+let airline#extensions#promptline#snapshot_file = "~/.promptline.sh"
+let g:airline#extensions#promptline#enabled = 1
+
+let g:promptline_preset = {
+        \'b' : [ promptline#slices#cwd() ],
+        \'c' : [ promptline#slices#jobs() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'z' : [ promptline#slices#git_status() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
+
 
 " nnoremap <silent> <M-h> :echo "hi"<CR>
 " nnoremap <silent> <M-j> :echo "hi"<CR>
@@ -305,11 +349,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 1
-
+let g:syntastic_auto_jump = 0
+let g:syntastic_loc_list_height = 5
+let g:syntastic_echo_current_error = 0
 
 function! SyntasticError() abort
   if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'errors') && len(b:syntastic_loclist.errors())
@@ -397,14 +442,6 @@ map <Leader>r :call RangerExplorer()<CR>
 "     let modified = &modified ? ' +' : ''
 "     return filename . modified
 " endfunction
-
-" let g:promptline_preset = {
-"         \'a' : [ '$vim_mode' ],
-"         \'b' : [ promptline#slices#cwd() ],
-"         \'c' : [ promptline#slices#jobs() ],
-"         \'y' : [ promptline#slices#vcs_branch() ],
-"         \'z' : [ promptline#slices#git_status() ],
-"         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 " vimpager
 if exists('g:vimpager.enabled')
@@ -496,3 +533,5 @@ endif
 " Plug 'PeterRincker/vim-bumblebee'
 " Plug 'jiangmiao/auto-pairs'
 " Plug 'christoomey/vim-tmux-navigator'
+" Plug 'itchyny/lightline.vim'
+" Plug 'yonchu/accelerated-smooth-scroll'

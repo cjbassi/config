@@ -56,7 +56,7 @@ font-2 = Inconsolata for Powerline:pixelsize=20;4
 font-4 = Font Awesome:pixelsize=12;4
 
 modules-left = i3 blue_arrow1 i3index blue_arrow2
-modules-center = left_arrow_dark day left_arrow_light date right_arrow_light time right_arrow_dark
+modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
 ; modules-right = memory arrow1 cpu arrow1 day arrow1 date arrow1 time
 ; modules-right = right_arrow1 ram right_arrow2 cpu right_arrow1 battery right_arrow2 volume right_arrow1 day right_arrow2 date right_arrow1 time right_arrow2
 modules-right = left_arrow_dark ram left_arrow_light cpu left_arrow_dark battery left_arrow_light volume left_arrow_dark
@@ -168,13 +168,13 @@ label-discharging = "%percentage%%"
 label-discharging-foreground = ${colors.green}
 label-full = " %percentage%%"
 
-ramp-capacity-0 = "   "
+ramp-capacity-0 = " "
 ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1 = "  "
+ramp-capacity-1 = " "
 ramp-capacity-1-foreground = ${colors.red}
-ramp-capacity-2 = "  "
-ramp-capacity-3 = "  "
-ramp-capacity-4 = "  "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 animation-charging-0 =
 animation-charging-1 =
 animation-charging-2 =
@@ -263,7 +263,7 @@ label-urgent-background = ${colors.background}
 type = internal/i3
 format = <label-state>
 
-label-focused = "%name% "
+label-focused = " %name% "
 label-focused-foreground = ${colors.dark_grey}
 label-focused-background = ${colors.blue}
 
@@ -377,7 +377,7 @@ interval = 1
 date = " %B %d"
 
 label-foreground = ${colors.white}
-label-background = ${colors.light_grey}
+label-background = ${colors.dark_grey}
 
 label = %date%
 
@@ -398,7 +398,7 @@ interval = 1
 time = " %H:%M"
 
 label-foreground = ${colors.white}
-label-background = ${colors.dark_grey}
+label-background = ${colors.light_grey}
 
 label = %time%
 

@@ -8,7 +8,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
 
-bindsym $mod+d exec rofi -show run -terminal urxvt
+bindsym $mod+d exec rofi -show run -terminal termite
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -30,6 +30,8 @@ bindsym $mod+s split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+t layout toggle split
 
+bindsym $mod+p focus parent
+bindsym $mod+c focus child
 
 bindsym $mod+r restart
 
@@ -153,9 +155,6 @@ exec_always --no-startup-id ~/config/polybar/launch.sh
 # floating_modifier $mod
 
 # bindsym $mod+r reload
-
-# bindsym $mod+p focus parent
-# bindsym $mod+c focus child
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

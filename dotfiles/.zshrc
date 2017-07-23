@@ -36,9 +36,9 @@ compinit
 ################################################################################
 # Set vim as default editor
 
-export VISUAL=vim
-export EDITOR=vim
-export USE_EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
+export USE_EDITOR=nvim
 
 ################################################################################
 # Settings
@@ -171,7 +171,7 @@ function expand-or-cd-or-fzf() {
     # elif cursor is next to a space
     # elif [[ $BUFFER =~ \ $ ]] ; then
     #     fzf-file-widget
-    elif [[ $BUFFER = "vim " ]]; then
+    elif [[ $BUFFER = "nvim " ]]; then
         fzf-file-widget
     else
         zle expand-or-complete
@@ -264,8 +264,8 @@ zle -N zle-keymap-select
 # promptline
 
 # ZLE_RPROMPT_INDENT=0
-# source ~/.promptline.sh
-source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+source ~/.promptline.sh
+# source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 ################################################################################
 # zsh-syntax-highlighting

@@ -42,15 +42,15 @@ pacstrap /mnt \
     blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils \
     xbindkeys xclip xcape \
     redshift python-gobject python-xdg librsvg \
-    powerline powerline-vim powerline-fonts \
     devilspie transset-df \
-    python jdk8-openjdk python-pip \
-    ttf-dejavu ttf-symbola awesome-terminal-fonts \
+    python jdk8-openjdk python-pip xdotool \
+    powerline-fonts ttf-dejavu ttf-symbola awesome-terminal-fonts \
     termite gvim zsh \
     ranger highlight w3m \
     fzf the_silver_searcher \
     networkmanager network-manager-applet \
     gnome-keyring libsecret \
+    gnupg \
     git tig \
     rofi \
     openssh \
@@ -58,6 +58,7 @@ pacstrap /mnt \
     compton \
     feh \
     parted \
+    scrot \
 
 #wmctrl \
 #tmux

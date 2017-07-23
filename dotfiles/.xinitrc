@@ -2,7 +2,7 @@ nm-applet &
 dropbox &
 blueman-applet &
 
-feh --bg-scale ~/Downloads/wallpaper.* &
+feh --bg-scale ~/Downloads/wallpaper* &
 
 xrandr --output DVI-D-0 --mode 1920x1080 1.25 &
 
@@ -13,8 +13,6 @@ unclutter --timeout 1 &
 echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness &
 
 redshift-gtk &
-
-powerline-daemon -q &
 
 xbindkeys -p &
 xmodmap ~/config/peripherals/xkeys &

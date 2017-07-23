@@ -4,7 +4,12 @@ mkdir Downloads
 mkdir .ssh
 mkdir -p .config
 
-git clone https://github.com/cjbassi/config
+drive="$(lsblk | grep bootmnt | awk '{print $1}' | egrep -o '[a-zA-Z]+')"
+sudo mount /dev/"$drive"1 /mnt/usb
+cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
+chmod -x /home/cjbassi/.ssh/*
+
+git clone git@github.com:cjbassi/config
 
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 systemctl enable suspend@cjbassi
@@ -32,8 +37,6 @@ fi
 ln -sf ~/config/termite  ~/.config/termite
 
 ln -sf ~/config/rofi ~/.config/rofi
-
-ln -sf ~/config/powerline ~/.config/powerline
 
 ln -sf ~/config/dotfiles/.* ~/
 
@@ -67,8 +70,10 @@ pacaur -y \
     gitflow-avh \
     google-chrome \
     i3-gaps \
+    i3ipc-glib-git \
     i3lock-color-git \
     neofetch \
+    neomutt \
     unclutter-xfixes-git \
     universal-ctags-git \
     zsh-fast-syntax-highlighting-git \
