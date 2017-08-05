@@ -6,7 +6,7 @@
     editor = nvim
     pager = vimpager
 [diff]
-    tool = nvim -d
+    tool = vimdiff
 [difftool]
     prompt = false
 
