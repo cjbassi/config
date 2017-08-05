@@ -3,10 +3,10 @@
     email = calebjbassi@gmail.com
 
 [core]
-    editor = vim
+    editor = nvim
     pager = vimpager
 [diff]
-    tool = vimdiff
+    tool = nvim -d
 [difftool]
     prompt = false
 
