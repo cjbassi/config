@@ -14,10 +14,6 @@ chmod -x /home/cjbassi/.ssh/*
 
 git clone git@github.com:cjbassi/config
 
-# vim plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 ################################################################################
 # Symlinks
 
@@ -53,6 +49,10 @@ systemctl enable NetworkManager.service
 systemctl enable bluetooth
 
 ################################################################################
+
+# vim plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 cd Downloads
 git clone https://github.com/rkitover/vimpager
