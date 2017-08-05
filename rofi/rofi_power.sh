@@ -30,13 +30,13 @@ if [ ${#option} -gt 0 ] ; then
         Reboot)
             # close_apps
             # if [[ $(echo -e $PROMPT | $SHUTDOWN | tr -d '\r\n') == 'Yes' ]] ; then
-                shutdown -r now
+            shutdown -r now
             # fi
             ;;
         Shutdown)
             # close_apps
             # if [[ $(echo -e $PROMPT | $SHUTDOWN | tr -d '\r\n') == 'Yes' ]] ; then
-                shutdown now
+            shutdown now
             # fi
             ;;
         Suspend)
