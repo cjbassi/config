@@ -73,7 +73,7 @@ rm -rf fonts
 cd ~
 
 sudo pip install glances
-npm install -g livedown
+sudo npm install -g livedown
 
 bash config/installation/pacaur.sh
 
