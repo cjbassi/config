@@ -1,7 +1,5 @@
 rm -f arch3.sh
 
-git clone git@github.com:cjbassi/config
-
 # Directories
 mkdir -p Downloads
 mkdir -p .ssh
@@ -13,6 +11,8 @@ drive="$(lsblk | grep bootmnt | awk '{print $1}' | egrep -o '[a-zA-Z]+')"
 sudo mount /dev/"$drive"1 /mnt/usb
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
 chmod -x /home/cjbassi/.ssh/*
+
+git clone git@github.com:cjbassi/config
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
