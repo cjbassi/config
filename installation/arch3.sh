@@ -46,10 +46,8 @@ ln -sf ~/config/termite  ~/.config/termite
 ################################################################################
 # Services
 
-# lock screen service
 systemctl enable suspend@cjbassi
 
-# wifi
 systemctl enable NetworkManager.service
 
 systemctl enable bluetooth
