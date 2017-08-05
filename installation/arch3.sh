@@ -1,46 +1,58 @@
 rm -f arch3.sh
 
-mkdir Downloads
-mkdir .ssh
-mkdir -p .config
+git clone git@github.com:cjbassi/config
 
+# Directories
+mkdir -p Downloads
+mkdir -p .ssh
+mkdir -p .config
+mkdir -p ~/.config/nvim/{backup,undo,swap}
+
+# ssh keys
 drive="$(lsblk | grep bootmnt | awk '{print $1}' | egrep -o '[a-zA-Z]+')"
 sudo mount /dev/"$drive"1 /mnt/usb
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
 chmod -x /home/cjbassi/.ssh/*
 
-git clone git@github.com:cjbassi/config
-
-sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
-systemctl enable suspend@cjbassi
-systemctl enable NetworkManager.service
-systemctl enable bluetooth
+# vim plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ################################################################################
 # Symlinks
+
+ln -sf ~/config/devilspie ~/.devilspie
+
+ln -sf ~/config/dotfiles/.* ~/
+
+ln -sf ~/config/i3 ~/.config/i3
+
+sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
+
+ln -sf ~/config/nvim/* ~/.config/nvim/
+
+sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
+
+ln -sf ~/config/polybar ~/.config/polybar
 
 mkdir -p ~/.config/ranger
 ln -sf ~/config/ranger/* ~/.config/ranger/
 ranger --copy-config=scope
 
-ln -sf ~/config/i3 ~/.config/i3
-
-ln -sf ~/config/devilspie ~/.devilspie
-
-sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
-
-mkdir -p ~/.vim/temp ~/.vim/undodir
-if ! [[ -e ~/.vim/autoload/plug.vim ]]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+ln -sf ~/config/rofi ~/.config/rofi
 
 ln -sf ~/config/termite  ~/.config/termite
 
-ln -sf ~/config/rofi ~/.config/rofi
+################################################################################
+# Services
 
-ln -sf ~/config/dotfiles/.* ~/
+# lock screen service
+systemctl enable suspend@cjbassi
 
-ln -sf ~/config/polybar ~/.config/polybar
+# wifi
+systemctl enable NetworkManager.service
+
+systemctl enable bluetooth
 
 ################################################################################
 
@@ -61,6 +73,7 @@ rm -rf fonts
 cd ~
 
 sudo pip install glances
+npm install -g livedown
 
 bash config/installation/pacaur.sh
 

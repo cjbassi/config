@@ -2,6 +2,8 @@ nm-applet &
 dropbox &
 blueman-applet &
 
+sudo dhcpcd -b &
+
 feh --bg-scale ~/Downloads/wallpaper* &
 
 xrandr --output DVI-D-0 --mode 1920x1080 1.25 &
@@ -19,6 +21,7 @@ xmodmap ~/config/peripherals/xkeys &
 xcape -e '#66=Escape' &
 xset r rate 250 25 &
 xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1 &
+synclient TouchpadOff=1 &
 
 compton -b --config ~/config/compton/compton.conf &
 devilspie -a &

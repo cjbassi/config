@@ -1,23 +1,28 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'google/vim-searchindex'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
-Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'haya14busa/incsearch.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'shime/vim-livedown'
 Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-unimpaired'
-Plug 'terryma/vim-smooth-scroll'
 Plug 'craigemery/vim-autotag'
-
-Plug 'altercation/vim-colors-solarized'
+Plug 'Yggdroot/indentLine'
+Plug 'itchyny/vim-cursorword'
+Plug 'haya14busa/vim-asterisk'
 Plug 'ap/vim-css-color'
+
+Plug 'google/vim-searchindex'
+Plug 'haya14busa/incsearch.vim'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-smooth-scroll'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -26,13 +31,32 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-airline-colornum'
 Plug 'edkolev/promptline.vim'
+Plug 'altercation/vim-colors-solarized'
 
-" Plug 'haya14busa/vim-easyoperator-line'
+Plug 'kana/vim-operator-user'
+Plug 'haya14busa/vim-operator-flashy'
 
-" Plug 'cjbassi/i3-vim-navigator'
-" Plug 'jwilm/i3-vim-focus'
+" Plug '~/Dropbox/projects/vim-airline-colornum'
 
 call plug#end()
+
+map <Leader>f <Plug>(easymotion-j)
+map <Leader>F <Plug>(easymotion-k)
+
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+
+
+nnoremap <silent> gwh :wincmd h<CR>
+nnoremap <silent> gwj :wincmd j<CR>
+nnoremap <silent> gwk :wincmd k<CR>
+nnoremap <silent> gwl :wincmd l<CR>
+
+set notimeout
+set ttimeout
+
+let g:indentLine_color_term = 239
+" let g:indentLine_bgcolor_term = 202
 
 " let g:powerline_pycmd = "py3"
 " set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
@@ -44,13 +68,13 @@ call plug#end()
 
 " let g:EasyOperator_line_do_mapping = 0
 
-map <Leader>l  <Plug>(easyoperator-line-select)
-map <Leader>dl <Plug>(easyoperator-line-delete)
-map <Leader>pl <Plug>(easyoperator-line-yank)
+" map <Leader>l  <Plug>(easyoperator-line-select)
+" map <Leader>dl <Plug>(easyoperator-line-delete)
+" map <Leader>pl <Plug>(easyoperator-line-yank)
 
 " let g:easytags_events = ['BufWritePost']
 
-nmap <C-p> :LivedownToggle<CR>
+nmap <silent> <C-p> :LivedownToggle<CR>
 
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
@@ -77,6 +101,10 @@ set cursorline
 
 map Q <Nop>
 map q: <Nop>
+map * <Plug>(asterisk-z*)
+map # <Nop>
+map <Enter> <Nop>
+map <Backspace> <Nop>
 
 " nnoremap d "_d
 " vnoremap d "_d
@@ -96,6 +124,7 @@ vnoremap x "_x
 nnoremap X "_X
 vnoremap X "_X
 
+" Paste over word without yanking it {
 function! RestoreRegister()
     let @" = s:restore_reg
     if &clipboard == "unnamedplus"
@@ -111,18 +140,35 @@ endfunction
 
 " NB: this supports "rp that replaces the selection by the contents of @r
 vnoremap <silent> <expr> p <sid>Repl()
+" }
 
 noremap zh zH
 noremap zl zL
 
+
+" Ranger explorer
+function! RangerExplorer()
+    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+    if filereadable('/tmp/vim_ranger_current_file')
+        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+        call system('rm /tmp/vim_ranger_current_file')
+    endif
+    redraw!
+endfun
+
 "nnoremap <leader>b :ls<CR>:b<space>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>c :bdelete<CR>
+nnoremap <silent> <leader>d :Gvdiff<CR>
 nnoremap <silent> <leader>e :FZF ~<CR>
-nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>w :%s/\s\+$//gc<CR>
-nnoremap <silent> <leader>w :StripWhitespace<CR>
-nnoremap <silent> <leader>s :source /home/cjbassi/.vimrc <bar> :nohlsearch<CR>
+nnoremap <silent> <leader>i :source /home/cjbassi/.vimrc <bar> :nohlsearch<CR>:PlugInstall<CR>
+" nnoremap <silent> <Leader>r :call RangerExplorer()<CR>
+nnoremap <silent> <Leader>r :terminal ranger<CR>
+nnoremap <silent> <leader>s :StripWhitespace<CR>
 nnoremap <silent> <leader>t :Tags<CR>
+nnoremap <silent> <leader>v :source /home/cjbassi/.vimrc<CR>
+nnoremap <silent> <leader>w :set wrap!<CR>
 
 map Y y$
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -136,9 +182,24 @@ inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
 nnoremap <silent> o o<Esc>
-" nnoremap <silent> O O<Esc> :<C-u>execute "normal! " . v:count1 . "k"<CR>
-" nnoremap <silent> O :<C-u>exe "normal! " . v:count1 . "O" \| if v:count == 0exe "normal! " . (v:count - 1) . "k" \| echo (v:count1) (v:count)<CR>
-" nnoremap <silent> O O<Esc> :call <SID>o_fixer(v:count)<CR>
+
+" nnoremap <silent> S ddkA<Enter>
+" nnoremap <silent> o :call Forward_line(v:count)<CR>
+" function! Forward_line(count) abort
+"    :exe "normal! " . "A"i
+" endfunction
+
+" function! IndentWithI()
+"     if len(getline('.')) == 0
+"         return "\"_cc"
+"     else
+"         return "i"
+"     endif
+" endfunction
+" nnoremap <expr> i IndentWithI()
+
+nnoremap <Tab> I<Tab><Esc>
+
 nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call O_fixer(v:count)<CR>
 function! O_fixer(count)
     if a:count > 0
@@ -176,9 +237,11 @@ cnoremap $d <CR>:d<CR>``
 filetype plugin indent on
 set encoding=utf-8
 
+autocmd VimResized * wincmd =
+
 set splitbelow
 set splitright " Opens new panes on the right
-autocmd FileType help wincmd L "Opens help pane on the right
+cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
 
 set scrolloff=1
 set sidescrolloff=5
@@ -192,9 +255,16 @@ set tabpagemax=50
 set history=1000
 set hidden
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
-autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
+
+autocmd BufRead,BufNewFile *.md,*.txt
+            \ let b:indentLine_enabled = 0 |
+            \ let b:cursorword = 1 |
+            \ setlocal spell |
 
 set noshowcmd
+
+set foldmethod=indent
+set nofoldenable
 
 " syn match myExCapitalWords +\<\w*[A-Z]\K*\>+ contains=@NoSpell
 " syn match myExCapitalWords +\<\w*[A-Z]\K*\>\|'s+ contains=@NoSpell
@@ -214,7 +284,7 @@ set nrformats-=octal
 
 " Numberline settings
 set number
-set relativenumber
+" set relativenumber
 set numberwidth=4
 
 " Indent settings
@@ -274,11 +344,11 @@ endif
 " External stuff
 
 " Swap, backup, and undo
-set directory=~/.vim/temp//
-set backupdir=~/.vim/temp//
-set undodir=~/.vim/undodir//
+set directory=~/.config/nvim/swap//
+set backupdir=~/.config/nvim/backup//
+set undodir=~/.config/nvim/undo//
 set undofile
-set undolevels=100 " Limits undo level to 100, limits file size
+" set undolevels=100 " Limits undo level to 100, limits file size
 
 " set clipboard=unnamed
 set clipboard=unnamedplus
@@ -300,6 +370,9 @@ let g:airline_powerline_fonts = 1
 let g:airline_inactive_collapse = 0
 let g:airline_theme='powerlineish'
 
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
@@ -307,6 +380,9 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
+
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#fnamecollapse = 1
 
 let g:airline_section_y = airline#section#create([' ', '%02c'])
 let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
@@ -356,44 +432,49 @@ let g:syntastic_auto_jump = 0
 let g:syntastic_loc_list_height = 5
 let g:syntastic_echo_current_error = 0
 
-function! SyntasticError() abort
-  if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'errors') && len(b:syntastic_loclist.errors())
-    return substitute(substitute(substitute(substitute(b:syntastic_loclist.errors()[0].text, '%', '%%', 'g'), '\[Char\]', 'String', 'g'), '\%(note: \|\(.*unable to load package\|In the second argument of\|Declared at: \| or explicitly provide\).*\|‘\|’\|Perhaps you .*\| (imported from[^)]*)\|(visible) \|It could refer to either.*\|It is a member of the .*\|In the expression:.*\|Probable cause:.*\|GHC\.\w\+\.\|In the [a-z]\+ argument of.*\|integer-gmp:\|Data\.\w\+\.\)', '', 'g'), 'Found\zs:.*\zeWhy not:', '. ', '')
-  endif
-  return ''
-endfunction
+" function! SyntasticError() abort
+"   if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'errors') && len(b:syntastic_loclist.errors())
+"     return substitute(substitute(substitute(substitute(b:syntastic_loclist.errors()[0].text, '%', '%%', 'g'), '\[Char\]', 'String', 'g'), '\%(note: \|\(.*unable to load package\|In the second argument of\|Declared at: \| or explicitly provide\).*\|‘\|’\|Perhaps you .*\| (imported from[^)]*)\|(visible) \|It could refer to either.*\|It is a member of the .*\|In the expression:.*\|Probable cause:.*\|GHC\.\w\+\.\|In the [a-z]\+ argument of.*\|integer-gmp:\|Data\.\w\+\.\)', '', 'g'), 'Found\zs:.*\zeWhy not:', '. ', '')
+"   endif
+"   return ''
+" endfunction
 
-function! SyntasticWarning() abort
-  if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'warnings') && has_key(b:syntastic_loclist, 'errors')
-        \ && len(b:syntastic_loclist.warnings()) && !len(b:syntastic_loclist.errors())
-    return substitute(substitute(substitute(substitute(substitute(b:syntastic_loclist.warnings()[0].text, '%', '%%', 'g'), '\[Char\]', 'String', 'g'), '\.hs:\d\+:\d\+-\d\+\zs.*', '', ''), '\(\(Defaulting the following constraint\|: Patterns not matched\| except perhaps to import instances from \).*\|forall [a-z]\. \|GHC\.\w\+\.\|integer-gmp:\|Data\.\w\+\.\)', '', 'g'), 'Found\zs:.*\zeWhy not:', '. ', '')
-  endif
-  return ''
-endfunction
+" function! SyntasticWarning() abort
+"   if exists('b:syntastic_loclist') && has_key(b:syntastic_loclist, 'warnings') && has_key(b:syntastic_loclist, 'errors')
+"         \ && len(b:syntastic_loclist.warnings()) && !len(b:syntastic_loclist.errors())
+"     return substitute(substitute(substitute(substitute(substitute(b:syntastic_loclist.warnings()[0].text, '%', '%%', 'g'), '\[Char\]', 'String', 'g'), '\.hs:\d\+:\d\+-\d\+\zs.*', '', ''), '\(\(Defaulting the following constraint\|: Patterns not matched\| except perhaps to import instances from \).*\|forall [a-z]\. \|GHC\.\w\+\.\|integer-gmp:\|Data\.\w\+\.\)', '', 'g'), 'Found\zs:.*\zeWhy not:', '. ', '')
+"   endif
+"   return ''
+" endfunction
 
 
 
 " FZF
+" set rtp+=~/.fzf
 let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
     \ 'ctrl-v': 'vsplit' }
 
+" let g:fzf_buffers_jump = 1
+
+" let g:fzf_layout = { 'window': 'enew' }
+" let g:fzf_layout = { 'window': '-tabnew' }
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+    highlight fzf1 ctermfg=161 ctermbg=233
+    highlight fzf2 ctermfg=246 ctermbg=233
+    setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
 " gitgutter
 set updatetime=250
-
-" Ranger explorer
-function! RangerExplorer()
-    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
-    if filereadable('/tmp/vim_ranger_current_file')
-        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
-        call system('rm /tmp/vim_ranger_current_file')
-    endif
-    redraw!
-endfun
-map <Leader>r :call RangerExplorer()<CR>
 
 " " lightline
 " let g:lightline = {
@@ -445,13 +526,18 @@ map <Leader>r :call RangerExplorer()<CR>
 
 " vimpager
 if exists('g:vimpager.enabled')
+
     let g:vimpager = {}
     let g:less     = {}
     let g:less.enabled = 0
+
+    let g:indentLine_enabled = 0
+
     set nonumber
     set norelativenumber
     " unmap j
     " unmap k
+
 endif
 
 " incsearch.vim
@@ -465,6 +551,7 @@ map F <Plug>(easymotion-F)
 
 map t <Plug>(easymotion-t)
 map T <Plug>(easymotion-T)
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Todo
@@ -535,3 +622,7 @@ endif
 " Plug 'christoomey/vim-tmux-navigator'
 " Plug 'itchyny/lightline.vim'
 " Plug 'yonchu/accelerated-smooth-scroll'
+
+" nnoremap <silent> O O<Esc> :<C-u>execute "normal! " . v:count1 . "k"<CR>
+" nnoremap <silent> O :<C-u>exe "normal! " . v:count1 . "O" \| if v:count == 0exe "normal! " . (v:count - 1) . "k" \| echo (v:count1) (v:count)<CR>
+" nnoremap <silent> O O<Esc> :call <SID>o_fixer(v:count)<CR>

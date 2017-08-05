@@ -1,24 +1,13 @@
 ################################################################################
 # Keybinds
 
+set $term termite
 set $mod Mod1
-
-bindsym $mod+Return exec termite
-
-bindsym $mod+Shift+q kill
-bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
-
-bindsym $mod+d exec rofi -show run -terminal termite
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# bindsym $mod+h exec "i3-vim-focus left"
-# bindsym $mod+j exec "i3-vim-focus down"
-# bindsym $mod+k exec "i3-vim-focus up"
-# bindsym $mod+l exec "i3-vim-focus right"
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -33,9 +22,10 @@ bindsym $mod+t layout toggle split
 bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
-bindsym $mod+r restart
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q kill
 
-bindsym $mod+Shift+r mode "resize"
+bindsym $mod+Shift+s mode "resize"
 mode "resize" {
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
@@ -44,6 +34,17 @@ mode "resize" {
 
         bindsym Escape mode "default"
 }
+
+bindsym $mod+d exec rofi -show run -terminal $term
+bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
+
+bindsym $mod+Return exec $term
+
+bindsym $mod+e exec $term -e nvim -t nvim
+bindsym $mod+r exec $term -e ranger -t ranger
+bindsym $mod+m exec $term -e mutt -t neomutt
+
+bindsym $mod+g exec google-chrome-stable
 
 ################################################################################
 # Workspaces
@@ -96,6 +97,7 @@ gaps outer 0
 
 focus_follows_mouse no
 smart_borders on
+smart_gaps on
 
 ################################################################################
 # Custom commands

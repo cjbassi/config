@@ -20,6 +20,7 @@ red =           #ee3333
 green =         #20ad80
 purple =        #875faf
 pink =          #d75f87
+yellow =        #ffff00
 
 background =    ${colors.dark_grey}
 foreground =    ${colors.white}
@@ -59,7 +60,7 @@ modules-left = i3 blue_arrow1 i3index blue_arrow2
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
 ; modules-right = memory arrow1 cpu arrow1 day arrow1 date arrow1 time
 ; modules-right = right_arrow1 ram right_arrow2 cpu right_arrow1 battery right_arrow2 volume right_arrow1 day right_arrow2 date right_arrow1 time right_arrow2
-modules-right = left_arrow_dark ram left_arrow_light cpu left_arrow_dark battery left_arrow_light volume left_arrow_dark
+modules-right = left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light battery left_arrow_dark
 
 tray-position = right
 ; tray-padding = 4
@@ -155,13 +156,13 @@ full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.green}
-format-charging-background = ${colors.dark_grey}
+format-charging-background = ${colors.light_grey}
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-foreground = ${colors.green}
-format-discharging-background = ${colors.dark_grey}
+format-discharging-background = ${colors.light_grey}
 format-full = <label-full>
 format-full-foreground = ${colors.green}
-format-full-background = ${colors.dark_grey}
+format-full-background = ${colors.light_grey}
 
 label-charging = " %percentage%%"
 label-discharging = "%percentage%%"
@@ -171,7 +172,7 @@ label-full = " %percentage%%"
 ramp-capacity-0 = " "
 ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1 = " "
-ramp-capacity-1-foreground = ${colors.red}
+ramp-capacity-1-foreground = ${colors.yellow}
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
@@ -310,20 +311,20 @@ type = internal/cpu
 interval = 1
 format-prefix = " CPU "
 format-prefix-foreground = ${colors.purple}
-format-prefix-background = ${colors.light_grey}
+format-prefix-background = ${colors.dark_grey}
 label = %percentage%%
 label-foreground = ${colors.purple}
-label-background = ${colors.light_grey}
+label-background = ${colors.dark_grey}
 
 [module/ram]
 type = internal/memory
 interval = 1
 format-prefix = " RAM "
 format-prefix-foreground = ${colors.pink}
-format-prefix-background = ${colors.dark_grey}
+format-prefix-background = ${colors.light_grey}
 label = %percentage_used%%
 label-foreground = ${colors.pink}
-label-background = ${colors.dark_grey}
+label-background = ${colors.light_grey}
 
 [module/wlan]
 type = internal/network
@@ -374,7 +375,7 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = " %B %d"
+date = " %B %d "
 
 label-foreground = ${colors.white}
 label-background = ${colors.dark_grey}
@@ -385,17 +386,18 @@ label = %date%
 type = internal/date
 interval = 1
 
-date = " %A"
+date = " %A "
 
-label = "%date%"
 label-foreground = ${colors.white}
 label-background = ${colors.dark_grey}
+
+label = %date%
 
 [module/time]
 type = internal/date
 interval = 1
 
-time = " %H:%M"
+time = " %H:%M "
 
 label-foreground = ${colors.white}
 label-background = ${colors.light_grey}
@@ -410,23 +412,23 @@ format-volume = <ramp-volume><label-volume>
 
 label-volume = %percentage%%
 label-volume-foreground = ${colors.blue}
-label-volume-background = ${colors.light_grey}
+label-volume-background = ${colors.dark_grey}
 label-muted = " MUTED"
 label-muted-foreground = ${colors.blue}
-label-muted-background = ${colors.light_grey}
+label-muted-background = ${colors.dark_grey}
 
 ramp-volume-0 = "  "
 ramp-volume-0-foreground = ${colors.blue}
-ramp-volume-0-background = ${colors.light_grey}
+ramp-volume-0-background = ${colors.dark_grey}
 ramp-volume-1 = "  "
 ramp-volume-1-foreground = ${colors.blue}
-ramp-volume-1-background = ${colors.light_grey}
+ramp-volume-1-background = ${colors.dark_grey}
 ramp-volume-2 = "  "
 ramp-volume-2-foreground = ${colors.blue}
-ramp-volume-2-background = ${colors.light_grey}
+ramp-volume-2-background = ${colors.dark_grey}
 ; ramp-volume-3 = "  "
 ; ramp-volume-3-foreground = ${colors.blue}
-; ramp-volume-3-background = ${colors.light_grey}
+; ramp-volume-3-background = ${colors.dark_grey}
 
 ; [module/volume]
 ; type = custom/script

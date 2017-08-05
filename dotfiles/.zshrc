@@ -1,6 +1,11 @@
 # If not running interactively, don't do anything
 [[ -z "$PS1" ]] && return
 
+source ~/.aliases
+
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
+
 ################################################################################
 # History
 
@@ -63,8 +68,6 @@ LC_ALL="en_US.UTF-8"
 ################################################################################
 # Colors
 
-if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
-
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
 alias ls='ls --color=auto'
@@ -95,70 +98,17 @@ alias cower='cower --color=auto'
 alias pactree='pactree -c'
 
 ################################################################################
-# Prompt
-
-# # PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
-# INSERT=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%}_%{\e[0m%} '
-# NORMAL=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%} %{\e[0m%} '
-# # RPS1=$""
-
-# function zle-line-init zle-keymap-select
-# {
-#     PROMPT="${${KEYMAP/vicmd/$NORMAL}/main/$INSERT}"
-#     zle reset-prompt
-# }
-
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-
-################################################################################
-# Aliases
-
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -v' # Irdf
-alias rmdir='rmdir -v'
-alias mkdir='mkdir -v'
-alias ln='ln -v'
-
-alias w='w -f'
-alias df='df -h'
-alias du='du -h'
-
-ll() {
-    ls -AhgoX --group-directories-first --color=always "$@" | tail --lines=+2
-}
-alias pwd='echo -e "${PWD/${HOME}/~}"'
-# alias cat='vimcat'
-alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
-alias makepkg='makepkg -si'
-
-rm() {
-    # ll $4
-    # ignore -I
-    #
-
-    # echo -n 'rm: remove # '
-    #/usr/bin/rm: remove 1 argument recursively?
-    echo -n 'rm: continue with removal? '
-    read
-    if [[ $REPLY == 'y' ]] || [[ $REPLY == 'yes' ]]; then
-        /usr/bin/rm "$@"
-    fi
-}
-
-################################################################################
 # Other programs
 
 # FZF
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+# source /usr/share/fzf/completion.zsh
+# source /usr/share/fzf/key-bindings.zsh
 export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 bindkey -M vicmd '/' fzf-history-widget
 bindkey -r '^r'
-bindkey -r '^t'
 bindkey -r '^[c'
+# bindkey -r '^t'
 
 function expand-or-cd-or-fzf() {
     if [[ $BUFFER == "cd " ]]; then
@@ -171,7 +121,7 @@ function expand-or-cd-or-fzf() {
     # elif cursor is next to a space
     # elif [[ $BUFFER =~ \ $ ]] ; then
     #     fzf-file-widget
-    elif [[ $BUFFER = "nvim " ]]; then
+    elif [[ $BUFFER = "vim " ]]; then
         fzf-file-widget
     else
         zle expand-or-complete
@@ -280,3 +230,22 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 # . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # zle vi-cmd-mode
+
+################################################################################
+# Prompt
+
+# # PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
+# INSERT=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%}_%{\e[0m%} '
+# NORMAL=$'%{\e[1;38;5;09m%}%~ %{\e[1;38;5;34m%}>%{\e[1;38;5;27m%} %{\e[0m%} '
+# # RPS1=$""
+
+# function zle-line-init zle-keymap-select
+# {
+#     PROMPT="${${KEYMAP/vicmd/$NORMAL}/main/$INSERT}"
+#     zle reset-prompt
+# }
+
+# zle -N zle-line-init
+# zle -N zle-keymap-select
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

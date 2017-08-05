@@ -43,11 +43,11 @@ pacstrap /mnt \
     xbindkeys xclip xcape \
     redshift python-gobject python-xdg librsvg \
     devilspie transset-df \
-    python jdk8-openjdk python-pip xdotool \
+    python jdk8-openjdk python-pip xdotool gdb go nodejs npm \
     powerline-fonts ttf-dejavu ttf-symbola awesome-terminal-fonts \
-    termite gvim zsh \
+    termite neovim zsh \
     ranger highlight w3m \
-    fzf the_silver_searcher \
+    the_silver_searcher \
     networkmanager network-manager-applet \
     gnome-keyring libsecret \
     gnupg \
