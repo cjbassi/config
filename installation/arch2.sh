@@ -4,14 +4,10 @@ rm /arch2.sh
 ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 hwclock --systohc
 
-read
-
 # Locale
 FIND="en_US.UTF-8 UTF-8" ; sed -i "s/#$FIND/$FIND/g" /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
-
-read
 
 # Hostname
 echo arch > /etc/hostname
@@ -21,8 +17,6 @@ systemctl enable NetworkManager.service
 #systemctl enable dhcpcd@wlp4s0.service
 systemctl enable dhcpcd.service
 
-read
-
 read -p "Please give password: " password
 
 # Root password
@@ -31,8 +25,6 @@ echo "root:$password" | chpasswd
 # Boot loader
 pacman -S --noconfirm intel-ucode
 bootctl --path=/boot install
-
-read
 
 echo "\
 default arch
@@ -53,8 +45,6 @@ options     root=PARTLABEL=ROOT rw" \
 # Post-installation
 
 systemctl enable bluetooth
-
-read
 
 mkdir /mnt/usb
 
