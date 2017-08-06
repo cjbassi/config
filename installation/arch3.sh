@@ -69,7 +69,7 @@ sudo npm install -g livedown
 
 bash ~/config/installation/pacaur.sh
 
-export editor=nvim
+export EDITOR=nvim
 
 pacaur -y \
     discord \
