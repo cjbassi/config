@@ -15,6 +15,19 @@ echo arch > /etc/hostname
 # Network configuration
 #systemctl enable dhcpcd@eno1.service
 
+while true; do
+    read -p "Please give password: " password
+    echo "You entered: $password"
+    while true; do
+        read -p "Is this correct? " yn
+        case $yn in
+            [Yy]* ) make install; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+done
+
 # Root password
 passwd
 
