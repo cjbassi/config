@@ -10,8 +10,6 @@
 # Update the system clock
 timedatectl set-ntp true
 
-read
-
 # Partition the disks
     # boot partition
         # Create a 512 MiB FAT32 partition in parted
@@ -73,8 +71,6 @@ pacstrap /mnt \
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
-
-read
 
 curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch2.sh > /mnt/arch2.sh
 
