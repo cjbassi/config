@@ -55,6 +55,8 @@ options     root=PARTLABEL=ROOT rw" \
 ################################################################################
 # Post-installation
 
+systemctl enable bluetooth
+
 mkdir /mnt/usb
 
 # Enable members of 'wheel' group to use root
