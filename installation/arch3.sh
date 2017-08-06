@@ -78,23 +78,23 @@ bash ~/config/installation/pacaur.sh
 export EDITOR=nvim
 gpg --recv-keys 5FAF0A6EE7371805
 
-pacaur -S discord
-pacaur -S dropbox
-pacaur -S google-chrome
-pacaur -S neofetch
-pacaur -S neomutt
-pacaur -S unclutter-xfixes-git
-pacaur -S universal-ctags-git
-pacaur -S zsh-fast-syntax-highlighting-git
+pacaur -S --noconfirm --noedit discord
+pacaur -S --noconfirm --noedit dropbox
+pacaur -S --noconfirm --noedit google-chrome
+pacaur -S --noconfirm --noedit neofetch
+pacaur -S --noconfirm --noedit neomutt
+pacaur -S --noconfirm --noedit unclutter-xfixes-git
+pacaur -S --noconfirm --noedit universal-ctags-git
+pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git
 
-pacaur -S i3-gaps
-pacaur -S i3ipc-glib-git
-pacaur -S i3lock-color-git
+pacaur -S --noconfirm --noedit i3-gaps
+pacaur -S --noconfirm --noedit i3ipc-glib-git
+pacaur -S --noconfirm --noedit i3lock-color-git
     
-pacaur -S gitflow-avh
-pacaur -S gitflow-zshcompletion-avh
+pacaur -S --noconfirm --noedit gitflow-avh
+pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
 
-pacaur -S polybar-git
+pacaur -S --noconfirm --noedit polybar-git
 
 ################################################################################
 
