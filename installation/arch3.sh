@@ -79,23 +79,23 @@ bash ~/config/installation/pacaur.sh
 export EDITOR=nvim
 gpg --recv-keys 5FAF0A6EE7371805
 
-pacaur -S --noconfirm --noedit discord
-pacaur -S --noconfirm --noedit dropbox
-pacaur -S --noconfirm --noedit google-chrome
-pacaur -S --noconfirm --noedit neofetch
-pacaur -S --noconfirm --noedit neomutt
-pacaur -S --noconfirm --noedit unclutter-xfixes-git
-pacaur -S --noconfirm --noedit universal-ctags-git
-pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git
+pacaur -S --noconfirm --noedit discord >> check_error
+pacaur -S --noconfirm --noedit dropbox >> check_error
+pacaur -S --noconfirm --noedit google-chrome >> check_error
+pacaur -S --noconfirm --noedit neofetch >> check_error
+pacaur -S --noconfirm --noedit neomutt >> check_error
+pacaur -S --noconfirm --noedit unclutter-xfixes-git >> check_error
+pacaur -S --noconfirm --noedit universal-ctags-git >> check_error
+pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git >> check_error
 
-pacaur -S --noconfirm --noedit i3-gaps
-pacaur -S --noconfirm --noedit i3ipc-glib-git
-pacaur -S --noconfirm --noedit i3lock-color-git
+pacaur -S --noconfirm --noedit i3-gaps >> check_error
+pacaur -S --noconfirm --noedit i3ipc-glib-git >> check_error
+pacaur -S --noconfirm --noedit i3lock-color-git >> check_error
     
-pacaur -S --noconfirm --noedit gitflow-avh
-pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
+pacaur -S --noconfirm --noedit gitflow-avh >> check_error
+pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh >> check_error
 
-pacaur -S --noconfirm --noedit polybar-git
+pacaur -S --noconfirm --noedit polybar-git >> check_error
 
 ################################################################################
 
