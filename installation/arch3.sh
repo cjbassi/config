@@ -9,7 +9,9 @@ mkdir -p ~/.config/nvim/{backup,undo,swap}
 # ssh keys
 sudo mount -L KEYS /mnt/usb
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
-chmod -x /home/cjbassi/.ssh/*
+chmod 700 /home/cjbassi/.ssh
+chmod 600 /home/cjbassi/.ssh/id_ed25519
+chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
 
 git clone git@github.com:cjbassi/config
 
