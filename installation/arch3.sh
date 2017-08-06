@@ -48,6 +48,8 @@ sudo systemctl enable suspend@cjbassi
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+################################################################################
+
 cd Downloads
 git clone https://github.com/rkitover/vimpager
 cd vimpager
@@ -64,8 +66,12 @@ cd ..
 rm -rf fonts
 cd ~
 
+################################################################################
+
 sudo pip install glances
 sudo npm install -g livedown
+
+################################################################################
 
 bash ~/config/installation/pacaur.sh
 
@@ -75,22 +81,22 @@ gpg --recv-keys 5FAF0A6EE7371805
 pacaur -S discord
 pacaur -S dropbox
 pacaur -S google-chrome
-pacaur -S i3-gaps
-pacaur -S i3ipc-glib-git
-pacaur -S i3lock-color-git
 pacaur -S neofetch
 pacaur -S neomutt
 pacaur -S unclutter-xfixes-git
 pacaur -S universal-ctags-git
 pacaur -S zsh-fast-syntax-highlighting-git
+
+pacaur -S i3-gaps
+pacaur -S i3ipc-glib-git
+pacaur -S i3lock-color-git
     
 pacaur -S gitflow-avh
 pacaur -S gitflow-zshcompletion-avh
 
 pacaur -S polybar-git
 
-# lemonbar-xft-git \
-# ttf-font-awesome \
+################################################################################
 
 echo "
 ###########################################
