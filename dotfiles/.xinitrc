@@ -2,8 +2,6 @@ nm-applet &
 dropbox &
 blueman-applet &
 
-sudo dhcpcd -b &
-
 feh --bg-scale ~/Downloads/wallpaper* &
 
 xrandr --output DVI-D-0 --mode 1920x1080 1.25 &
