@@ -82,8 +82,6 @@ pacaur -y \
     unclutter-xfixes-git \
     universal-ctags-git \
     zsh-fast-syntax-highlighting-git \
-    
-read
 
 pacaur -y \
     gitflow-zshcompletion-avh \
