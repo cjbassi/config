@@ -12,6 +12,7 @@ cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
 chmod 700 /home/cjbassi/.ssh
 chmod 600 /home/cjbassi/.ssh/id_ed25519
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
+chmod -x /home/cjbassi/.ssh/known_hosts
 
 git clone git@github.com:cjbassi/config
 
