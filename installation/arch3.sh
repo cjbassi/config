@@ -97,12 +97,9 @@ echo "
 ###########################################
 "
 
-#install vim mardown preview
 #fonts
     #noto-fonts-emoji
     #ttf-symbola
     #ttf-font-awesome
     #awesome-terminal-fonts
     #fonts on bar
-
-# git clone https://github.com/ervandew/urxvt-vim-scrollback
