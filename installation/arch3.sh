@@ -74,7 +74,7 @@ cd ~
 sudo pip install glances
 sudo npm install -g livedown
 
-bash config/installation/pacaur.sh
+bash ~/config/installation/pacaur.sh
 
 pacaur -y \
     discord \
