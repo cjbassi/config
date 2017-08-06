@@ -7,8 +7,7 @@ mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 
 # ssh keys
-drive="$(lsblk | grep bootmnt | awk '{print $1}' | egrep -o '[a-zA-Z]+')"
-sudo mount /dev/"$drive"1 /mnt/usb
+sudo mount -L KEYS /mnt/usb
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
 chmod -x /home/cjbassi/.ssh/*
 
