@@ -17,30 +17,7 @@ systemctl enable NetworkManager.service
 #systemctl enable dhcpcd@wlp4s0.service
 systemctl enable dhcpcd.service
 
-while [[ $done != true ]] ; do
-
-    read -p "Please give password: " password
-    echo "You entered: $password"
-    
-    while true; do
-    
-        read -p "Is this correct? " yn
-        
-        case $yn in
-            [Yy]* )
-                $done=true
-                break
-                ;;
-            [Nn]* )
-                break
-                ;;
-            * )
-                echo "Please answer yes or no."
-                ;;
-            
-        esac
-    done
-done
+read -p "Please give password: " password
 
 # Root password
 echo "root:$password" | chpasswd
