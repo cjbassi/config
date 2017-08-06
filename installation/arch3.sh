@@ -70,6 +70,7 @@ sudo npm install -g livedown
 bash ~/config/installation/pacaur.sh
 
 export EDITOR=nvim
+gpg --recv-keys 5FAF0A6EE7371805
 
 pacaur -y \
     discord \
