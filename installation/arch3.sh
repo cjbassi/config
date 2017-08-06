@@ -6,8 +6,6 @@ mkdir -p .ssh
 mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 
-read
-
 # ssh keys
 sudo mount -L KEYS /mnt/usb
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
@@ -16,8 +14,6 @@ chmod 600 /home/cjbassi/.ssh/id_ed25519
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
 
 git clone git@github.com:cjbassi/config
-
-read
 
 ################################################################################
 # Symlinks
@@ -44,19 +40,13 @@ ln -sf ~/config/rofi ~/.config/rofi
 
 ln -sf ~/config/termite  ~/.config/termite
 
-read
-
 ################################################################################
 
-systemctl enable suspend@cjbassi
-
-read
+sudo systemctl enable suspend@cjbassi
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    
-read
 
 cd Downloads
 git clone https://github.com/rkitover/vimpager
@@ -66,8 +56,6 @@ cd ..
 rm -rf vimpager
 cd ~
 
-read
-
 cd Downloads
 git clone https://github.com/powerline/fonts.git
 cd fonts
@@ -76,15 +64,10 @@ cd ..
 rm -rf fonts
 cd ~
 
-read
-
 sudo pip install glances
-read
 sudo npm install -g livedown
-read
 
 bash ~/config/installation/pacaur.sh
-read
 
 pacaur -y \
     discord \
