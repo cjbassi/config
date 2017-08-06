@@ -29,7 +29,7 @@ timedatectl set-ntp true
 # Installation
 
 # Select the mirrors
-#cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > /etc/pacman.d/mirrorlist
 
 # Install packages
 pacstrap /mnt \
