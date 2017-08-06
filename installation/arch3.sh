@@ -41,17 +41,8 @@ ln -sf ~/config/rofi ~/.config/rofi
 ln -sf ~/config/termite  ~/.config/termite
 
 ################################################################################
-# Services
 
 systemctl enable suspend@cjbassi
-
-systemctl enable NetworkManager.service
-#systemctl enable dhcpcd@wlp4s0.service
-systemctl enable dhcpcd.service
-
-systemctl enable bluetooth
-
-################################################################################
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
