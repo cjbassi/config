@@ -17,21 +17,33 @@ systemctl enable NetworkManager.service
 #systemctl enable dhcpcd@wlp4s0.service
 systemctl enable dhcpcd.service
 
-while true; do
+while [[ $done != true ]] ; do
+
     read -p "Please give password: " password
     echo "You entered: $password"
+    
     while true; do
+    
         read -p "Is this correct? " yn
+        
         case $yn in
-            [Yy]* ) make install; break;;
-            [Nn]* ) exit;;
-            * ) echo "Please answer yes or no.";;
+            [Yy]* )
+                $done=true
+                break
+                ;;
+            [Nn]* )
+                break
+                ;;
+            * )
+                echo "Please answer yes or no."
+                ;;
+            
         esac
     done
 done
 
 # Root password
-passwd
+echo "root:$password" | chpasswd
 
 # Boot loader
 pacman -S --noconfirm intel-ucode
@@ -64,7 +76,7 @@ FIND="%wheel ALL=(ALL) NOPASSWD: ALL" ; sed -i "s/# $FIND/$FIND/g" /etc/sudoers
 
 # Add user
 useradd -m -G wheel -s $(which zsh) cjbassi
-passwd cjbassi
+echo "cjbassi:$password" | chpasswd
 
 # Edit pacman.conf
 sed -i "s/#Color/Color/g" /etc/pacman.conf
