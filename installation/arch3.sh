@@ -72,25 +72,22 @@ bash ~/config/installation/pacaur.sh
 export EDITOR=nvim
 gpg --recv-keys 5FAF0A6EE7371805
 
-pacaur -S \
-    discord \
-    dropbox \
-    google-chrome \
-    i3-gaps \
-    i3ipc-glib-git \
-    i3lock-color-git \
-    neofetch \
-    neomutt \
-    unclutter-xfixes-git \
-    universal-ctags-git \
-    zsh-fast-syntax-highlighting-git \
+pacaur -S discord
+pacaur -S dropbox
+pacaur -S google-chrome
+pacaur -S i3-gaps
+pacaur -S i3ipc-glib-git
+pacaur -S i3lock-color-git
+pacaur -S neofetch
+pacaur -S neomutt
+pacaur -S unclutter-xfixes-git
+pacaur -S universal-ctags-git
+pacaur -S zsh-fast-syntax-highlighting-git
     
-pacaur -S \
-    gitflow-avh \
+pacaur -S gitflow-avh
+pacaur -S gitflow-zshcompletion-avh
 
-pacaur -S \
-    gitflow-zshcompletion-avh \
-    polybar-git \
+pacaur -S polybar-git
 
 # lemonbar-xft-git \
 # ttf-font-awesome \
