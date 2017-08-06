@@ -13,7 +13,9 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo arch > /etc/hostname
 
 # Network configuration
-#systemctl enable dhcpcd@eno1.service
+systemctl enable NetworkManager.service
+#systemctl enable dhcpcd@wlp4s0.service
+systemctl enable dhcpcd.service
 
 while true; do
     read -p "Please give password: " password
