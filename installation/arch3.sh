@@ -44,6 +44,8 @@ ln -sf ~/config/termite  ~/.config/termite
 systemctl enable suspend@cjbassi
 
 systemctl enable NetworkManager.service
+#systemctl enable dhcpcd@wlp4s0.service
+systemctl enable dhcpcd.service
 
 systemctl enable bluetooth
 
