@@ -69,6 +69,8 @@ sudo npm install -g livedown
 
 bash ~/config/installation/pacaur.sh
 
+export editor=nvim
+
 pacaur -y \
     discord \
     dropbox \
