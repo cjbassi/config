@@ -8,7 +8,7 @@ blueman-applet &
 
 feh --bg-scale ~/Downloads/wallpaper* &
 
-xrandr --output DVI-D-0 --mode 1920x1080 1.25 &
+xrandr --output eDP-1 --mode 1920x1080 --scale 1x1 &
 
 sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%" &
 
@@ -36,7 +36,5 @@ synclient TouchpadOff=1 &
 compton -b --config ~/config/compton/compton.conf &
 
 devilspie -a &
-
-emacs --daemon &
 
 exec i3

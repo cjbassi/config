@@ -59,7 +59,8 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
-hi Normal guibg=NONE ctermbg=NONE
+hi LineNr ctermbg=NONE ctermfg=237
+hi Normal ctermbg=NONE
 hi StatusLine ctermbg=232 ctermfg=241
 
 set noshowmode
@@ -94,9 +95,9 @@ nnoremap <silent> <leader>wv :vs<CR>
 nnoremap <silent> <leader>ws :split<CR>
 
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
-nnoremap <silent> <leader>ea1 :edit ~/config/installation/arch1.sh<CR>
-nnoremap <silent> <leader>ea2 :edit ~/config/installation/arch2.sh<CR>
-nnoremap <silent> <leader>ea3 :edit ~/config/installation/arch3.sh<CR>
+nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
+nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
+nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
 nnoremap <silent> <leader>eg :edit ~/Dropbox/notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
@@ -119,6 +120,7 @@ nnoremap <silent> <leader>gd :Gvdiff<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gbrowse<CR>
+nnoremap <silent> <leader>gp :Gpush<CR>
 
 nnoremap <silent> <leader>pi :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugInstall<CR>
 nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
@@ -128,11 +130,10 @@ nnoremap <silent> <leader>ts :StripWhitespace<CR>
 nnoremap <silent> <leader>tw :set wrap!<CR>
 " nnoremap <silent> <leader>th :nohlsearch<CR>
 nnoremap <leader>th :tab help 
-nnoremap <silent> <leader>tt :retab<CR>
+nnoremap <silent> <leader>tr :retab<CR>
 noremap <silent> <leader>tf :Autoformat<CR>
-
-nnoremap <silent> <leader>at :Tags<CR>
-nnoremap <silent> <leader>am :LivedownToggle<CR>
+nnoremap <silent> <leader>tt :Tags<CR>
+nnoremap <silent> <leader>tl :LivedownToggle<CR>
 
 map Q <Nop>
 map q: <Nop>
@@ -248,7 +249,7 @@ set complete-=i
 set nrformats-=octal
 
 set number
-set numberwidth=4
+" set numberwidth=4
 
 set autoindent
 set expandtab

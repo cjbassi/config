@@ -1,9 +1,9 @@
 # vim:filetype=zsh
 
 alias eal='e ~/config/dotfiles/.aliases'
-alias ea1='e ~/config/installation/arch1.sh'
-alias ea2='e ~/config/installation/arch2.sh'
-alias ea3='e ~/config/installation/arch3.sh'
+alias ea1='e ~/config/arch/arch1.sh'
+alias ea2='e ~/config/arch/arch2.sh'
+alias ea3='e ~/config/arch/arch3.sh'
 alias eg='e ~/Dropbox/notes/technology/programming_guide.md'
 alias ep='e ~/config/polybar/config'
 alias ev='e ~/config/nvim/init.vim'
