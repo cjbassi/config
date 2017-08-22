@@ -1,13 +1,23 @@
 [options]
+
 font =              Inconsolata
-scrollback_lines =  10000
+allow_bold =        true
+
 cursor_blink =      off
+cursor_shape =      block
+
+dynamic_title =     true
 urgent_on_bell =    true
+scrollback_lines =  10000
 browser =           xdg-open
+search_wrap =       false
 
 [colors]
 foreground =        #dcdccc
 background =        #1a1a1a
-highlight =         #2f2f2f
+highlight =         #383838
+cursor =            #dcdccc
+# cursor_foreground = #dcdccc
+
 
 # vim: ft=dosini cms=#%s

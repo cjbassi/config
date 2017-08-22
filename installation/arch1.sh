@@ -32,32 +32,55 @@ timedatectl set-ntp true
 cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > /etc/pacman.d/mirrorlist
 
 # Install packages
-pacstrap /mnt \
-    base base-devel \
-    xorg xorg-xinit \
-    pulseaudio pulseaudio-alsa pavucontrol \
-    alsa-utils \
-    blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils \
-    xbindkeys xclip xcape \
-    redshift python-gobject python-xdg librsvg \
-    devilspie transset-df \
-    python jdk8-openjdk python-pip xdotool gdb go nodejs npm \
-    powerline-fonts ttf-dejavu ttf-symbola awesome-terminal-fonts \
-    termite neovim zsh \
-    ranger highlight w3m \
-    the_silver_searcher \
-    networkmanager network-manager-applet \
-    gnome-keyring libsecret \
-    gnupg \
-    git tig \
-    rofi \
-    openssh \
-    qbittorrent \
-    compton \
-    feh \
-    parted \
-    scrot \
+pacstrap /mnt                                                   \
+    base base-devel                                             \
+\
+    xorg xorg-xinit                                             \
+\
+    pulseaudio pulseaudio-alsa pavucontrol                      \
+    alsa-utils                                                  \
+    blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils   \
+\
+    redshift python-gobject python-xdg librsvg                  \
+    devilspie transset-df                                       \
+    compton                                                     \
+    feh                                                         \
+    scrot                                                       \
+\
+    xbindkeys                                                   \
+    xclip                                                       \
+    xcape                                                       \
+\
+    python python-pip                                           \
+    jdk8-openjdk                                                \
+    gdb                                                         \
+    go                                                          \
+    nodejs npm yarn                                             \
+    astyle                                                      \
+    hub                                                         \
+\
+    powerline-fonts                                             \
+    ttf-dejavu                                                  \
+    ttf-symbola                                                 \
+    awesome-terminal-fonts                                      \
+\
+    termite                                                     \
+    neovim                                                      \
+    zsh                                                         \
+    ranger highlight w3m                                        \
+    rofi                                                        \
+\
+    the_silver_searcher                                         \
+    git tig                                                     \
+    openssh                                                     \
+    parted                                                      \
+    qbittorrent                                                 \
+    networkmanager network-manager-applet                       \
+    gnome-keyring libsecret                                     \
+    xf86-input-synaptics                                        \
+    gnupg                                                       \
 
+# xdotool
 #wmctrl \
 #tmux
 #ttf-insonsolata

@@ -1,94 +1,86 @@
+# vim:filetype=i3
+
 ################################################################################
 # Keybinds
+################################################################################
 
 set $term termite
 set $mod Mod1
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h          focus left
+bindsym $mod+j          focus down
+bindsym $mod+k          focus up
+bindsym $mod+l          focus right
 
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h    move left
+bindsym $mod+Shift+j    move down
+bindsym $mod+Shift+k    move up
+bindsym $mod+Shift+l    move right
 
-bindsym $mod+v split h
-bindsym $mod+s split v
-bindsym $mod+f fullscreen toggle
-bindsym $mod+t layout toggle split
+bindsym $mod+v          split h
+bindsym $mod+s          split v
+bindsym $mod+f          fullscreen toggle
+bindsym $mod+t          layout toggle split
 
-bindsym $mod+p focus parent
-bindsym $mod+c focus child
+bindsym $mod+p          focus parent
+bindsym $mod+c          focus child
 
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r    restart
+bindsym $mod+Shift+q    kill
 
 bindsym $mod+Shift+s mode "resize"
-mode "resize" {
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+mode "resize"
+{
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
-        bindsym Escape mode "default"
+    bindsym Escape mode "default"
 }
 
-bindsym $mod+d exec rofi -show run -terminal $term
-bindsym $mod+Shift+e exec ~/config/rofi/rofi_power.sh
+bindsym $mod+d          exec rofi -show run -terminal $term
+bindsym $mod+Shift+e    exec ~/config/rofi/rofi_power.sh
 
-bindsym $mod+Return exec $term
+bindsym $mod+Return     exec $term
 
-bindsym $mod+e exec $term -e nvim -t nvim
-bindsym $mod+r exec $term -e ranger -t ranger
-bindsym $mod+m exec $term -e mutt -t neomutt
+bindsym $mod+e          exec $term -e nvim   -t nvim
+bindsym $mod+r          exec $term -e ranger -t ranger
+bindsym $mod+m          exec $term -e mutt   -t neomutt
 
-bindsym $mod+g exec google-chrome-stable
+bindsym $mod+g          exec google-chrome-stable
 
 ################################################################################
 # Workspaces
+################################################################################
 
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1          workspace 1
+bindsym $mod+2          workspace 2
+bindsym $mod+3          workspace 3
+bindsym $mod+4          workspace 4
+bindsym $mod+5          workspace 5
+bindsym $mod+6          workspace 6
+bindsym $mod+7          workspace 7
+bindsym $mod+8          workspace 8
+bindsym $mod+9          workspace 9
+bindsym $mod+0          workspace 10
 
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
-# assign [title="Google Chrome"] $ws2
-# assign [title="Google Play Music"] $ws3
-# assign [title="Discord"] $ws4
-# assign [title="Gmail"] $w4
+bindsym $mod+Shift+1    move container to workspace 1
+bindsym $mod+Shift+2    move container to workspace 2
+bindsym $mod+Shift+3    move container to workspace 3
+bindsym $mod+Shift+4    move container to workspace 4
+bindsym $mod+Shift+5    move container to workspace 5
+bindsym $mod+Shift+6    move container to workspace 6
+bindsym $mod+Shift+7    move container to workspace 7
+bindsym $mod+Shift+8    move container to workspace 8
+bindsym $mod+Shift+9    move container to workspace 9
+bindsym $mod+Shift+0    move container to workspace 10
 
 ################################################################################
 # Windows
+################################################################################
 
-# new_window none
-# new_window normal 0 px
-# for_window [class="^.*"] border pixel 5
-# client.unfocused #000000 #000000 #000000 #000000
 new_window pixel
-# class                         border  backgr. text
-# client.focused                  #FF0000 #FF0000 #181818 #ee66aa
-# client.unfocused                #181818 #181818 #315858
-# client.focused_inactive         #181818 #181818 #2c2e2f
-# client.urgent                   #383a3b #00ccff #ee0000
 
 client.focused #FF0000 #FF0000 #FF0000 #FF0000
 
@@ -100,7 +92,14 @@ smart_borders on
 smart_gaps on
 
 ################################################################################
-# Custom commands
+# Bar
+################################################################################
+
+exec_always --no-startup-id ~/config/polybar/launch.sh
+
+################################################################################
+# Old config
+################################################################################
 
 # exec        --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
 
@@ -129,17 +128,12 @@ smart_gaps on
 
 # exec_always --no-startup-id pkill lemonbar; python /usr/lib/python3.6/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --height 30 --i3 -- -f "Font Awesome" -f "Inconsolata for Powerline-12" -p -b -B \#1a1a1a
 
-exec_always --no-startup-id ~/config/polybar/launch.sh
-
 # exec_always --no-startup-id ~/config/polybar/launch.sh
 # exec_always --no-startup-id [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 # exec --no-startup-id powerline-daemon -q
 # exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
 # exec --no-startup-id amixer set PCM 30% unmute
 #exec_always xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
-
-################################################################################
-# Old config
 
 # font pango:monospace 8
 # font pango:DejaVu Sans Mono 8
@@ -167,5 +161,18 @@ exec_always --no-startup-id ~/config/polybar/launch.sh
 #     font pango:DejavuSansMonoforPowerline 12
 # }
 
-################################################################################
-# vim:filetype=i3
+# new_window none
+# new_window normal 0 px
+# for_window [class="^.*"] border pixel 5
+# client.unfocused #000000 #000000 #000000 #000000
+
+# assign [title="Google Chrome"] $ws2
+# assign [title="Google Play Music"] $ws3
+# assign [title="Discord"] $ws4
+# assign [title="Gmail"] $w4
+
+# class                         border  backgr. text
+# client.focused                  #FF0000 #FF0000 #181818 #ee66aa
+# client.unfocused                #181818 #181818 #315858
+# client.focused_inactive         #181818 #181818 #2c2e2f
+# client.urgent                   #383a3b #00ccff #ee0000

@@ -1,3 +1,24 @@
 #!/usr/bin/bash
 
-i3lock -e --blur=sigma -k -u --timestr="%H:%M" --datestr="%A, %B %d" --timesize=75 --datesize=25 --datepos="tx:ty+40" --timecolor=d3d3d3DD --datecolor=d3d3d3DD --border
+W='#d3d3d3DD'
+B='#000000FF'
+R='#FF0000FF'
+
+i3lock                      \
+    -e                      \
+\
+    --blur=sigma            \
+\
+    -k                      \
+    -u                      \
+\
+    --timestr="%H:%M"       \
+    --timesize=75           \
+    --timecolor=$W          \
+\
+    --datestr="%A, %B %d"   \
+    --datesize=25           \
+    --datepos="tx:ty+40"    \
+    --datecolor=$W          \
+\
+    --bordercolor=$B        \

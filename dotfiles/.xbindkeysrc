@@ -3,7 +3,7 @@
 "amixer set Master 5%+ unmute"
     XF86AudioRaiseVolume
 
-"amixer -D pulse set Master 1+ toggle; pactl set-sink-mute 0 toggle"
+"amixer -D pulse set Master 1+ toggle"
     XF86AudioMute
 
 "pactl set-source-mute 1 toggle"

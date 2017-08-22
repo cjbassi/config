@@ -43,11 +43,16 @@ ln -sf ~/config/termite  ~/.config/termite
 
 ################################################################################
 
-sudo systemctl enable suspend@cjbassi
+# TODO
+# sudo systemctl enable suspend@cjbassi
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo '
+# automatically switch to newly-connected devices
+load-module module-switch-on-connect' | sudo tee -a /etc/pulse/default.pa
 
 ################################################################################
 
@@ -70,7 +75,8 @@ cd ~
 ################################################################################
 
 sudo pip install glances
-sudo npm install -g livedown
+# sudo npm install -g livedown TODO
+sudo pip3 install --upgrade neovim
 
 ################################################################################
 
@@ -79,30 +85,35 @@ bash ~/config/installation/pacaur.sh
 export EDITOR=nvim
 gpg --recv-keys 5FAF0A6EE7371805
 
-pacaur -S --noconfirm --noedit discord >> check_error
-pacaur -S --noconfirm --noedit dropbox >> check_error
-pacaur -S --noconfirm --noedit google-chrome >> check_error
-pacaur -S --noconfirm --noedit neofetch >> check_error
-pacaur -S --noconfirm --noedit neomutt >> check_error
-pacaur -S --noconfirm --noedit unclutter-xfixes-git >> check_error
-pacaur -S --noconfirm --noedit universal-ctags-git >> check_error
-pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git >> check_error
+pacaur -S --noconfirm --noedit discord
+pacaur -S --noconfirm --noedit dropbox
+pacaur -S --noconfirm --noedit google-chrome
+pacaur -S --noconfirm --noedit neofetch
+pacaur -S --noconfirm --noedit unclutter-xfixes-git
+pacaur -S --noconfirm --noedit universal-ctags-git
+pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git
 
-pacaur -S --noconfirm --noedit i3-gaps >> check_error
-pacaur -S --noconfirm --noedit i3ipc-glib-git >> check_error
-pacaur -S --noconfirm --noedit i3lock-color-git >> check_error
-    
-pacaur -S --noconfirm --noedit gitflow-avh >> check_error
-pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh >> check_error
+pacaur -S --noconfirm --noedit neomutt
+pacaur -S --noconfirm --noedit neomutt
 
-pacaur -S --noconfirm --noedit polybar-git >> check_error
+pacaur -S --noconfirm --noedit i3-gaps
+pacaur -S --noconfirm --noedit i3lock-color-git
+
+pacaur -S --noconfirm --noedit gitflow-avh
+pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
+
+pacaur -S --noconfirm --noedit polybar-git
 
 ################################################################################
 
 echo "
 ###########################################
-1) :PlugInstall
-2) Configure pavucontrol
+1) wifi and mutt symlink setup
+2) Bluetooth
+3) pavucontrol
+    mic volume to 100
+4) :PlugInstall
+6) symlink config directory
 ###########################################
 "
 

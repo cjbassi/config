@@ -1,12 +1,23 @@
-alias va='v ~/.aliases'
-alias vg='v ~/Dropbox/notes/technology/programming_guide.md'
-alias vp='v ~/Dropbox/config/polybar/config'
-alias vv='v ~/.vimrc'
-alias vi3='v ~/Dropbox/config/i3/config'
-alias vz='v ~/.zshrc'
+# vim:filetype=zsh
 
-alias v='vim'
+alias eal='e ~/config/dotfiles/.aliases'
+alias ea1='e ~/config/installation/arch1.sh'
+alias ea2='e ~/config/installation/arch2.sh'
+alias ea3='e ~/config/installation/arch3.sh'
+alias eg='e ~/Dropbox/notes/technology/programming_guide.md'
+alias ep='e ~/config/polybar/config'
+alias ev='e ~/config/nvim/init.vim'
+alias ei3='e ~/config/i3/config'
+alias ez='e ~/config/dotfiles/.zshrc'
+
+alias r='ranger'
+alias m='mutt'
+
+alias git='hub'
+
+alias e='vim'
 alias vim='nvim'
+
 alias l='ll'
 
 alias gcc='gcc -Wall'
@@ -27,11 +38,12 @@ ll() {
     ls -AhgoX --group-directories-first --color=always "$@" | tail --lines=+2
 }
 
+alias vimdiff='nvim -d'
 alias pwd='echo -e "${PWD/${HOME}/~}"'
-
-# alias cat='vimcat'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 alias makepkg='makepkg -si'
+
+# alias cat='vimcat'
 
 # rm() {
 #     # ll $4
@@ -46,5 +58,3 @@ alias makepkg='makepkg -si'
 #         /usr/bin/rm "$@"
 #     fi
 # }
-
-# vim:filetype=zsh

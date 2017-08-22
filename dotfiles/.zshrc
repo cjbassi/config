@@ -39,13 +39,6 @@ autoload -Uz compinit
 compinit
 
 ################################################################################
-# Set vim as default editor
-
-export VISUAL=nvim
-export EDITOR=nvim
-export USE_EDITOR=nvim
-
-################################################################################
 # Settings
 
 setopt globdots         # Tab completion includes dot files
@@ -105,7 +98,11 @@ alias pactree='pactree -c'
 # source /usr/share/fzf/key-bindings.zsh
 export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+
+zle -N fzf-history-widget
 bindkey -M vicmd '/' fzf-history-widget
+bindkey -M vicmd '^t' fzf-file-widget
+
 bindkey -r '^r'
 bindkey -r '^[c'
 # bindkey -r '^t'
@@ -118,10 +115,11 @@ function expand-or-cd-or-fzf() {
         # zle backward-kill-word
         fzf-cd-widget
         BUFFER=""
+        zle accept-line
     # elif cursor is next to a space
     # elif [[ $BUFFER =~ \ $ ]] ; then
     #     fzf-file-widget
-    elif [[ $BUFFER = "vim " ]]; then
+    elif [[ $BUFFER = "vim " ]] || [[ $BUFFER = "v " ]] || [[ $BUFFER = "nvim " ]] ; then
         fzf-file-widget
     else
         zle expand-or-complete
@@ -222,6 +220,8 @@ source ~/.promptline.sh
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ################################################################################
 
 # export PATH="$HOME/.vim/bundle/powerline/scripts/:$PATH"
@@ -247,5 +247,3 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # zle -N zle-line-init
 # zle -N zle-keymap-select
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
