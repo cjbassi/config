@@ -5,6 +5,8 @@ mkdir -p Downloads
 mkdir -p .ssh
 mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
+mkdir -p ~/.config/ranger
+mkdir -p ~/.mutt
 
 # ssh keys
 sudo mount -L KEYS /mnt/usb
@@ -33,15 +35,19 @@ sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 
 ln -sf ~/config/polybar ~/.config/polybar
 
-mkdir -p ~/.config/ranger
 ln -sf ~/config/ranger/* ~/.config/ranger/
-ranger --copy-config=scope
 
 ln -sf ~/config/rofi ~/.config/rofi
 
 ln -sf ~/config/termite  ~/.config/termite
 
+ln -sf ~/config/mutt/* ~/mutt/
+
 ################################################################################
+
+ranger --copy-config=scope
+# TODO
+        # try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
 
 # TODO
 # sudo systemctl enable suspend@cjbassi

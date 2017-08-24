@@ -1,0 +1,192 @@
+source ~/.mutt/gmailrc
+# source ~/.mutt/gmail_passwords
+source ~/.mutt/aliases
+source ~/.mutt/solarized
+
+################################################################################
+# Settings
+################################################################################
+
+set     folder =            "imaps://imap.gmail.com:993"
+set     spoolfile =         "+INBOX"
+set     postponed =         "+[Gmail]/Drafts"
+set     header_cache =      ~/.cache/mutt/
+set     message_cachedir =  ~/.cache/mutt/
+
+unset   record
+
+set     certificate_file =  ~/.config/mutt/gmail/certificates
+set     ssl_starttls =      yes
+set     ssl_force_tls =     yes
+
+set     sort =              'reverse-date'
+set     editor =            'nvim'
+set     timeout =           "5"
+set     mail_check =        "60"
+set     mailcap_path =      ~/config/mutt/mailcap
+set     send_charset =      "us-ascii:utf-8"
+set     beep_new            # bell on new mails
+set     nohelp
+
+unset   mark_old            # read/new is good enough for me
+
+set     date_format =       "%m/%d %H:%M"
+set     index_format =      "%2C %Z %d %-15.15F %s"
+set     status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set     status_chars  = " *%A"
+
+auto_view                   text/html
+alternative_order           text/plain text/enriched text/html
+
+color   index               brightblue  yellow  ~T  # tagged
+
+set     sidebar_visible =   yes
+set     sidebar_width =     20
+set     sidebar_short_path  # Shorten mailbox names
+
+mailboxes "=INBOX"
+mailboxes "=[Gmail]/All Mail"
+mailboxes "=[Gmail]/Sent Mail"
+mailboxes "=[Gmail]/Starred"
+mailboxes "=[Gmail]/Trash"
+mailboxes "=Financial Aid"
+mailboxes "=Grandparents"
+mailboxes "=Portfolium"
+mailboxes "=Saved for later"
+mailboxes "=Receipts"
+
+
+################################################################################
+# Unbinds
+################################################################################
+
+bind    index,pager         <Esc>/      noop
+bind    index,pager         <Esc>C      noop
+bind    index,pager         <Esc>P      noop
+bind    index,pager         <Esc>c      noop
+bind    index,pager         <Esc>d      noop
+bind    index,pager         <Esc>e      noop
+bind    index,pager         <Esc>k      noop
+bind    index,pager         <Esc>n      noop
+bind    index,pager         <Esc>p      noop
+bind    index,pager         <Esc>r      noop
+bind    index,pager         <Esc>s      noop
+bind    index,pager         <Esc>u      noop
+bind    index,pager         <Esc><Tab>  noop
+bind    index,pager         <Esc>V      noop
+bind    index,pager         <Esc>b      noop
+bind    index,pager         <Esc>l      noop
+bind    index,pager         <Esc>t      noop
+bind    index,pager         <Esc>v      noop
+
+bind    generic,pager       <Down>      noop
+bind    generic,pager       <Up>        noop
+bind    generic,pager       <Left>      noop
+bind    generic,pager       <Right>     noop
+bind    generic,pager       <Home>      noop
+bind    generic,pager       <F1>        noop
+bind    generic,pager       <PageDown>  noop
+bind    generic,pager       <PageUp>    noop
+bind    generic,pager       <End>       noop
+
+bind    generic,pager       <Esc>/      noop
+bind    pager               Q           noop
+bind    editor,index,pager  <space>     noop
+bind    attach,pager        g           noop
+bind    index,pager         d           noop
+
+bind    index               <Esc>/      noop
+bind    index               <Down>      noop
+bind    index               <Up>        noop
+bind    index               <Left>      noop
+bind    index               <Right>     noop
+bind    index               h           noop
+bind    index               $           noop
+bind    index               x           noop
+bind    index               u           noop
+bind    index               U           noop
+
+bind    generic             <           noop
+bind    generic             >           noop
+bind    generic             *           noop
+bind    generic             z           noop
+bind    generic             =           noop
+bind    generic             [           noop
+bind    generic             Z           noop
+bind    generic             M           noop
+bind    generic             L           noop
+bind    generic             H           noop
+bind    generic             ]           noop
+
+################################################################################
+# Keybinds
+################################################################################
+
+bind    index,pager         \cJ         sidebar-next
+bind    index,pager         \cK         sidebar-prev
+bind    index,pager         \cL         sidebar-open
+bind    index,pager         \cH         sidebar-toggle-visible
+
+bind    pager               <Esc><Esc>  quit
+
+bind    index               c           mail
+bind    index               m           noop
+
+bind    compose,attach      h           exit
+bind    pager,browser       h           exit
+
+bind    pager               j           next-line
+bind    pager               k           previous-line
+
+bind    pager               l           view-attachments
+bind    attach,compose      l           view-attach
+bind    generic             l           select-entry
+bind    index               l           display-message
+
+bind    generic,pager               q           quit
+
+bind    attach,index,pager  \cd         half-down
+bind    attach,index,pager  \cu         half-up
+
+bind    index               g           noop
+
+bind    pager               gg          top
+bind    attach,index        gg          first-entry
+bind    pager               G           bottom
+bind    attach,index        G           last-entry
+
+bind    index               /           search
+bind    index               R           group-reply
+
+macro   index,pager D       "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+
+bind    index               \ce         next-line
+bind    generic             \ce         next-line
+bind    generic             \cy         previous-line
+
+
+# macro   index               X           '<sync-mailbox><enter-command>source ~/.mutt/gmailrc<enter><change-folder>!<enter>'
+
+# bind    index               D           delete-message
+# bind    index               U           undelete-message
+
+# bind pager ^ noop
+
+# sidebar_whitelist =INBOX     # Always display these two mailboxes
+
+# color sidebar_indicator default color17         # Dark blue background
+# color sidebar_highlight white   color238        # Grey background
+
+# mono    bold                bold
+# mono    underline           underline
+# mono    indicator           reverse
+# color   index               yellow      default '.*'
+# color   index_author        red         default '.*'
+# color   index_number        blue        default
+# color   index_subject       cyan        default '.s'
+# color   index_size          green       default
+# color   normal              default     default
+# color   body                brightred   default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# color   body                brightblue  default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+# macro   index,pager y       "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"

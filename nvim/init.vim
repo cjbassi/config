@@ -1,3 +1,4 @@
+" call plug#begin('~/.local/share/nvim/plugged')
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
@@ -11,12 +12,13 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-unimpaired'
 Plug 'craigemery/vim-autotag'
 Plug 'Yggdroot/indentLine'
-Plug 'itchyny/vim-cursorword'
 Plug 'haya14busa/vim-asterisk'
 Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-eunuch'
+" Plug 'vim-scripts/EnhancedJumps'
 
 Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
@@ -43,7 +45,7 @@ Plug 'edkolev/promptline.vim'
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
+" Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
 
 call plug#end()
 
@@ -63,7 +65,6 @@ hi LineNr ctermbg=NONE ctermfg=237
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=232 ctermfg=241
 
-set noshowmode
 set cursorline
 
 let g:indentLine_color_term = 239
@@ -105,8 +106,8 @@ nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
 
 nnoremap <silent> <leader>qq :qa<CR>
-nnoremap <silent> <leader>qx :x<CR>
-nnoremap <silent> <leader>q! :q!<CR>
+nnoremap <silent> <leader>qx :x<CR>:qa<CR>
+nnoremap <silent> <leader>q! :q!<CR>:qa<CR>
 
 nnoremap <silent> <leader>bb :Buffers<CR>
 nnoremap <silent> <leader>bx :w<CR>:bdelete<CR>
@@ -115,27 +116,41 @@ nnoremap <silent> <leader>bD :bdelete!<CR>
 nnoremap <silent> <leader>bf :FZF ~<CR>
 nnoremap <silent> <leader>bs :w<CR>
 nnoremap <silent> <leader>bS :wa<CR>
+nnoremap <silent> <leader>bn :enew<CR>
+nnoremap <silent> <leader>br :edit<CR>
+nnoremap <silent> <leader>bm :Rename
+nnoremap <silent> <leader>bM :Move
 
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gbrowse<CR>
 nnoremap <silent> <leader>gp :Gpush<CR>
+nnoremap <silent> <leader>gm :Gmove
 
 nnoremap <silent> <leader>pi :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugInstall<CR>
 nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
 nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
 
-nnoremap <silent> <leader>ts :StripWhitespace<CR>
+nnoremap <silent> <leader>ts :set spell!<CR>
 nnoremap <silent> <leader>tw :set wrap!<CR>
+nnoremap <silent> <leader>tW :StripWhitespace<CR>
 " nnoremap <silent> <leader>th :nohlsearch<CR>
 nnoremap <leader>th :tab help 
 nnoremap <silent> <leader>tr :retab<CR>
-noremap <silent> <leader>tf :Autoformat<CR>
+noremap <silent> <leader>tf :call Format()<CR>
 nnoremap <silent> <leader>tt :Tags<CR>
 nnoremap <silent> <leader>tl :LivedownToggle<CR>
+nnoremap <silent> <leader>tc :ColorToggle<CR>
 
-map Q <Nop>
+function! Format()
+    if &ft == 'mail'
+        :exe "normal! " . "gggqG\<C-o>\<C-o>"
+    else
+        :Autoformat<CR>
+    endif
+endfunction
+
 map q: <Nop>
 map * <Plug>(asterisk-z*)
 map # <Nop>
@@ -173,6 +188,7 @@ vnoremap <silent> <expr> p <sid>Repl()
 " }
 
 map Y y$
+nnoremap Q @@
 " nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 nnoremap <silent> <C-l> zz
 nnoremap <silent> \ :nohlsearch<CR>
@@ -197,6 +213,8 @@ endfunction
 nmap <silent> j gj
 nmap <silent> k gk
 
+nnoremap <silent> gG G
+
 " allows incsearch highlighting for range commands
 cnoremap $y <CR>:t''<CR>
 cnoremap $m <CR>:m''<CR>
@@ -210,6 +228,9 @@ cnoremap $d <CR>:d<CR>``
 filetype plugin indent on
 set encoding=utf-8
 
+set lazyredraw
+set nostartofline
+
 autocmd VimResized * wincmd =
 
 set splitbelow
@@ -220,6 +241,9 @@ set scrolloff=1
 set sidescrolloff=5
 
 set timeoutlen=1000 ttimeoutlen=0 " Remove ESC delay in Vim
+
+set noshowmode
+set noshowcmd
 
 set linebreak
 set display+=lastline
@@ -232,10 +256,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 
 autocmd BufRead,BufNewFile *.md,*.txt
             \ let b:indentLine_enabled = 0 |
-            \ let b:cursorword = 1 |
-            \ setlocal spell |
+            " if &modifiable
+            "     \ setlocal spell |
+            " fi
 
-set noshowcmd
+            " \ let b:cursorword = 1 |
 
 set nowrapscan
 
@@ -643,3 +668,4 @@ nmap Y <Plug>(operator-flashy)$
 
 " nnoremap <Tab> i<Tab><Esc>
 
+" Plug 'itchyny/vim-cursorword'

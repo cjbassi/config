@@ -1,4 +1,4 @@
-# vim:filetype=sh
+#!/bin/sh
 
 nm-applet &
 

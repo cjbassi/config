@@ -1,4 +1,4 @@
-# vim:filetype=zsh
+#!/bin/sh
 
 alias eal='e ~/config/dotfiles/.aliases'
 alias ea1='e ~/config/arch/arch1.sh'
@@ -9,6 +9,8 @@ alias ep='e ~/config/polybar/config'
 alias ev='e ~/config/nvim/init.vim'
 alias ei3='e ~/config/i3/config'
 alias ez='e ~/config/dotfiles/.zshrc'
+
+alias ag='sudo ag --hidden --ignore .git'
 
 alias r='ranger'
 alias m='mutt'

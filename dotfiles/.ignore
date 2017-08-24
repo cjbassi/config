@@ -1,6 +1,5 @@
 .cache
 .cargo
-.config
 .emacs.d
 .devilspie
 .dropbox
@@ -24,3 +23,7 @@ Downloads
 go
 
 Dropbox/wifi
+
+.config/google-chrome
+.config/nvim/undo
+.config/discord
