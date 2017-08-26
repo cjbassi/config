@@ -55,7 +55,7 @@ pacstrap /mnt                                                   \
     jdk8-openjdk                                                \
     gdb                                                         \
     go                                                          \
-    nodejs npm yarn                                             \
+    nodejs npm                                                  \
     astyle                                                      \
     hub                                                         \
 \
@@ -79,8 +79,10 @@ pacstrap /mnt                                                   \
     gnome-keyring libsecret                                     \
     xf86-input-synaptics                                        \
     gnupg                                                       \
+    ccache                                                      \
 
-# xdotool
+#yarn
+#xdotool
 #wmctrl \
 #tmux
 #ttf-insonsolata

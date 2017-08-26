@@ -1,4 +1,4 @@
-# vim: filetype=muttrc
+# vim:ft=muttrc
 
 # make sure that you are using mutt linked against slang, not ncurses, or
 # suffer the consequences of weird color issues. use "mutt -v" to check this.

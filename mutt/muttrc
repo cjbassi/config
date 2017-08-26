@@ -1,27 +1,23 @@
-source ~/.mutt/gmailrc
-# source ~/.mutt/gmail_passwords
 source ~/.mutt/aliases
+
 source ~/.mutt/solarized
+
+source ~/.mutt/gmail/gmailrc
+
 
 ################################################################################
 # Settings
 ################################################################################
 
-set     folder =            "imaps://imap.gmail.com:993"
-set     spoolfile =         "+INBOX"
-set     postponed =         "+[Gmail]/Drafts"
+set     my_user =           "Caleb"
+set     realname =          "Caleb Bassi"
+
 set     header_cache =      ~/.cache/mutt/
 set     message_cachedir =  ~/.cache/mutt/
 
-unset   record
-
-set     certificate_file =  ~/.config/mutt/gmail/certificates
-set     ssl_starttls =      yes
-set     ssl_force_tls =     yes
-
 set     sort =              'reverse-date'
 set     editor =            'nvim'
-set     timeout =           "5"
+# set     timeout =           "5"
 set     mail_check =        "60"
 set     mailcap_path =      ~/config/mutt/mailcap
 set     send_charset =      "us-ascii:utf-8"
@@ -32,8 +28,8 @@ unset   mark_old            # read/new is good enough for me
 
 set     date_format =       "%m/%d %H:%M"
 set     index_format =      "%2C %Z %d %-15.15F %s"
-set     status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-set     status_chars  = " *%A"
+set     status_format =     "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set     status_chars  =     " *%A"
 
 auto_view                   text/html
 alternative_order           text/plain text/enriched text/html
@@ -43,17 +39,6 @@ color   index               brightblue  yellow  ~T  # tagged
 set     sidebar_visible =   yes
 set     sidebar_width =     20
 set     sidebar_short_path  # Shorten mailbox names
-
-mailboxes "=INBOX"
-mailboxes "=[Gmail]/All Mail"
-mailboxes "=[Gmail]/Sent Mail"
-mailboxes "=[Gmail]/Starred"
-mailboxes "=[Gmail]/Trash"
-mailboxes "=Financial Aid"
-mailboxes "=Grandparents"
-mailboxes "=Portfolium"
-mailboxes "=Saved for later"
-mailboxes "=Receipts"
 
 
 ################################################################################
@@ -105,6 +90,7 @@ bind    index               $           noop
 bind    index               x           noop
 bind    index               u           noop
 bind    index               U           noop
+bind    index               V           noop
 
 bind    generic             <           noop
 bind    generic             >           noop
@@ -117,6 +103,7 @@ bind    generic             M           noop
 bind    generic             L           noop
 bind    generic             H           noop
 bind    generic             ]           noop
+
 
 ################################################################################
 # Keybinds
@@ -143,7 +130,7 @@ bind    attach,compose      l           view-attach
 bind    generic             l           select-entry
 bind    index               l           display-message
 
-bind    generic,pager               q           quit
+bind    generic,pager       q           quit
 
 bind    attach,index,pager  \cd         half-down
 bind    attach,index,pager  \cu         half-up
@@ -157,8 +144,6 @@ bind    attach,index        G           last-entry
 
 bind    index               /           search
 bind    index               R           group-reply
-
-macro   index,pager D       "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
 
 bind    index               \ce         next-line
 bind    generic             \ce         next-line

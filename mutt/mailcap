@@ -1,7 +1,7 @@
 text/html; google-chrome-stable %s; test=test -n "$DISPLAY"; needsterminal
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-image/*; ~/.config/mutt/muttimage.sh %s ; copiousoutput
+image/*; ~/.config/mutt/mutt_image.sh %s ; copiousoutput
 
 # image/*; /usr/lib/w3m/w3mimgdisplay %s; copiousoutput;
 # image/*; w3m -o auto_image=TRUE %s -T text/html; nametemplate=%s.html; copiousoutput

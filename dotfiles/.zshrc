@@ -6,8 +6,12 @@ source ~/.aliases
 export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
 
+export PATH="/usr/lib/ccache/bin/:$PATH"
+
+
 ################################################################################
 # History
+################################################################################
 
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -18,8 +22,10 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 export HISTORY_IGNORE="(ll|cd|cd ..)"
 
+
 ################################################################################
 # Vim keybinds
+################################################################################
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -32,22 +38,28 @@ bindkey '^h' backward-delete-char
 #autoload -Uz edit-command-line
 #bindkey -M vicmd 'v' edit-command-line
 
+
 ################################################################################
 # Completion
+################################################################################
 zstyle :compinstall filename '/home/cbassi/.zshrc'
 autoload -Uz compinit
 compinit
 
+
 ################################################################################
 # Settings
+################################################################################
 
 setopt globdots         # Tab completion includes dot files
 setopt kshglob          # Addes more globbs
 CASE_SENSITIVE="true"   # Case sensitive completion
 stty -ixon              # Disables C-s and C-q
 
+
 ################################################################################
 # Locales
+################################################################################
 
 LANG="en_US.UTF-8"
 LC_COLLATE="en_US.UTF-8"
@@ -58,8 +70,10 @@ LC_NUMERIC="en_US.UTF-8"
 LC_TIME="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 
+
 ################################################################################
 # Colors
+################################################################################
 
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
@@ -90,8 +104,10 @@ alias fdisk='fdisk --color=auto'
 alias cower='cower --color=auto'
 alias pactree='pactree -c'
 
+
 ################################################################################
 # Other programs
+################################################################################
 
 # FZF
 # source /usr/share/fzf/completion.zsh
@@ -208,26 +224,22 @@ function zle-keymap-select
 }
 zle -N zle-keymap-select
 
-################################################################################
-# promptline
-
 # ZLE_RPROMPT_INDENT=0
 source ~/.promptline.sh
-# source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-
-################################################################################
-# zsh-syntax-highlighting
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+################################################################################
+################################################################################
 
 # BASE16_SHELL=$HOME/.config/base16-shell/
 # [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # base16_solarized-dark
 
-################################################################################
 
 # export PATH="$HOME/.vim/bundle/powerline/scripts/:$PATH"
 # . ~/.vim/plugged/powerline/powerline/bindings/zsh/powerline.zsh
@@ -236,7 +248,6 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # zle vi-cmd-mode
 
-################################################################################
 # Prompt
 
 # # PROMPT=$'%{\e[1;38;5;34m%}%n@%m%{\e[0m%}:%{\e[1;38;5;27m%}%~%{\e[0m%}%(!.#.$) '
@@ -252,3 +263,5 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # zle -N zle-line-init
 # zle -N zle-keymap-select
+
+# source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh

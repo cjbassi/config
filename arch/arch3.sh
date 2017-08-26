@@ -6,7 +6,6 @@ mkdir -p .ssh
 mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/ranger
-mkdir -p ~/.mutt
 
 # ssh keys
 sudo mount -L KEYS /mnt/usb
@@ -21,17 +20,17 @@ git clone git@github.com:cjbassi/config
 ################################################################################
 # Symlinks
 
+sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
+
+sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
+
 ln -sf ~/config/devilspie ~/.devilspie
 
 ln -sf ~/config/dotfiles/.* ~/
 
 ln -sf ~/config/i3 ~/.config/i3
 
-sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
-
 ln -sf ~/config/nvim/* ~/.config/nvim/
-
-sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 
 ln -sf ~/config/polybar ~/.config/polybar
 
@@ -41,7 +40,7 @@ ln -sf ~/config/rofi ~/.config/rofi
 
 ln -sf ~/config/termite  ~/.config/termite
 
-ln -sf ~/config/mutt/* ~/mutt/
+ln -sf ~/config/mutt ~/.mutt
 
 ################################################################################
 
@@ -120,6 +119,7 @@ echo "
     mic volume to 100
 4) :PlugInstall
 6) symlink config directory
+7) setup gpg mutt
 ###########################################
 "
 

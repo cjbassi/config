@@ -1,21 +1,14 @@
 .cache
 .cargo
-.emacs.d
-.devilspie
 .dropbox
 .dropbox-dist
-.ethereum
-.fonts
 .fzf
-.gem
 .gnome
-.gnupg
 .links
 .local
 .mozilla
 .mplayer
 .pki
-.ssh
 .vim
 .w3m
 
@@ -27,3 +20,5 @@ Dropbox/wifi
 .config/google-chrome
 .config/nvim/undo
 .config/discord
+
+.histfile

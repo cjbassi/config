@@ -1,3 +1,5 @@
+! Swaps Caps_Lock and Escape
+
 ! Remove Caps_Lock modifier from real Caps Lock key
 clear Lock
 ! Set real Caps Lock key to present as (left) control

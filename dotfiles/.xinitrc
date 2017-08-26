@@ -27,7 +27,7 @@ xcape &
 
 xbindkeys -p &
 
-xset r rate 250 25 &
+xset r rate 300 25 &
 
 xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1 &
 

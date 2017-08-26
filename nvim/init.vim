@@ -1,5 +1,5 @@
-" call plug#begin('~/.local/share/nvim/plugged')
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
+" call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -104,6 +104,7 @@ nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
+nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
 
 nnoremap <silent> <leader>qq :qa<CR>
 nnoremap <silent> <leader>qx :x<CR>:qa<CR>
@@ -132,7 +133,13 @@ nnoremap <silent> <leader>pi :source ~/config/nvim/init.vim <bar> :nohlsearch<CR
 nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
 nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
 
-nnoremap <silent> <leader>ts :set spell!<CR>
+" nnoremap <silent> <leader>s :SudoEdit ... <CR>
+
+nnoremap <silent> <leader>s :source ~/config/nvim/init.vim<CR>
+
+nnoremap <silent> <leader>tsp :set spell!<CR>
+vnoremap <silent> <leader>tsr :<C-f>is///g<Esc>hhi
+nnoremap <silent> <leader>tsr :<C-f>i%s///g<Esc>hhi
 nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tW :StripWhitespace<CR>
 " nnoremap <silent> <leader>th :nohlsearch<CR>
@@ -142,6 +149,9 @@ noremap <silent> <leader>tf :call Format()<CR>
 nnoremap <silent> <leader>tt :Tags<CR>
 nnoremap <silent> <leader>tl :LivedownToggle<CR>
 nnoremap <silent> <leader>tc :ColorToggle<CR>
+
+nnoremap <leader>/ /^\s*
+noremap <leader>: :<C-f>i
 
 function! Format()
     if &ft == 'mail'
@@ -230,6 +240,7 @@ set encoding=utf-8
 
 set lazyredraw
 set nostartofline
+" set gdefault
 
 autocmd VimResized * wincmd =
 
