@@ -85,7 +85,7 @@ sudo pip3 install --upgrade neovim
 
 ################################################################################
 
-bash ~/config/installation/pacaur.sh
+bash ~/config/arch/pacaur.sh
 
 export EDITOR=nvim
 gpg --recv-keys 5FAF0A6EE7371805
