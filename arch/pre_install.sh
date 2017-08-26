@@ -8,4 +8,5 @@ mount -L ROOT /mnt
 mount -L BOOT /mnt/boot
 rm -rf /mnt
 curl -L https://goo.gl/fnq2ve > arch1.sh
+https://goo.gl/J38pUW
 bash arch1.sh
