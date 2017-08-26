@@ -97,7 +97,7 @@ pacstrap /mnt                                                   \
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-curl https://raw.githubusercontent.com/cjbassi/config/master/installation/arch2.sh > /mnt/arch2.sh
+curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch2.sh > /mnt/arch2.sh
 
 # Chroot
 arch-chroot /mnt
