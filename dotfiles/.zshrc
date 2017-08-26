@@ -42,9 +42,11 @@ bindkey '^h' backward-delete-char
 ################################################################################
 # Completion
 ################################################################################
-zstyle :compinstall filename '/home/cbassi/.zshrc'
+
 autoload -Uz compinit
 compinit
+
+setopt correctall
 
 
 ################################################################################

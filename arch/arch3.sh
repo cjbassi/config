@@ -48,8 +48,10 @@ ranger --copy-config=scope
 # TODO
         # try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
 
-# TODO
-# sudo systemctl enable suspend@cjbassi
+sudo systemctl enable suspend@cjbassi
+
+sudo systemctl enable bluetooth
+
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -80,7 +82,6 @@ cd ~
 ################################################################################
 
 sudo pip install glances
-# sudo npm install -g livedown TODO
 sudo pip3 install --upgrade neovim
 
 ################################################################################
@@ -111,15 +112,21 @@ pacaur -S --noconfirm --noedit polybar-git
 
 ################################################################################
 
+pactl set-source-volume 1 100% # TODO
+xcape
+# startx #TODO
+# sudo ln -sf /home/cjbassi/Dropbox/system-connections /etc/NetworkManager/ # TODO
+# excape in install script but not on every boot?
+# check that mutt can't source encryped on next install without keys
+
 echo "
 ###########################################
-1) wifi and mutt symlink setup
-2) Bluetooth
-3) pavucontrol
-    mic volume to 100
-4) :PlugInstall
-6) symlink config directory
-7) setup gpg mutt
+1) Login to Chrome
+2) Login to Dropbox
+3) :PlugInstall
+4) Pair headphones
+
+Symlink config directory
 ###########################################
 "
 

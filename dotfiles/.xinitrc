@@ -23,7 +23,7 @@ xmodmap ~/config/peripherals/xkeys &
 # TODO
 # xcape -e '#66=Escape' &
 # pkill xcape &
-xcape &
+# xcape &
 
 xbindkeys -p &
 

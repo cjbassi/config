@@ -1,5 +1,6 @@
 # Before reboot:
     # Check home directory for loose files or info to grab
+    # copy ranger bookmarks
     # commit config
     # delete config from Dropbox
 

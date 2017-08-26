@@ -49,9 +49,6 @@ options     root=PARTLABEL=ROOT rw" \
 
 mkdir /mnt/usb
 
-# TODO as sudo?
-# systemctl enable bluetooth
-
 # Add user
 useradd -m -G wheel -s $(which zsh) cjbassi
 echo "cjbassi:$password" | chpasswd

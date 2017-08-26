@@ -1,8 +1,7 @@
-source ~/.mutt/aliases
+source "gpg -dq ~/.mutt/aliases.gpg |"
+source "gpg -dq ~/.mutt/gmailrc.gpg |"
 
 source ~/.mutt/solarized
-
-source ~/.mutt/gmail/gmailrc
 
 
 ################################################################################

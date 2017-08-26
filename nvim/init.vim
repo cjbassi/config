@@ -7,7 +7,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
+Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
 Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-unimpaired'
 Plug 'craigemery/vim-autotag'
