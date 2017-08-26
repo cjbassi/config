@@ -80,6 +80,7 @@ pacstrap /mnt                                                   \
     xf86-input-synaptics                                        \
     gnupg                                                       \
     ccache                                                      \
+    lzop                                                        \
     zsh-completions                                             \
 
 #yarn
