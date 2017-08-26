@@ -60,8 +60,8 @@ useradd -m -G wheel -s $(which zsh) develop
 echo "develop:$password" | chpasswd
 
 # Enable members of 'wheel' group to use root
-SEARCH="# %wheel ALL=(ALL) NOPASSWD: ALL"
-REPLACE="%wheel ALL=(ALL) NOPASSWD: ALL"
+SEARCH="# %wheel ALL=\(ALL\) NOPASSWD: ALL"
+REPLACE="%wheel ALL=\(ALL\) NOPASSWD: ALL"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/sudoers
 
 # Edit pacman.conf
