@@ -11,3 +11,9 @@ ttf-junicode
 ttf-linux-libertine
 ttf-opensans
 ttf-inconsolata
+
+noto-fonts-emoji
+ttf-symbola
+ttf-font-awesome
+awesome-terminal-fonts
+fonts on bar

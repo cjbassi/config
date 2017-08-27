@@ -7,13 +7,18 @@ mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/ranger
 
-# ssh keys
 sudo mount -L KEYS /mnt/usb
+
+# ssh keys
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
 chmod 700 /home/cjbassi/.ssh
 chmod 600 /home/cjbassi/.ssh/id_ed25519
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
 chmod -x /home/cjbassi/.ssh/known_hosts
+
+# gpg keys
+#TODO
+gpg --import /mnt/usb/gnupg/privkey.asc
 
 git clone git@github.com:cjbassi/config
 
@@ -47,6 +52,9 @@ ln -sf ~/config/mutt ~/.mutt
 ranger --copy-config=scope
 # TODO
         # try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
+
+# TODO
+pactl set-source-volume 1 100%
 
 sudo systemctl enable suspend@cjbassi
 
@@ -112,27 +120,14 @@ pacaur -S --noconfirm --noedit polybar-git
 
 ################################################################################
 
-pactl set-source-volume 1 100% # TODO
-xcape
-# startx #TODO
-# sudo ln -sf /home/cjbassi/Dropbox/system-connections /etc/NetworkManager/ # TODO
-# excape in install script but not on every boot?
 # check that mutt can't source encryped on next install without keys
 
 echo "
 ###########################################
-1) Login to Chrome
-2) Login to Dropbox
-3) :PlugInstall
-4) Pair headphones
-
-Symlink config directory
+1) Wi-Fi
+2) Login to Chrome
+3) Login to Dropbox
+4) Vim plugins
+5) Pair headphones
 ###########################################
 "
-
-#fonts
-    #noto-fonts-emoji
-    #ttf-symbola
-    #ttf-font-awesome
-    #awesome-terminal-fonts
-    #fonts on bar
