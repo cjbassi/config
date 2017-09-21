@@ -33,7 +33,8 @@ pacman-key --init
 pacman-key --populate archlinux
 
 # Select the mirrors
-cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
+mv -f morrorlist /etc/pacman.d/mirrorlist
 
 # Install packages
 yes | pacstrap /mnt                                                   \
