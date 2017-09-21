@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/zsh
 
 alias eal='e ~/config/dotfiles/.aliases'
 alias ea1='e ~/config/arch/arch1.sh'
@@ -9,11 +9,35 @@ alias ep='e ~/config/polybar/config'
 alias ev='e ~/config/nvim/init.vim'
 alias ei3='e ~/config/i3/config'
 alias ez='e ~/config/dotfiles/.zshrc'
+alias ex='e ~/.xinitrc'
+alias em='e ~/config/mutt/muttrc'
+alias eM='e Makefile'
+
+alias gc='cd /home/cjbassi/config'
+alias gm='cd /home/cjbassi/.mutt'
+alias gn='cd /home/cjbassi/Dropbox/notes'
+alias gd='cd /home/cjbassi/Dropbox'
+alias gp='cd /home/cjbassi/Dropbox/projects'
+alias gh='cd /home/cjbassi'
+alias gs='cd /home/cjbassi/Dropbox/school'
+alias gC='cd /home/cjbassi/.config'
+alias gt='cd /home/cjbassi/test'
+alias gD='cd /home/cjbassi/Downloads'
+alias gS='cd /home/cjbassi/sshfs'
+alias gu='cd /home/cjbassi/config/nvim/UltiSnips'
+alias gr='cd /home/cjbassi/.config/ranger'
+
+alias music='ncmpcpp'
+
+alias random_characters=''
+alias random_lines="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>50' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' | fmt | head -n"
+alias random_words='shuf /usr/share/dict/cracklib-small -rn'
 
 alias ag='sudo ag --hidden --ignore .git'
 
 alias r='ranger'
-alias m='mutt'
+# alias m='mutt'
+alias m='make'
 
 alias git='hub'
 
@@ -22,13 +46,21 @@ alias vim='nvim'
 
 alias l='ll'
 
-alias gcc='gcc -Wall'
+alias se='sudoedit'
 
+# TODO
+# and -g?
+alias g++='g++ -g -Wall'
+alias gcc='gcc -g -Wall'
+
+alias sshfs='sshfs -C'
+
+# TODO progress1 and 2
+alias rsync='rsync -h --info=all2'
 alias cp='cp -iv'
 alias mv='mv -iv'
-alias rm='rm -vdfIr'
 alias rmdir='rmdir -v'
-alias mkdir='mkdir -v'
+alias mkdir='mkdir -vp'
 alias ln='ln -v'
 
 alias w='w -f'
@@ -36,14 +68,23 @@ alias w='w -f'
 alias df='df -h'
 alias du='du -h'
 
-ll() {
-    ls -AhgoX --group-directories-first --color=always "$@" | tail --lines=+2
-}
+alias ll='ls -AhgoXF --group-directories-first --color=always'
 
 alias vimdiff='nvim -d'
 alias pwd='echo -e "${PWD/${HOME}/~}"'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 alias makepkg='makepkg -si'
+
+# rm() {
+#     /usr/bin/rm -Iv "$@"
+#     reset
+# }
+
+# cd() {
+#     /usr/bin/cd "$@"
+#     ll
+# }
+
 
 # alias cat='vimcat'
 

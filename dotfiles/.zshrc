@@ -1,5 +1,5 @@
 # If not running interactively, don't do anything
-[[ -z "$PS1" ]] && return
+# [[ -z "$PS1" ]] && return
 
 source ~/.aliases
 
@@ -9,23 +9,43 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 
-################################################################################
-# History
-################################################################################
+#######################################################################
+#                      Default editor and pager                       #
+#######################################################################
+
+export VISUAL='nvim'
+export EDITOR='nvim'
+export USE_EDITOR='nvim'
+
+export PAGER=vimpager
+alias less=$PAGER
+alias zless=$PAGER
+
+
+#######################################################################
+#                               History                               #
+#######################################################################
 
 HISTFILE=~/.histfile
+
 HISTSIZE=10000
 SAVEHIST=10000
+
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
+export HISTORY_IGNORE="(ll|cd|cd *|rm *)"
+
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-export HISTORY_IGNORE="(ll|cd|cd ..)"
+
+setopt EXTENDED_HISTORY
+
+setopt APPEND_HISTORY
 
 
-################################################################################
-# Vim keybinds
-################################################################################
+#######################################################################
+#                            Vim keybinds                             #
+#######################################################################
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -39,29 +59,32 @@ bindkey '^h' backward-delete-char
 #bindkey -M vicmd 'v' edit-command-line
 
 
-################################################################################
-# Completion
-################################################################################
-
-autoload -Uz compinit
-compinit
-
-setopt correctall
-
-
-################################################################################
-# Settings
-################################################################################
+#######################################################################
+#                              Settings                               #
+#######################################################################
 
 setopt globdots         # Tab completion includes dot files
 setopt kshglob          # Addes more globbs
 CASE_SENSITIVE="true"   # Case sensitive completion
 stty -ixon              # Disables C-s and C-q
 
+# makes escape not move cursor back
+function zle-keymap-select
+{
+    if [[ $KEYMAP = 'vicmd' ]] ; then
+        CURSOR=$CURSOR+1
+    fi
+}
+zle -N zle-keymap-select
 
-################################################################################
-# Locales
-################################################################################
+# completion
+autoload -Uz compinit
+compinit
+
+
+#######################################################################
+#                               Locales                               #
+#######################################################################
 
 LANG="en_US.UTF-8"
 LC_COLLATE="en_US.UTF-8"
@@ -73,9 +96,9 @@ LC_TIME="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 
 
-################################################################################
-# Colors
-################################################################################
+#######################################################################
+#                               Colors                                #
+#######################################################################
 
 LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
@@ -107,84 +130,9 @@ alias cower='cower --color=auto'
 alias pactree='pactree -c'
 
 
-################################################################################
-# Other programs
-################################################################################
-
-# FZF
-# source /usr/share/fzf/completion.zsh
-# source /usr/share/fzf/key-bindings.zsh
-export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
-
-zle -N fzf-history-widget
-bindkey -M vicmd '/' fzf-history-widget
-bindkey -M vicmd '^t' fzf-file-widget
-
-bindkey -r '^r'
-bindkey -r '^[c'
-# bindkey -r '^t'
-
-function expand-or-cd-or-fzf() {
-    if [[ $BUFFER == "cd " ]]; then
-        # BUFFER="ls "
-        # CURSOR=3
-        # zle list-choices
-        # zle backward-kill-word
-        fzf-cd-widget
-        BUFFER=""
-        zle accept-line
-    # elif cursor is next to a space
-    # elif [[ $BUFFER =~ \ $ ]] ; then
-    #     fzf-file-widget
-    elif [[ $BUFFER = "vim " ]] || [[ $BUFFER = "v " ]] || [[ $BUFFER = "nvim " ]] ; then
-        fzf-file-widget
-    else
-        zle expand-or-complete
-    fi
-}
-zle -N expand-or-cd-or-fzf
-bindkey '^I' expand-or-cd-or-fzf
-
-#export FZF_COMPLETION_TRIGGER='/'
-
-# ranger
-ranger() {
-    if [ -n "$RANGER_LEVEL" ]; then
-        exit
-    # elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
-    #     tmux rename-window "ranger"
-    #     /usr/bin/ranger "$@"
-    #     tmux setw automatic-rename on
-    else
-        /usr/bin/ranger "$@"
-    fi
-}
-
-# glances
-# glances() {
-#     if [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
-#         tmux rename-window "glances"
-#         /usr/bin/glances "$@"
-#         tmux setw automatic-rename on
-#     else
-#         /usr/bin/glances "$@"
-#     fi
-# }
-
-# vimpager
-export PAGER=vimpager
-alias less=$PAGER
-alias zless=$PAGER
-
-# alias tmuxn='tmux new-session -s $$; exit'
-# _trap_exit() { tmux kill-session -t $$; }
-# trap _trap_exit EXIT
-
-# if [ "$TMUX" = "" ]; then
-#     # tmux list-sessions | grep -v attached | cut -d: -f1 |  xargs -t -n1 tmux kill-session -t
-#     tmuxn;
-# fi
+#######################################################################
+#                           Copy and paste                            #
+#######################################################################
 
 vi-prepend-x-selection () {
     PASTE=$(xclip -o -sel c </dev/null)
@@ -218,20 +166,61 @@ zsh-Y-x-selection () {
 zle -N zsh-Y-x-selection
 bindkey -a 'Y' zsh-Y-x-selection
 
-function zle-keymap-select
-{
-    if [[ $KEYMAP = 'vicmd' ]] ; then
-        CURSOR=$CURSOR+1
+
+#######################################################################
+#                           Other programs                            #
+#######################################################################
+
+# ranger
+
+ranger() {
+    if [ -n "$RANGER_LEVEL" ]; then
+        exit
+    # elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+    #     tmux rename-window "ranger"
+    #     /usr/bin/ranger "$@"
+    #     tmux setw automatic-rename on
+    else
+        /usr/bin/ranger "$@"
     fi
 }
-zle -N zle-keymap-select
+
+
+alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
+
+
+# promptline
 
 # ZLE_RPROMPT_INDENT=0
 source ~/.promptline.sh
 
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+################################################################################
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+bindkey -r '^r'
+bindkey -r '^[c'
+
+export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+
+zle -N fzf-history-widget
+zle -N fzf-file-widget
+zle -N fzf-cd-widget
+
+bindkey -M vicmd '/' fzf-history-widget
+
+bindkey -M vicmd '^t' fzf-file-widget
+
+bindkey -M vicmd '^r' fzf-cd-widget
+bindkey -M viins '^r' fzf-cd-widget
+
+
+
+# syntax-highlighting
+
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 
 ################################################################################
@@ -267,3 +256,69 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 # zle -N zle-keymap-select
 
 # source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# function expand-or-cd-or-fzf() {
+#     # if [[ $BUFFER == "cd " ]]; then
+#         # BUFFER="ls "
+#         # CURSOR=3
+#         # zle list-choices
+#         # zle backward-kill-word
+#         fzf-cd-widget
+#         # BUFFER=""
+#         zle accept-line
+#     # elif cursor is next to a space
+#     # elif [[ $BUFFER =~ \ $ ]] ; then
+#     #     fzf-file-widget
+#     # elif [[ $BUFFER = "vim " ]] || [[ $BUFFER = "v " ]] || [[ $BUFFER = "nvim " ]] ; then
+#     #     fzf-file-widget
+#     # else
+#     #     zle expand-or-complete
+#     # fi
+# }
+# # zle -N expand-or-cd-or-fzf
+# # bindkey '^I' expand-or-cd-or-fzf
+
+# function fda() {
+#     fzf-cd-widget
+#     zle accept-line
+# }
+# zle -N fda
+
+# function expand-or-cd-or-fzf() {
+#     if [[ $BUFFER == "cd " ]]; then
+#         # BUFFER="ls "
+#         # CURSOR=3
+#         # zle list-choices
+#         # zle backward-kill-word
+#         fzf-cd-widget
+#         BUFFER=""
+#         zle accept-line
+#     # elif cursor is next to a space
+#     # elif [[ $BUFFER =~ \ $ ]] ; then
+#     #     fzf-file-widget
+#     elif [[ $BUFFER = "vim " ]] || [[ $BUFFER = "v " ]] || [[ $BUFFER = "nvim " ]] ; then
+#         fzf-file-widget
+#     else
+#         zle expand-or-complete
+#     fi
+# }
+# zle -N expand-or-cd-or-fzf
+# # bindkey '^I' expand-or-cd-or-fzf
+# # bindkey '^I' expand-or-cd-or-fzf
+
+# source /usr/share/fzf/completion.zsh
+# source /usr/share/fzf/key-bindings.zsh
+
+# bindkey -M vicmd '^r' fzf-cd-widget
+# bindkey -M viins '^r' fzf-cd-widget
+# bindkey -r '^r'
+
+# function fzf_select_dir()
+# {
+#         find -L -path '*/\.*' -o -fstype dev -o -fstype proc \
+#             -prune \
+#             -o -type f -print \
+#             -o -type d -print \
+#             -o -type l -print 2>/dev/null \
+#             env fzf -m
+# }

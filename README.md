@@ -13,8 +13,6 @@ Each folder corresponds to a given application's configuration files except for:
 
 And in case you are unfamiliar with some of these applications:
 
-* devilspie
-    * provides per application transparency (used for termite)
 * highlight
     * provides syntax highlighting for files that is used by ranger to preview files
 

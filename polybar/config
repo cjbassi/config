@@ -251,7 +251,7 @@ label-background = ${colors.light_grey}
 type = internal/date
 interval = 1
 
-date = " %B %d "
+date = " %m-%d "
 
 label-foreground = ${colors.white}
 label-background = ${colors.dark_grey}
@@ -262,7 +262,7 @@ label = %date%
 type = internal/date
 interval = 1
 
-date = " %A "
+date = " %a "
 
 label-foreground = ${colors.white}
 label-background = ${colors.dark_grey}

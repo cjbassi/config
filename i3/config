@@ -4,7 +4,7 @@
 # Keybinds
 ################################################################################
 
-set $term termite
+set $term alacritty
 set $mod Mod1
 
 bindsym $mod+h          focus left
@@ -28,6 +28,10 @@ bindsym $mod+c          focus child
 bindsym $mod+Shift+r    restart
 bindsym $mod+Shift+q    kill
 
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
 bindsym $mod+Shift+s mode "resize"
 mode "resize"
 {
@@ -44,9 +48,9 @@ bindsym $mod+Shift+e    exec ~/config/rofi/rofi_power.sh
 
 bindsym $mod+Return     exec $term
 
-bindsym $mod+e          exec $term -e nvim   -t nvim
-bindsym $mod+r          exec $term -e ranger -t ranger
-bindsym $mod+m          exec $term -e mutt   -t neomutt
+bindsym $mod+e          exec $term -t nvim -e nvim
+bindsym $mod+r          exec $term -t ranger -e ranger
+bindsym $mod+m          exec $term -t neomutt -e mutt
 
 bindsym $mod+g          exec google-chrome-stable
 

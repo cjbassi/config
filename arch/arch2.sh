@@ -15,9 +15,8 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo arch > /etc/hostname
 
 # Network configuration
-systemctl enable NetworkManager.service
-#systemctl enable dhcpcd@wlp4s0.service
-systemctl enable dhcpcd.service
+# systemctl enable dhcpcd@wlp4s0.service
+# systemctl enable dhcpcd.service
 
 read -p "Please give password: " password
 
@@ -47,24 +46,38 @@ options     root=PARTLABEL=ROOT rw" \
 # Post-installation
 ################################################################################
 
+
 mkdir /mnt/usb
 
-# Add user
+
+# Add users
+
 useradd -m -G wheel -s $(which zsh) cjbassi
 echo "cjbassi:$password" | chpasswd
 
 useradd -m -G wheel -s $(which zsh) develop
 echo "develop:$password" | chpasswd
 
+
 # Enable members of 'wheel' group to use root
 SEARCH="# %wheel ALL=\(ALL\) NOPASSWD: ALL"
 REPLACE="%wheel ALL=\(ALL\) NOPASSWD: ALL"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/sudoers
 
+
 # Edit pacman.conf
 perl -i -pe "s/#Color/Color/g" /etc/pacman.conf
 perl -i -pe "s/#TotalDownload/TotalDownload/g" /etc/pacman.conf
 perl -i -pe "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
+
+
+# sshfs and autofs
+
+# echo fuse > /etc/modules-load.d/fuse.conf
+
+# echo "/home/cjbassi/sshfs    /etc/autofs/auto.ssh    --timeout=60" >> /etc/autofs/auto.master
+
+# echo "servername    -fstype=fuse,rw,allow_other    :sshfs\#username@host\:/" >> /etc/autofs/auto.ssh
 
 
 ################################################################################

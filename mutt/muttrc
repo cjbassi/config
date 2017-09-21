@@ -1,5 +1,5 @@
-source "gpg -dq ~/.mutt/aliases.gpg |"
-source "gpg -dq ~/.mutt/gmailrc.gpg |"
+source ~/.mutt/aliases
+source ~/.mutt/gmailrc
 
 source ~/.mutt/solarized
 
@@ -25,8 +25,8 @@ set     nohelp
 
 unset   mark_old            # read/new is good enough for me
 
-set     date_format =       "%m/%d %H:%M"
-set     index_format =      "%2C %Z %d %-15.15F %s"
+set     date_format =       "%m-%d %H:%M"
+set     index_format =      "%2C %Z  %D  %-15.15F  %s"
 set     status_format =     "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set     status_chars  =     " *%A"
 
@@ -78,6 +78,7 @@ bind    pager               Q           noop
 bind    editor,index,pager  <space>     noop
 bind    attach,pager        g           noop
 bind    index,pager         d           noop
+bind    pager               m           noop
 
 bind    index               <Esc>/      noop
 bind    index               <Down>      noop
@@ -90,6 +91,7 @@ bind    index               x           noop
 bind    index               u           noop
 bind    index               U           noop
 bind    index               V           noop
+bind    index               y           noop
 
 bind    generic             <           noop
 bind    generic             >           noop
@@ -102,6 +104,7 @@ bind    generic             M           noop
 bind    generic             L           noop
 bind    generic             H           noop
 bind    generic             ]           noop
+bind    generic             t           noop
 
 
 ################################################################################
@@ -113,9 +116,13 @@ bind    index,pager         \cK         sidebar-prev
 bind    index,pager         \cL         sidebar-open
 bind    index,pager         \cH         sidebar-toggle-visible
 
+bind    index               <Space>     tag-entry
+
 bind    pager               <Esc><Esc>  quit
 
-bind    index               c           mail
+bind    index               N           search-opposite
+
+bind    index,pager         c           mail
 bind    index               m           noop
 
 bind    compose,attach      h           exit

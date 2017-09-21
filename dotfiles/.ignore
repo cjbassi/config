@@ -1,24 +1,25 @@
 .cache
-.cargo
+.ccache/
 .dropbox
-.dropbox-dist
 .fzf
 .gnome
-.links
 .local
-.mozilla
-.mplayer
 .pki
-.vim
-.w3m
-
-Downloads
-go
-
-Dropbox/wifi
 
 .config/google-chrome
 .config/nvim/undo
 .config/discord
 
 .histfile
+
+Downloads
+go
+
+
+
+.cargo
+.dropbox-dist
+.links
+.mozilla
+.mplayer
+.vim

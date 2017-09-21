@@ -42,7 +42,6 @@ pacstrap /mnt                                                   \
     blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils   \
 \
     redshift python-gobject python-xdg librsvg                  \
-    devilspie transset-df                                       \
     compton                                                     \
     feh                                                         \
     scrot                                                       \
@@ -55,6 +54,7 @@ pacstrap /mnt                                                   \
     jdk8-openjdk                                                \
     gdb                                                         \
     go                                                          \
+    rustup                                                      \
     nodejs npm                                                  \
     astyle                                                      \
     hub                                                         \
@@ -64,25 +64,29 @@ pacstrap /mnt                                                   \
     ttf-symbola                                                 \
     awesome-terminal-fonts                                      \
 \
-    termite                                                     \
     neovim                                                      \
     zsh                                                         \
     ranger highlight w3m                                        \
     rofi                                                        \
-\
-    the_silver_searcher                                         \
-    git tig                                                     \
-    openssh                                                     \
-    parted                                                      \
     qbittorrent                                                 \
     networkmanager network-manager-applet                       \
+\
+    git tig                                                     \
+    the_silver_searcher                                         \
+    openssh sshfs                                               \
+    parted                                                      \
     gnome-keyring libsecret                                     \
-    xf86-input-synaptics                                        \
     gnupg                                                       \
     ccache                                                      \
     lzop                                                        \
     zsh-completions                                             \
+    rsync                                                       \
+    fuse autofs                                                 \
+    strace                                                      \
 
+#devilspie transset-df                                       \
+#termite                                                     \
+#xf86-input-synaptics                                        \
 #yarn
 #xdotool
 #wmctrl \

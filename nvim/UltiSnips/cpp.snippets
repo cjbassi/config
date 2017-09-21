@@ -1,0 +1,51 @@
+snippet steve "CS 19 Comment Header" b
+/*
+   Caleb Bassi
+   cbassi
+   calejbassi@gmail.com
+
+   `!v expand('%:t')`
+   ${1:assignment name}, Assignment ${2:#}
+
+   <description> TODO
+
+   <code status> TODO
+   */
+endsnippet
+
+snippet fori "C++ for loop"
+for (${1:i} = 0; $1 < ${2:count}; $1++)
+$0
+endsnippet
+
+snippet fore "C++ foreach loop"
+for (${1:auto} ${2:i} : ${3:container})
+$0
+endsnippet
+
+snippet while "C++ while loop"
+while (${1:condition})
+$0
+endsnippet
+
+snippet if "C++ if statement"
+if (${1:condition})
+$0
+endsnippet
+
+snippet ife "C++ if/else statement"
+if (${1:condition})
+$2
+else
+$0
+endsnippet
+
+snippet el "C++ else"
+else
+$0
+endsnippet
+
+snippet eli "C++ else if"
+else if (${1:condition})
+$0
+endsnippet

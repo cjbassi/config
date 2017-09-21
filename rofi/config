@@ -18,7 +18,7 @@ rofi.padding:                       5
 rofi.hide-scrollbar:                true
 rofi.separator-style:               solid
 
-rofi.terminal:                      termite
+rofi.terminal:                      alacritty
 
 ! Keybinds
 

@@ -12,19 +12,20 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-unimpaired'
 Plug 'craigemery/vim-autotag'
 Plug 'Yggdroot/indentLine'
-Plug 'haya14busa/vim-asterisk'
 Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-eunuch'
-" Plug 'vim-scripts/EnhancedJumps'
 
 Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
 
-Plug 'google/vim-searchindex'
 Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
+" Plug 'google/vim-searchindex'
+" Plug 'henrik/vim-indexed-search'
+" Plug 'osyo-manga/vim-anzu'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -35,6 +36,7 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
+Plug 'jaxbot/github-issues.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -45,14 +47,50 @@ Plug 'edkolev/promptline.vim'
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+Plug 'plasticboy/vim-markdown'
+
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'jiangmiao/auto-pairs'
+" Plug 'luochen1990/rainbow'
+
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+" Plug 'jelera/vim-javascript-syntax'
+
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-syntax'
+Plug 'Rip-Rip/clang_complete'
+Plug 'zchee/deoplete-jedi'
+
+" Plug 'Shougo/neoinclude.vim'
+
+" Plug 'lifepillar/vim-mucomplete'
+" Plug 'ervandew/supertab'
+" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.local/share/nvim/plugged/YouCompleteMe', 'do': './install.py --clang-completer' }
+
+" Plug 'ervandew/supertab'
+
+" Plug 'ajh17/vimcompletesme'
+
+
+" Plug 'jaxbot/browserlink.vim'
+
 " Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
+" Plug 'vim-scripts/EnhancedJumps'
+
 
 call plug#end()
 
+let g:clang_library_path='/usr/lib'
+let g:deoplete#sources#jedi#show_docstring = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Visuals
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Visuals                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
 
@@ -65,19 +103,23 @@ hi LineNr ctermbg=NONE ctermfg=237
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=232 ctermfg=241
 
+hi javaScript ctermfg=244
+
 set cursorline
 
 let g:indentLine_color_term = 239
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Keybinds
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Keybinds                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <Space> <Nop>
 let mapleader=" "
 set notimeout
 set ttimeout
+
+let g:gitgutter_map_keys = 0
 
 map <silent> <leader>f <Plug>(easymotion-j)
 map <silent> <leader>F <Plug>(easymotion-k)
@@ -87,13 +129,18 @@ nnoremap <silent> <leader>O O
 
 nnoremap <silent> <leader>d S<Esc>
 
-nnoremap <silent> <leader>wh :wincmd h<CR>
-nnoremap <silent> <leader>wj :wincmd j<CR>
-nnoremap <silent> <leader>wk :wincmd k<CR>
-nnoremap <silent> <leader>wl :wincmd l<CR>
-nnoremap <silent> <leader>wd :q<CR>
-nnoremap <silent> <leader>wv :vs<CR>
-nnoremap <silent> <leader>ws :split<CR>
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
+
+nnoremap <silent> <leader>c :q<CR>
+
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>W :wa<CR>
+
+nnoremap <silent> <leader>sv :vs<CR>
+nnoremap <silent> <leader>ss :split<CR>
 
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
@@ -105,22 +152,22 @@ nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
+nnoremap <silent> <leader>ex :edit ~/.xinitrc<CR>
 
-nnoremap <silent> <leader>qq :qa<CR>
-nnoremap <silent> <leader>qx :x<CR>:qa<CR>
-nnoremap <silent> <leader>q! :q!<CR>:qa<CR>
+nnoremap <silent> <leader>q :qa<CR>
+nnoremap <silent> <leader>x :x<CR>:qa<CR>
+nnoremap <silent> <leader>! :q!<CR>:qa<CR>
 
 nnoremap <silent> <leader>bb :Buffers<CR>
 nnoremap <silent> <leader>bx :w<CR>:bdelete<CR>
 nnoremap <silent> <leader>bd :bdelete<CR>
 nnoremap <silent> <leader>bD :bdelete!<CR>
 nnoremap <silent> <leader>bf :FZF ~<CR>
-nnoremap <silent> <leader>bs :w<CR>
-nnoremap <silent> <leader>bS :wa<CR>
+nnoremap <silent> <leader>bF :FZF<CR>
 nnoremap <silent> <leader>bn :enew<CR>
 nnoremap <silent> <leader>br :edit<CR>
-nnoremap <silent> <leader>bm :Rename
-nnoremap <silent> <leader>bM :Move
+nnoremap <leader>bm :Rename 
+nnoremap <leader>bM :Move 
 
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -133,37 +180,43 @@ nnoremap <silent> <leader>pi :source ~/config/nvim/init.vim <bar> :nohlsearch<CR
 nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
 nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
 
-" nnoremap <silent> <leader>s :SudoEdit ... <CR>
+nnoremap <leader>se :SudoEdit 
+nnoremap <silent> <leader>sr :SudoEdit<CR>
+nnoremap <silent> <leader>sw :SudoWrite<CR>
 
-nnoremap <silent> <leader>s :source ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>V :source ~/config/nvim/init.vim<CR>
 
+nnoremap <silent> <leader>tC :silent ! ~/config/scripts/webserver.js '%' &<CR>
 nnoremap <silent> <leader>tsp :set spell!<CR>
-vnoremap <silent> <leader>tsr :<C-f>is///g<Esc>hhi
 nnoremap <silent> <leader>tsr :<C-f>i%s///g<Esc>hhi
+vnoremap <silent> <leader>tsR :<C-f>is///g<Esc>hhi
 nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tW :StripWhitespace<CR>
-" nnoremap <silent> <leader>th :nohlsearch<CR>
 nnoremap <leader>th :tab help 
 nnoremap <silent> <leader>tr :retab<CR>
 noremap <silent> <leader>tf :call Format()<CR>
 nnoremap <silent> <leader>tt :Tags<CR>
 nnoremap <silent> <leader>tl :LivedownToggle<CR>
 nnoremap <silent> <leader>tc :ColorToggle<CR>
+nnoremap <silent> <leader>tu :call UltiSnips#ListSnippets()<CR>
+nnoremap <silent> <leader>tR :!! %<CR>
 
-nnoremap <leader>/ /^\s*
+imap <C-f> <plug>(fzf-complete-path)
+
+nnoremap <leader>/ /\C^\s*
 noremap <leader>: :<C-f>i
 
 function! Format()
-    if &ft == 'mail'
+    if &tw != 0
         :exe "normal! " . "gggqG\<C-o>\<C-o>"
     else
         :Autoformat<CR>
     endif
 endfunction
 
+autocmd VimEnter * noremap # <Nop>
 map q: <Nop>
-map * <Plug>(asterisk-z*)
-map # <Nop>
+" map # <Nop>
 map <Enter> <Nop>
 map <Backspace> <Nop>
 
@@ -197,16 +250,18 @@ endfunction
 vnoremap <silent> <expr> p <sid>Repl()
 " }
 
+" noremap <C-e> j<C-e>
+" noremap <C-y> k<C-y>
 map Y y$
 nnoremap Q @@
-" nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-nnoremap <silent> <C-l> zz
-nnoremap <silent> \ :nohlsearch<CR>
+nnoremap <silent> ; zz
+nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+" nnoremap <silent> \ :nohlsearch<CR>
 
 nnoremap H gT
 nnoremap L gt
 
-nnoremap <C-J> i<CR><Esc>k$
+nnoremap <C-j> i<CR><Esc>k$hl
 
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
@@ -225,28 +280,25 @@ nmap <silent> k gk
 
 nnoremap <silent> gG G
 
-" allows incsearch highlighting for range commands
-cnoremap $y <CR>:t''<CR>
-cnoremap $m <CR>:m''<CR>
-cnoremap $d <CR>:d<CR>``
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Settings                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
 set encoding=utf-8
 
-set lazyredraw
+set pumheight=5
+set concealcursor = "nc"
+
+" set shortmess=a
 set nostartofline
-" set gdefault
 
 autocmd VimResized * wincmd =
 
 set splitbelow
 set splitright
-" cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
 
 set scrolloff=1
 set sidescrolloff=5
@@ -267,11 +319,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 
 autocmd BufRead,BufNewFile *.md,*.txt
             \ let b:indentLine_enabled = 0 |
-            " if &modifiable
-            "     \ setlocal spell |
-            " fi
-
-            " \ let b:cursorword = 1 |
 
 set nowrapscan
 
@@ -285,7 +332,7 @@ set complete-=i
 set nrformats-=octal
 
 set number
-" set numberwidth=4
+set numberwidth=4
 
 set autoindent
 set expandtab
@@ -293,6 +340,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
+
+" autocmd FileType javascript,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 set incsearch
 set ignorecase
@@ -334,15 +383,13 @@ set directory=~/.config/nvim/swap//
 set backupdir=~/.config/nvim/backup//
 set undodir=~/.config/nvim/undo//
 set undofile
-" set undolevels=100 " Limits undo level to 100, limits file size
 
-" set clipboard=unnamed
 set clipboard=unnamedplus
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Plugin Settings                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Smooth scroll
 
@@ -370,8 +417,18 @@ let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-" let g:airline#extensions#tabline#fnamecollapse = 1
+let g:airline#extensions#tabline#fnamecollapse = 1
 
+let g:airline#extensions#default#layout = [
+    \ [ 'a', 'b', 'c' ],
+    \ [ 'x', 'y', 'z', 'error', 'warning' ]
+    \ ]
+
+
+
+" let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
+
+" let g:airline_section_c = airline#section#create(['%{system("pwd")}', '%{@%}'])
 let g:airline_section_y = airline#section#create([' ', '%02c'])
 let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
 
@@ -388,6 +445,7 @@ let g:promptline_preset = {
         \'y' : [ promptline#slices#vcs_branch() ],
         \'z' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
+
 " PromptlineSnapshot! ~/config/dotfiles/.promptline.sh airline
 
 
@@ -442,8 +500,8 @@ if exists('g:vimpager.enabled')
 
     set nonumber
     set norelativenumber
-    " unmap j
-    " unmap k
+
+    " let g:vimpager.passthrough = 0
 endif
 
 " incsearch.vim
@@ -456,7 +514,6 @@ map / <Plug>(incsearch-stay)
 
 map f <Plug>(easymotion-f)
 map F <Plug>(easymotion-F)
-"nmap f <Plug>(easymotion-overwin-f2)
 
 map t <Plug>(easymotion-t)
 map T <Plug>(easymotion-T)
@@ -468,9 +525,78 @@ map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Old stuff
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-asterisk
+
+map *  <Plug>(asterisk-z*)
+map g* <Plug>(asterisk-gz*)
+
+
+" UltiSnips
+
+let g:UltiSnipsExpandTrigger =          "<tab>"
+let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger =    "<C-h>"
+" let g:UltiSnipsListSnippets =           "<C-s>"
+
+
+" vim-markdown
+
+let g:vim_markdown_conceal = 0
+
+
+" rainbow-parens
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'ctermfgs' : ['28', '196', '112', '208', '129', '166', '85', '237'],
+\	'operators': '_,_',
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'*': {},
+\		'tex': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\		},
+\		'vim': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\		},
+\		'html': {
+\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\		},
+\		'css': 0,
+\	}
+\}
+
+
+" deoplete
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 0
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
+let g:deoplete#auto_complete_start_length = 2
+let g:deoplete#max_abbr_width = 50
+
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+    return deoplete#close_popup() . "\<CR>"
+endfunction
+
+autocmd CompleteDone * silent! pclose!
+
+if has("patch-7.4.314")
+    set shortmess+=c
+endif
+
+call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
+            \ 'matcher_length'])
+
+" set completeopt-=preview
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Old Settings                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 " if has('path_extra')
 "     setglobal tags-=./tags tags-=./tags; tags^=./tags;
@@ -680,3 +806,19 @@ nmap Y <Plug>(operator-flashy)$
 " nnoremap <Tab> i<Tab><Esc>
 
 " Plug 'itchyny/vim-cursorword'
+
+" set undolevels=100 " Limits undo level to 100, limits file size
+
+" set clipboard=unnamed
+
+" nnoremap <silent> <leader>th :nohlsearch<CR>
+
+" autocmd BufRead,BufNewFile *.md,*.txt
+"             \ let b:indentLine_enabled = 0 |
+            " if &modifiable
+            "     \ setlocal spell |
+            " fi
+
+            " \ let b:cursorword = 1 |
+
+"nmap f <Plug>(easymotion-overwin-f2)

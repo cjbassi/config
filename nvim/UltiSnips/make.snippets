@@ -1,0 +1,19 @@
+snippet base "Sets up Makefile" b
+.PHONY: clean, mrproper
+CC = ${1:compiler}
+CFLAGS = -g -Wall
+
+all: $2
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+${2:out}: $2.o
+	$(CC) $(CFLAGS) -o $@ $+
+
+clean:
+	rm -f *.o core.*
+
+mrproper: clean
+	rm -f $2
+endsnippet
