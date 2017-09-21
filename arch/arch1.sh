@@ -36,7 +36,7 @@ pacman-key --populate archlinux
 cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > /etc/pacman.d/mirrorlist
 
 # Install packages
-pacstrap /mnt                                                   \
+yes | pacstrap /mnt                                                   \
     base base-devel                                             \
 \
     xorg xorg-xinit                                             \
