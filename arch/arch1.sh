@@ -61,7 +61,6 @@ pacstrap /mnt                                                   \
     jdk8-openjdk                                                \
     gdb                                                         \
     go                                                          \
-    #rustup                                                      \
     nodejs npm                                                  \
     astyle                                                      \
     hub                                                         \
@@ -90,6 +89,7 @@ pacstrap /mnt                                                   \
     fuse autofs                                                 \
     strace                                                      \
 
+#rustup
 # pandoc                                                      \
 # lzop                                                        \
 #devilspie transset-df                                       \
