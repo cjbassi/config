@@ -61,7 +61,7 @@ pacstrap /mnt                                                   \
     jdk8-openjdk                                                \
     gdb                                                         \
     go                                                          \
-    rustup                                                      \
+    #rustup                                                      \
     nodejs npm                                                  \
     astyle                                                      \
     hub                                                         \
