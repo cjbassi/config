@@ -14,6 +14,7 @@ unclutter --timeout 1 &
 
 # sets volume to 40% and mutes on startup
 sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%" &
+pactl set-source-volume 1 100%
 
 # sets brightness to 50%
 echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness &

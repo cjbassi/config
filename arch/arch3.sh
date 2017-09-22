@@ -20,8 +20,6 @@ chmod 600 /home/cjbassi/.ssh/id_ed25519
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
 chmod -x /home/cjbassi/.ssh/known_hosts
 
-# gpg keys
-#TODO
 gpg --import /mnt/usb/gnupg/privkey.asc
 
 git clone git@github.com:cjbassi/config
@@ -58,9 +56,6 @@ ln -sf ~/{,.}config/rofi
 ranger --copy-config=scope
 # TODO
         # try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
-
-# TODO
-pactl set-source-volume 1 100%
 
 sudo systemctl enable NetworkManager.service
 
@@ -99,7 +94,11 @@ cd ~
 ################################################################################
 
 sudo pip install glances
+
 sudo pip3 install --upgrade neovim
+
+sudo npm install -g coffee-script
+sudo npm install -g text-aid-too
 
 ################################################################################
 
@@ -129,7 +128,4 @@ pacaur -S --noconfirm --noedit i3lock-color-git
 
 pacaur -S --noconfirm --noedit polybar-git
 
-nvim +PlugUpdate +xall
-
-# sudo npm install -g coffee-script
-# sudo npm install -g text-aid-too
+nvim +PlugInstall +xall 2>/dev/null

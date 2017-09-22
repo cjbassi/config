@@ -32,7 +32,7 @@ timedatectl set-ntp true
 #pacman-key --init
 #pacman-key --populate archlinux
 
-pacman -Sy archlinux-keyring
+pacman -Sy --noconfirm archlinux-keyring
 
 # Select the mirrors
 cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
@@ -85,12 +85,13 @@ pacstrap /mnt                                                   \
     gnome-keyring libsecret                                     \
     gnupg                                                       \
     ccache                                                      \
-    lzop                                                        \
     zsh-completions                                             \
     rsync                                                       \
     fuse autofs                                                 \
     strace                                                      \
 
+# pandoc                                                      \
+# lzop                                                        \
 #devilspie transset-df                                       \
 #termite                                                     \
 #xf86-input-synaptics                                        \

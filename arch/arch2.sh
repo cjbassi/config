@@ -96,7 +96,7 @@ perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
 # More efficient compression format
 SEARCH="PKGEXT=\'.pkg.tar.xz\'"
-REPLACE="PKGEXT=\'.pkg.tar.lzo\'"
+REPLACE="PKGEXT=\'.pkg.tar\'"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
 # Uses more threads for compression
