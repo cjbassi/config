@@ -29,15 +29,17 @@ timedatectl set-ntp true
 # Installation
 
 # GPG keys
-pacman-key --init
-pacman-key --populate archlinux
+#pacman-key --init
+#pacman-key --populate archlinux
+
+pacman -Sy archlinux-keyring
 
 # Select the mirrors
 cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
 mv -f morrorlist /etc/pacman.d/mirrorlist
 
 # Install packages
-yes | pacstrap /mnt                                                   \
+pacstrap /mnt                                                   \
     base base-devel                                             \
 \
     xorg xorg-xinit                                             \
