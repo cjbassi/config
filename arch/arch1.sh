@@ -32,11 +32,15 @@ timedatectl set-ntp true
 #pacman-key --init
 #pacman-key --populate archlinux
 
-pacman -Sy --noconfirm archlinux-keyring
+pacman -Sy
+pacman -Sy --noconfirm archlinux-keyring reflector
+
+reflector --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+#--verbose
 
 # Select the mirrors
-cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
-mv -f morrorlist /etc/pacman.d/mirrorlist
+#cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
+#mv -f morrorlist /etc/pacman.d/mirrorlist
 
 # Install packages
 pacstrap /mnt                                                   \
