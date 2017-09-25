@@ -4,7 +4,7 @@
 # Keybinds
 ################################################################################
 
-set $term termite
+set $term alacritty
 set $mod Mod1
 
 bindsym $mod+h          focus left

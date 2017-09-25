@@ -46,8 +46,7 @@ options     root=PARTLABEL=ROOT rw" \
 # Post-installation
 ################################################################################
 
-
-mkdir /mnt/usb
+mkdir /mnt/{usb,sshfs}
 
 
 # Add users
@@ -70,14 +69,6 @@ perl -i -pe "s/#Color/Color/g" /etc/pacman.conf
 perl -i -pe "s/#TotalDownload/TotalDownload/g" /etc/pacman.conf
 perl -i -pe "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 
-
-# sshfs and autofs
-
-# echo fuse > /etc/modules-load.d/fuse.conf
-
-# echo "/home/cjbassi/sshfs    /etc/autofs/auto.ssh    --timeout=60" >> /etc/autofs/auto.master
-
-# echo "servername    -fstype=fuse,rw,allow_other    :sshfs\#username@host\:/" >> /etc/autofs/auto.ssh
 
 
 ################################################################################

@@ -66,6 +66,9 @@ Plug 'Shougo/neco-syntax'
 Plug 'Rip-Rip/clang_complete'
 Plug 'zchee/deoplete-jedi'
 
+Plug 'osyo-manga/vim-precious'
+Plug 'Shougo/context_filetype.vim'
+
 " Plug 'Shougo/neoinclude.vim'
 
 " Plug 'lifepillar/vim-mucomplete'
@@ -88,9 +91,13 @@ call plug#end()
 let g:clang_library_path='/usr/lib'
 let g:deoplete#sources#jedi#show_docstring = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Visuals                                   "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap n nzz
+nnoremap N Nzz
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Visuals                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
 
@@ -109,10 +116,20 @@ set cursorline
 
 let g:indentLine_color_term = 239
 
+" highlight ColorColumn ctermbg=DarkGrey
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Keybinds                                  "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight text past 80 columns
+if !exists('g:vimpager.enabled') && &modifiable
+    augroup ColorColumn
+        au!
+        au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', -1)
+    augroup END
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Keybinds                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <Space> <Nop>
 let mapleader=" "
@@ -281,10 +298,9 @@ nmap <silent> k gk
 nnoremap <silent> gG G
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Settings                                  "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Settings                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
 set encoding=utf-8
@@ -295,7 +311,7 @@ set concealcursor = "nc"
 " set shortmess=a
 set nostartofline
 
-autocmd VimResized * wincmd =
+autocmd VimResized,TabEnter * wincmd =
 
 set splitbelow
 set splitright
@@ -368,16 +384,6 @@ set ruler
 set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-if !exists('g:vimpager.enabled') && &modifiable
-
-    " Highlight text past 80 columns
-    augroup colorcolumn
-        au!
-        au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', 100)
-    augroup END
-
-endif
-
 " Swap, backup, and undo
 set directory=~/.config/nvim/swap//
 set backupdir=~/.config/nvim/backup//
@@ -387,9 +393,9 @@ set undofile
 set clipboard=unnamedplus
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                              Plugin Settings                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               Plugin Settings                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Smooth scroll
 
@@ -403,7 +409,11 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 let g:airline_powerline_fonts = 1
 let g:airline_inactive_collapse = 0
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
+" let g:airline_theme='base16_solarized'
+let g:airline_solarized_bg='dark'
+" let g:solarized_base16=1
 
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
@@ -438,13 +448,15 @@ let g:airline#extensions#promptline#enabled = 1
 
 " Promptline
 
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
-        \'b' : [ promptline#slices#cwd() ],
-        \'c' : [ promptline#slices#jobs() ],
-        \'y' : [ promptline#slices#vcs_branch() ],
-        \'z' : [ promptline#slices#git_status() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
+" let g:promptline_preset = {
+"         \'b' : [ promptline#slices#cwd() ],
+"         \'c' : [ promptline#slices#jobs() ],
+"         \'y' : [ promptline#slices#vcs_branch() ],
+"         \'z' : [ promptline#slices#git_status() ],
+"         \'warn' : [ promptline#slices#last_exit_code() ]}
+
+        " \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
+        " \'a' : [ promptline#slices#vi_mode() ],
 
 " PromptlineSnapshot! ~/config/dotfiles/.promptline.sh airline
 
@@ -593,10 +605,9 @@ call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
 " set completeopt-=preview
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Old Settings                                "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Old Settings                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " if has('path_extra')
 "     setglobal tags-=./tags tags-=./tags; tags^=./tags;

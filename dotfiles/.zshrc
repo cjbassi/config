@@ -8,6 +8,10 @@ export PATH="$PATH:$GOPATH/bin"
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
+bindkey -r '^z'
+
+export TERM='xterm-256color'
+
 
 #######################################################################
 #                      Default editor and pager                       #
@@ -33,7 +37,7 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="(ll|cd|cd *|rm *)"
+export HISTORY_IGNORE="(l|ll|cd|rm*)"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -100,7 +104,7 @@ LC_ALL="en_US.UTF-8"
 #                               Colors                                #
 #######################################################################
 
-LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
+# LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
 alias ls='ls --color=auto'
 
@@ -192,7 +196,7 @@ alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-s
 # promptline
 
 # ZLE_RPROMPT_INDENT=0
-source ~/.promptline.sh
+# source ~/.promptline.sh
 
 
 ################################################################################
@@ -217,10 +221,42 @@ bindkey -M vicmd '^r' fzf-cd-widget
 bindkey -M viins '^r' fzf-cd-widget
 
 
-
 # syntax-highlighting
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+
+# powerlevel9k
+
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir background_jobs)
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
+
+export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+export POWERLEVEL9K_STATUS_OK=false
+
+export POWERLEVEL9K_STATUS_HIDE_SIGNAME=false
+
+export POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=255
+export POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=245
+
+export POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=255
+export POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=11
+
+# export POWERLEVEL9K_VI_INSERT_MODE_STRING="\e[1mINSERT\e[21m"
+# export POWERLEVEL9K_VI_COMMAND_MODE_STRING="\e[1mNORMAL\e[21m"
+# export POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="\e[21m~"
+
+# POWERLEVEL9K_DIR_HOME_BACKGROUND="grey"
+# POWERLEVEL9K_DIR_HOME_FOREGROUND="grey"
+
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="grey"
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="grey"
+
+# POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="grey"
+# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="grey"
+
+# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
 
 
 ################################################################################
@@ -321,4 +357,37 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 #             -o -type d -print \
 #             -o -type l -print 2>/dev/null \
 #             env fzf -m
+# }
+
+
+
+
+# function zle-line-init zle-keymap-select {
+#     RPS1="%{$fg_bold[yellow]%} [% $KEYMAP]%  %{$reset_color%}"
+#     # RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+#     zle reset-prompt
+# }
+
+# zle -N zle-line-init
+# zle -N zle-keymap-select
+
+# vim_ins_mode="INSERT"
+# vim_cmd_mode="NORMAL"
+# vim_mode=$vim_ins_mode
+
+# function zle-keymap-select {
+#   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+#   __promptline
+#   zle reset-prompt
+# }
+# zle -N zle-keymap-select
+
+# function zle-line-finish {
+#   vim_mode=$vim_ins_mode
+# }
+# zle -N zle-line-finish
+
+# function TRAPINT() {
+#   vim_mode=$vim_ins_mode
+#   return $(( 128 + $1 ))
 # }

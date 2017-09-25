@@ -8,21 +8,25 @@ mkdir -p .mutt
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/{ranger,ncmpcpp}
 mkdir -p test
-mkdir -p sshfs
 mkdir -p public_html
 
 sudo mount -L KEYS /mnt/usb
 
 # ssh keys
+
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
+
 chmod 700 /home/cjbassi/.ssh
-chmod 600 /home/cjbassi/.ssh/id_ed25519
+
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
-chmod -x /home/cjbassi/.ssh/known_hosts
+chmod 600 /home/cjbassi/.ssh/id_ed25519
+chmod 600 /home/cjbassi/.ssh/known_hosts
+chmod 600 /home/cjbassi/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
 
 git clone git@github.com:cjbassi/config
+
 
 ################################################################################
 # Symlinks

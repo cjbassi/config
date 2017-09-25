@@ -25,3 +25,45 @@ snippet htmll "HTML basic structure with the lang attribute" b
 	</body>
 </html>
 endsnippet
+
+################################################################################
+
+snippet jquery "jQuery CDN from Google" w
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="UTF-8"></script>
+endsnippet
+
+snippet lodash "lodash CDN" w
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js" charset="UTF-8"></script>
+endsnippet
+
+################################################################################
+
+snippet form "HTML <form>" w
+<form action="${1:`!p
+snip.rv = (snip.basename or 'unnamed') + '_submit'
+`}" method="${2:get}" accept-charset="UTF-8">
+	${0:${VISUAL}}
+</form>
+endsnippet
+
+snippet head "HTML <head>"
+<head>
+	<meta charset="UTF-8">
+	<title>${1:`!p snip.rv = snip.basename or "Page Title"`}</title>
+	${0:${VISUAL}}
+</head>
+endsnippet
+
+snippet link "HTML <link>" w
+<link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" title="${4:no title}" charset="${5:UTF-8}"`!p x(snip)`>
+endsnippet
+
+snippet script "HTML <script>" w
+<script charset="UTF-8">
+	${0:${VISUAL}}
+</script>
+endsnippet
+
+snippet scriptsrc "HTML <script src...>" w
+<script src="$1" charset="${3:UTF-8}"></script>
+endsnippet

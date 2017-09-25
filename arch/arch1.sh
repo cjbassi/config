@@ -35,8 +35,7 @@ timedatectl set-ntp true
 pacman -Sy
 pacman -Sy --noconfirm archlinux-keyring reflector
 
-reflector --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-#--verbose
+reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Select the mirrors
 #cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
@@ -80,6 +79,7 @@ pacstrap /mnt                                                   \
     rofi                                                        \
     qbittorrent                                                 \
     networkmanager network-manager-applet                       \
+    mopidy ncmpcpp                                              \
 \
     git tig                                                     \
     the_silver_searcher                                         \
@@ -90,9 +90,11 @@ pacstrap /mnt                                                   \
     ccache                                                      \
     zsh-completions                                             \
     rsync                                                       \
-    fuse autofs                                                 \
+    fuse                                                        \
     strace                                                      \
+    reflector                                                   \
 
+# autofs
 #rustup
 # pandoc                                                      \
 # lzop                                                        \

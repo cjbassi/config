@@ -21,7 +21,7 @@ echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo 
 
 # keyboard
 xmodmap ~/config/peripherals/xkeys &
-xcape &
+xcape -t 300 &
 xbindkeys -p &
 xset r rate 400 25 &
 
