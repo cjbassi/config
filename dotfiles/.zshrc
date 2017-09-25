@@ -37,7 +37,7 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="(l|ll|cd|rm*)"
+export HISTORY_IGNORE="(l(| *)|ll(| *)|cd(| *)|rm(| *)|pwd)"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
