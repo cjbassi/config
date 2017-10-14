@@ -1,21 +1,14 @@
+# {{{1
+
 # If not running interactively, don't do anything
-# [[ -z "$PS1" ]] && return
-
-source ~/.aliases
-
-export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
-
-export PATH="/usr/lib/ccache/bin/:$PATH"
-
-bindkey -r '^z'
+[[ -z "$PS1" ]] && return
 
 export TERM='xterm-256color'
 
+source ~/.aliases
 
-#######################################################################
-#                      Default editor and pager                       #
-#######################################################################
+
+# Editor/Pager {{{1
 
 export VISUAL='nvim'
 export EDITOR='nvim'
@@ -24,11 +17,10 @@ export USE_EDITOR='nvim'
 export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
+alias pager=$PAGER
 
 
-#######################################################################
-#                               History                               #
-#######################################################################
+# History {{{1
 
 HISTFILE=~/.histfile
 
@@ -37,7 +29,7 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="(l(| *)|ll(| *)|cd(| *)|rm(| *)|pwd)"
+export HISTORY_IGNORE="(l(| *)|ll(| *)|cd(| *)|rm(| *)|pwd|r|ranger(| *))"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -47,15 +39,16 @@ setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
 
 
-#######################################################################
-#                            Vim keybinds                             #
-#######################################################################
+# keybinds {{{1
 
 bindkey -v
 export KEYTIMEOUT=1
+
 bindkey '^w' backward-kill-word
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
+
+bindkey -r '^z'
 
 # allow v to edit the command line (standard behaviour)
 #zle -N edit-command-line
@@ -63,9 +56,7 @@ bindkey '^h' backward-delete-char
 #bindkey -M vicmd 'v' edit-command-line
 
 
-#######################################################################
-#                              Settings                               #
-#######################################################################
+# Settings {{{1
 
 setopt globdots         # Tab completion includes dot files
 setopt kshglob          # Addes more globbs
@@ -81,14 +72,15 @@ function zle-keymap-select
 }
 zle -N zle-keymap-select
 
+# lists directory contents on cd
+function chpwd() { ll }
+
 # completion
 autoload -Uz compinit
 compinit
 
 
-#######################################################################
-#                               Locales                               #
-#######################################################################
+# Locales {{{1
 
 LANG="en_US.UTF-8"
 LC_COLLATE="en_US.UTF-8"
@@ -100,9 +92,7 @@ LC_TIME="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 
 
-#######################################################################
-#                               Colors                                #
-#######################################################################
+# Colors {{{1
 
 # LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
 
@@ -134,9 +124,7 @@ alias cower='cower --color=auto'
 alias pactree='pactree -c'
 
 
-#######################################################################
-#                           Copy and paste                            #
-#######################################################################
+# Copy/paste {{{1
 
 vi-prepend-x-selection () {
     PASTE=$(xclip -o -sel c </dev/null)
@@ -171,11 +159,25 @@ zle -N zsh-Y-x-selection
 bindkey -a 'Y' zsh-Y-x-selection
 
 
-#######################################################################
-#                           Other programs                            #
-#######################################################################
+# Other programs{{{1
 
-# ranger
+# virutalenv {{{1
+
+source /usr/bin/virtualenvwrapper_lazy.sh
+
+
+# ccache {{{2
+
+export PATH="/usr/lib/ccache/bin/:$PATH"
+
+
+# golang {{{2
+
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
+
+
+# ranger {{{2
 
 ranger() {
     if [ -n "$RANGER_LEVEL" ]; then
@@ -190,16 +192,12 @@ ranger() {
 }
 
 
+# highlight {{{2
+
 alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
 
 
-# promptline
-
-# ZLE_RPROMPT_INDENT=0
-# source ~/.promptline.sh
-
-
-################################################################################
+# FZF {{{2
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -215,26 +213,35 @@ zle -N fzf-cd-widget
 
 bindkey -M vicmd '/' fzf-history-widget
 
-bindkey -M vicmd '^t' fzf-file-widget
+bindkey -M vicmd '^f' fzf-file-widget
+bindkey -M viins '^f' fzf-file-widget
+
+bindkey -M viins -r '^t'
 
 bindkey -M vicmd '^r' fzf-cd-widget
 bindkey -M viins '^r' fzf-cd-widget
 
 
-# syntax-highlighting
+# syntax-highlighting {{{2
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 
-# powerlevel9k
+# powerlevel9k {{{2
 
-export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir background_jobs)
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir root_indicator virtualenv background_jobs)
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
 
 export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 export POWERLEVEL9K_STATUS_OK=false
 
 export POWERLEVEL9K_STATUS_HIDE_SIGNAME=false
+
+export POWERLEVEL9K_VIRTUALENV_FOREGROUND=255
+export POWERLEVEL9K_VIRTUALENV_BACKGROUND=240
+
+# export POWERLEVEL9K_DIR_FOREGROUND=255
+# export POWERLEVEL9K_DIR_BACKGROUND=240
 
 export POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=255
 export POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=245
@@ -259,8 +266,7 @@ export POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=11
 source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
 
 
-################################################################################
-################################################################################
+# Old config {{{1
 
 # BASE16_SHELL=$HOME/.config/base16-shell/
 # [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -391,3 +397,8 @@ source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
 #   vim_mode=$vim_ins_mode
 #   return $(( 128 + $1 ))
 # }
+
+# promptline {{{2
+
+# ZLE_RPROMPT_INDENT=0
+# source ~/.promptline.sh

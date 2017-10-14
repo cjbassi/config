@@ -55,8 +55,8 @@ foreground =    ${colors.foreground}
 font-0 = fixed:pixelsize=12;3
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;3
 font-3 = siji:pixelsize=10;3
-font-2 = Inconsolata for Powerline:pixelsize=20;4
-font-4 = Font Awesome:pixelsize=12;4
+font-2 = Hack:pixelsize=20;4
+font-4 = Font Awesome:pixelsize=12;3
 
 modules-left = i3 blue_arrow1 i3index blue_arrow2
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark

@@ -1,4 +1,6 @@
-rm /arch2.sh
+rm -f /arch2.sh
+
+# Configure the system {{{1
 
 # Time Zone
 ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
@@ -42,9 +44,7 @@ options     root=PARTLABEL=ROOT rw" \
 > /boot/loader/entries/arch.conf
 
 
-################################################################################
-# Post-installation
-################################################################################
+# Post-installation {{{1
 
 mkdir /mnt/{usb,sshfs}
 
@@ -70,10 +70,16 @@ perl -i -pe "s/#TotalDownload/TotalDownload/g" /etc/pacman.conf
 perl -i -pe "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 
 
+echo '
+# automatically switch to newly-connected devices
+load-module module-switch-on-connect' | sudo tee -a /etc/pulse/default.pa
 
-################################################################################
-# Compilation Optimization
-################################################################################
+# sets brightness to 50%
+echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness
+
+
+
+# Compilation Optimization {{{1
 
 # ccache
 SEARCH=" \!ccache "
@@ -96,8 +102,7 @@ REPLACE="COMPRESSXZ=(xz -c -z --threads=$(nproc))"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
 
-################################################################################
-# As non root
+# change to regular user {{{1
 
 cd /home/cjbassi/
 touch .zshrc

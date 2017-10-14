@@ -1,5 +1,4 @@
-################################################################################
-# Pre-installation
+# Pre-installation {{{1
 
 # Verify the boot mode
 #ls /sys/firmware/efi/efivars
@@ -25,8 +24,7 @@ timedatectl set-ntp true
 #mkdir /mnt/boot
 #mount /dev/sda2 /mnt/boot
 
-################################################################################
-# Installation
+# Installation {{{1
 
 # GPG keys
 #pacman-key --init
@@ -59,19 +57,18 @@ pacstrap /mnt                                                   \
     xbindkeys                                                   \
     xclip                                                       \
     xcape                                                       \
+    xf86-input-wacom                                            \
 \
     python python-pip                                           \
     jdk8-openjdk                                                \
-    gdb                                                         \
+    gdb valgrind                                                \
     go                                                          \
     nodejs npm                                                  \
-    astyle                                                      \
+    astyle eslint autopep8 flake8 tidy rust-racer               \
     hub                                                         \
+    mono                                                        \
 \
-    powerline-fonts                                             \
-    ttf-dejavu                                                  \
-    ttf-symbola                                                 \
-    awesome-terminal-fonts                                      \
+    hack                                                        \
 \
     neovim                                                      \
     zsh                                                         \
@@ -93,6 +90,18 @@ pacstrap /mnt                                                   \
     fuse                                                        \
     strace                                                      \
     reflector                                                   \
+    cmake                                                       \
+    clang                                                       \
+    sxiv                                                        \
+    unzip                                                       \
+
+
+    # powerline-fonts                                             \
+    # ttf-dejavu                                                  \
+    # ttf-symbola                                                 \
+    # awesome-terminal-fonts                                      \
+    # zsh-theme-powerlevel9k                                      \
+
 
 # autofs
 #rustup
@@ -111,8 +120,7 @@ pacstrap /mnt                                                   \
 #dialog wpa_supplicant \
 #urxvt-perls rxvt-unicode \
 
-################################################################################
-# Configure the system
+# Chroot {{{1
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -122,16 +130,9 @@ curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch2.sh > /mn
 # Chroot
 arch-chroot /mnt
 
-################################################################################
+# Old config {{{1
 
-# Copy keys from usb to ~/.ssh/
-#git clone git@gitlab.com:cjbassi/euler
-#git clone git@gitlab.com:cjbassi/school
-#git clone git@gitlab.com:cjbassi/GPM
-#git clone git@gitlab.com:cjbassi/scripts
-
-################################################################################
-# ssh-server
+# ssh-server {{{2
 
 # Enable sshd daemon
 #systemctl enable sshd.service
@@ -143,17 +144,15 @@ arch-chroot /mnt
 #PasswordAuthentication no
 #!!!!!May need to change other things!!!!!
 
-################################################################################
-
-# Creates key and adds it to agent
+# Creates key and adds it to agent {{{2
 #ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"
 #eval $(ssh-agent)
 #ssh-add ~/.ssh/id_ed25519
 
-# Lengthens shell history
+# Lengthens shell history {{{2
 #fbcon=scrollback:64k
 
-#ntp
+#ntp {{{2
 # Sets time
 #sudo timedatectl set-local-rtc 0
 #sudo timedatectl set-timezone America/Los_Angeles

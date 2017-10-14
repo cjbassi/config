@@ -1,51 +1,57 @@
-snippet steve "CS 19 Comment Header" b
-/*
-   Caleb Bassi
-   cbassi
-   calejbassi@gmail.com
-
-   `!v expand('%:t')`
-   ${1:assignment name}, Assignment ${2:#}
-
-   <description> TODO
-
-   <code status> TODO
-   */
-endsnippet
-
-snippet fori "C++ for loop"
-for (${1:i} = 0; $1 < ${2:count}; $1++)
+snippet for "C++ for loop"
+for (int ${1:i} = 0; $1 < ${2:count}; $1++)
 $0
 endsnippet
 
+snippet fori "C++ for loop"
+for (int ${1:i} = 0; $1 < ${2:count}; $1++)
+$0
+endsnippet
 snippet fore "C++ foreach loop"
 for (${1:auto} ${2:i} : ${3:container})
 $0
 endsnippet
-
 snippet while "C++ while loop"
 while (${1:condition})
 $0
 endsnippet
-
 snippet if "C++ if statement"
 if (${1:condition})
 $0
 endsnippet
-
 snippet ife "C++ if/else statement"
 if (${1:condition})
 $2
 else
 $0
 endsnippet
-
 snippet el "C++ else"
 else
 $0
 endsnippet
-
 snippet eli "C++ else if"
 else if (${1:condition})
 $0
+endsnippet
+snippet cla "An entire .h generator" b
+#ifndef ${2:`!v substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E','')`}
+#define $2
+
+$0class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\u&',''), '_\(\w\)', '\u\1', 'g')`}
+{
+public:
+	$1();
+	~$1();
+
+private:
+
+};
+
+#endif /* $2 */
+endsnippet
+snippet cl "class .. (class)"
+#include "$1.h"
+
+${1:`!p snip.rv = snip.basename or "name"`}::$1()
+{$0}
 endsnippet

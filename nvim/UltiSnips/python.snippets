@@ -1,3 +1,11 @@
-snippet #! "Shebang header for python scripts" b
-#!/usr/bin/python
+snippet base "Shebang header for python scripts" b
+#!/usr/bin/env python
+
+
+def main():
+    ${1:pass}
+
+
+if __name__ == "__main__":
+    main()
 endsnippet

@@ -1,17 +1,27 @@
-#!/usr/bin/zsh
+#!/bin/zsh
+
+# files {{{1
 
 alias eal='e ~/config/dotfiles/.aliases'
 alias ea1='e ~/config/arch/arch1.sh'
 alias ea2='e ~/config/arch/arch2.sh'
 alias ea3='e ~/config/arch/arch3.sh'
+alias en='e ~/config/dotfiles/.zshenv'
+alias ee='e ~/config/dotfiles/.editorconfig'
 alias eg='e ~/Dropbox/notes/technology/programming_guide.md'
 alias ep='e ~/config/polybar/config'
 alias ev='e ~/config/nvim/init.vim'
 alias ei3='e ~/config/i3/config'
 alias ez='e ~/config/dotfiles/.zshrc'
-alias ex='e ~/.xinitrc'
+alias ex='e ~/config/dotfiles/.xinitrc'
 alias em='e ~/config/mutt/muttrc'
+alias er='e ~/.config/ranger/rc.conf'
+alias et='e ~/config/alacritty/alacritty.yml'
+
 alias eM='e Makefile'
+
+
+# changing dir {{{1
 
 alias gc='cd /home/cjbassi/config'
 alias gm='cd /home/cjbassi/.mutt'
@@ -22,21 +32,21 @@ alias gs='cd /home/cjbassi/Dropbox/school'
 alias gC='cd /home/cjbassi/.config'
 alias gt='cd /home/cjbassi/test'
 alias gD='cd /home/cjbassi/Downloads'
-alias gu='cd /home/cjbassi/config/nvim/UltiSnips'
 alias gr='cd /home/cjbassi/.config/ranger'
 alias gP='cd /home/cjbassi/.local/share/nvim/plugged'
 alias gM='cd /mnt'
 
+
+# commands {{{1
+
+alias blt='bluetoothctl'
+
 alias music='ncmpcpp'
 
-alias random_characters=''
-alias random_lines="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>50' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' | fmt | head -n"
-alias random_words='shuf /usr/share/dict/cracklib-small -rn'
-
-alias ag='sudo ag --hidden --ignore .git'
+alias term='nohup alacritty --working-directory . </dev/null >/dev/null 2>&1 &; disown'
 
 alias r='ranger'
-# alias m='mutt'
+
 alias m='make'
 
 alias git='hub'
@@ -48,8 +58,29 @@ alias l='ll'
 
 alias se='sudoedit'
 
-# TODO
-# and -g?
+alias vc='vimcat'
+
+alias vd='vimdiff'
+
+alias vimdiff='nvim -d'
+
+
+# tools {{{1
+
+random_number() { echo $[${RANDOM}%$@] }
+alias random_characters=''
+alias random_lines="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>50' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' | fmt | head -n"
+alias random_words='shuf /usr/share/dict/cracklib-small -rn'
+
+
+# settings {{{1
+
+alias ag='sudo ag --hidden --ignore .git'
+
+# alias sudo='sudo -E'
+alias su='sudo -E su -m'
+
+# and -g? TODO
 alias g++='g++ -g -Wall'
 alias gcc='gcc -g -Wall'
 
@@ -70,10 +101,16 @@ alias du='du -h'
 
 alias ll='ls -AhgoXF --group-directories-first --color=always'
 
-alias vimdiff='nvim -d'
-alias pwd='echo -e "${PWD/${HOME}/~}"'
+# alias pwd='echo -e "${PWD/${HOME}/~}"'
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 alias makepkg='makepkg -si'
+
+
+# Old configs {{{1
+
+# math() {
+#     echo $(($@))
+# }
 
 # rm() {
 #     /usr/bin/rm -Iv "$@"
@@ -85,8 +122,6 @@ alias makepkg='makepkg -si'
 #     ll
 # }
 
-
-# alias cat='vimcat'
 
 # rm() {
 #     # ll $4

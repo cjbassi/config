@@ -1,88 +1,91 @@
 # vim:ft=i3
 
-################################################################################
-# Keybinds
-################################################################################
+# keybinds {{{1
 
 set $term alacritty
 set $mod Mod1
 
-bindsym $mod+h          focus left
-bindsym $mod+j          focus down
-bindsym $mod+k          focus up
-bindsym $mod+l          focus right
 
-bindsym $mod+Shift+h    move left
-bindsym $mod+Shift+j    move down
-bindsym $mod+Shift+k    move up
-bindsym $mod+Shift+l    move right
+bindsym $mod+h              focus left
+bindsym $mod+j              focus down
+bindsym $mod+k              focus up
+bindsym $mod+l              focus right
 
-bindsym $mod+v          split h
-bindsym $mod+s          split v
-bindsym $mod+f          fullscreen toggle
-bindsym $mod+t          layout toggle split
+bindsym $mod+Shift+h        move left
+bindsym $mod+Shift+j        move down
+bindsym $mod+Shift+k        move up
+bindsym $mod+Shift+l        move right
 
-bindsym $mod+p          focus parent
-bindsym $mod+c          focus child
 
-bindsym $mod+Shift+r    restart
-bindsym $mod+Shift+q    kill
+bindsym $mod+v              split h
+bindsym $mod+s              split v
+bindsym $mod+f              fullscreen toggle
+bindsym $mod+t              layout toggle split
+
+
+bindsym $mod+p              focus parent
+bindsym $mod+c              focus child
+
+
+bindsym $mod+Shift+r        restart
+bindsym $mod+Shift+q        kill
+
 
 floating_modifier $mod
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space    floating toggle
+bindsym $mod+space          focus mode_toggle
 
-bindsym $mod+Shift+s mode "resize"
+
+bindsym $mod+Shift+s        mode "resize"
 mode "resize"
 {
-    bindsym h resize shrink width 5 px or 5 ppt
-    bindsym j resize grow height 5 px or 5 ppt
-    bindsym k resize shrink height 5 px or 5 ppt
-    bindsym l resize grow width 5 px or 5 ppt
-
-    bindsym Escape mode "default"
+bindsym h                   resize shrink width 5 px or 5 ppt
+bindsym j                   resize grow height 5 px or 5 ppt
+bindsym k                   resize shrink height 5 px or 5 ppt
+bindsym l                   resize grow width 5 px or 5 ppt
+bindsym Escape              mode "default"
 }
 
-bindsym $mod+d          exec rofi -show run -terminal $term
-bindsym $mod+Shift+e    exec ~/config/rofi/rofi_power.sh
 
-bindsym $mod+Return     exec $term
+bindsym $mod+d              exec rofi -show run -terminal $term
+bindsym $mod+Shift+e        exec ~/config/rofi/rofi_power.sh
 
-bindsym $mod+e          exec $term -t nvim -e nvim
-bindsym $mod+r          exec $term -t ranger -e ranger
-bindsym $mod+m          exec $term -t neomutt -e mutt
+bindsym $mod+Return         exec $term
+bindsym $mod+Shift+Return   exec ~/config/i3/current_dir.sh
 
-bindsym $mod+g          exec google-chrome-stable
+bindsym $mod+e              exec $term -t nvim -e nvim
+bindsym $mod+r              exec $term -t ranger -e ranger
+bindsym $mod+m              exec $term -t neomutt -e mutt
 
-################################################################################
-# Workspaces
-################################################################################
+bindsym $mod+g              exec google-chrome-stable
 
-bindsym $mod+1          workspace 1
-bindsym $mod+2          workspace 2
-bindsym $mod+3          workspace 3
-bindsym $mod+4          workspace 4
-bindsym $mod+5          workspace 5
-bindsym $mod+6          workspace 6
-bindsym $mod+7          workspace 7
-bindsym $mod+8          workspace 8
-bindsym $mod+9          workspace 9
-bindsym $mod+0          workspace 10
 
-bindsym $mod+Shift+1    move container to workspace 1
-bindsym $mod+Shift+2    move container to workspace 2
-bindsym $mod+Shift+3    move container to workspace 3
-bindsym $mod+Shift+4    move container to workspace 4
-bindsym $mod+Shift+5    move container to workspace 5
-bindsym $mod+Shift+6    move container to workspace 6
-bindsym $mod+Shift+7    move container to workspace 7
-bindsym $mod+Shift+8    move container to workspace 8
-bindsym $mod+Shift+9    move container to workspace 9
-bindsym $mod+Shift+0    move container to workspace 10
+# workspaces {{{1
 
-################################################################################
-# Windows
-################################################################################
+bindsym $mod+1              workspace 1
+bindsym $mod+2              workspace 2
+bindsym $mod+3              workspace 3
+bindsym $mod+4              workspace 4
+bindsym $mod+5              workspace 5
+bindsym $mod+6              workspace 6
+bindsym $mod+7              workspace 7
+bindsym $mod+8              workspace 8
+bindsym $mod+9              workspace 9
+bindsym $mod+0              workspace 10
+
+bindsym $mod+Shift+1        move container to workspace 1
+bindsym $mod+Shift+2        move container to workspace 2
+bindsym $mod+Shift+3        move container to workspace 3
+bindsym $mod+Shift+4        move container to workspace 4
+bindsym $mod+Shift+5        move container to workspace 5
+bindsym $mod+Shift+6        move container to workspace 6
+bindsym $mod+Shift+7        move container to workspace 7
+bindsym $mod+Shift+8        move container to workspace 8
+bindsym $mod+Shift+9        move container to workspace 9
+bindsym $mod+Shift+0        move container to workspace 10
+
+
+# windows {{{1
 
 new_window pixel
 
@@ -95,15 +98,16 @@ focus_follows_mouse no
 smart_borders on
 smart_gaps on
 
-################################################################################
-# Bar
-################################################################################
 
-exec_always --no-startup-id ~/config/polybar/launch.sh
+# scripts {{{1
 
-################################################################################
-# Old config
-################################################################################
+exec_always --no-startup-id     ~/config/polybar/launch.sh
+exec_always --no-startup-id     ~/config/i3/home_setup.sh eDP-1 HDMI-1
+
+exec_always --no-startup-id     xcape -t 300
+
+
+# old config {{{1
 
 # exec        --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
 

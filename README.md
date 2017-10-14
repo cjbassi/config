@@ -14,6 +14,6 @@ Each folder corresponds to a given application's configuration files except for:
 And in case you are unfamiliar with some of these applications:
 
 * highlight
-    * provides syntax highlighting for files that is used by ranger to preview files
+    * used by ranger to syntax highlight files being previewed
 
 Any additions or suggestions are welcome!

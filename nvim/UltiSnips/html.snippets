@@ -1,43 +1,38 @@
+global !p
+def x(snip):
+	if snip.ft.startswith("x"):
+		snip.rv = '/'
+	else:
+		snip.rv = ""
+endglobal
 snippet html "HTML basic structure" b
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>${1:`!p snip.rv = snip.basename.replace('-', ' ')`}</title>
 	</head>
 	<body>
 		${0:body}
 	</body>
 </html>
 endsnippet
-
-snippet htmll "HTML basic structure with the lang attribute" b
-<!DOCTYPE html>
-<html lang="${1:es}">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>${2:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
-	</head>
-	<body>
-		${0:body}
-	</body>
-</html>
+snippet div "div tag" w
+<div>$0</div>
 endsnippet
-
-################################################################################
-
+snippet div# "div tag with id attribute" w
+<div id="$1">$0</div>
+endsnippet
+snippet div. "div tag with class attribute" w
+<div class="$1">$0</div>
+endsnippet
 snippet jquery "jQuery CDN from Google" w
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="UTF-8"></script>
 endsnippet
-
 snippet lodash "lodash CDN" w
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js" charset="UTF-8"></script>
 endsnippet
-
-################################################################################
-
 snippet form "HTML <form>" w
 <form action="${1:`!p
 snip.rv = (snip.basename or 'unnamed') + '_submit'
@@ -45,7 +40,6 @@ snip.rv = (snip.basename or 'unnamed') + '_submit'
 	${0:${VISUAL}}
 </form>
 endsnippet
-
 snippet head "HTML <head>"
 <head>
 	<meta charset="UTF-8">
@@ -53,17 +47,14 @@ snippet head "HTML <head>"
 	${0:${VISUAL}}
 </head>
 endsnippet
-
 snippet link "HTML <link>" w
 <link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" title="${4:no title}" charset="${5:UTF-8}"`!p x(snip)`>
 endsnippet
-
 snippet script "HTML <script>" w
 <script charset="UTF-8">
 	${0:${VISUAL}}
 </script>
 endsnippet
-
 snippet scriptsrc "HTML <script src...>" w
 <script src="$1" charset="${3:UTF-8}"></script>
 endsnippet

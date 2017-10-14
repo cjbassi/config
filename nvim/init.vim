@@ -1,103 +1,172 @@
-call plug#begin('~/.local/share/nvim/plugged')
-" call plug#begin('~/.vim/plugged')
+" Plugins {{{1
 
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'francoiscabrol/ranger.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
-Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-unimpaired'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'craigemery/vim-autotag'
 Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-eunuch'
+Plug 'junegunn/vim-easy-align'
+Plug 'mbbill/undotree'
+Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-smooth-scroll'
+Plug 'matze/vim-move'
+Plug 'moll/vim-node'
+Plug 'farmergreg/vim-lastplace'
 
-Plug 'kana/vim-operator-user'
-Plug 'haya14busa/vim-operator-flashy'
+Plug 'altercation/vim-colors-solarized'
 
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/vim-asterisk'
+" Plug 'Konfekt/FastFold'
+
 " Plug 'google/vim-searchindex'
 " Plug 'henrik/vim-indexed-search'
 " Plug 'osyo-manga/vim-anzu'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'suan/vim-instant-markdown'
+" Plug 'jaxbot/browserlink.vim'
 
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-smooth-scroll'
+" Plug 'Shougo/neoinclude.vim'
+" Plug 'Shougo/neco-syntax'
 
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-rhubarb'
-Plug 'jaxbot/github-issues.vim'
+" Plug 'vim-scripts/EnhancedJumps' TODO
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ntpeters/vim-airline-colornum'
+" Plug 'jaxbot/github-issues.vim'
+" Plug 'TKNGUE/github-issues.vim' TODO
 
-Plug 'edkolev/promptline.vim'
+" Plug 'ternjs/tern_for_vim'
 
-Plug 'altercation/vim-colors-solarized'
+" Plug 'plasticboy/vim-markdown'
+
+
+" textobjects {{{2
+
+Plug 'kana/vim-textobj-user'
+
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'kana/vim-textobj-entire'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-function'
+
+
+" markdown {{{2
+
+Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
+
+Plug 'dkarter/bullets.vim'
+" Plug 'esalter-va/vim-checklist' TODO
+
+
+" folding {{{2
+
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'benknoble/vim-auto-origami'
+
+
+" formatting/linting {{{2
+
+Plug 'w0rp/ale'
+
+Plug 'Chiel92/vim-autoformat'
+
+Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'editorconfig/editorconfig-vim'
+
+
+" syntax {{{2
+
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mxw/vim-jsx'
+
+Plug 'rhysd/vim-gfm-syntax'
+
+Plug 'j16180339887/Global.vim'
+
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
 
-Plug 'plasticboy/vim-markdown'
+Plug 'elzr/vim-json'
+
+Plug 'cespare/vim-toml'
+
+Plug 'rust-lang/rust.vim'
+
+" Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting' TODO
+
+
+" vim-operator-flashy {{{2
+
+Plug 'kana/vim-operator-user'
+Plug 'haya14busa/vim-operator-flashy'
+
+
+" vim-precious {{{2
+
+Plug 'Shougo/context_filetype.vim'
+Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
+
+
+" fzf {{{2
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+
+" git {{{2
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-rhubarb'
+
+
+" airline {{{2
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ntpeters/vim-airline-colornum'
+
+
+" snippets {{{2
 
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'jiangmiao/auto-pairs'
-" Plug 'luochen1990/rainbow'
 
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'pangloss/vim-javascript'
-" Plug 'jelera/vim-javascript-syntax'
+" closers {{{2
 
+Plug 'tpope/vim-endwise'
+Plug 'cjbassi/vim-closer'
+
+
+" completion {{{2
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neco-syntax'
 Plug 'Rip-Rip/clang_complete'
 Plug 'zchee/deoplete-jedi'
+Plug 'racer-rust/vim-racer'
 
-Plug 'osyo-manga/vim-precious'
-Plug 'Shougo/context_filetype.vim'
-
-" Plug 'Shougo/neoinclude.vim'
-
-" Plug 'lifepillar/vim-mucomplete'
-" Plug 'ervandew/supertab'
-" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.local/share/nvim/plugged/YouCompleteMe', 'do': './install.py --clang-completer' }
-
-" Plug 'ervandew/supertab'
-
-" Plug 'ajh17/vimcompletesme'
-
-
-" Plug 'jaxbot/browserlink.vim'
-
-" Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
-" Plug 'vim-scripts/EnhancedJumps'
-
+" }}}
 
 call plug#end()
 
-let g:clang_library_path='/usr/lib'
-let g:deoplete#sources#jedi#show_docstring = 1
-
-nnoremap n nzz
-nnoremap N Nzz
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   Visuals                                    "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Visuals {{{1
 
 syntax enable
 
@@ -127,115 +196,172 @@ if !exists('g:vimpager.enabled') && &modifiable
 endif
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   Keybinds                                   "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keybinds {{{1
+
+imap <C-f> <plug>(fzf-complete-path)
+
+map Y y$
+nnoremap <silent> gG G
+nnoremap Q @q
+nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
+nnoremap H gT
+nnoremap L gt
+
+nnoremap <C-j> i<CR><Esc>k$hl
+nnoremap <C-k> J
+
+nmap <silent> j gj
+nmap <silent> k gk
+
+" adds insert deleting to undo list
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
+
+" leader {{{2
 
 map <Space> <Nop>
 let mapleader=" "
 set notimeout
 set ttimeout
 
-let g:gitgutter_map_keys = 0
 
-map <silent> <leader>f <Plug>(easymotion-j)
-map <silent> <leader>F <Plug>(easymotion-k)
+nnoremap <leader>/ /\C^\s*
+noremap <leader>: :<C-f>i
+
+
+nnoremap <silent> <leader>tw :set wrap!<CR>
+nnoremap <silent> <leader>tC :ColorToggle<CR>
+nnoremap <silent> <leader>tc :ChecklistToggleCheckbox<CR>
+nnoremap <silent> <leader>tu :UndotreeToggle<CR>
+nnoremap <silent> <leader>tp :silent ! google-chrome-stable '%'<CR>
+nnoremap <silent> <leader>tsr :<C-f>i%s///g<Esc>hhi
+vnoremap <silent> <leader>tsR :<C-f>is///g<Esc>hhi
+nnoremap <leader>tU :UltiSnipsEdit 
+nnoremap <leader>th :Help 
+nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>tr :Ranger<CR>
+nnoremap <silent> <leader>tx :Chmod +x<CR>
+
+
+" nnoremap <silent> <leader>tR :!! %<CR>
+" nnoremap <silent> <leader>tW :StripWhitespace<CR>
+" nnoremap <silent> <leader>tr :retab<CR>
+" noremap <silent> <leader>tf :Autoformat<CR>
+" nnoremap <silent> <leader>tC :silent ! ~/config/scripts/webserver.js '%' &<CR>
+" nnoremap <silent> <leader>sw :SudoWrite<CR>
+
+
+" buffers/files {{{3
+
+nnoremap <silent> <leader>bx :w<CR>:bdelete<CR>
+nnoremap <silent> <leader>bd :bd<CR>
+nnoremap <silent> <leader>bD :bd!<CR>
+nnoremap <silent> <leader>bf :FZF<CR>
+nnoremap <silent> <leader>bF :FZF ~<CR>
+nnoremap <silent> <leader>bn :enew<CR>
+nnoremap <silent> <leader>br :edit<CR>
+nnoremap <leader>bm :Rename 
+nnoremap <leader>bM :Move 
+
+
+" write/quit {{{3
+
+nnoremap <silent> <leader>q :qa<CR>
+nnoremap <silent> <leader>x :x<CR>:qa<CR>
+nnoremap <silent> <leader>! :q!<CR>:qa<CR>
+
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>W :wa<CR>
+
+
+" windows {{{3
+
+nnoremap <silent> <leader>sv :vs<CR>
+nnoremap <silent> <leader>ss :split<CR>
+
+nnoremap <silent> <leader>c :q<CR>
+
+
+" editing {{{3
 
 nnoremap <silent> <leader>o o
 nnoremap <silent> <leader>O O
 
 nnoremap <silent> <leader>d S<Esc>
 
+
+" movement {{{3
+
+noremap <silent> <leader>f <Plug>(easymotion-j)
+noremap <silent> <leader>F <Plug>(easymotion-k)
+
+nnoremap <silent> <leader>a :Buffers<CR>
+nnoremap <silent> <leader>z :b#<CR>
+nnoremap <silent> <leader>v :Tags<CR>
+
 nnoremap <silent> <leader>h :wincmd h<CR>
 nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 
-nnoremap <silent> <leader>c :q<CR>
 
-nnoremap <silent> <leader>w :w<CR>
-nnoremap <silent> <leader>W :wa<CR>
-
-nnoremap <silent> <leader>sv :vs<CR>
-nnoremap <silent> <leader>ss :split<CR>
+" files {{{3
 
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
 nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
 nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
+nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>
+nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>eg :edit ~/Dropbox/notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
+nnoremap <silent> <leader>ex :edit ~/config/dotfiles/.xinitrc<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
-nnoremap <silent> <leader>ex :edit ~/.xinitrc<CR>
+nnoremap <silent> <leader>er :edit ~/.config/ranger/rc.conf<CR>
+nnoremap <silent> <leader>et :edit ~/config/alacritty/alacritty.yml<CR>
 
-nnoremap <silent> <leader>q :qa<CR>
-nnoremap <silent> <leader>x :x<CR>:qa<CR>
-nnoremap <silent> <leader>! :q!<CR>:qa<CR>
+nnoremap <silent> <leader>eM :edit Makefile<CR>
 
-nnoremap <silent> <leader>bb :Buffers<CR>
-nnoremap <silent> <leader>bx :w<CR>:bdelete<CR>
-nnoremap <silent> <leader>bd :bdelete<CR>
-nnoremap <silent> <leader>bD :bdelete!<CR>
-nnoremap <silent> <leader>bf :FZF ~<CR>
-nnoremap <silent> <leader>bF :FZF<CR>
-nnoremap <silent> <leader>bn :enew<CR>
-nnoremap <silent> <leader>br :edit<CR>
-nnoremap <leader>bm :Rename 
-nnoremap <leader>bM :Move 
+
+" git {{{3
 
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gbrowse<CR>
 nnoremap <silent> <leader>gp :Gpush<CR>
-nnoremap <silent> <leader>gm :Gmove
+nnoremap <leader>gm :Gmove 
+
+
+" vim-plug {{{3
 
 nnoremap <silent> <leader>pi :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugInstall<CR>
 nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
 nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
 
+
+" sudo {{{3
+
 nnoremap <leader>se :SudoEdit 
 nnoremap <silent> <leader>sr :SudoEdit<CR>
-nnoremap <silent> <leader>sw :SudoWrite<CR>
 
-nnoremap <silent> <leader>V :source ~/config/nvim/init.vim<CR>
 
-nnoremap <silent> <leader>tC :silent ! ~/config/scripts/webserver.js '%' &<CR>
-nnoremap <silent> <leader>tsp :set spell!<CR>
-nnoremap <silent> <leader>tsr :<C-f>i%s///g<Esc>hhi
-vnoremap <silent> <leader>tsR :<C-f>is///g<Esc>hhi
-nnoremap <silent> <leader>tw :set wrap!<CR>
-nnoremap <silent> <leader>tW :StripWhitespace<CR>
-nnoremap <leader>th :tab help 
-nnoremap <silent> <leader>tr :retab<CR>
-noremap <silent> <leader>tf :call Format()<CR>
-nnoremap <silent> <leader>tt :Tags<CR>
-nnoremap <silent> <leader>tl :LivedownToggle<CR>
-nnoremap <silent> <leader>tc :ColorToggle<CR>
-nnoremap <silent> <leader>tu :call UltiSnips#ListSnippets()<CR>
-nnoremap <silent> <leader>tR :!! %<CR>
-
-imap <C-f> <plug>(fzf-complete-path)
-
-nnoremap <leader>/ /\C^\s*
-noremap <leader>: :<C-f>i
-
-function! Format()
-    if &tw != 0
-        :exe "normal! " . "gggqG\<C-o>\<C-o>"
-    else
-        :Autoformat<CR>
-    endif
-endfunction
+" unmaps {{{2
 
 autocmd VimEnter * noremap # <Nop>
 map q: <Nop>
 " map # <Nop>
 map <Enter> <Nop>
 map <Backspace> <Nop>
+map ' <Nop>
+
+
+" prevent yanking {{{2
 
 nnoremap c "_c
 vnoremap c "_c
@@ -251,37 +377,11 @@ vnoremap x "_x
 nnoremap X "_X
 vnoremap X "_X
 
-" Paste over word without yanking it {
-function! RestoreRegister()
-    let @" = s:restore_reg
-    if &clipboard == "unnamedplus"
-        let @+ = s:restore_reg
-    endif
-    return ''
-endfunction
-function! s:Repl()
-    let s:restore_reg = @"
-    return "p@=RestoreRegister()\<cr>"
-endfunction
-" NB: this supports "rp that replaces the selection by the contents of @r
-vnoremap <silent> <expr> p <sid>Repl()
-" }
+" pasting over something doesn't yank it
+xnoremap p pgvy
 
-" noremap <C-e> j<C-e>
-" noremap <C-y> k<C-y>
-map Y y$
-nnoremap Q @@
-nnoremap <silent> ; zz
-nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-" nnoremap <silent> \ :nohlsearch<CR>
 
-nnoremap H gT
-nnoremap L gt
-
-nnoremap <C-j> i<CR><Esc>k$hl
-
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+" o and O {{{2
 
 nnoremap <silent> o o<Esc>
 
@@ -292,26 +392,47 @@ function! O_fixer(count)
     endif
 endfunction
 
-nmap <silent> j gj
-nmap <silent> k gk
 
-nnoremap <silent> gG G
+" centering screen {{{2
 
+noremap <silent> n nzz
+noremap <silent> N Nzz
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   Settings                                   "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap g; g;zz
+noremap g, g,zz
+
+noremap <silent> ; zz
+
+noremap za zazz
+noremap zj zjzz
+noremap zk zkzz
+noremap zv zvzz
+noremap zM zMzz
+noremap zm zmzz
+
+" noremap u uzz
+" noremap
+
+" }}}
+
+" Settings {{{1
+
+set tags=/home/cjbassi/.config/nvim/tags
 
 filetype plugin indent on
+
 set encoding=utf-8
 
-set pumheight=5
-set concealcursor = "nc"
+set pumheight=10
 
-" set shortmess=a
+" set concealcursor = "nc"
+" set conceallevel=0
+
+" startup message, n and N, and file info on load
+set shortmess=IsF
+
+" movement commands don't move cursor to start of line
 set nostartofline
-
-autocmd VimResized,TabEnter * wincmd =
 
 set splitbelow
 set splitright
@@ -319,27 +440,23 @@ set splitright
 set scrolloff=1
 set sidescrolloff=5
 
-set timeoutlen=1000 ttimeoutlen=0 " Remove ESC delay in Vim
+ " Remove ESC delay in Vim
+set timeoutlen=1000 ttimeoutlen=0
 
 set noshowmode
 set noshowcmd
 
 set linebreak
 set display+=lastline
-set formatoptions+=j " Delete comment character when joining commented lines"
+
+" Delete comment character when joining commented lines"
+set formatoptions+=j
 set autoread
 set tabpagemax=50
 set history=1000
 set hidden
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables comments on new lines
 
-autocmd BufRead,BufNewFile *.md,*.txt
-            \ let b:indentLine_enabled = 0 |
-
-set nowrapscan
-
-set foldmethod=indent
-set nofoldenable
+set clipboard=unnamedplus
 
 set spellcapcheck=
 
@@ -347,8 +464,71 @@ set sessionoptions-=options
 set complete-=i
 set nrformats-=octal
 
+set nowrap
+
+set iskeyword-=_
+
+
+" autocommands {{{2
+
+" autocmd FileType * normal! zz
+" autocmd BufReadPre,FileReadPre * normal! zt
+
+" autocmd FileType mail autocmd BufWritePre normal! gggqG
+" \<C-o>\<C-o>"<CR>
+
+autocmd FileType mail set spell
+
+" Disables comments on new lines
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+autocmd BufRead,BufNewFile *.md,*.txt
+            \ let b:indentLine_enabled = 0 |
+
+autocmd VimResized,TabEnter * wincmd =
+
+
+" diff {{{2
+
+if &diff
+    highlight! link DiffText MatchParen
+endif
+
+set diffopt+=horizontal
+
+
+" folding {{{2
+
+set foldmethod=marker
+set foldcolumn=2
+" set foldlevel=0
+autocmd FileType python setlocal foldmethod=indent
+autocmd FileType cpp,java,javascript setlocal foldmethod=syntax
+
+
+augroup java_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+
+" set foldtext=MyFoldText()
+" function! MyFoldText()
+"     let line = getline(v:foldstart)
+"     let string = ''
+"     for i in range(v:foldlevel, 5)
+"         let string = string . '    '
+"     " let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g') }}}
+"     return string . line . ' '
+" endfunction
+
+
+" numberline {{{2
+
 set number
 set numberwidth=4
+
+
+" indent {{{2
 
 set autoindent
 set expandtab
@@ -357,14 +537,18 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 
-" autocmd FileType javascript,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" searching {{{2
 
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
+set nowrapscan
 
-" Tab completion settings in command bar
+
+" wildmenu {{{2
+
 set wildmode=longest:full,full
 set wildmenu
 set wildignore=*.swp,*.bak
@@ -373,31 +557,136 @@ set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=tags
 set wildignore+=*.tar.*
 
-" Makes ESC not move cursor left
+
+" Makes ESC not move cursor left {{{2
+
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
-" StatusLine settings
+
+" StatusLine settings {{{2
+
 set ruler
 set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-" Swap, backup, and undo
+
+" Swap, backup, and undo {{{2
+
 set directory=~/.config/nvim/swap//
 set backupdir=~/.config/nvim/backup//
 set undodir=~/.config/nvim/undo//
 set undofile
 
-set clipboard=unnamedplus
+
+" Fullscreen Help {{{2
+" Opens Help files as if any other file was opened with "e file"
+" also works with completion like regular :help
+
+" This works by opening a blank buffer and setting it's buffer type to 'help'. Now when you run 'help ...' the blank buffer will show the helpfile in fullscreen. The function then adds the buffer to the bufferlist so you can use :bn, :bp, etc.
+function! FullScreenHelp(helpfile)
+	enew
+	set bt=help
+	execute "help " . a:helpfile
+	set buflisted
+endfunction
+
+" Open help files the same as you usually do with "help example" and they'll open in a new buffer similar to "e file"
+command! -nargs=1 -complete=help Help call FullScreenHelp(<f-args>)
+cabbrev help Help
+cabbrev h Help
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               Plugin Settings                                "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Smart :bd {{{2
+" If more than 1 buffer exists close current buffer while retaining splits.
+" bangs(!) are supported as well as arguments after :bd (:bd index.html, etc)
+function! SmartBD(bang, argu)
+		if a:bang == 1
+			let bang = "!"
+		else
+			let bang = " "
+		endif
 
-" Smooth scroll
+		if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+			execute "bd" . bang . " " . a:argu
+		else
+			bp
+			execute "bd" . bang . " #"
+		endif
+
+endfunction
+
+command! -bang -nargs=* BD call SmartBD(<bang>0, <q-args>)
+cnoreabbrev bd BD
+
+" }}}
+
+" Plugin-Settings {{{1
+
+" vim-racer {{{2
+
+let g:racer_cmd = "/usr/bin"
+
+
+" lastplace {{{2
+let g:lastplace_open_folds = 0
+
+
+" ranger {{{2
+
+let g:ranger_map_keys = 0
+
+
+" autoformat {{{2
+
+let g:autoformat_remove_trailing_spaces = 0
+
+" augroup autoformat
+"     au!
+"     au BufWritePre *.js Autoformat()
+" augroup END
+
+" autocmd FileType mail
+" autocmd BufWritePre :normal! gggqG
+
+    " \ autocmd BufWritePre :exe "normal! " . "gggqG\<C-o>\<C-o>"<CR>
+
+
+" vim-auto-origami {{{2
+
+augroup autofoldcolumn
+    au!
+    au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+augroup END
+
+
+" vim-javascript {{{2
+
+let g:javascript_plugin_flow = 1
+
+
+" bullets.vim {{{2
+
+let g:bullets_set_mappings = 0
+
+
+" vim-move {{{2
+
+let g:move_key_modifier = 'S'
+
+
+" vim-easy-align {{{2
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+" Smooth scroll {{{2
 
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
@@ -405,7 +694,7 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 
-" Airline
+" Airline {{{2
 
 let g:airline_powerline_fonts = 1
 let g:airline_inactive_collapse = 0
@@ -435,10 +724,9 @@ let g:airline#extensions#default#layout = [
     \ ]
 
 
-
 " let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
 
-" let g:airline_section_c = airline#section#create(['%{system("pwd")}', '%{@%}'])
+" let g:airline_section_c = airline#section#create(['%{system(\'pwd\')}'])
 let g:airline_section_y = airline#section#create([' ', '%02c'])
 let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
 
@@ -446,36 +734,18 @@ let airline#extensions#promptline#snapshot_file = "~/.promptline.sh"
 let g:airline#extensions#promptline#enabled = 1
 
 
-" Promptline
+" Ale {{{2
 
-" let g:promptline_preset = {
-"         \'b' : [ promptline#slices#cwd() ],
-"         \'c' : [ promptline#slices#jobs() ],
-"         \'y' : [ promptline#slices#vcs_branch() ],
-"         \'z' : [ promptline#slices#git_status() ],
-"         \'warn' : [ promptline#slices#last_exit_code() ]}
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
 
-        " \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
-        " \'a' : [ promptline#slices#vi_mode() ],
+let g:ale_set_loclist=1
+let g:ale_set_quickfix=1
 
-" PromptlineSnapshot! ~/config/dotfiles/.promptline.sh airline
+let g:ale_set_highlights=1
 
 
-" Syntastic
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
-let g:syntastic_loc_list_height = 5
-let g:syntastic_echo_current_error = 0
-
-
-" FZF
+" FZF {{{2
 
 " set rtp+=~/.fzf
 let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
@@ -496,12 +766,15 @@ endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 
-" gitgutter
+" gitgutter{{{2
 
 set updatetime=250
 
+" for leader
+let g:gitgutter_map_keys = 0
 
-" vimpager
+
+" Vimpager {{{2
 
 if exists('g:vimpager.enabled')
     let g:vimpager = {}
@@ -516,13 +789,14 @@ if exists('g:vimpager.enabled')
     " let g:vimpager.passthrough = 0
 endif
 
-" incsearch.vim
+
+" incsearch.vim{{{2
 
 map ? <Nop>
 map / <Plug>(incsearch-stay)
 
 
-" easymotion
+" easymotion{{{2
 
 map f <Plug>(easymotion-f)
 map F <Plug>(easymotion-F)
@@ -531,55 +805,41 @@ map t <Plug>(easymotion-t)
 map T <Plug>(easymotion-T)
 
 
-" vim-operator-flashy
+" vim-operator-flashy{{{2
 
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
 
-" vim-asterisk
+" vim-asterisk{{{2
 
 map *  <Plug>(asterisk-z*)
 map g* <Plug>(asterisk-gz*)
 
 
-" UltiSnips
+" UltiSnips{{{2
 
 let g:UltiSnipsExpandTrigger =          "<tab>"
 let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
 let g:UltiSnipsJumpBackwardTrigger =    "<C-h>"
 " let g:UltiSnipsListSnippets =           "<C-s>"
+let g:snips_author = "cjbassi"
+let g:ultisnips_python_style = "google"
 
 
-" vim-markdown
+" vim-markdown{{{2
 
 let g:vim_markdown_conceal = 0
 
-
-" rainbow-parens
-
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-\   'ctermfgs' : ['28', '196', '112', '208', '129', '166', '85', '237'],
-\	'operators': '_,_',
-\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\	'separately': {
-\		'*': {},
-\		'tex': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-\		},
-\		'vim': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\		},
-\		'html': {
-\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-\		},
-\		'css': 0,
-\	}
-\}
+let g:markdown_fenced_languages = ['html', 'cpp', 'java', 'python', 'bash=sh']
 
 
-" deoplete
+" json{{{2
+
+let g:vim_json_syntax_conceal = 0
+
+
+" deoplete{{{2
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 0
@@ -588,7 +848,7 @@ inoremap <C-k> <C-p>
 let g:deoplete#auto_complete_start_length = 2
 let g:deoplete#max_abbr_width = 50
 
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
     return deoplete#close_popup() . "\<CR>"
 endfunction
@@ -602,12 +862,14 @@ endif
 call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
             \ 'matcher_length'])
 
+let g:clang_library_path='/usr/lib'
+let g:deoplete#sources#jedi#show_docstring = 1
+
 " set completeopt-=preview
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 Old Settings                                 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Old-Settings {{{1
 
 " if has('path_extra')
 "     setglobal tags-=./tags tags-=./tags; tags^=./tags;
@@ -833,3 +1095,74 @@ call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
             " \ let b:cursorword = 1 |
 
 "nmap f <Plug>(easymotion-overwin-f2)
+
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'othree/yajs.vim'
+
+" Plug 'lifepillar/vim-mucomplete'
+" Plug 'ervandew/supertab'
+" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.local/share/nvim/plugged/YouCompleteMe', 'do': './install.py --clang-completer' }
+" Plug 'ajh17/vimcompletesme'
+" Plug 'https://github.com/vim-scripts/txt.vim'
+
+" rainbow-parens
+
+" let g:rainbow_active = 1
+" let g:rainbow_conf = {
+" \   'ctermfgs' : ['28', '196', '112', '208', '129', '166', '85', '237'],
+" \	'operators': '_,_',
+" \	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+" \	'separately': {
+" \		'*': {},
+" \		'tex': {
+" \			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+" \		},
+" \		'vim': {
+" \			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+" \		},
+" \		'html': {
+" \			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+" \		},
+" \		'css': 0,
+" \	}
+" \}
+
+
+" Promptline{{{
+
+" let g:promptline_preset = {
+"         \'b' : [ promptline#slices#cwd() ],
+"         \'c' : [ promptline#slices#jobs() ],
+"         \'y' : [ promptline#slices#vcs_branch() ],
+"         \'z' : [ promptline#slices#git_status() ],
+"         \'warn' : [ promptline#slices#last_exit_code() ]}
+
+        " \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
+        " \'a' : [ promptline#slices#vi_mode() ],
+
+" PromptlineSnapshot! ~/config/dotfiles/.promptline.sh airline
+" }}}
+
+" function! Format()
+"     if &tw != 0
+"         :exe "normal! " . "gggqG\<C-o>\<C-o>"
+"     else
+"         :Autoformat<CR>
+"     endif
+" endfunction
+
+
+" syntastic {{{2
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_auto_jump = 0
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_echo_current_error = 0

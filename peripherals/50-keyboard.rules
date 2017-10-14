@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", ATTRS{idVendor}=="2516", ATTRS{idProduct}=="0011", RUN+="/home/cjbassi/config/scripts/hello_world.sh"

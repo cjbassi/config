@@ -1,6 +1,7 @@
 rm -f arch3.sh
 
-# Directories
+# Directories {{{1
+
 mkdir -p Downloads
 mkdir -p .ssh
 mkdir -p .config
@@ -10,9 +11,10 @@ mkdir -p ~/.config/{ranger,ncmpcpp}
 mkdir -p test
 mkdir -p public_html
 
-sudo mount -L KEYS /mnt/usb
 
-# ssh keys
+# keys {{{1
+
+sudo mount -L KEYS /mnt/usb
 
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
 
@@ -25,15 +27,23 @@ chmod 600 /home/cjbassi/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
 
+
+# config {{{1
+
 git clone git@github.com:cjbassi/config
 
+ranger --copy-config=scope
 
-################################################################################
-# Symlinks
+# TODO
+# try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
+
+
+# symlinks {{{2
 
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 
 sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
+sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
 ln -sf ~/{,.}config/alacritty
 
@@ -55,11 +65,8 @@ ln -sf ~/config/ranger/* ~/.config/ranger/
 
 ln -sf ~/{,.}config/rofi
 
-################################################################################
 
-ranger --copy-config=scope
-# TODO
-        # try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
+# Services {{{1
 
 sudo systemctl enable NetworkManager.service
 
@@ -67,17 +74,8 @@ sudo systemctl enable suspend@cjbassi
 
 sudo systemctl enable bluetooth
 
-# xinput --disable 'SynPS/2 Synaptics TouchPad'
 
-# vim plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo '
-# automatically switch to newly-connected devices
-load-module module-switch-on-connect' | sudo tee -a /etc/pulse/default.pa
-
-################################################################################
+# vimpager and fonts TODO {{{1
 
 cd Downloads
 git clone https://github.com/rkitover/vimpager
@@ -95,16 +93,33 @@ cd ..
 rm -rf fonts
 cd ~
 
-################################################################################
+# pip and npm {{{1
 
 sudo pip install glances
 
 sudo pip3 install --upgrade neovim
 
+sudo pip install virtualenv
+sudo pip install virtualenvwrapper
+
+# sudo pip install khal
+# sudo pip install vdirsyncer
+
 sudo npm install -g coffee-script
 sudo npm install -g text-aid-too
+sudo npm install -g js-beautify
 
-################################################################################
+
+# neovim {{{1
+
+# vim plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+nvim +PlugInstall +xall
+
+
+# AUR {{{1
 
 bash ~/config/arch/pacaur.sh
 
@@ -131,5 +146,3 @@ pacaur -S --noconfirm --noedit i3lock-color-git
 # pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
 
 pacaur -S --noconfirm --noedit polybar-git
-
-nvim +PlugInstall +xall 2>/dev/null
