@@ -68,7 +68,7 @@ pacstrap /mnt                                                   \
     hub                                                         \
     mono                                                        \
 \
-    hack                                                        \
+    ttf-hack                                                    \
 \
     neovim                                                      \
     zsh                                                         \
