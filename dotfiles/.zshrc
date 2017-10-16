@@ -161,11 +161,6 @@ bindkey -a 'Y' zsh-Y-x-selection
 
 # Other programs{{{1
 
-# virutalenv {{{1
-
-source /usr/bin/virtualenvwrapper_lazy.sh
-
-
 # ccache {{{2
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
@@ -232,7 +227,7 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir root_indicator virtualenv background_jobs)
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
 
-export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+export POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 export POWERLEVEL9K_STATUS_OK=false
 
 export POWERLEVEL9K_STATUS_HIDE_SIGNAME=false
@@ -402,3 +397,10 @@ source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
 
 # ZLE_RPROMPT_INDENT=0
 # source ~/.promptline.sh
+
+# virutalenv {{{2
+
+# source /usr/bin/virtualenvwrapper_lazy.sh
+# source /usr/bin/activate.sh
+# eval "$(direnv hook zsh)"
+# eval "$(pipenv --completion)"

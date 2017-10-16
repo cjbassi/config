@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # files {{{1
 
@@ -41,6 +41,8 @@ alias gM='cd /mnt'
 
 alias blt='bluetoothctl'
 
+alias vg='valgrind'
+
 alias music='ncmpcpp'
 
 alias term='nohup alacritty --working-directory . </dev/null >/dev/null 2>&1 &; disown'
@@ -76,6 +78,8 @@ alias random_words='shuf /usr/share/dict/cracklib-small -rn'
 # settings {{{1
 
 alias ag='sudo ag --hidden --ignore .git'
+
+alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
 
 # alias sudo='sudo -E'
 alias su='sudo -E su -m'

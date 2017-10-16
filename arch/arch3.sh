@@ -22,7 +22,7 @@ chmod 700 /home/cjbassi/.ssh
 
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
 chmod 600 /home/cjbassi/.ssh/id_ed25519
-chmod 600 /home/cjbassi/.ssh/known_hosts
+# chmod 600 /home/cjbassi/.ssh/known_hosts
 chmod 600 /home/cjbassi/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
@@ -99,8 +99,11 @@ sudo pip install glances
 
 sudo pip3 install --upgrade neovim
 
-sudo pip install virtualenv
-sudo pip install virtualenvwrapper
+# sudo pip install virtualenv
+# sudo pip install virtualenvwrapper
+pip install --user pipenv
+
+sudo pip install colour-valgrind
 
 # sudo pip install khal
 # sudo pip install vdirsyncer

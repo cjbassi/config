@@ -87,8 +87,8 @@ Plug 'editorconfig/editorconfig-vim'
 " syntax {{{2
 
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
 Plug 'rhysd/vim-gfm-syntax'
@@ -196,6 +196,9 @@ if !exists('g:vimpager.enabled') && &modifiable
 endif
 
 
+let g:jsx_ext_required = 0
+
+
 " Keybinds {{{1
 
 imap <C-f> <plug>(fzf-complete-path)
@@ -203,13 +206,10 @@ imap <C-f> <plug>(fzf-complete-path)
 map Y y$
 nnoremap <silent> gG G
 nnoremap Q @q
-nnoremap <silent> <C-l> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 nnoremap H gT
 nnoremap L gt
-
-nnoremap <C-j> i<CR><Esc>k$hl
-nnoremap <C-k> J
 
 nmap <silent> j gj
 nmap <silent> k gk
@@ -217,6 +217,11 @@ nmap <silent> k gk
 " adds insert deleting to undo list
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 
 
 " leader {{{2
@@ -231,11 +236,18 @@ nnoremap <leader>/ /\C^\s*
 noremap <leader>: :<C-f>i
 
 
+nnoremap <leader>j i<CR><Esc>k$hl
+nnoremap <leader>k J
+
+
+nnoremap <silent> <leader>S :SudoEdit<bar>nnoremap <buffer> <silent> <leader>w :SudoWrite<CR>
+
+
 nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tc :ChecklistToggleCheckbox<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
-nnoremap <silent> <leader>tp :silent ! google-chrome-stable '%'<CR>
+nnoremap <silent> <leader>tp :silent ! ~/Dropbox/projects/webserver/webserver.js '%' &<CR>
 nnoremap <silent> <leader>tsr :<C-f>i%s///g<Esc>hhi
 vnoremap <silent> <leader>tsR :<C-f>is///g<Esc>hhi
 nnoremap <leader>tU :UltiSnipsEdit 
@@ -270,7 +282,7 @@ nnoremap <leader>bM :Move
 
 nnoremap <silent> <leader>q :qa<CR>
 nnoremap <silent> <leader>x :x<CR>:qa<CR>
-nnoremap <silent> <leader>! :q!<CR>:qa<CR>
+nnoremap <silent> <leader>! :bdelete!<CR>:qa<CR>
 
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>W :wa<CR>
@@ -300,11 +312,6 @@ noremap <silent> <leader>F <Plug>(easymotion-k)
 nnoremap <silent> <leader>a :Buffers<CR>
 nnoremap <silent> <leader>z :b#<CR>
 nnoremap <silent> <leader>v :Tags<CR>
-
-nnoremap <silent> <leader>h :wincmd h<CR>
-nnoremap <silent> <leader>j :wincmd j<CR>
-nnoremap <silent> <leader>k :wincmd k<CR>
-nnoremap <silent> <leader>l :wincmd l<CR>
 
 
 " files {{{3
@@ -345,11 +352,7 @@ nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR
 nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
 
 
-" sudo {{{3
-
-nnoremap <leader>se :SudoEdit 
-nnoremap <silent> <leader>sr :SudoEdit<CR>
-
+" }}}
 
 " unmaps {{{2
 
@@ -467,6 +470,7 @@ set nrformats-=octal
 set nowrap
 
 set iskeyword-=_
+" set iskeyword="a-z" TODO
 
 
 " autocommands {{{2
@@ -477,7 +481,7 @@ set iskeyword-=_
 " autocmd FileType mail autocmd BufWritePre normal! gggqG
 " \<C-o>\<C-o>"<CR>
 
-autocmd FileType mail set spell
+autocmd FileType mail set spell textwidth=0 wrap
 
 " Disables comments on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -501,7 +505,7 @@ set diffopt+=horizontal
 
 set foldmethod=marker
 set foldcolumn=2
-" set foldlevel=0
+autocmd BufReadPost * normal zR
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType cpp,java,javascript setlocal foldmethod=syntax
 
@@ -865,7 +869,7 @@ call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
 let g:clang_library_path='/usr/lib'
 let g:deoplete#sources#jedi#show_docstring = 1
 
-" set completeopt-=preview
+set completeopt-=preview
 
 " }}}
 
