@@ -16,7 +16,7 @@ compton -b &
 unclutter --timeout 1 &
 
 # sets brightness to 50%
-echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness &
+# echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness &
 
 
 # volume {{{1

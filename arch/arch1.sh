@@ -69,6 +69,8 @@ pacstrap /mnt                                                   \
     mono                                                        \
 \
     ttf-hack                                                    \
+    awesome-terminal-fonts                                      \
+    ttf-dejavu                                                  \
 \
     neovim                                                      \
     zsh                                                         \
@@ -97,9 +99,7 @@ pacstrap /mnt                                                   \
 
 
     # powerline-fonts                                             \
-    # ttf-dejavu                                                  \
     # ttf-symbola                                                 \
-    # awesome-terminal-fonts                                      \
     # zsh-theme-powerlevel9k                                      \
 
 
