@@ -68,9 +68,16 @@ pacstrap /mnt                                                   \
     hub                                                         \
     mono                                                        \
 \
+    ttf-dejavu                                                  \
     ttf-hack                                                    \
     awesome-terminal-fonts                                      \
-    ttf-dejavu                                                  \
+\
+    ttf-freefont                                                \
+    ttf-arphic-uming                                            \
+    ttf-indic-otf                                               \
+\
+    otf-ipafont                                                 \
+    ttf-hanazono                                                \
 \
     neovim                                                      \
     zsh                                                         \
@@ -99,7 +106,15 @@ pacstrap /mnt                                                   \
 
 
     # powerline-fonts                                             \
+
+    # ttf-noto-fonts-emoji
     # ttf-symbola                                                 \
+    # ttf-emojione-color
+    # ttf-twemoji-color
+
+    # adobe-source-han-sans-jp-fonts                              \
+    # ttf-sazanami                                                \
+
     # zsh-theme-powerlevel9k                                      \
 
 

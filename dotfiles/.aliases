@@ -45,7 +45,7 @@ alias vg='valgrind'
 
 alias music='ncmpcpp'
 
-alias term='nohup alacritty --working-directory . </dev/null >/dev/null 2>&1 &; disown'
+alias term='persistent alacritty --working-directory .'
 
 alias r='ranger'
 
@@ -68,6 +68,11 @@ alias vimdiff='nvim -d'
 
 
 # tools {{{1
+
+function persistent()
+{
+    nohup "$@" </dev/null >/dev/null 2>&1 &; disown
+}
 
 random_number() { echo $[${RANDOM}%$@] }
 alias random_characters=''

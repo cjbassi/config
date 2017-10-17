@@ -77,13 +77,13 @@ sudo systemctl enable bluetooth
 
 # vimpager and fonts TODO {{{1
 
-cd Downloads
-git clone https://github.com/rkitover/vimpager
-cd vimpager
-sudo make install
-cd ..
-rm -rf vimpager
-cd ~
+# cd Downloads
+# git clone https://github.com/rkitover/vimpager
+# cd vimpager
+# sudo make install
+# cd ..
+# rm -rf vimpager
+# cd ~
 
 #cd Downloads
 #git clone https://github.com/powerline/fonts.git
@@ -108,7 +108,7 @@ sudo pip install colour-valgrind
 # sudo pip install khal
 # sudo pip install vdirsyncer
 
-sudo npm install -g coffee-script
+# sudo npm install -g coffee-script
 sudo npm install -g text-aid-too
 sudo npm install -g js-beautify
 
