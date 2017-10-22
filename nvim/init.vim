@@ -2,6 +2,8 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Plug 'fatih/vim-go'
+
 Plug 'francoiscabrol/ranger.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -22,6 +24,8 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'matze/vim-move'
 Plug 'moll/vim-node'
 Plug 'farmergreg/vim-lastplace'
+Plug 'vim-utils/vim-vertical-move'
+Plug 'wincent/loupe'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -105,7 +109,11 @@ Plug 'cespare/vim-toml'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'ekalinin/Dockerfile.vim'
+
 " Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting' TODO
+
+" Plug 'sheerun/vim-polyglot'
 
 
 " vim-operator-flashy {{{2
@@ -166,12 +174,14 @@ Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
+
 " Visuals {{{1
 
 syntax enable
 
 set t_Co=256
 set background=dark
+" set termguicolors
 let g:solarized_termcolors=256
 colorscheme solarized
 
@@ -182,19 +192,11 @@ hi StatusLine ctermbg=232 ctermfg=241
 hi javaScript ctermfg=244
 
 set cursorline
+" hi clear CursorLine
 
 let g:indentLine_color_term = 239
 
-" highlight ColorColumn ctermbg=DarkGrey
-
-" Highlight text past 80 columns
-if !exists('g:vimpager.enabled') && &modifiable
-    augroup ColorColumn
-        au!
-        au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', -1)
-    augroup END
-endif
-
+" call matchadd('ColorColumn', '\%81v.\+', -1, 4) TODO
 
 let g:jsx_ext_required = 0
 
@@ -206,7 +208,7 @@ imap <C-f> <plug>(fzf-complete-path)
 map Y y$
 nnoremap <silent> gG G
 nnoremap Q @q
-nnoremap <silent> \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> , :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 nnoremap H gT
 nnoremap L gt
@@ -237,19 +239,20 @@ noremap <leader>: :<C-f>i
 
 
 nnoremap <leader>j i<CR><Esc>k$hl
-nnoremap <leader>k J
+nnoremap <leader>k Jx
 
 
 nnoremap <silent> <leader>S :SudoEdit<bar>nnoremap <buffer> <silent> <leader>w :SudoWrite<CR>
 
 
+nnoremap <silent> <leader>tf :Autoformat<CR>
 nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tc :ChecklistToggleCheckbox<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
 nnoremap <silent> <leader>tp :silent ! ~/Dropbox/projects/webserver/webserver.js '%' &<CR>
-nnoremap <silent> <leader>tsr :<C-f>i%s///g<Esc>hhi
-vnoremap <silent> <leader>tsR :<C-f>is///g<Esc>hhi
+nnoremap <leader>tsr :%s/
+vnoremap <leader>tsR :s/
 nnoremap <leader>tU :UltiSnipsEdit 
 nnoremap <leader>th :Help 
 nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
@@ -281,7 +284,7 @@ nnoremap <leader>bM :Move
 " write/quit {{{3
 
 nnoremap <silent> <leader>q :qa<CR>
-nnoremap <silent> <leader>x :x<CR>:qa<CR>
+nnoremap <silent> <leader>x :w<CR>:qa<CR>
 nnoremap <silent> <leader>! :bdelete!<CR>:qa<CR>
 
 nnoremap <silent> <leader>w :w<CR>
@@ -306,12 +309,12 @@ nnoremap <silent> <leader>d S<Esc>
 
 " movement {{{3
 
-noremap <silent> <leader>f <Plug>(easymotion-j)
-noremap <silent> <leader>F <Plug>(easymotion-k)
+map <silent> <leader>f <Plug>(easymotion-j)
+map <silent> <leader>F <Plug>(easymotion-k)
 
-nnoremap <silent> <leader>a :Buffers<CR>
-nnoremap <silent> <leader>z :b#<CR>
-nnoremap <silent> <leader>v :Tags<CR>
+nnoremap <silent> ' :Buffers<CR>
+nnoremap <silent> \ :b#<CR>
+nnoremap <silent> ? :Tags<CR>
 
 
 " files {{{3
@@ -361,7 +364,8 @@ map q: <Nop>
 " map # <Nop>
 map <Enter> <Nop>
 map <Backspace> <Nop>
-map ' <Nop>
+" map ' <Nop>
+" map ? <Nop>
 
 
 " prevent yanking {{{2
@@ -398,8 +402,8 @@ endfunction
 
 " centering screen {{{2
 
-noremap <silent> n nzz
-noremap <silent> N Nzz
+" noremap <silent> n nzz
+" noremap <silent> N Nzz
 
 noremap g; g;zz
 noremap g, g,zz
@@ -443,6 +447,8 @@ set splitright
 set scrolloff=1
 set sidescrolloff=5
 
+set inccommand=nosplit
+
  " Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -472,14 +478,26 @@ set nowrap
 set iskeyword-=_
 " set iskeyword="a-z" TODO
 
-
-" autocommands {{{2
-
 " autocmd FileType * normal! zz
 " autocmd BufReadPre,FileReadPre * normal! zt
 
 " autocmd FileType mail autocmd BufWritePre normal! gggqG
 " \<C-o>\<C-o>"<CR>
+
+
+autocmd FileType man call ManFileType()
+
+function! ManFileType()
+
+    :IndentLinesDisable
+
+    setlocal nonumber
+    setlocal norelativenumber
+
+    " call matchdelete(4) TODO
+
+endfunction
+
 
 autocmd FileType mail set spell textwidth=0 wrap
 
@@ -498,14 +516,15 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
-set diffopt+=horizontal
+set diffopt+=vertical
 
 
 " folding {{{2
 
 set foldmethod=marker
 set foldcolumn=2
-autocmd BufReadPost * normal zR
+set foldlevel=99
+" autocmd BufReadPost * normal zR
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType cpp,java,javascript setlocal foldmethod=syntax
 
@@ -629,6 +648,43 @@ cnoreabbrev bd BD
 
 " Plugin-Settings {{{1
 
+" loupe {{{2
+
+let g:LoupeCenterResults=0
+
+
+" vim-signature  {{{2
+
+let g:SignatureMap = {
+            \ 'Leader'             :  "m",
+            \ 'PlaceNextMark'      :  "m,",
+            \ 'ToggleMarkAtLine'   :  "m.",
+            \ 'PurgeMarksAtLine'   :  "m-",
+            \ 'DeleteMark'         :  "dm",
+            \ 'PurgeMarks'         :  "m<Space>",
+            \ 'PurgeMarkers'       :  "m<BS>",
+            \ 'GotoNextLineAlpha'  :  "",
+            \ 'GotoPrevLineAlpha'  :  "",
+            \ 'GotoNextSpotAlpha'  :  "`]",
+            \ 'GotoPrevSpotAlpha'  :  "`[",
+            \ 'GotoNextLineByPos'  :  "]'",
+            \ 'GotoPrevLineByPos'  :  "['",
+            \ 'GotoNextSpotByPos'  :  "]`",
+            \ 'GotoPrevSpotByPos'  :  "[`",
+            \ 'GotoNextMarker'     :  "]-",
+            \ 'GotoPrevMarker'     :  "[-",
+            \ 'GotoNextMarkerAny'  :  "]=",
+            \ 'GotoPrevMarkerAny'  :  "[=",
+            \ 'ListBufferMarks'    :  "m/",
+            \ 'ListBufferMarkers'  :  "m?"
+            \ }
+
+
+" vim-go {{{2
+
+let g:go_fmt_fail_silently = 0
+
+
 " vim-racer {{{2
 
 let g:racer_cmd = "/usr/bin"
@@ -646,6 +702,8 @@ let g:ranger_map_keys = 0
 " autoformat {{{2
 
 let g:autoformat_remove_trailing_spaces = 0
+" let g:formatdef_my_custom_javascript = '"js-beautify -a -s ".&shiftwidth'
+" let g:formatters_javascript = ['my_custom_javascript']
 
 " augroup autoformat
 "     au!
@@ -740,6 +798,13 @@ let g:airline#extensions#promptline#enabled = 1
 
 " Ale {{{2
 
+
+autocmd FileType markdown let b:ale_enabled=0
+
+let g:ale_linters = {
+\   'cpp': ['clang'],
+\}
+
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 
@@ -796,8 +861,15 @@ endif
 
 " incsearch.vim{{{2
 
-map ? <Nop>
-map / <Plug>(incsearch-stay)
+autocmd FileType * map / <Plug>(incsearch-stay)
+
+" let g:incsearch#auto_nohlsearch = 1
+
+" map n  <Plug>(incsearch-nohl-n)
+" map N  <Plug>(incsearch-nohl-N)
+
+" map <C-j> <Over>(incsearch-scroll-f)
+" map <C-k> <Over>(incsearch-scroll-b)
 
 
 " easymotion{{{2
@@ -827,8 +899,14 @@ let g:UltiSnipsExpandTrigger =          "<tab>"
 let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
 let g:UltiSnipsJumpBackwardTrigger =    "<C-h>"
 " let g:UltiSnipsListSnippets =           "<C-s>"
+
 let g:snips_author = "cjbassi"
+
 let g:ultisnips_python_style = "google"
+
+let g:ultisnips_javascript = {
+    \ 'semi': 'never',
+    \ }
 
 
 " vim-markdown{{{2
@@ -1170,3 +1248,21 @@ set completeopt-=preview
 " let g:syntastic_auto_jump = 0
 " let g:syntastic_loc_list_height = 5
 " let g:syntastic_echo_current_error = 0
+
+" highlight ColorColumn ctermbg=DarkGrey
+
+" " Highlight text past 80 columns
+" if !exists('g:vimpager.enabled') && &modifiable
+"     augroup ColorColumn
+"         au!
+"         au VimEnter,WinEnter * call matchadd('ColorColumn', '\%81v.\+', -1)
+"     augroup END
+" endif
+
+" highlight ColorColumn ctermbg=DarkGrey
+
+
+" augroup ColorColumn
+"     au!
+"     au VimEnter,WinEnter * 
+" augroup END

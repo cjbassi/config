@@ -1,0 +1,42 @@
+{
+    "root": true,
+
+    "parser": "babel-eslint",
+
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jquery": true
+    },
+
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "generators": true
+        }
+    },
+
+    "plugins": [
+        "react"
+    ],
+
+    "rules": {
+        "eqeqeq": "error",
+        "max-len": ["warn", 80],
+        "no-tabs": "error",
+        "no-undef": "error",
+        "no-unused-vars": "warn",
+        "semi": ["error", "never"],
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
+
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
+    }
+}

@@ -75,42 +75,33 @@ sudo systemctl enable suspend@cjbassi
 sudo systemctl enable bluetooth
 
 
-# vimpager and fonts TODO {{{1
-
-# cd Downloads
-# git clone https://github.com/rkitover/vimpager
-# cd vimpager
-# sudo make install
-# cd ..
-# rm -rf vimpager
-# cd ~
-
-#cd Downloads
-#git clone https://github.com/powerline/fonts.git
-#cd fonts
-#./install.sh
-#cd ..
-#rm -rf fonts
-#cd ~
-
 # pip and npm {{{1
 
 sudo pip install glances
 
-sudo pip3 install --upgrade neovim
+sudo pip install --upgrade neovim
 
 # sudo pip install virtualenv
 # sudo pip install virtualenvwrapper
-pip install --user pipenv
+sudo pip install pipenv
 
 sudo pip install colour-valgrind
 
 # sudo pip install khal
 # sudo pip install vdirsyncer
 
-# sudo npm install -g coffee-script
+sudo npm install -g coffee-script
 sudo npm install -g text-aid-too
+
 sudo npm install -g js-beautify
+sudo npm install -g eslint-plugin-react
+sudo npm install -g babel-eslint
+sudo npm install -g create-react-app
+
+
+# zsh {{{1
+
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 
 
 # neovim {{{1
@@ -149,3 +140,22 @@ pacaur -S --noconfirm --noedit i3lock-color-git
 # pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
 
 pacaur -S --noconfirm --noedit polybar-git
+
+
+# Old config {{{1
+
+# cd Downloads
+# git clone https://github.com/rkitover/vimpager
+# cd vimpager
+# sudo make install
+# cd ..
+# rm -rf vimpager
+# cd ~
+
+#cd Downloads
+#git clone https://github.com/powerline/fonts.git
+#cd fonts
+#./install.sh
+#cd ..
+#rm -rf fonts
+#cd ~

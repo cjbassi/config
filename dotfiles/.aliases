@@ -45,31 +45,36 @@ alias vg='valgrind'
 
 alias music='ncmpcpp'
 
-alias term='persistent alacritty --working-directory .'
-
 alias r='ranger'
 
 alias m='make'
 
 alias git='hub'
 
+alias se='sudoedit'
 alias e='vim'
 alias vim='nvim'
+alias vd='vimdiff'
+alias vimdiff='nvim -d'
 
 alias l='ll'
 
-alias se='sudoedit'
+alias py='pipenv run -- python'
 
-alias vc='vimcat'
-
-alias vd='vimdiff'
-
-alias vimdiff='nvim -d'
+alias chrome='google-chrome-stable'
 
 
 # tools {{{1
 
-function persistent()
+alias term='fork alacritty --working-directory .'
+
+
+function mkcd()
+{
+    mkdir "$@"; cd "$@"
+}
+
+function fork()
 {
     nohup "$@" </dev/null >/dev/null 2>&1 &; disown
 }
@@ -82,23 +87,25 @@ alias random_words='shuf /usr/share/dict/cracklib-small -rn'
 
 # settings {{{1
 
+alias docker='sudo docker'
+
 alias ag='sudo ag --hidden --ignore .git'
 
 alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
 
-# alias sudo='sudo -E'
 alias su='sudo -E su -m'
 
-# and -g? TODO
 alias g++='g++ -g -Wall'
 alias gcc='gcc -g -Wall'
 
-alias sshfs='sshfs -C'
+alias sshfs='sshfs -C -o reconnect'
 
 # TODO progress1 and 2
 alias rsync='rsync -h --info=all2'
+
 alias cp='cp -iv'
 alias mv='mv -iv'
+alias rm='rm -Idv'
 alias rmdir='rmdir -v'
 alias mkdir='mkdir -vp'
 alias ln='ln -v'
@@ -111,7 +118,9 @@ alias du='du -h'
 alias ll='ls -AhgoXF --group-directories-first --color=always'
 
 # alias pwd='echo -e "${PWD/${HOME}/~}"'
+
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
+
 alias makepkg='makepkg -si'
 
 

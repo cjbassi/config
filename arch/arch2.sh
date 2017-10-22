@@ -21,6 +21,13 @@ echo arch > /etc/hostname
 # systemctl enable dhcpcd.service
 
 read -p "Please give password: " password
+read -p "Please repeat password: " password2
+
+while [[ $password != $password2 ]] ; do
+    echo "Passwords do not match"
+    read -p "Please give password: " password
+    read -p "Please repeat password: " password2
+done
 
 # Root password
 echo "root:$password" | chpasswd

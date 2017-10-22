@@ -1,0 +1,107 @@
+snippet base "React boilerplate" b
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+ReactDOM.render(, document.getElementById("root"))
+endsnippet
+
+snippet ri "Import only React" b
+import React from 'react'
+endsnippet
+
+snippet rid "Import react-dom" b
+import ReactDOM from 'react-dom'
+endsnippet
+
+snippet rcla "React class" b
+class ${1:MyComponent} extends Component {
+    render() {
+        return (
+            ${0:<div></div>}
+        )
+    }
+}
+endsnippet
+
+snippet rren "React render"
+render() {
+    return (
+        ${0:<div></div>}
+    )
+}
+endsnippet
+
+snippet rcon "React constructor"
+constructor(props) {
+    super(props)
+    this.state = {
+        ${1}: ${0},
+    }
+}
+endsnippet
+
+# snippet rcpt "Proptypes for React Class"
+# static propTypes = {
+#     ${1}: PropTypes.${0},
+# }
+# endsnippet
+
+# snippet rcdp "Default props for React Class"
+# static defaultProps = {
+#     ${1}: ${0},
+# }
+# endsnippet
+
+# snippet rcom "Presentational component"
+# props => {
+#     return (
+#         ${0:<div></div>}
+#     )
+# }
+# endsnippet
+
+# snippet rpt "Proptypes for Presentational component"
+# ${1}.propTypes = {
+#     ${2}: PropTypes.${0},
+# }
+# endsnippet
+
+# snippet rdp "Default props for Presentational component"
+# ${1}.defaultProps = {
+#     ${2}: ${0},
+# }
+# endsnippet
+
+# snippet rcdm "React lifecycle mount"
+# componentDidMount() {
+#     ${0:${VISUAL}}
+# }
+# endsnippet
+
+# snippet rcdm "React lifecycle unmount"
+# componentWillUnmount() {
+#     ${0:${VISUAL}}
+# }
+# endsnippet
+
+snippet rss "React this.setState"
+this.setState({
+    ${1}: ${0},
+})
+endsnippet
+
+snippet rs "React state"
+state.${0}
+endsnippet
+
+snippet rts "React this.state"
+this.state.${0}
+endsnippet
+
+snippet rp "React props"
+props.${0}
+endsnippet
+
+snippet rtp "React this.props"
+this.props.${0}
+endsnippet

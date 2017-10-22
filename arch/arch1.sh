@@ -103,11 +103,13 @@ pacstrap /mnt                                                   \
     clang                                                       \
     sxiv                                                        \
     unzip                                                       \
+    httpie                                                      \
+    docker                                                      \
 
 
     # powerline-fonts                                             \
 
-    # ttf-noto-fonts-emoji
+    # noto-fonts-emoji
     # ttf-symbola                                                 \
     # ttf-emojione-color
     # ttf-twemoji-color

@@ -8,16 +8,27 @@ export TERM='xterm-256color'
 source ~/.aliases
 
 
-# Editor/Pager {{{1
+#  zplug {{{1
 
-export VISUAL='nvim'
-export EDITOR='nvim'
-export USE_EDITOR='nvim'
+source ~/.zplug/init.zsh
 
-export PAGER=vimpager
-alias less=$PAGER
-alias zless=$PAGER
-alias pager=$PAGER
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zdharma/fast-syntax-highlighting"
+zplug "~/Dropbox/projects/powerlevel9k", from:local, use:powerlevel9k.zsh-theme
+
+# zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+# zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+
+# zplug "trapd00r/zsh-syntax-highlighting-filetypes"
+# zplug "ascii-soup/zsh-url-highlighter"
+
+
+# if ! zplug check; then
+#     zplug install
+# fi
+
+zplug load
 
 
 # History {{{1
@@ -78,18 +89,6 @@ function chpwd() { ll }
 # completion
 autoload -Uz compinit
 compinit
-
-
-# Locales {{{1
-
-LANG="en_US.UTF-8"
-LC_COLLATE="en_US.UTF-8"
-LC_CTYPE="en_US.UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-LC_MONETARY="en_US.UTF-8"
-LC_NUMERIC="en_US.UTF-8"
-LC_TIME="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
 
 
 # Colors {{{1
@@ -161,17 +160,6 @@ bindkey -a 'Y' zsh-Y-x-selection
 
 # Other programs{{{1
 
-# ccache {{{2
-
-export PATH="/usr/lib/ccache/bin/:$PATH"
-
-
-# golang {{{2
-
-export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
-
-
 # ranger {{{2
 
 ranger() {
@@ -194,13 +182,13 @@ alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-s
 
 # FZF {{{2
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -r '^r'
 bindkey -r '^[c'
 
 export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+# export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 
 zle -N fzf-history-widget
 zle -N fzf-file-widget
@@ -215,11 +203,6 @@ bindkey -M viins -r '^t'
 
 bindkey -M vicmd '^r' fzf-cd-widget
 bindkey -M viins '^r' fzf-cd-widget
-
-
-# syntax-highlighting {{{2
-
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 
 # powerlevel9k {{{2
@@ -258,7 +241,7 @@ export POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=11
 # POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="grey"
 
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
+# source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
 
 
 # Old config {{{1

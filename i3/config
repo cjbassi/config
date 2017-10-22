@@ -91,7 +91,7 @@ new_window pixel
 
 client.focused #FF0000 #FF0000 #FF0000 #FF0000
 
-gaps inner 10
+gaps inner 5
 gaps outer 0
 
 focus_follows_mouse no
