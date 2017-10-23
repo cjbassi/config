@@ -66,6 +66,11 @@ alias chrome='google-chrome-stable'
 
 # tools {{{1
 
+function math()
+{
+    echo $(($@))
+}
+
 alias term='fork alacritty --working-directory .'
 
 
@@ -79,7 +84,10 @@ function fork()
     nohup "$@" </dev/null >/dev/null 2>&1 &; disown
 }
 
-random_number() { echo $[${RANDOM}%$@] }
+random_number()
+{
+    echo ${RANDOM}
+}
 alias random_characters=''
 alias random_lines="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>50' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' | fmt | head -n"
 alias random_words='shuf /usr/share/dict/cracklib-small -rn'

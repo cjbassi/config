@@ -1,38 +1,52 @@
 ; vim:ft=dosini
 
 [colors]
-; ;background = ${xrdb:color0:#222}
-; background = #222
-; background-alt = #444
-; ;foreground = ${xrdb:color7:#222}
-; foreground = #dfdfdf
-; foreground-alt = #555
-; primary = #ffb52a
-; secondary = #e60053
-; alert = #bd2c40
-; background =    #131313
-; foreground =    #b2b2b2
 
 white =         #FFFFFF
 dark_grey =     #1a1a1a
 light_grey =    #292b2e
-blue =          #0050FF
+; blue =          #0060FF
+; turquoise =     #009090
 black =         #000000
-red =           #ee3333
-green =         #20ad80
-purple =        #875faf
-pink =          #d75f87
-yellow =        #ffff00
+; red =           #ee3333
+; green =         #00b260
+; purple =        #875faf
+; pink =          #d75f87
+; yellow =        #ffff00
+
+base03 =    #002b36
+base02 =    #073642
+base01 =    #586e75
+base00 =    #657b83
+base0 =     #839496
+base1 =     #93a1a1
+base2 =     #eee8d5
+base3 =     #fdf6e3
+yellow =    #b58900
+orange =    #cb4b16
+red =       #dc322f
+magenta =   #d33682
+violet =    #6c71c4
+blue =      #268bd2
+cyan =      #2aa198
+green =     #859900
 
 background =    ${colors.dark_grey}
 foreground =    ${colors.white}
 
+
+[settings]
+screenchange-reload = true
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
 [bar/main]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 25
-;offset-x = 1%
-;offset-y = 1%
 radius = 1.0
 fixed-center = true
 bottom = true
@@ -40,17 +54,6 @@ bottom = true
 background =    ${colors.light_grey}
 foreground =    ${colors.foreground}
 
-; line-size = 3
-; line-color = #f00
-
-; border-size = 0
-; border-color = #00000000
-
-; padding-left = 0
-; padding-right = 2
-
-; module-margin-left = 1
-; module-margin-right = 0
 
 font-0 = fixed:pixelsize=12;3
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;3
@@ -60,23 +63,11 @@ font-4 = Font Awesome:pixelsize=12;3
 
 modules-left = i3 blue_arrow1 i3index blue_arrow2
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
-modules-right = left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light battery left_arrow_dark
+modules-right = left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
 
 tray-position = right
-; tray-padding = 4
-; tray-transparent = true
-tray-background = ${colors.dark_grey}
+tray-background = ${colors.light_grey}
 
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 [module/blue_arrow1]
 type = custom/text
@@ -92,6 +83,7 @@ content-font = 2
 content-foreground = ${colors.blue}
 content-background = ${colors.light_grey}
 
+
 [module/right_arrow_dark]
 type = custom/text
 content = " "
@@ -105,6 +97,7 @@ content = " "
 content-font = 2
 content-foreground = ${colors.light_grey}
 content-background = ${colors.dark_grey}
+
 
 [module/left_arrow_dark]
 type = custom/text
@@ -120,68 +113,40 @@ content-font = 2
 content-foreground = ${colors.light_grey}
 content-background = ${colors.dark_grey}
 
-[module/my_filesystem]
-type = custom/script
-interval = 30
-label = %{F#0a81f5}/%{F-} : %output%B
-exec = ~/config/filesystem.sh
-format-prefix = " "
-format-underline = #006400
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+[module/date]
+type = internal/date
+interval = 1
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+date = " %m-%d "
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+label-foreground = ${colors.white}
+label-background = ${colors.dark_grey}
 
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label = %date%
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+[module/day]
+type = internal/date
+interval = 1
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 98
+date = " %a "
 
-format-charging = <animation-charging> <label-charging>
-format-charging-foreground = ${colors.green}
-format-charging-background = ${colors.light_grey}
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-foreground = ${colors.green}
-format-discharging-background = ${colors.light_grey}
-format-full = <label-full>
-format-full-foreground = ${colors.green}
-format-full-background = ${colors.light_grey}
+label-foreground = ${colors.white}
+label-background = ${colors.dark_grey}
 
-label-charging = " %percentage%%"
-label-discharging = "%percentage%%"
-label-discharging-foreground = ${colors.green}
-label-full = " %percentage%%"
+label = %date%
 
-ramp-capacity-0 = " "
-ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1 = " "
-ramp-capacity-1-foreground = ${colors.yellow}
-ramp-capacity-2 = " "
-ramp-capacity-3 = " "
-ramp-capacity-4 = " "
-animation-charging-0 =
-animation-charging-1 =
-animation-charging-2 =
-animation-charging-3 =
-animation-charging-4 =
-animation-charging-framerate = 750
+[module/time]
+type = internal/date
+interval = 1
+
+time = " %H:%M "
+
+label-foreground = ${colors.white}
+label-background = ${colors.light_grey}
+
+label = %time%
+
 
 [module/i3]
 type = internal/i3
@@ -227,66 +192,100 @@ label-focused-background = ${colors.blue}
 label-unfocused =
 label-urgent =
 
+
+[module/temperature]
+type = internal/temperature
+
+thermal-zone = 0
+
+interval = 5
+
+warn-temperature = 80
+
+label = "%temperature%"
+
+label-warn = "%temperature%"
+label-warn-foreground = ${colors.red}
+
+format = "<ramp> <label>"
+format-foreground = ${colors.yellow}
+format-background = ${colors.light_grey}
+format-warn = "<ramp> <label-warn>"
+
+ramp-0 = " "
+ramp-1 = " "
+ramp-2 = " "
+ramp-3 = " "
+ramp-4 = " "
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+poll-interval = 5
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colors.green}
+format-charging-background = ${colors.dark_grey}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colors.green}
+format-discharging-background = ${colors.dark_grey}
+format-full = <label-full>
+format-full-foreground = ${colors.green}
+format-full-background = ${colors.dark_grey}
+
+label-charging = " %percentage%%"
+label-discharging = "%percentage%%"
+label-discharging-foreground = ${colors.green}
+label-full = " %percentage%%"
+
+ramp-capacity-0 = " "
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = " "
+ramp-capacity-1-foreground = ${colors.yellow}
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+animation-charging-0 =
+animation-charging-1 =
+animation-charging-2 =
+animation-charging-3 =
+animation-charging-4 =
+animation-charging-framerate = 750
+
+
 [module/cpu]
 type = internal/cpu
-interval = 1
+interval = 5
 format-prefix = " CPU "
-format-prefix-foreground = ${colors.purple}
+format-prefix-foreground = ${colors.violet}
 format-prefix-background = ${colors.dark_grey}
 label = %percentage%%
-label-foreground = ${colors.purple}
+label-foreground = ${colors.violet}
 label-background = ${colors.dark_grey}
+
 
 [module/ram]
 type = internal/memory
 interval = 1
 format-prefix = " RAM "
-format-prefix-foreground = ${colors.pink}
+format-prefix-foreground = ${colors.cyan}
 format-prefix-background = ${colors.light_grey}
 label = %percentage_used%%
-label-foreground = ${colors.pink}
+label-foreground = ${colors.cyan}
 label-background = ${colors.light_grey}
 
-[module/date]
-type = internal/date
-interval = 1
-
-date = " %m-%d "
-
-label-foreground = ${colors.white}
-label-background = ${colors.dark_grey}
-
-label = %date%
-
-[module/day]
-type = internal/date
-interval = 1
-
-date = " %a "
-
-label-foreground = ${colors.white}
-label-background = ${colors.dark_grey}
-
-label = %date%
-
-[module/time]
-type = internal/date
-interval = 1
-
-time = " %H:%M "
-
-label-foreground = ${colors.white}
-label-background = ${colors.light_grey}
-
-label = %time%
 
 [module/volume]
 type = internal/volume
 
+mapped = false
+
 ; Name of the master mixer
 master-mixer = Master
 
-; mapping = true
 format-volume = <ramp-volume><label-volume>
 
 label-volume = %percentage%%
@@ -305,17 +304,94 @@ ramp-volume-1-background = ${colors.dark_grey}
 ramp-volume-2 = "  "
 ramp-volume-2-foreground = ${colors.blue}
 ramp-volume-2-background = ${colors.dark_grey}
+
+; mapping = true
+
 ; ramp-volume-3 = "  "
 ; ramp-volume-3-foreground = ${colors.blue}
 ; ramp-volume-3-background = ${colors.dark_grey}
 
-[settings]
-screenchange-reload = true
+
+# Old Configs
+
+
+; [module/my_filesystem]
+; type = custom/script
+; interval = 30
+; label = %{F#0a81f5}/%{F-} : %output%B
+; exec = ~/config/filesystem.sh
+; format-prefix = " "
+; format-underline = #006400
+
+
+; [module/xkeyboard]
+; type = internal/xkeyboard
+; blacklist-0 = num lock
+
+; format-prefix = " "
+; format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-underline = ${colors.secondary}
+
+; label-layout = %layout%
+; label-layout-underline = ${colors.secondary}
+
+; label-indicator-padding = 2
+; label-indicator-margin = 1
+; label-indicator-background = ${colors.secondary}
+; label-indicator-underline = ${colors.secondary}
+
+
+; [module/xwindow]
+; type = internal/xwindow
+; label = %title:0:30:...%
+
+
+; [colors]
+; ;background = ${xrdb:color0:#222}
+; background = #222
+; background-alt = #444
+; ;foreground = ${xrdb:color7:#222}
+; foreground = #dfdfdf
+; foreground-alt = #555
+; primary = #ffb52a
+; secondary = #e60053
+; alert = #bd2c40
+; background =    #131313
+; foreground =    #b2b2b2
+
+
+; [settings]
 ;compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
+
+; [bar/main]
+;offset-x = 1%
+;offset-y = 1%
+;monitor = ${env:MONITOR:HDMI-1}
+; line-size = 3
+; line-color = #f00
+
+; border-size = 0
+; border-color = #00000000
+
+; padding-left = 0
+; padding-right = 2
+
+; module-margin-left = 1
+; module-margin-right = 0
+; tray-padding = 4
+; tray-transparent = true
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev

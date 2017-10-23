@@ -10,25 +10,31 @@ source ~/.aliases
 
 #  zplug {{{1
 
-source ~/.zplug/init.zsh
+source "${HOME}/.zgen/zgen.zsh"
+zgen load "zdharma/fast-syntax-highlighting"
+
+source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
+
+# source ~/.zplug/init.zsh
 
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "zdharma/fast-syntax-highlighting"
-zplug "~/Dropbox/projects/powerlevel9k", from:local, use:powerlevel9k.zsh-theme
+# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# zplug "zdharma/fast-syntax-highlighting"
+# zplug "~/Dropbox/projects/powerlevel9k", from:local, use:powerlevel9k.zsh-theme
+# # zplug "https://github.com/bobthecow/git-flow-completion"
 
-# zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
-# zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+# # zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+# # zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-# zplug "trapd00r/zsh-syntax-highlighting-filetypes"
-# zplug "ascii-soup/zsh-url-highlighter"
+# # zplug "trapd00r/zsh-syntax-highlighting-filetypes"
+# # zplug "ascii-soup/zsh-url-highlighter"
 
 
-# if ! zplug check; then
-#     zplug install
-# fi
+# # if ! zplug check; then
+# #     zplug install
+# # fi
 
-zplug load
+# zplug load
 
 
 # History {{{1
@@ -160,27 +166,7 @@ bindkey -a 'Y' zsh-Y-x-selection
 
 # Other programs{{{1
 
-# ranger {{{2
-
-ranger() {
-    if [ -n "$RANGER_LEVEL" ]; then
-        exit
-    # elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
-    #     tmux rename-window "ranger"
-    #     /usr/bin/ranger "$@"
-    #     tmux setw automatic-rename on
-    else
-        /usr/bin/ranger "$@"
-    fi
-}
-
-
-# highlight {{{2
-
-alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
-
-
-# FZF {{{2
+# fzf {{{2
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -203,6 +189,11 @@ bindkey -M viins -r '^t'
 
 bindkey -M vicmd '^r' fzf-cd-widget
 bindkey -M viins '^r' fzf-cd-widget
+
+
+# highlight {{{2
+
+alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
 
 
 # powerlevel9k {{{2
@@ -243,6 +234,22 @@ export POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=11
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 # source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
 
+
+# ranger {{{2
+
+ranger() {
+    if [ -n "$RANGER_LEVEL" ]; then
+        exit
+    # elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+    #     tmux rename-window "ranger"
+    #     /usr/bin/ranger "$@"
+    #     tmux setw automatic-rename on
+    else
+        /usr/bin/ranger "$@"
+    fi
+}
+
+# }}}
 
 # Old config {{{1
 

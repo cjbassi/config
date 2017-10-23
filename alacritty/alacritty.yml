@@ -85,7 +85,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+custom_cursor_colors: true
 
 # # Colors (Tomorrow Night Bright)
 # colors:
@@ -292,10 +292,11 @@ live_config_reload: true
 #  args:
 #    - --login
 
+
 # Base16 Solarized Dark 256 - alacritty color config
 # Ethan Schoonover (http://ethanschoonover.com/solarized)
+
 colors:
-  # Default colors
   # primary:
   #   background: '0x002b36'
   #   foreground: '0x93a1a1'
@@ -304,29 +305,26 @@ colors:
     background: '0x1a1a1a'
     foreground: '0xdcdccc'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x002b36'
-    cursor: '0x93a1a1'
+    text:       '0x002b36'
+    cursor:     '0x93a1a1'
 
-  # Normal colors
   normal:
-    black:   '0x002b36'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0x93a1a1'
+    black:      '0x002b36'
+    red:        '0xdc322f'
+    green:      '0x859900'
+    yellow:     '0xb58900'
+    blue:       '0x268bd2'
+    magenta:    '0x6c71c4'
+    cyan:       '0x2aa198'
+    white:      '0x93a1a1'
 
-  # Bright colors
   bright:
-    black:   '0x657b83'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0x93a1a1'
+    black:      '0x657b83'
+    red:        '0xdc322f'
+    green:      '0x859900'
+    yellow:     '0xb58900'
+    blue:       '0x268bd2'
+    magenta:    '0x6c71c4'
+    cyan:       '0x2aa198'
+    white:      '0x93a1a1'

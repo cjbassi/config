@@ -124,25 +124,33 @@ pacaur -S --noconfirm --noedit alacritty-git
 # pacaur -S --noconfirm --noedit discord
 pacaur -S --noconfirm --noedit dropbox
 pacaur -S --noconfirm --noedit google-chrome
-# pacaur -S --noconfirm --noedit neofetch
+pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 pacaur -S --noconfirm --noedit universal-ctags-git
 pacaur -S --noconfirm --noedit vtop
-pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git
 
-pacaur -S --noconfirm --noedit neomutt
-pacaur -S --noconfirm --noedit neomutt
+# TODO
+# pacaur -S --noconfirm --noedit neomutt-git
+# pacaur -S --noconfirm --noedit neomutt
 
-pacaur -S --noconfirm --noedit i3-gaps
+pacaur -S --noconfirm --noedit i3-gaps-next-git
 pacaur -S --noconfirm --noedit i3lock-color-git
 
-# pacaur -S --noconfirm --noedit gitflow-avh
+pacaur -S --noconfirm --noedit gitflow-avh-git
+#TODO
 # pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
 
 pacaur -S --noconfirm --noedit polybar-git
 
+# TODO installing zsh plugins
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+
+# pacaur -S --noconfirm --noedit heroku-cli
+
 
 # Old config {{{1
+
+# pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git
 
 # cd Downloads
 # git clone https://github.com/rkitover/vimpager

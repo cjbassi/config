@@ -26,6 +26,7 @@ Plug 'moll/vim-node'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-utils/vim-vertical-move'
 Plug 'wincent/loupe'
+Plug 'https://github.com/vheon/vim-cursormode'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -284,11 +285,12 @@ nnoremap <leader>bM :Move
 " write/quit {{{3
 
 nnoremap <silent> <leader>q :qa<CR>
-nnoremap <silent> <leader>x :w<CR>:qa<CR>
+nnoremap <silent> <leader>C :cq<CR>
+nnoremap <silent> <leader>x :silent w<CR>:qa<CR>
 nnoremap <silent> <leader>! :bdelete!<CR>:qa<CR>
 
-nnoremap <silent> <leader>w :w<CR>
-nnoremap <silent> <leader>W :wa<CR>
+nnoremap <silent> <leader>w :silent w<CR>
+nnoremap <silent> <leader>W :silent wa<CR>
 
 
 " windows {{{3
@@ -648,85 +650,22 @@ cnoreabbrev bd BD
 
 " Plugin-Settings {{{1
 
-" loupe {{{2
-
-let g:LoupeCenterResults=0
+" ale {{{2
 
 
-" vim-signature  {{{2
+autocmd FileType markdown let b:ale_enabled=0
 
-let g:SignatureMap = {
-            \ 'Leader'             :  "m",
-            \ 'PlaceNextMark'      :  "m,",
-            \ 'ToggleMarkAtLine'   :  "m.",
-            \ 'PurgeMarksAtLine'   :  "m-",
-            \ 'DeleteMark'         :  "dm",
-            \ 'PurgeMarks'         :  "m<Space>",
-            \ 'PurgeMarkers'       :  "m<BS>",
-            \ 'GotoNextLineAlpha'  :  "",
-            \ 'GotoPrevLineAlpha'  :  "",
-            \ 'GotoNextSpotAlpha'  :  "`]",
-            \ 'GotoPrevSpotAlpha'  :  "`[",
-            \ 'GotoNextLineByPos'  :  "]'",
-            \ 'GotoPrevLineByPos'  :  "['",
-            \ 'GotoNextSpotByPos'  :  "]`",
-            \ 'GotoPrevSpotByPos'  :  "[`",
-            \ 'GotoNextMarker'     :  "]-",
-            \ 'GotoPrevMarker'     :  "[-",
-            \ 'GotoNextMarkerAny'  :  "]=",
-            \ 'GotoPrevMarkerAny'  :  "[=",
-            \ 'ListBufferMarks'    :  "m/",
-            \ 'ListBufferMarkers'  :  "m?"
-            \ }
+let g:ale_linters = {
+\   'cpp': ['clang'],
+\}
 
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
 
-" vim-go {{{2
+let g:ale_set_loclist=1
+let g:ale_set_quickfix=1
 
-let g:go_fmt_fail_silently = 0
-
-
-" vim-racer {{{2
-
-let g:racer_cmd = "/usr/bin"
-
-
-" lastplace {{{2
-let g:lastplace_open_folds = 0
-
-
-" ranger {{{2
-
-let g:ranger_map_keys = 0
-
-
-" autoformat {{{2
-
-let g:autoformat_remove_trailing_spaces = 0
-" let g:formatdef_my_custom_javascript = '"js-beautify -a -s ".&shiftwidth'
-" let g:formatters_javascript = ['my_custom_javascript']
-
-" augroup autoformat
-"     au!
-"     au BufWritePre *.js Autoformat()
-" augroup END
-
-" autocmd FileType mail
-" autocmd BufWritePre :normal! gggqG
-
-    " \ autocmd BufWritePre :exe "normal! " . "gggqG\<C-o>\<C-o>"<CR>
-
-
-" vim-auto-origami {{{2
-
-augroup autofoldcolumn
-    au!
-    au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
-augroup END
-
-
-" vim-javascript {{{2
-
-let g:javascript_plugin_flow = 1
+let g:ale_set_highlights=1
 
 
 " bullets.vim {{{2
@@ -734,29 +673,99 @@ let g:javascript_plugin_flow = 1
 let g:bullets_set_mappings = 0
 
 
-" vim-move {{{2
+" deoplete{{{2
 
-let g:move_key_modifier = 'S'
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 0
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
+let g:deoplete#auto_complete_start_length = 2
+let g:deoplete#max_abbr_width = 50
+
+autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+    return deoplete#close_popup() . "\<CR>"
+endfunction
+
+autocmd CompleteDone * silent! pclose!
+
+if has("patch-7.4.314")
+    set shortmess+=c
+endif
+
+call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
+            \ 'matcher_length'])
+
+let g:clang_library_path='/usr/lib'
+let g:deoplete#sources#jedi#show_docstring = 1
+
+set completeopt-=preview
 
 
-" vim-easy-align {{{2
+" fzf {{{2
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+" set rtp+=~/.fzf
+let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit' }
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+function! s:fzf_statusline()
+  " Override statusline as you like
+    highlight fzf1 ctermfg=161 ctermbg=233
+    highlight fzf2 ctermfg=246 ctermbg=233
+    setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 
-" Smooth scroll {{{2
+" gitgutter{{{2
 
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
+set updatetime=250
+
+" for leader
+let g:gitgutter_map_keys = 0
 
 
-" Airline {{{2
+" incsearch.vim{{{2
+
+autocmd FileType * map / <Plug>(incsearch-stay)
+
+" let g:incsearch#auto_nohlsearch = 1
+
+" map n  <Plug>(incsearch-nohl-n)
+" map N  <Plug>(incsearch-nohl-N)
+
+" map <C-j> <Over>(incsearch-scroll-f)
+" map <C-k> <Over>(incsearch-scroll-b)
+
+
+" loupe {{{2
+
+let g:LoupeCenterResults=0
+
+
+" ultisnips{{{2
+
+let g:UltiSnipsExpandTrigger =          "<tab>"
+let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger =    "<C-h>"
+" let g:UltiSnipsListSnippets =           "<C-s>"
+
+let g:snips_author = "cjbassi"
+
+let g:ultisnips_python_style = "google"
+
+let g:ultisnips_javascript = {
+    \ 'semi': 'never',
+    \ }
+
+
+" vim-airline {{{2
 
 let g:airline_powerline_fonts = 1
 let g:airline_inactive_collapse = 0
@@ -796,83 +805,47 @@ let airline#extensions#promptline#snapshot_file = "~/.promptline.sh"
 let g:airline#extensions#promptline#enabled = 1
 
 
-" Ale {{{2
+" vim-asterisk{{{2
+
+map *  <Plug>(asterisk-z*)
+map g* <Plug>(asterisk-gz*)
 
 
-autocmd FileType markdown let b:ale_enabled=0
+" vim-auto-origami {{{2
 
-let g:ale_linters = {
-\   'cpp': ['clang'],
-\}
-
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-
-let g:ale_set_loclist=1
-let g:ale_set_quickfix=1
-
-let g:ale_set_highlights=1
+augroup autofoldcolumn
+    au!
+    au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+augroup END
 
 
-" FZF {{{2
+" vim-autoformat {{{2
 
-" set rtp+=~/.fzf
-let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
-let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
-let g:fzf_layout = { 'down': '~40%' }
-let g:fzf_action = {
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-s': 'split',
-    \ 'ctrl-v': 'vsplit' }
+let g:autoformat_remove_trailing_spaces = 0
+" let g:formatdef_my_custom_javascript = '"js-beautify -a -s ".&shiftwidth'
+" let g:formatters_javascript = ['my_custom_javascript']
 
-function! s:fzf_statusline()
-  " Override statusline as you like
-    highlight fzf1 ctermfg=161 ctermbg=233
-    highlight fzf2 ctermfg=246 ctermbg=233
-    setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
-endfunction
+" augroup autoformat
+"     au!
+"     au BufWritePre *.js Autoformat()
+" augroup END
 
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
+" autocmd FileType mail
+" autocmd BufWritePre :normal! gggqG
+
+    " \ autocmd BufWritePre :exe "normal! " . "gggqG\<C-o>\<C-o>"<CR>
 
 
-" gitgutter{{{2
+" vim-easy-align {{{2
 
-set updatetime=250
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-" for leader
-let g:gitgutter_map_keys = 0
-
-
-" Vimpager {{{2
-
-if exists('g:vimpager.enabled')
-    let g:vimpager = {}
-    let g:less     = {}
-    let g:less.enabled = 0
-
-    let g:indentLine_enabled = 0
-
-    set nonumber
-    set norelativenumber
-
-    " let g:vimpager.passthrough = 0
-endif
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
-" incsearch.vim{{{2
-
-autocmd FileType * map / <Plug>(incsearch-stay)
-
-" let g:incsearch#auto_nohlsearch = 1
-
-" map n  <Plug>(incsearch-nohl-n)
-" map N  <Plug>(incsearch-nohl-N)
-
-" map <C-j> <Over>(incsearch-scroll-f)
-" map <C-k> <Over>(incsearch-scroll-b)
-
-
-" easymotion{{{2
+" vim-easymotion{{{2
 
 map f <Plug>(easymotion-f)
 map F <Plug>(easymotion-F)
@@ -881,32 +854,24 @@ map t <Plug>(easymotion-t)
 map T <Plug>(easymotion-T)
 
 
-" vim-operator-flashy{{{2
+" vim-go {{{2
 
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
-
-
-" vim-asterisk{{{2
-
-map *  <Plug>(asterisk-z*)
-map g* <Plug>(asterisk-gz*)
+let g:go_fmt_fail_silently = 0
 
 
-" UltiSnips{{{2
+" vim-javascript {{{2
 
-let g:UltiSnipsExpandTrigger =          "<tab>"
-let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
-let g:UltiSnipsJumpBackwardTrigger =    "<C-h>"
-" let g:UltiSnipsListSnippets =           "<C-s>"
+let g:javascript_plugin_flow = 1
 
-let g:snips_author = "cjbassi"
 
-let g:ultisnips_python_style = "google"
+" vim-json{{{2
 
-let g:ultisnips_javascript = {
-    \ 'semi': 'never',
-    \ }
+let g:vim_json_syntax_conceal = 0
+
+
+" vim-lastplace {{{2
+
+let g:lastplace_open_folds = 0
 
 
 " vim-markdown{{{2
@@ -916,38 +881,60 @@ let g:vim_markdown_conceal = 0
 let g:markdown_fenced_languages = ['html', 'cpp', 'java', 'python', 'bash=sh']
 
 
-" json{{{2
+" vim-move {{{2
 
-let g:vim_json_syntax_conceal = 0
+let g:move_key_modifier = 'S'
 
 
-" deoplete{{{2
+" vim-operator-flashy{{{2
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 0
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
-let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#max_abbr_width = 50
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
 
-autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-    return deoplete#close_popup() . "\<CR>"
-endfunction
 
-autocmd CompleteDone * silent! pclose!
+" vim-racer {{{2
 
-if has("patch-7.4.314")
-    set shortmess+=c
-endif
+let g:racer_cmd = "/usr/bin"
 
-call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
-            \ 'matcher_length'])
 
-let g:clang_library_path='/usr/lib'
-let g:deoplete#sources#jedi#show_docstring = 1
+" vim-ranger {{{2
 
-set completeopt-=preview
+let g:ranger_map_keys = 0
+
+
+" vim-signature  {{{2
+
+let g:SignatureMap = {
+            \ 'Leader'             :  "m",
+            \ 'PlaceNextMark'      :  "m,",
+            \ 'ToggleMarkAtLine'   :  "m.",
+            \ 'PurgeMarksAtLine'   :  "m-",
+            \ 'DeleteMark'         :  "dm",
+            \ 'PurgeMarks'         :  "m<Space>",
+            \ 'PurgeMarkers'       :  "m<BS>",
+            \ 'GotoNextLineAlpha'  :  "",
+            \ 'GotoPrevLineAlpha'  :  "",
+            \ 'GotoNextSpotAlpha'  :  "`]",
+            \ 'GotoPrevSpotAlpha'  :  "`[",
+            \ 'GotoNextLineByPos'  :  "]'",
+            \ 'GotoPrevLineByPos'  :  "['",
+            \ 'GotoNextSpotByPos'  :  "]`",
+            \ 'GotoPrevSpotByPos'  :  "[`",
+            \ 'GotoNextMarker'     :  "]-",
+            \ 'GotoPrevMarker'     :  "[-",
+            \ 'GotoNextMarkerAny'  :  "]=",
+            \ 'GotoPrevMarkerAny'  :  "[=",
+            \ 'ListBufferMarks'    :  "m/",
+            \ 'ListBufferMarkers'  :  "m?"
+            \ }
+
+
+" vim-smooth-scroll {{{2
+
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 " }}}
 
@@ -1266,3 +1253,18 @@ set completeopt-=preview
 "     au!
 "     au VimEnter,WinEnter * 
 " augroup END
+
+" Vimpager {{{2
+
+" if exists('g:vimpager.enabled')
+"     let g:vimpager = {}
+"     let g:less     = {}
+"     let g:less.enabled = 0
+
+"     let g:indentLine_enabled = 0
+
+"     set nonumber
+"     set norelativenumber
+
+"     " let g:vimpager.passthrough = 0
+" endif
