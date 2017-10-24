@@ -61,6 +61,10 @@ setopt APPEND_HISTORY
 bindkey -v
 export KEYTIMEOUT=1
 
+zle -N edit-command-line
+autoload -Uz edit-command-line
+bindkey -M vicmd '^v' edit-command-line
+
 bindkey '^w' backward-kill-word
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char

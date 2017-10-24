@@ -30,7 +30,8 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 # config {{{1
 
-git clone git@github.com:cjbassi/config
+# git clone git@github.com:cjbassi/config
+git clone cjbassi/config
 
 ranger --copy-config=scope
 
@@ -101,7 +102,7 @@ sudo npm install -g create-react-app
 
 # zsh {{{1
 
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 
 
 # neovim {{{1
