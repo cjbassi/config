@@ -1,3 +1,16 @@
-snippet Plug "Plug command" b
-Plug '`!v execute("normal! p")`'
+global !p
+
+def vim_plug():
+	import subprocess
+	result = subprocess.run(['xclip', '-o', 'sel c', '<dev/null'], stdout=subprocess.PIPE)
+	result = result.stdout.decode('UTF-8')
+	index = [i for i, n in enumerate(result) if n == '/'][2]
+	result = result[index+1:]
+	return result
+
+endglobal
+
+
+snippet Plug "Description" b
+Plug '`!p snip.rv = vim_plug()`'
 endsnippet

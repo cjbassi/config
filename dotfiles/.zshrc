@@ -5,7 +5,7 @@
 
 export TERM='xterm-256color'
 
-source ~/.aliases
+# source ~/.aliases
 
 
 #  zplug {{{1

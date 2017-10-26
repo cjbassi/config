@@ -3,6 +3,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'fatih/vim-go'
+Plug 'vheon/vim-cursormode'
+Plug 'Shougo/echodoc.vim'
+
+Plug 'rhysd/github-complete.vim'
 
 Plug 'francoiscabrol/ranger.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -26,7 +30,6 @@ Plug 'moll/vim-node'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-utils/vim-vertical-move'
 Plug 'wincent/loupe'
-Plug 'https://github.com/vheon/vim-cursormode'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -170,6 +173,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Rip-Rip/clang_complete'
 Plug 'zchee/deoplete-jedi'
 Plug 'racer-rust/vim-racer'
+Plug 'Shougo/neco-vim'
 
 " }}}
 

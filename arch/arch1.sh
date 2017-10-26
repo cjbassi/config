@@ -50,7 +50,6 @@ pacstrap /mnt                                                   \
     blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils   \
 \
     redshift python-gobject python-xdg librsvg                  \
-    compton                                                     \
     feh                                                         \
     scrot                                                       \
 \
@@ -70,6 +69,8 @@ pacstrap /mnt                                                   \
 \
     ttf-dejavu                                                  \
     ttf-hack                                                    \
+\
+    noto-fonts-emoji                                            \
     awesome-terminal-fonts                                      \
 \
     ttf-freefont                                                \
@@ -86,6 +87,7 @@ pacstrap /mnt                                                   \
     qbittorrent                                                 \
     networkmanager network-manager-applet                       \
     mopidy ncmpcpp                                              \
+    neomutt                                                     \
 \
     git tig                                                     \
     the_silver_searcher                                         \
@@ -107,9 +109,6 @@ pacstrap /mnt                                                   \
     docker                                                      \
 
 
-    # powerline-fonts                                             \
-
-    # noto-fonts-emoji
     # ttf-symbola                                                 \
     # ttf-emojione-color
     # ttf-twemoji-color
@@ -120,6 +119,8 @@ pacstrap /mnt                                                   \
     # zsh-theme-powerlevel9k                                      \
 
 
+# compton                                                     \
+# powerline-fonts                                             \
 # autofs
 #rustup
 # pandoc                                                      \

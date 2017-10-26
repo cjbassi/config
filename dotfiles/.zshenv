@@ -1,5 +1,5 @@
 # source ~/.zshrc
-# source ~/.aliases
+source ~/.aliases
 
 # alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
 

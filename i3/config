@@ -55,7 +55,7 @@ bindsym $mod+Shift+Return   exec ~/config/i3/current_dir.sh
 
 bindsym $mod+e              exec $term -t nvim -e nvim
 bindsym $mod+r              exec $term -t ranger -e ranger
-bindsym $mod+m              exec $term -t neomutt -e mutt
+bindsym $mod+m              exec $term -t neomutt -e neomutt
 
 bindsym $mod+g              exec google-chrome-stable
 

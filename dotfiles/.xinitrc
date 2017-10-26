@@ -12,7 +12,7 @@ redshift-gtk &
 
 feh --bg-scale ~/Downloads/wallpaper* &
 xrandr --output eDP-1 --mode 1920x1080 --rate 60 --scale 1x1 &
-compton -b &
+# compton -b &
 unclutter --timeout 1 &
 
 # sets brightness to 50%
@@ -41,4 +41,6 @@ xinput --disable 'SynPS/2 Synaptics TouchPad' &
 
 text-aid-too --editor 'alacritty -t nvim -e nvim' &
 
+# exec i3
+# exec sway
 exec i3
