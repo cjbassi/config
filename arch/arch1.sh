@@ -28,7 +28,7 @@ timedatectl set-ntp true
 
 # Installation {{{1
 
-# Sync database, update mirrors with Reflector, and update keyring
+# Sync database, update keyring, and update mirrors with Reflector
 pacman -Sy
 pacman -S --noconfirm archlinux-keyring reflector
 reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
