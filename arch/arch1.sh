@@ -32,7 +32,6 @@ timedatectl set-ntp true
 
 pacman -Sy
 pacman -Sy --noconfirm archlinux-keyring reflector
-
 reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Select the mirrors
