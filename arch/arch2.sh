@@ -90,7 +90,6 @@ load-module module-switch-on-connect' | sudo tee -a /etc/pulse/default.pa
 echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness
 
 
-
 # Compiling Optimization {{{1
 
 # ccache
