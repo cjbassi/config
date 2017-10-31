@@ -2,40 +2,41 @@
 
 # Files {{{1
 
-alias eal='e ~/config/dotfiles/.aliases'
 alias ea1='e ~/config/arch/arch1.sh'
 alias ea2='e ~/config/arch/arch2.sh'
 alias ea3='e ~/config/arch/arch3.sh'
-alias en='e ~/config/dotfiles/.zshenv'
+alias eal='e ~/config/dotfiles/.aliases'
 alias ee='e ~/config/dotfiles/.editorconfig'
 alias eg='e ~/Dropbox/notes/technology/programming_guide.md'
-alias ep='e ~/config/polybar/config'
-alias ev='e ~/config/nvim/init.vim'
 alias ei3='e ~/config/i3/config'
-alias ez='e ~/config/dotfiles/.zshrc'
-alias ex='e ~/config/dotfiles/.xinitrc'
 alias em='e ~/config/mutt/muttrc'
+alias en='e ~/config/dotfiles/.zshenv'
+alias ep='e ~/config/polybar/config'
 alias er='e ~/.config/ranger/rc.conf'
 alias et='e ~/config/alacritty/alacritty.yml'
+alias ev='e ~/config/nvim/init.vim'
+alias ex='e ~/config/dotfiles/.xinitrc'
+alias ez='e ~/config/dotfiles/.zshrc'
 
 alias eM='e Makefile'
 
 
 # Changing Dir {{{1
 
+alias ga='cd /home/cjbassi/Dropbox/arch'
 alias gc='cd /home/cjbassi/config'
+alias gC='cd /home/cjbassi/.config'
+alias gd='cd /home/cjbassi/Dropbox'
+alias gD='cd /home/cjbassi/Downloads'
 alias gm='cd /home/cjbassi/.mutt'
 alias gn='cd /home/cjbassi/Dropbox/notes'
-alias gd='cd /home/cjbassi/Dropbox'
 alias gp='cd /home/cjbassi/Dropbox/projects'
-alias gs='cd /home/cjbassi/Dropbox/school'
-alias gC='cd /home/cjbassi/.config'
-alias gt='cd /home/cjbassi/test'
-alias gD='cd /home/cjbassi/Downloads'
-alias gr='cd /home/cjbassi/.config/ranger'
 alias gP='cd /home/cjbassi/.local/share/nvim/plugged'
+alias gr='cd /home/cjbassi/.config/ranger'
+alias gs='cd /home/cjbassi/Dropbox/school'
+alias gt='cd /home/cjbassi/test'
 alias gS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
-alias gN='cd /home/cjbassi/.config/nvim'
+alias gv='cd /home/cjbassi/.config/nvim'
 
 alias gM='cd /mnt'
 
@@ -44,15 +45,19 @@ alias gM='cd /mnt'
 
 alias blt='bluetoothctl'
 
-alias vg='valgrind'
+alias chrome='google-chrome-stable'
 
-alias music='ncmpcpp'
-
-alias r='ranger'
+alias l='ll'
 
 alias m='make'
 
-alias git='hub'
+alias music='ncmpcpp'
+
+alias py='pipenv run -- python'
+
+alias r='ranger'
+
+alias vg='valgrind'
 
 alias se='sudoedit'
 alias e='vim'
@@ -60,60 +65,68 @@ alias vim='nvim'
 alias vd='vimdiff'
 alias vimdiff='nvim -d'
 
-alias l='ll'
-
-alias py='pipenv run -- python'
-
-alias chrome='google-chrome-stable'
-
 
 # Tools {{{1
 
-function math()
+function fork() { nohup "$@" </dev/null >/dev/null 2>&1 &; disown }
+
+function math() { echo $(($@)) }
+
+function mkcd() { mkdir "$@"; cd "$@" }
+
+function term() { fork alacritty --working-directory . }
+
+function random_characters() {}
+function random_lines()
 {
-    echo $(($@))
+    tr -dc a-z1-4 </dev/urandom |
+    tr 1-2 ' \n' |
+    awk 'length==0 || length>50' |
+    tr 3-4 ' ' |
+    sed 's/^ *//' |
+    cat -s |
+    sed 's/ / /g' |
+    fmt |
+    head -n "$1"
 }
-
-alias term='fork alacritty --working-directory .'
-
-
-function mkcd()
-{
-    mkdir "$@"; cd "$@"
-}
-
-function fork()
-{
-    nohup "$@" </dev/null >/dev/null 2>&1 &; disown
-}
-
-random_number()
-{
-    echo ${RANDOM}
-}
-alias random_characters=''
-alias random_lines="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>50' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' | fmt | head -n"
-alias random_words='shuf /usr/share/dict/cracklib-small -rn'
+function random_number() { echo ${RANDOM} }
+function random_words() { shuf /usr/share/dict/cracklib-small -rn }
 
 
 # Settings {{{1
 
-alias docker='sudo docker'
-
 alias ag='sudo ag --hidden --ignore .git'
 
-alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
+alias docker='sudo docker'
 
-alias su='sudo -E su -m'
+alias git='hub'
 
-alias g++='g++ -g -Wall'
-alias gcc='gcc -g -Wall'
+alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 
-alias sshfs='sshfs -C -o reconnect'
+alias ll='ls -AhgoXF --group-directories-first --color=always'
+
+alias makepkg='makepkg -si'
+
+function pacaur()
+{
+    if [[ "$1" == "-S" ]]; then
+        command pacaur "$@" --needed
+    else
+        command pacaur  "$@"
+    fi
+}
 
 # TODO progress1 and 2
 # alias rsync='rsync -h --info=all2'
 alias rsync='rsync -h'
+
+alias sshfs='sshfs -C -o reconnect'
+
+alias su='sudo -E su -m'
+
+alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
+
+alias w='w -f'
 
 alias cp='cp -iv'
 alias mv='mv -iv'
@@ -122,18 +135,11 @@ alias rmdir='rmdir -v'
 alias mkdir='mkdir -vp'
 alias ln='ln -v'
 
-alias w='w -f'
-
 alias df='df -h'
 alias du='du -h'
 
-alias ll='ls -AhgoXF --group-directories-first --color=always'
-
-# alias pwd='echo -e "${PWD/${HOME}/~}"'
-
-alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
-
-alias makepkg='makepkg -si'
+alias g++='g++ -g -Wall'
+alias gcc='gcc -g -Wall'
 
 
 # Old Configs {{{1
@@ -166,3 +172,5 @@ alias makepkg='makepkg -si'
 #         /usr/bin/rm "$@"
 #     fi
 # }
+
+# alias pwd='echo -e "${PWD/${HOME}/~}"'

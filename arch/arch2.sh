@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Cleanup {{{1
 
 rm -f /arch2.sh
@@ -112,7 +114,7 @@ REPLACE="COMPRESSXZ=(xz -c -z --threads=$(nproc))"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
 
-# Change to Regular User {{{1
+# Change to regular user {{{1
 
 cd /home/cjbassi/
 touch .zshrc

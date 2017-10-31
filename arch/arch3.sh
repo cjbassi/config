@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Cleanup {{{1
 
 rm -f arch3.sh

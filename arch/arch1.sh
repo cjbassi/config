@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Pre-installation {{{1
 
 # Verify the boot mode
@@ -26,14 +28,9 @@ timedatectl set-ntp true
 
 # Installation {{{1
 
-# GPG keys
-#pacman-key --init
-#pacman-key --populate archlinux
-
-
-# Select the mirrors with Reflector
+# Sync database, update mirrors with Reflector, and update keyring
 pacman -Sy
-pacman -Sy --noconfirm archlinux-keyring reflector
+pacman -S --noconfirm archlinux-keyring reflector
 reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 
@@ -139,6 +136,7 @@ pacstrap /mnt                                                   \
 #dialog wpa_supplicant \
 #urxvt-perls rxvt-unicode \
 
+
 # Chroot {{{1
 
 # Fstab
@@ -148,6 +146,7 @@ curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch2.sh > /mn
 
 # Chroot
 arch-chroot /mnt
+
 
 # Old Configs {{{1
 
@@ -180,3 +179,8 @@ arch-chroot /mnt
 # mirrors {{{2
 #cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
 #mv -f morrorlist /etc/pacman.d/mirrorlist
+# }}}
+
+# GPG keys
+#pacman-key --init
+#pacman-key --populate archlinux

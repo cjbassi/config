@@ -265,7 +265,8 @@ noremap <leader>: :<C-f>i
 
 
 nnoremap <leader>j i<CR><Esc>k$hl
-nnoremap <leader>k Jx
+nnoremap <leader>k J
+nnoremap <leader>K Jx
 
 
 nnoremap <silent> <leader>S :SudoEdit<bar>nnoremap <buffer> <silent> <leader>w :SudoWrite<CR>

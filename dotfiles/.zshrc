@@ -1,3 +1,5 @@
+# vim: ft=sh
+
 # {{{1
 
 # If not running interactively, don't do anything
@@ -244,15 +246,12 @@ export POWERLEVEL9K_VCS_BACKGROUND=33
 
 # ranger {{{2
 
-ranger() {
+function ranger()
+{
     if [ -n "$RANGER_LEVEL" ]; then
         exit
-    # elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
-    #     tmux rename-window "ranger"
-    #     /usr/bin/ranger "$@"
-    #     tmux setw automatic-rename on
     else
-        /usr/bin/ranger "$@"
+        command ranger "$@"
     fi
 }
 
@@ -401,3 +400,10 @@ ranger() {
 # source /usr/bin/activate.sh
 # eval "$(direnv hook zsh)"
 # eval "$(pipenv --completion)"
+
+# }}}
+
+# elif [ -n "$TMUX" ] && [[ $(tmux show-window-options) != *automatic-rename\ off* ]] ; then
+#     tmux rename-window "ranger"
+#     /usr/bin/ranger "$@"
+#     tmux setw automatic-rename on
