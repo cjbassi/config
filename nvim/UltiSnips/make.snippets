@@ -3,7 +3,7 @@ snippet base "Sets up Makefile" b
 CC = ${1:compiler}
 CFLAGS = -g -Wall
 
-all: $2
+all: $2 %.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<

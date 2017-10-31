@@ -1,6 +1,9 @@
+# Cleanup {{{1
+
 rm -f /arch2.sh
 
-# Configure the system {{{1
+
+# Configure the System {{{1
 
 # Time Zone
 ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
@@ -86,7 +89,7 @@ echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo 
 
 
 
-# Compilation Optimization {{{1
+# Compiling Optimization {{{1
 
 # ccache
 SEARCH=" \!ccache "
@@ -98,7 +101,7 @@ SEARCH="#MAKEFLAGS=\"-j.\""
 REPLACE="MAKEFLAGS=\"-j$(nproc)\""
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
-# More efficient compression format
+# Disables compression of packages
 SEARCH="PKGEXT=\'.pkg.tar.xz\'"
 REPLACE="PKGEXT=\'.pkg.tar\'"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
@@ -109,7 +112,7 @@ REPLACE="COMPRESSXZ=(xz -c -z --threads=$(nproc))"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
 
-# change to regular user {{{1
+# Change to Regular User {{{1
 
 cd /home/cjbassi/
 touch .zshrc

@@ -2,37 +2,41 @@
 
 [colors]
 
-white =         #FFFFFF
-dark_grey =     #1a1a1a
-light_grey =    #292b2e
 ; blue =          #0060FF
 ; turquoise =     #009090
-black =         #000000
 ; red =           #ee3333
 ; green =         #00b260
 ; purple =        #875faf
 ; pink =          #d75f87
 ; yellow =        #ffff00
 
-base03 =    #002b36
-base02 =    #073642
-base01 =    #586e75
-base00 =    #657b83
-base0 =     #839496
-base1 =     #93a1a1
-base2 =     #eee8d5
-base3 =     #fdf6e3
-yellow =    #b58900
-orange =    #cb4b16
-red =       #dc322f
-magenta =   #d33682
-violet =    #6c71c4
-blue =      #268bd2
-cyan =      #2aa198
-green =     #859900
+black =         #000000
+white =         #FFFFFF
+dark_grey =     #1a1a1a
+light_grey =    #292b2e
 
-background =    ${colors.dark_grey}
-foreground =    ${colors.white}
+base03 =        #002b36
+base02 =        #073642
+base01 =        #586e75
+base00 =        #657b83
+base0 =         #839496
+base1 =         #93a1a1
+base2 =         #eee8d5
+base3 =         #fdf6e3
+yellow =        #b58900
+orange =        #cb4b16
+red =           #dc322f
+magenta =       #d33682
+violet =        #6c71c4
+blue =          #268bd2
+cyan =          #2aa198
+green =         #859900
+
+light =         ${colors.base02}
+dark =          ${colors.base03}
+
+background =    ${colors.light}
+foreground =    ${colors.base2}
 
 
 [settings]
@@ -51,7 +55,7 @@ radius = 1.0
 fixed-center = true
 bottom = true
 
-background =    ${colors.light_grey}
+background =    ${colors.background}
 foreground =    ${colors.foreground}
 
 
@@ -63,17 +67,17 @@ font-4 = Font Awesome:pixelsize=12;3
 
 modules-left = i3 blue_arrow1 i3index blue_arrow2
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
-modules-right = left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
+modules-right = screen left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
 
 tray-position = right
-tray-background = ${colors.light_grey}
+tray-background = ${colors.light}
 
 
 [module/blue_arrow1]
 type = custom/text
 content = " "
 content-font = 2
-content-foreground = ${colors.dark_grey}
+content-foreground = ${colors.base03}
 content-background = ${colors.blue}
 
 [module/blue_arrow2]
@@ -81,37 +85,37 @@ type = custom/text
 content = " "
 content-font = 2
 content-foreground = ${colors.blue}
-content-background = ${colors.light_grey}
+content-background = ${colors.base02}
 
 
 [module/right_arrow_dark]
 type = custom/text
 content = " "
 content-font = 2
-content-foreground = ${colors.dark_grey}
-content-background = ${colors.light_grey}
+content-foreground = ${colors.dark}
+content-background = ${colors.light}
 
 [module/right_arrow_light]
 type = custom/text
 content = " "
 content-font = 2
-content-foreground = ${colors.light_grey}
-content-background = ${colors.dark_grey}
+content-foreground = ${colors.light}
+content-background = ${colors.dark}
 
 
 [module/left_arrow_dark]
 type = custom/text
 content = " "
 content-font = 2
-content-foreground = ${colors.dark_grey}
-content-background = ${colors.light_grey}
+content-foreground = ${colors.dark}
+content-background = ${colors.light}
 
 [module/left_arrow_light]
 type = custom/text
 content = " "
 content-font = 2
-content-foreground = ${colors.light_grey}
-content-background = ${colors.dark_grey}
+content-foreground = ${colors.light}
+content-background = ${colors.dark}
 
 
 [module/date]
@@ -120,8 +124,8 @@ interval = 1
 
 date = " %m-%d "
 
-label-foreground = ${colors.white}
-label-background = ${colors.dark_grey}
+label-foreground = ${colors.foreground}
+label-background = ${colors.dark}
 
 label = %date%
 
@@ -131,8 +135,8 @@ interval = 1
 
 date = " %a "
 
-label-foreground = ${colors.white}
-label-background = ${colors.dark_grey}
+label-foreground = ${colors.foreground}
+label-background = ${colors.dark}
 
 label = %date%
 
@@ -142,8 +146,8 @@ interval = 1
 
 time = " %H:%M "
 
-label-foreground = ${colors.white}
-label-background = ${colors.light_grey}
+label-foreground = ${colors.foreground}
+label-background = ${colors.light}
 
 label = %time%
 
@@ -169,29 +173,36 @@ label-mode-background = ${colors.background}
 ; focused = Active workspace on focused monitor
 label-focused = " ● "
 label-focused-foreground = ${colors.blue}
-label-focused-background = ${colors.background}
+label-focused-background = ${colors.base03}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = " %icon% "
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.background}
+label-unfocused-background = ${colors.base03}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = " ● "
 label-urgent-foreground = ${colors.red}
-label-urgent-background = ${colors.background}
+label-urgent-background = ${colors.base03}
 
 [module/i3index]
 type = internal/i3
 format = <label-state>
 
 label-focused = " %name% "
-label-focused-foreground = ${colors.dark_grey}
+label-focused-foreground = ${colors.dark}
 label-focused-background = ${colors.blue}
 
 label-unfocused =
 label-urgent =
 
+
+[module/screen]
+type = internal/xbacklight
+/* output = eDP-1 */
+/* enable-scroll = false */
+/* format = <label> */
+/* label = %percentage%% */
 
 [module/temperature]
 type = internal/temperature
@@ -209,7 +220,7 @@ label-warn-foreground = ${colors.red}
 
 format = "<ramp> <label>"
 format-foreground = ${colors.yellow}
-format-background = ${colors.light_grey}
+format-background = ${colors.light}
 format-warn = "<ramp> <label-warn>"
 
 ramp-0 = " "
@@ -223,18 +234,18 @@ ramp-4 = " "
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
+/* full-at = 98 */
 poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.green}
-format-charging-background = ${colors.dark_grey}
+format-charging-background = ${colors.dark}
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-foreground = ${colors.green}
-format-discharging-background = ${colors.dark_grey}
+format-discharging-background = ${colors.dark}
 format-full = <label-full>
 format-full-foreground = ${colors.green}
-format-full-background = ${colors.dark_grey}
+format-full-background = ${colors.dark}
 
 label-charging = " %percentage%%"
 label-discharging = "%percentage%%"
@@ -261,10 +272,10 @@ type = internal/cpu
 interval = 5
 format-prefix = " CPU "
 format-prefix-foreground = ${colors.violet}
-format-prefix-background = ${colors.dark_grey}
+format-prefix-background = ${colors.dark}
 label = %percentage%%
 label-foreground = ${colors.violet}
-label-background = ${colors.dark_grey}
+label-background = ${colors.dark}
 
 
 [module/ram]
@@ -272,10 +283,11 @@ type = internal/memory
 interval = 1
 format-prefix = " RAM "
 format-prefix-foreground = ${colors.cyan}
-format-prefix-background = ${colors.light_grey}
-label = %percentage_used%%
+format-prefix-background = ${colors.light}
+/* label = %percentage_used%% */
+label = "%gb_free%"
 label-foreground = ${colors.cyan}
-label-background = ${colors.light_grey}
+label-background = ${colors.light}
 
 
 [module/volume]
@@ -290,20 +302,20 @@ format-volume = <ramp-volume><label-volume>
 
 label-volume = %percentage%%
 label-volume-foreground = ${colors.blue}
-label-volume-background = ${colors.dark_grey}
+label-volume-background = ${colors.dark}
 label-muted = " MUTED"
 label-muted-foreground = ${colors.blue}
-label-muted-background = ${colors.dark_grey}
+label-muted-background = ${colors.dark}
 
 ramp-volume-0 = "  "
 ramp-volume-0-foreground = ${colors.blue}
-ramp-volume-0-background = ${colors.dark_grey}
+ramp-volume-0-background = ${colors.dark}
 ramp-volume-1 = "  "
 ramp-volume-1-foreground = ${colors.blue}
-ramp-volume-1-background = ${colors.dark_grey}
+ramp-volume-1-background = ${colors.dark}
 ramp-volume-2 = "  "
 ramp-volume-2-foreground = ${colors.blue}
-ramp-volume-2-background = ${colors.dark_grey}
+ramp-volume-2-background = ${colors.dark}
 
 ; mapping = true
 

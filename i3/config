@@ -1,6 +1,6 @@
 # vim:ft=i3
 
-# keybinds {{{1
+# Keybinds {{{1
 
 set $term alacritty
 set $mod Mod1
@@ -58,9 +58,10 @@ bindsym $mod+r              exec $term -t ranger -e ranger
 bindsym $mod+m              exec $term -t neomutt -e neomutt
 
 bindsym $mod+g              exec google-chrome-stable
+bindsym $mod+y              exec yakyak
 
 
-# workspaces {{{1
+# Workspaces {{{1
 
 bindsym $mod+1              workspace 1
 bindsym $mod+2              workspace 2
@@ -85,7 +86,7 @@ bindsym $mod+Shift+9        move container to workspace 9
 bindsym $mod+Shift+0        move container to workspace 10
 
 
-# windows {{{1
+# Windows {{{1
 
 new_window pixel
 
@@ -99,7 +100,7 @@ smart_borders on
 smart_gaps on
 
 
-# scripts {{{1
+# Scripts {{{1
 
 exec_always --no-startup-id     ~/config/polybar/launch.sh
 exec_always --no-startup-id     ~/config/i3/home_setup.sh eDP-1 HDMI-1
@@ -107,7 +108,7 @@ exec_always --no-startup-id     ~/config/i3/home_setup.sh eDP-1 HDMI-1
 exec_always --no-startup-id     xcape -t 300
 
 
-# old config {{{1
+# Old Configs {{{1
 
 # exec        --no-startup-id feh --bg-scale ~/Downloads/wallpaper.*
 

@@ -1,3 +1,5 @@
+# Sources {{{1
+
 # source ~/.zshrc
 source ~/.aliases
 
@@ -21,7 +23,7 @@ LC_ALL="en_US.UTF-8"
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 
-# golang {{{1
+# Golang {{{1
 
 export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"

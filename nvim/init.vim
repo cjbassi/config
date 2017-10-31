@@ -2,6 +2,8 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Plug 'severin-lemaignan/vim-minimap'
+
 " Plug 'fatih/vim-go'
 Plug 'vheon/vim-cursormode'
 Plug 'Shougo/echodoc.vim'
@@ -31,7 +33,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'vim-utils/vim-vertical-move'
 Plug 'wincent/loupe'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'icymind/NeoSolarized'
 
 " Plug 'Konfekt/FastFold'
 
@@ -67,7 +69,7 @@ Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-function'
 
 
-" markdown {{{2
+" Markdown {{{2
 
 Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
 
@@ -78,6 +80,8 @@ Plug 'dkarter/bullets.vim'
 " folding {{{2
 
 Plug 'nelstrom/vim-markdown-folding'
+Plug 'matze/vim-ini-fold'
+
 Plug 'benknoble/vim-auto-origami'
 
 
@@ -101,7 +105,7 @@ Plug 'mxw/vim-jsx'
 
 Plug 'rhysd/vim-gfm-syntax'
 
-Plug 'j16180339887/Global.vim'
+" Plug 'j16180339887/Global.vim'
 
 Plug 'PotatoesMaster/i3-vim-syntax'
 
@@ -138,7 +142,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 
-" git {{{2
+" Git {{{2
 
 Plug 'tpope/vim-fugitive'
 
@@ -147,7 +151,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
 
-" airline {{{2
+" vim-airline {{{2
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -184,17 +188,22 @@ call plug#end()
 
 syntax enable
 
-set t_Co=256
+" set t_Co=256
+" let g:solarized_termcolors=256
+" colorscheme solarized
+
+let g:neosolarized_vertSplitBgTrans = 1
+let g:neosolarized_italic = 0
+
 set background=dark
-" set termguicolors
-let g:solarized_termcolors=256
-colorscheme solarized
+set termguicolors
+colorscheme NeoSolarized
 
-hi LineNr ctermbg=NONE ctermfg=237
-hi Normal ctermbg=NONE
-hi StatusLine ctermbg=232 ctermfg=241
+" hi LineNr guibg=NONE guifg=237
+" hi Normal guibg=NONE
+" hi StatusLine guibg=232 guifg=241
 
-hi javaScript ctermfg=244
+hi javaScript ctermfg=244 guifg=244
 
 set cursorline
 " hi clear CursorLine
@@ -204,6 +213,18 @@ let g:indentLine_color_term = 239
 " call matchadd('ColorColumn', '\%81v.\+', -1, 4) TODO
 
 let g:jsx_ext_required = 0
+
+" let g:gitgutter_override_sign_column_highlight = 0
+
+" highlight SignColumn guibg=red
+
+" hi Search guibg=peru guifg=wheat
+
+" highlight clear SignColumn
+highlight GitGutterAdd guibg=#073642
+highlight GitGutterChange guibg=#073642
+highlight GitGutterDelete guibg=#073642
+highlight GitGutterChangeDelete guibg=#073642
 
 
 " Keybinds {{{1
@@ -291,7 +312,7 @@ nnoremap <leader>bM :Move
 nnoremap <silent> <leader>q :qa<CR>
 nnoremap <silent> <leader>C :cq<CR>
 nnoremap <silent> <leader>x :silent w<CR>:qa<CR>
-nnoremap <silent> <leader>! :bdelete!<CR>:qa<CR>
+nnoremap <silent> <leader>! :bd!<CR>:qa<CR>
 
 nnoremap <silent> <leader>w :silent w<CR>
 nnoremap <silent> <leader>W :silent wa<CR>
@@ -490,6 +511,8 @@ set iskeyword-=_
 " autocmd FileType mail autocmd BufWritePre normal! gggqG
 " \<C-o>\<C-o>"<CR>
 
+" autocmd InsertLeave,WinEnter * let &l:foldmethod=g:oldfoldmethod
+" autocmd InsertEnter,WinLeave * let g:oldfoldmethod=&l:foldmethod | setlocal foldmethod=manual
 
 autocmd FileType man call ManFileType()
 
@@ -529,7 +552,7 @@ set diffopt+=vertical
 
 set foldmethod=marker
 set foldcolumn=2
-set foldlevel=99
+" set foldlevel=99
 " autocmd BufReadPost * normal zR
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType cpp,java,javascript setlocal foldmethod=syntax
@@ -587,7 +610,7 @@ set wildignore+=tags
 set wildignore+=*.tar.*
 
 
-" Makes ESC not move cursor left {{{2
+" cursor doesn't move on ESC {{{2
 
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
@@ -595,14 +618,14 @@ autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
 
-" StatusLine settings {{{2
+" statusline {{{2
 
 set ruler
 set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 
-" Swap, backup, and undo {{{2
+" swap, backup, and undo {{{2
 
 set directory=~/.config/nvim/swap//
 set backupdir=~/.config/nvim/backup//
@@ -610,7 +633,7 @@ set undodir=~/.config/nvim/undo//
 set undofile
 
 
-" Fullscreen Help {{{2
+" fullscreen help {{{2
 " Opens Help files as if any other file was opened with "e file"
 " also works with completion like regular :help
 
@@ -628,7 +651,7 @@ cabbrev help Help
 cabbrev h Help
 
 
-" Smart :bd {{{2
+" smart :bd {{{2
 " If more than 1 buffer exists close current buffer while retaining splits.
 " bangs(!) are supported as well as arguments after :bd (:bd index.html, etc)
 function! SmartBD(bang, argu)
@@ -648,13 +671,13 @@ function! SmartBD(bang, argu)
 endfunction
 
 command! -bang -nargs=* BD call SmartBD(<bang>0, <q-args>)
-cnoreabbrev bd BD
+" cnoreabbrev bd BD
 
 " }}}
 
-" Plugin-Settings {{{1
+" Plugin Settings {{{1
 
-" ale {{{2
+" ALE {{{2
 
 
 autocmd FileType markdown let b:ale_enabled=0
@@ -672,12 +695,12 @@ let g:ale_set_quickfix=1
 let g:ale_set_highlights=1
 
 
-" bullets.vim {{{2
+" Bullets.vim {{{2
 
 let g:bullets_set_mappings = 0
 
 
-" deoplete{{{2
+" Deoplete{{{2
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 0
@@ -719,20 +742,14 @@ let g:fzf_action = {
 
 function! s:fzf_statusline()
   " Override statusline as you like
-    highlight fzf1 ctermfg=161 ctermbg=233
-    highlight fzf2 ctermfg=246 ctermbg=233
+    " highlight fzf1 guifg=161 guibg=233
+    " highlight fzf2 guifg=246 guibg=233
+    highlight fzf1 guifg=normal guibg=#002b36
+    highlight fzf2 guifg=normal guibg=#002b36
     setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-
-" gitgutter{{{2
-
-set updatetime=250
-
-" for leader
-let g:gitgutter_map_keys = 0
 
 
 " incsearch.vim{{{2
@@ -748,12 +765,12 @@ autocmd FileType * map / <Plug>(incsearch-stay)
 " map <C-k> <Over>(incsearch-scroll-b)
 
 
-" loupe {{{2
+" Loupe {{{2
 
 let g:LoupeCenterResults=0
 
 
-" ultisnips{{{2
+" UltiSnips{{{2
 
 let g:UltiSnipsExpandTrigger =          "<tab>"
 let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
@@ -858,6 +875,14 @@ map t <Plug>(easymotion-t)
 map T <Plug>(easymotion-T)
 
 
+" vim-gitgutter{{{2
+
+set updatetime=250
+
+" for leader
+let g:gitgutter_map_keys = 0
+
+
 " vim-go {{{2
 
 let g:go_fmt_fail_silently = 0
@@ -942,7 +967,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 " }}}
 
-" Old-Settings {{{1
+" Old Configs {{{1
 
 " if has('path_extra')
 "     setglobal tags-=./tags tags-=./tags; tags^=./tags;

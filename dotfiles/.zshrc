@@ -56,7 +56,7 @@ setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
 
 
-# keybinds {{{1
+# Keybinds {{{1
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -133,7 +133,7 @@ alias cower='cower --color=auto'
 alias pactree='pactree -c'
 
 
-# Copy/paste {{{1
+# Copy/Paste {{{1
 
 vi-prepend-x-selection () {
     PASTE=$(xclip -o -sel c </dev/null)
@@ -168,7 +168,7 @@ zle -N zsh-Y-x-selection
 bindkey -a 'Y' zsh-Y-x-selection
 
 
-# Other programs{{{1
+# Other Programs{{{1
 
 # fzf {{{2
 
@@ -200,7 +200,7 @@ bindkey -M viins '^r' fzf-cd-widget
 alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
 
 
-# powerlevel9k {{{2
+# Powerlevel9k {{{2
 
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir root_indicator virtualenv background_jobs)
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
@@ -221,6 +221,9 @@ export POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=245
 
 export POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=255
 export POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=11
+
+export POWERLEVEL9K_VCS_FOREGROUND=255
+export POWERLEVEL9K_VCS_BACKGROUND=33
 
 # export POWERLEVEL9K_VI_INSERT_MODE_STRING="\e[1mINSERT\e[21m"
 # export POWERLEVEL9K_VI_COMMAND_MODE_STRING="\e[1mNORMAL\e[21m"
@@ -255,7 +258,7 @@ ranger() {
 
 # }}}
 
-# Old config {{{1
+# Old Configs {{{1
 
 # BASE16_SHELL=$HOME/.config/base16-shell/
 # [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

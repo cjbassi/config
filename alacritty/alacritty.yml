@@ -298,13 +298,13 @@ live_config_reload: true
 # Ethan Schoonover (http://ethanschoonover.com/solarized)
 
 colors:
-  # primary:
-  #   background: '0x002b36'
-  #   foreground: '0x93a1a1'
-
   primary:
-    background: '0x1a1a1a'
-    foreground: '0xdcdccc'
+    background: '0x002b36'
+    foreground: '0x93a1a1'
+
+  # primary:
+  #   background: '0x1a1a1a'
+  #   foreground: '0xdcdccc'
 
   cursor:
     text:       '0x002b36'

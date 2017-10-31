@@ -1,4 +1,7 @@
+# Cleanup {{{1
+
 rm -f arch3.sh
+
 
 # Directories {{{1
 
@@ -12,7 +15,7 @@ mkdir -p test
 mkdir -p public_html
 
 
-# keys {{{1
+# Keys {{{1
 
 sudo mount -L KEYS /mnt/usb
 
@@ -28,7 +31,7 @@ chmod 600 /home/cjbassi/.ssh/config
 gpg --import /mnt/usb/gnupg/privkey.asc
 
 
-# config {{{1
+# Config {{{1
 
 # git clone git@github.com:cjbassi/config
 git clone cjbassi/config
@@ -79,6 +82,7 @@ sudo systemctl enable bluetooth
 # pip and npm {{{1
 
 sudo pip install glances
+# sudo pip install xtermcolor
 
 sudo pip install --upgrade neovim
 
@@ -100,7 +104,7 @@ sudo npm install -g babel-eslint
 sudo npm install -g create-react-app
 
 
-# zsh {{{1
+# Zsh {{{1
 
 # curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 
@@ -108,7 +112,7 @@ sudo npm install -g create-react-app
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 
 
-# neovim {{{1
+# Neovim {{{1
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -122,7 +126,8 @@ nvim +PlugInstall +xall
 bash ~/config/arch/pacaur.sh
 
 export EDITOR=nvim
-gpg --recv-keys 5FAF0A6EE7371805
+# TODO
+# gpg --recv-keys 5FAF0A6EE7371805
 
 pacaur -S --noconfirm --noedit alacritty-git
 # pacaur -S --noconfirm --noedit discord
@@ -134,6 +139,8 @@ pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 pacaur -S --noconfirm --noedit universal-ctags-git
 pacaur -S --noconfirm --noedit vtop
+# TODO
+pacaur -S --noconfirm --noedit yakyak-git
 
 pacaur -S --noconfirm --noedit i3-gaps-next-git
 pacaur -S --noconfirm --noedit i3lock-color-git
@@ -141,7 +148,7 @@ pacaur -S --noconfirm --noedit i3lock-color-git
 pacaur -S --noconfirm --noedit polybar-git
 
 
-# Old config {{{1
+# Old Configs {{{1
 
 # pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
 

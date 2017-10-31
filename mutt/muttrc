@@ -1,10 +1,12 @@
+#  Sources {{{1
+
 source ~/.mutt/aliases
 source ~/.mutt/gmailrc
 
 source ~/.mutt/solarized
 
 
-# settings {{{1
+# Settings {{{1
 
 set     my_user =           "Caleb"
 set     realname =          "Caleb Bassi"
@@ -29,7 +31,7 @@ set     nohelp
 
 unset   mark_old            # read/new is good enough for me
 
-set     date_format =       "%m-%d %H:%M"
+set     date_format =       "%y-%m-%d %H:%M"
 set     index_format =      "%2C %Z  %D  %-15.15F  %s"
 set     status_format =     "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set     status_chars  =     " *%A"
@@ -40,11 +42,19 @@ alternative_order           text/plain text/enriched text/html
 color   index               brightblue  yellow  ~T  # tagged
 
 set     sidebar_visible =   yes
-set     sidebar_width =     20
+set     sidebar_width =     17
 set     sidebar_short_path  # Shorten mailbox names
 
+# color normal    default default
+# color message   default default
+# color status    default default
+# # # color markers   default default
+# color hdrdefault    default        default
+# color header        default        default        "^(From)"
+# color header        default         default        "^(Subject)"
 
-# unbinds{{{1
+
+# Unbinds{{{1
 
 bind    index,pager         <Esc>/      noop
 bind    index,pager         <Esc>C      noop
@@ -109,7 +119,7 @@ bind    generic             ]           noop
 bind    generic             t           noop
 
 
-# keybinds {{{1
+# Keybinds {{{1
 
 bind    index,pager         \cJ         sidebar-next
 bind    index,pager         \cK         sidebar-prev
@@ -156,7 +166,7 @@ bind    generic             \ce         next-line
 bind    generic             \cy         previous-line
 
 
-# old config {{{1##################################################
+# Old Configs {{{1
 
 # macro   index               X           '<sync-mailbox><enter-command>source ~/.mutt/gmailrc<enter><change-folder>!<enter>'
 

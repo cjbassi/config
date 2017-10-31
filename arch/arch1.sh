@@ -77,8 +77,7 @@ pacstrap /mnt                                                   \
     ttf-arphic-uming                                            \
     ttf-indic-otf                                               \
 \
-    otf-ipafont                                                 \
-    ttf-hanazono                                                \
+    adobe-source-han-sans-otc-fonts                             \
 \
     neovim                                                      \
     zsh                                                         \
@@ -107,6 +106,10 @@ pacstrap /mnt                                                   \
     unzip                                                       \
     httpie                                                      \
     docker                                                      \
+    whois                                                       \
+
+    # otf-ipafont                                                 \
+    # ttf-hanazono                                                \
 
 
     # ttf-symbola                                                 \
@@ -148,7 +151,7 @@ curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch2.sh > /mn
 # Chroot
 arch-chroot /mnt
 
-# Old config {{{1
+# Old Configs {{{1
 
 # ssh-server {{{2
 

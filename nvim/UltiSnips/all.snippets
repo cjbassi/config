@@ -1,20 +1,20 @@
 snippet CS19 "CS 19 Comment Header" b
 /*
-   Caleb Bassi
-   cbassi
-   calejbassi@gmail.com
+	Caleb Bassi
+	cbassi
+	calejbassi@gmail.com
 
-   `!v expand('%:t')`
-   ${1:assignment name}, Assignment ${2:#}
+	`!v expand('%:t')`
+	${1:assignment name}, Assignment ${2:#}
 
-   <description> TODO
+	<description> TODO
 
-   <code status> TODO
-   */
+	<code status> TODO
+	*/
 endsnippet
 global !p
 from vimsnippets import foldmarker, make_box, get_comment_format
-from allsnippets import *
+# from allsnippets import *
 endglobal
 snippet bbox "A nice box over the full width" b
 `!p
@@ -44,7 +44,4 @@ snippet foldp "Insert a vim fold marker pair" b
 `!p snip.rv = get_comment_format()[0]` ${1:Fold description} `!p snip.rv = foldmarker()[0]`
 ${2:${VISUAL:Content}}
 `!p snip.rv = get_comment_format()[0]` `!p snip.rv = foldmarker()[1]` $1
-endsnippet
-snippet fold1 "Level 1 fold with hashtags" b
-`!p snip.rv = get_comment_format()[0] + ' ' + wrap_description('hi', 80, 7, '#') + ' '+ foldmarker()[0] + '1'`
 endsnippet

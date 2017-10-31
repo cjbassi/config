@@ -1,4 +1,4 @@
-# Vim keybinds {{{1
+# Vim Keybinds {{{1
 
 # bind generic h scroll-left
 bind generic j move-down
@@ -74,7 +74,7 @@ bind generic ca !?@git commit --amend --no-edit
 bind generic <C-w><C-w> view-next
 
 
-# Solarized colorscheme {{{1
+# Solarized {{{1
 
 # SOLARIZED TERMCOL     ANSI    HEX
 # ----------------------------------

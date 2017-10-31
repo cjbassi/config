@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# applets {{{1
+# Applets {{{1
 
 nm-applet &
 dropbox &
@@ -8,7 +8,7 @@ blueman-applet &
 redshift-gtk &
 
 
-# visuals {{{1
+# Visuals {{{1
 
 feh --bg-scale ~/Downloads/wallpaper* &
 xrandr --output eDP-1 --mode 1920x1080 --rate 60 --scale 1x1 &
@@ -19,28 +19,29 @@ unclutter --timeout 1 &
 # echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness &
 
 
-# volume {{{1
+# Volume {{{1
 
 sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 40%" &
 pactl set-source-volume 1 100%
 
 
-# keyboard {{{1
+# Keyboard {{{1
 
 xmodmap ~/config/peripherals/xkeys &
 xbindkeys -p &
 xset r rate 400 25 &
 
 
-# nipple and keypad {{{1
+# Nipple and Touchpad {{{1
 
 xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1 &
 xinput --disable 'SynPS/2 Synaptics TouchPad' &
 
-# }}}
+# Text-Aid-Too {{{1
 
 text-aid-too --editor 'alacritty -t nvim -e nvim' &
 
-# exec i3
-# exec sway
+
+# Exec i3 {{{1
+
 exec i3

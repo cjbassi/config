@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# files {{{1
+# Files {{{1
 
 alias eal='e ~/config/dotfiles/.aliases'
 alias ea1='e ~/config/arch/arch1.sh'
@@ -21,7 +21,7 @@ alias et='e ~/config/alacritty/alacritty.yml'
 alias eM='e Makefile'
 
 
-# changing dir {{{1
+# Changing Dir {{{1
 
 alias gc='cd /home/cjbassi/config'
 alias gm='cd /home/cjbassi/.mutt'
@@ -34,10 +34,13 @@ alias gt='cd /home/cjbassi/test'
 alias gD='cd /home/cjbassi/Downloads'
 alias gr='cd /home/cjbassi/.config/ranger'
 alias gP='cd /home/cjbassi/.local/share/nvim/plugged'
+alias gS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
+alias gN='cd /home/cjbassi/.config/nvim'
+
 alias gM='cd /mnt'
 
 
-# commands {{{1
+# Commands {{{1
 
 alias blt='bluetoothctl'
 
@@ -64,7 +67,7 @@ alias py='pipenv run -- python'
 alias chrome='google-chrome-stable'
 
 
-# tools {{{1
+# Tools {{{1
 
 function math()
 {
@@ -93,7 +96,7 @@ alias random_lines="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 
 alias random_words='shuf /usr/share/dict/cracklib-small -rn'
 
 
-# settings {{{1
+# Settings {{{1
 
 alias docker='sudo docker'
 
@@ -109,7 +112,8 @@ alias gcc='gcc -g -Wall'
 alias sshfs='sshfs -C -o reconnect'
 
 # TODO progress1 and 2
-alias rsync='rsync -h --info=all2'
+# alias rsync='rsync -h --info=all2'
+alias rsync='rsync -h'
 
 alias cp='cp -iv'
 alias mv='mv -iv'
@@ -132,7 +136,7 @@ alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --p
 alias makepkg='makepkg -si'
 
 
-# Old configs {{{1
+# Old Configs {{{1
 
 # math() {
 #     echo $(($@))

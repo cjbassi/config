@@ -1,19 +1,19 @@
-## Config files
+## Config Files
 
 Each folder corresponds to a given application's configuration files except for:
 
 * `arch`
-    * includes scripts that I use to install Arch Linux along with apps and settings that I use
+    * scripts used to install and configure Arch Linux
 * `dotfiles`
-    * includes various dotfiles (duh) that go in the home directory
+    * various dotfiles (duh) that go in the home directory
 * `old_configs`
-    * includes old configuration files that are no longer used
+    * old config files that I no longer use
 * `peripherals`
-    * includes files to configure the mouse and keyboard
+    * files to configure the mouse and keyboard
 
 And in case you are unfamiliar with some of these applications:
 
 * highlight
-    * used by ranger to syntax highlight files being previewed
+    * used by ranger to syntax highlight previewed files
 
 Any additions or suggestions are welcome!

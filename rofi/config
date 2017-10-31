@@ -1,16 +1,15 @@
 # vim:ft=xdefaults
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! Rofi
+rofi.terminal:                      alacritty
 
-! Theme
+! Theme {{{1
 rofi.color-enabled:                 true
 rofi.color-window:                  #002b37, #002b37, #003642
 rofi.color-normal:                  #002b37, #819396, #003643, #008ed4, #ffffff
 rofi.color-active:                  #002b37, #008ed4, #003643, #008ed4, #66c6ff
 rofi.color-urgent:                  #002b37, #da4281, #003643, #008ed4, #890661
 
-! Size
+! Size {{{1
 rofi.width:                         22
 rofi.lines:                         8
 rofi.bw:                            1
@@ -18,9 +17,7 @@ rofi.padding:                       5
 rofi.hide-scrollbar:                true
 rofi.separator-style:               solid
 
-rofi.terminal:                      alacritty
-
-! Keybinds
+! Keybinds {{{1
 
 ! "Paste primary selection"
 rofi.kb-primary-paste:
