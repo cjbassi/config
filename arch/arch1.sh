@@ -30,13 +30,12 @@ timedatectl set-ntp true
 #pacman-key --init
 #pacman-key --populate archlinux
 
+
+# Select the mirrors with Reflector
 pacman -Sy
 pacman -Sy --noconfirm archlinux-keyring reflector
 reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-# Select the mirrors
-#cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
-#mv -f morrorlist /etc/pacman.d/mirrorlist
 
 # Install packages
 pacstrap /mnt                                                   \
@@ -177,3 +176,7 @@ arch-chroot /mnt
 #sudo timedatectl set-local-rtc 0
 #sudo timedatectl set-timezone America/Los_Angeles
 #systemctl enable ntpd.service
+
+# mirrors {{{2
+#cat /etc/pacman.d/mirrorlist | grep -A1 --no-group-separator "United States" | grep "Server" > mirrorlist
+#mv -f morrorlist /etc/pacman.d/mirrorlist
