@@ -35,7 +35,7 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 # Config {{{1
 
-git clone cjbassi/config
+hub clone cjbassi/config
 
 
 # symlinks {{{2
