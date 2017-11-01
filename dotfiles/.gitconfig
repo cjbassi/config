@@ -26,7 +26,3 @@
     added = green bold
     changed = yellow bold
     untracked = red bold
-
-[alias]
-    alias = !hub config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
-    this = !git init && git add . && git commmit -m \"Initial commit.\"

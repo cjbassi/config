@@ -33,6 +33,7 @@ export PATH="$PATH:$GOPATH/bin"
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.fzf_solarized.sh
 
 
 # Editor/Pager {{{1
@@ -48,3 +49,4 @@ export MANPAGER=$PAGER
 alias pager=$PAGER
 alias zless=$PAGER
 alias less=$PAGER
+alias vimpager=$PAGER

@@ -11,9 +11,4 @@ Each folder corresponds to a given application's configuration files except for:
 * `peripherals`
     * files to configure the mouse and keyboard
 
-And in case you are unfamiliar with some of these applications:
-
-* highlight
-    * used by ranger to syntax highlight previewed files
-
 Any additions or suggestions are welcome!

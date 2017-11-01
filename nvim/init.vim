@@ -10,6 +10,7 @@ Plug 'Shougo/echodoc.vim'
 
 Plug 'rhysd/github-complete.vim'
 
+Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -134,12 +135,6 @@ Plug 'haya14busa/vim-operator-flashy'
 
 Plug 'Shougo/context_filetype.vim'
 Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
-
-
-" fzf {{{2
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 
 " Git {{{2
@@ -295,7 +290,7 @@ nnoremap <silent> <leader>tx :Chmod +x<CR>
 " nnoremap <silent> <leader>sw :SudoWrite<CR>
 
 
-" buffers/files {{{3
+" buffers {{{3
 
 nnoremap <silent> <leader>bx :w<CR>:bdelete<CR>
 nnoremap <silent> <leader>bd :bd<CR>
@@ -347,21 +342,22 @@ nnoremap <silent> ? :Tags<CR>
 
 " files {{{3
 
-nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
 nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
 nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
-nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>
+nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>eg :edit ~/Dropbox/notes/technology/programming_guide.md<CR>
-nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
-nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
-nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
-nnoremap <silent> <leader>ex :edit ~/config/dotfiles/.xinitrc<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
+nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>
+nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>er :edit ~/.config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>et :edit ~/config/alacritty/alacritty.yml<CR>
+nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>ex :edit ~/config/dotfiles/.xinitrc<CR>
+nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
 
 nnoremap <silent> <leader>eM :edit Makefile<CR>
 
@@ -439,6 +435,8 @@ noremap g, g,zz
 noremap <silent> ; zz
 
 noremap za zazz
+noremap zc zczz
+noremap zo zozz
 noremap zj zjzz
 noremap zk zkzz
 noremap zv zvzz
@@ -506,8 +504,10 @@ set nowrap
 set iskeyword-=_
 " set iskeyword="a-z" TODO
 
-" autocmd FileType * normal! zz
-" autocmd BufReadPre,FileReadPre * normal! zt
+" autocmd BufRead * normal zv;
+
+" autocmd FileType * normal! zv
+" autocmd BufReadPre,FileReadPre * normal! zv
 
 " autocmd FileType mail autocmd BufWritePre normal! gggqG
 " \<C-o>\<C-o>"<CR>
@@ -732,10 +732,11 @@ set completeopt-=preview
 
 " fzf {{{2
 
-" set rtp+=~/.fzf
-let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
-let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
-let g:fzf_layout = { 'down': '~40%' }
+set rtp+=~/.fzf
+" let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
+" let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+let g:fzf_layout = { 'down': '40%' }
+" let g:fzf_layout = { 'window': '10split enew' }
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
@@ -751,6 +752,21 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+let g:fzf_colors =
+\ { 'fg':      ['#839496'],
+  \ 'bg':      ['#002b36'],
+  \ 'hl':      ['#268bd2'],
+  \ 'fg+':     ['#eee8d5'],
+  \ 'bg+':     ['#073642'],
+  \ 'hl+':     ['#268bd2'],
+  \ 'info':    ['#b58900'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['#b58900'],
+  \ 'pointer': ['#2aa198'],
+  \ 'marker':  ['#2aa198'],
+  \ 'spinner': ['#2aa198'],
+  \ 'header':  ['#268bd2'] }
 
 
 " incsearch.vim{{{2

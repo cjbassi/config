@@ -10,33 +10,17 @@ export TERM='xterm-256color'
 # source ~/.aliases
 
 
-#  zplug {{{1
+# Antigen {{{1
 
-source "${HOME}/.zgen/zgen.zsh"
-zgen load "zdharma/fast-syntax-highlighting"
+source ~/.antigen.zsh
 
-source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
-
-# source ~/.zplug/init.zsh
-
-
-# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-# zplug "zdharma/fast-syntax-highlighting"
-# zplug "~/Dropbox/projects/powerlevel9k", from:local, use:powerlevel9k.zsh-theme
-# # zplug "https://github.com/bobthecow/git-flow-completion"
-
-# # zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
-# # zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-
-# # zplug "trapd00r/zsh-syntax-highlighting-filetypes"
-# # zplug "ascii-soup/zsh-url-highlighter"
-
-
-# # if ! zplug check; then
-# #     zplug install
-# # fi
-
-# zplug load
+antigen bundle zdharma/fast-syntax-highlighting
+antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+antigen bundle bobthecow/git-flow-completion
+antigen bundle zsh-users/zsh-completions
+antigen bundle unixorn/git-extra-commands
 
 
 # History {{{1
@@ -100,7 +84,7 @@ function chpwd() { ll }
 
 # completion
 autoload -Uz compinit
-compinit
+compinit -u
 
 
 # Colors {{{1
@@ -227,6 +211,9 @@ export POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=11
 export POWERLEVEL9K_VCS_FOREGROUND=255
 export POWERLEVEL9K_VCS_BACKGROUND=33
 
+# export POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND=255
+export POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND=125
+
 # export POWERLEVEL9K_VI_INSERT_MODE_STRING="\e[1mINSERT\e[21m"
 # export POWERLEVEL9K_VI_COMMAND_MODE_STRING="\e[1mNORMAL\e[21m"
 # export POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="\e[21m~"
@@ -254,6 +241,11 @@ function ranger()
         command ranger "$@"
     fi
 }
+
+
+# zsh-autosuggestions {{{2
+
+bindkey '^I' autosuggest-accept
 
 # }}}
 

@@ -35,13 +35,7 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 # Config {{{1
 
-# git clone git@github.com:cjbassi/config
 git clone cjbassi/config
-
-ranger --copy-config=scope
-
-# TODO
-# try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
 
 
 # symlinks {{{2
@@ -51,25 +45,20 @@ sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
-ln -sf ~/{,.}config/alacritty
-
-ln -sf ~/config/compton/compton.conf ~/.config/
+# ln -sf ~/config/compton/compton.conf ~/.config/
 
 ln -sf ~/config/dotfiles/.* ~/
 
-ln -sf ~/{,.}config/i3
-
 ln -sf ~/config/mutt/* ~/.mutt/
 
-ln -sf ~/config/ncmpcpp/* ~/.config/ncmpcpp/
-
-ln -sf ~/config/nvim/* ~/.config/nvim/
-
+ln -sf ~/{,.}config/alacritty
+ln -sf ~/{,.}config/i3
 ln -sf ~/{,.}config/polybar
-
-ln -sf ~/config/ranger/* ~/.config/ranger/
-
 ln -sf ~/{,.}config/rofi
+
+ln -sf ~/config/ncmpcpp/* ~/.config/ncmpcpp/
+ln -sf ~/config/nvim/* ~/.config/nvim/
+ln -sf ~/config/ranger/* ~/.config/ranger/
 
 
 # Services {{{1
@@ -108,10 +97,7 @@ sudo npm install -g create-react-app
 
 # Zsh {{{1
 
-# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-
-# TODO installing zsh plugins
-git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+curl -L git.io/antigen > .antigen.zsh
 
 
 # Neovim {{{1
@@ -174,3 +160,7 @@ pacaur -S --noconfirm --noedit polybar-git
 #cd ..
 #rm -rf fonts
 #cd ~
+
+# try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
+
+# ranger --copy-config=scope

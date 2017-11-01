@@ -8,6 +8,7 @@ alias ea3='e ~/config/arch/arch3.sh'
 alias eal='e ~/config/dotfiles/.aliases'
 alias ee='e ~/config/dotfiles/.editorconfig'
 alias eg='e ~/Dropbox/notes/technology/programming_guide.md'
+alias eh='e ~/.histfile'
 alias ei3='e ~/config/i3/config'
 alias em='e ~/config/mutt/muttrc'
 alias en='e ~/config/dotfiles/.zshenv'
@@ -23,22 +24,46 @@ alias eM='e Makefile'
 
 # Changing Dir {{{1
 
-alias ga='cd /home/cjbassi/Dropbox/arch'
-alias gc='cd /home/cjbassi/config'
-alias gC='cd /home/cjbassi/.config'
-alias gd='cd /home/cjbassi/Dropbox'
-alias gD='cd /home/cjbassi/Downloads'
-alias gm='cd /home/cjbassi/.mutt'
-alias gn='cd /home/cjbassi/Dropbox/notes'
-alias gp='cd /home/cjbassi/Dropbox/projects'
-alias gP='cd /home/cjbassi/.local/share/nvim/plugged'
-alias gr='cd /home/cjbassi/.config/ranger'
-alias gs='cd /home/cjbassi/Dropbox/school'
-alias gt='cd /home/cjbassi/test'
-alias gS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
-alias gv='cd /home/cjbassi/.config/nvim'
+alias cda='cd ~/Dropbox/arch'
+alias cdc='cd /home/cjbassi/config'
+alias cdC='cd /home/cjbassi/.config'
+alias cdd='cd /home/cjbassi/Dropbox'
+alias cdD='cd /home/cjbassi/Downloads'
+alias cdm='cd /home/cjbassi/.mutt'
+alias cdn='cd /home/cjbassi/Dropbox/notes'
+alias cdp='cd /home/cjbassi/Dropbox/projects'
+alias cdP='cd /home/cjbassi/.local/share/nvim/plugged'
+alias cdr='cd /home/cjbassi/.config/ranger'
+alias cds='cd /home/cjbassi/Dropbox/school'
+alias cdt='cd /home/cjbassi/test'
+alias cdS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
+alias cdv='cd /home/cjbassi/.config/nvim'
 
-alias gM='cd /mnt'
+alias cdM='cd /mnt'
+
+
+# Git {{{1
+
+alias ga='git add'
+alias gb='git blame'
+alias gB='git branch'
+alias gc='git commit'
+alias gca='git commit --ammend'
+alias gco='git checkout'
+alias gC='git clone'
+alias gd='git diff'
+alias gf='git fetch'
+alias gi='git init'
+alias gm='git merge'
+alias gp='git push'
+alias gpu='git push -u origin master'
+alias gP='git pull'
+alias gs='git status'
+alias gS='git stash'
+
+alias gau='git reset HEAD'
+alias gcu='git reset HEAD~'
+alias grh='git reset --hard HEAD'
 
 
 # Commands {{{1
@@ -46,6 +71,8 @@ alias gM='cd /mnt'
 alias blt='bluetoothctl'
 
 alias chrome='google-chrome-stable'
+
+alias g='git'
 
 alias l='ll'
 
@@ -64,6 +91,7 @@ alias e='vim'
 alias vim='nvim'
 alias vd='vimdiff'
 alias vimdiff='nvim -d'
+alias vp='vimpager'
 
 
 # Tools {{{1

@@ -75,8 +75,9 @@ pacstrap /mnt                                                   \
     adobe-source-han-sans-otc-fonts                             \
 \
     neovim                                                      \
+    fzf                                                         \
     zsh                                                         \
-    ranger highlight w3m                                        \
+    ranger w3m                                                  \
     rofi                                                        \
     qbittorrent                                                 \
     networkmanager network-manager-applet                       \
@@ -90,7 +91,6 @@ pacstrap /mnt                                                   \
     gnome-keyring libsecret                                     \
     gnupg                                                       \
     ccache                                                      \
-    zsh-completions                                             \
     rsync                                                       \
     fuse                                                        \
     strace                                                      \
@@ -114,27 +114,15 @@ pacstrap /mnt                                                   \
     # adobe-source-han-sans-jp-fonts                              \
     # ttf-sazanami                                                \
 
-    # zsh-theme-powerlevel9k                                      \
 
-
-# compton                                                     \
-# powerline-fonts                                             \
+# compton
 # autofs
-#rustup
-# pandoc                                                      \
-# lzop                                                        \
-#devilspie transset-df                                       \
-#termite                                                     \
-#xf86-input-synaptics                                        \
-#yarn
-#xdotool
-#wmctrl \
-#tmux
-#ttf-insonsolata
-#alsa-utils
-#vimpager
-#dialog wpa_supplicant \
-#urxvt-perls rxvt-unicode \
+# rustup
+# xf86-input-synaptics
+# xdotool
+# wmctrl
+# alsa-utils
+# dialog wpa_supplicant
 
 
 # Chroot {{{1
@@ -184,3 +172,7 @@ arch-chroot /mnt
 # GPG keys
 #pacman-key --init
 #pacman-key --populate archlinux
+
+#urxvt-perls rxvt-unicode
+#devilspie transset-df
+#ttf-insonsolata

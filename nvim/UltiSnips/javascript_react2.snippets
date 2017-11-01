@@ -12,37 +12,37 @@ import ReactDOM from 'react-dom'
 endsnippet
 snippet rcdm "React componentDidMount"
 componentDidMount() {
-	${1}
+	$1
 }
 endsnippet
 snippet rcdu "React componentDidUpdate"
 componentDidUpdate(prevProps, prevState) {
-	${1}
+	$1
 }
 endsnippet
 snippet rcwm "React componentWillMount"
 componentWillMount() {
-	${1}
+	$1
 }
 endsnippet
 snippet rcwrp "React componentWillReceiveProps"
 componentWillReceiveProps(nextProps) {
-	${1}
+	$1
 }
 endsnippet
 snippet rcwu "React componentWillUnmount"
 componentWillUnmount() {
-	${1}
+	$1
 }
 endsnippet
 snippet rcwup "React componentWillUpdate"
 componentWillUpdate(nextProps, nextState) {
-	${1}
+	$1
 }
 endsnippet
 snippet rscu "React shouldComponentUpdate"
 shouldComponentUpdate(nextProps, nextState) {
-	${1}
+	$1
 }
 endsnippet
 snippet rfu "React forceUpdate"
@@ -50,7 +50,7 @@ forceUpdate(${1:callback})
 endsnippet
 snippet rst "React state"
 state = {
-	${1}: ${2},
+	$1: $2,
 }
 endsnippet
 snippet rcom "React props"
@@ -61,23 +61,23 @@ props => {
 }
 endsnippet
 snippet rdp "React defaultProps"
-${1}.defaultProps = {
-	${2}: ${0},
+$1.defaultProps = {
+	$2: $0,
 }
 endsnippet
 snippet rcdp "React static defaultProps"
 static defaultProps = {
-	${1}: ${2},
+	$1: $2,
 }
 endsnippet
 snippet rpt "React propTypes"
-${1}.propTypes = {
-	${2}: PropTypes.${0},
+$1.propTypes = {
+	$2: PropTypes.$0,
 }
 endsnippet
 snippet rcpt "React static propTypes"
 static propTypes = {
-	${1}: PropTypes.${2:type},
+	$1: PropTypes.${2:type},
 }
 endsnippet
 snippet rcla "React class definition"
@@ -93,7 +93,7 @@ snippet rcon "React default constructor"
 constructor(props) {
 	super(props)
 	this.state = {
-		${1}: ${0},
+		$1: $0,
 	}
 }
 endsnippet
@@ -114,16 +114,16 @@ render() {
 }
 endsnippet
 snippet rdr "React render DOM"
-ReactDOM.render(${1}, ${2})
+ReactDOM.render($1, $2)
 endsnippet
 snippet rss "React setState"
 this.setState({
-	${1}: ${2}
+	$1: $2
 })
 endsnippet
 snippet rtp "React this.props" i
-this.props.${1}
+this.props.$1
 endsnippet
 snippet rts "React this.state" i
-this.state.${1}
+this.state.$1
 endsnippet

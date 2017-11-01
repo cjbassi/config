@@ -2,6 +2,7 @@
 # documentation.
 
 from ranger.api.commands import *
+import subprocess
 
 # You can import any python module as needed.
 import os
@@ -14,11 +15,8 @@ class fzf(Command):
     Find a file using fzf.
 
     With a prefix argument select only directories.
-
-    See: https://github.com/junegunn/fzf
     """
     def execute(self):
-        import subprocess
         if self.quantifier:
             # match only directories
             command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
