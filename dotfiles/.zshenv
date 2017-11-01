@@ -1,9 +1,8 @@
+#  vim: ft=sh
+
 # Sources {{{1
 
-# source ~/.zshrc
 source ~/.aliases
-
-# alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
 
 
 # Locales {{{1
@@ -31,8 +30,11 @@ export PATH="$PATH:$GOPATH/bin"
 
 # fzf {{{1
 
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
+
 source ~/.fzf_solarized.sh
 
 

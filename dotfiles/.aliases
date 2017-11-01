@@ -61,9 +61,20 @@ alias gP='git pull'
 alias gs='git status'
 alias gS='git stash'
 
+alias grsu='git remote set-url'
+
 alias gau='git reset HEAD'
 alias gcu='git reset HEAD~'
 alias grh='git reset --hard HEAD'
+
+
+# pacaur {{{1
+
+alias pacs='pacaur -S'
+alias pacss='pacaur -Ss'
+alias pacsy='pacaur -Sy'
+alias pacsyu='pacaur -Syu'
+alias pacr='pacaur -R'
 
 
 # Commands {{{1
@@ -80,6 +91,8 @@ alias m='make'
 
 alias music='ncmpcpp'
 
+alias pacsignkey='pacman -r'
+
 alias py='pipenv run -- python'
 
 alias r='ranger'
@@ -92,6 +105,9 @@ alias vim='nvim'
 alias vd='vimdiff'
 alias vimdiff='nvim -d'
 alias vp='vimpager'
+
+alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
+alias gpgkey='gpg --full-gen-key'
 
 
 # Tools {{{1
@@ -125,8 +141,6 @@ function random_words() { shuf /usr/share/dict/cracklib-small -rn }
 
 alias ag='sudo ag --hidden --ignore .git'
 
-alias docker='sudo docker'
-
 alias git='hub'
 
 alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
@@ -152,6 +166,8 @@ alias sshfs='sshfs -C -o reconnect'
 
 alias su='sudo -E su -m'
 
+alias uname='uname -a'
+
 alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
 
 alias w='w -f'
@@ -168,6 +184,10 @@ alias du='du -h'
 
 alias g++='g++ -g -Wall'
 alias gcc='gcc -g -Wall'
+
+alias docker='sudo docker'
+alias mount='sudo mount'
+alias umount='sudo umount'
 
 
 # Old Configs {{{1

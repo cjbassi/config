@@ -35,7 +35,7 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 # Config {{{1
 
-#hub clone cjbassi/config
+hub clone cjbassi/config
 
 
 # symlinks {{{2
@@ -114,8 +114,6 @@ nvim +PlugInstall +xall
 bash ~/config/arch/pacaur.sh
 
 export EDITOR=nvim
-# TODO
-# gpg --recv-keys 5FAF0A6EE7371805
 
 pacaur -S --noconfirm --noedit alacritty-git
 # pacaur -S --noconfirm --noedit discord
@@ -127,7 +125,6 @@ pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 pacaur -S --noconfirm --noedit universal-ctags-git
 pacaur -S --noconfirm --noedit vtop
-# TODO
 pacaur -S --noconfirm --noedit yakyak-git
 
 pacaur -S --noconfirm --noedit i3-gaps-next-git
@@ -164,3 +161,5 @@ pacaur -S --noconfirm --noedit polybar-git
 # try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
 
 # ranger --copy-config=scope
+
+# gpg --recv-keys 5FAF0A6EE7371805

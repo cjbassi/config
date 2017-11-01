@@ -7,8 +7,6 @@
 
 export TERM='xterm-256color'
 
-# source ~/.aliases
-
 
 # Antigen {{{1
 
@@ -16,7 +14,7 @@ source ~/.antigen.zsh
 
 antigen bundle zdharma/fast-syntax-highlighting
 antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle bobthecow/git-flow-completion
 antigen bundle zsh-users/zsh-completions
@@ -163,7 +161,7 @@ bindkey -a 'Y' zsh-Y-x-selection
 bindkey -r '^r'
 bindkey -r '^[c'
 
-export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
+# export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
 # export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 
 zle -N fzf-history-widget
@@ -179,11 +177,6 @@ bindkey -M viins -r '^t'
 
 bindkey -M vicmd '^r' fzf-cd-widget
 bindkey -M viins '^r' fzf-cd-widget
-
-
-# highlight {{{2
-
-alias highlight='highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark'
 
 
 # Powerlevel9k {{{2
@@ -241,11 +234,6 @@ function ranger()
         command ranger "$@"
     fi
 }
-
-
-# zsh-autosuggestions {{{2
-
-bindkey '^I' autosuggest-accept
 
 # }}}
 
@@ -399,3 +387,6 @@ bindkey '^I' autosuggest-accept
 #     tmux rename-window "ranger"
 #     /usr/bin/ranger "$@"
 #     tmux setw automatic-rename on
+
+# zsh-autosuggestions {{{2
+# bindkey '^I' autosuggest-accept

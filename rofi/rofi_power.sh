@@ -10,6 +10,9 @@ if [ $SELECTION == "Yes" ] ; then
     shutdown -r now
 fi
 
+# Old Configs {{{1
+
+
 # if [ ${#option} -gt 0 ] ; then
 #     case $option in
 #         Lock)

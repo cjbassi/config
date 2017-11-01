@@ -10,7 +10,6 @@ Plug 'Shougo/echodoc.vim'
 
 Plug 'rhysd/github-complete.vim'
 
-Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -58,24 +57,19 @@ Plug 'icymind/NeoSolarized'
 " Plug 'plasticboy/vim-markdown'
 
 
-" textobjects {{{2
+" closers {{{2
 
-Plug 'kana/vim-textobj-user'
-
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'coderifous/textobj-word-column.vim'
-Plug 'kana/vim-textobj-entire'
-Plug 'lucapette/vim-textobj-underscore'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-function'
+Plug 'tpope/vim-endwise'
+Plug 'cjbassi/vim-closer'
 
 
-" Markdown {{{2
+" completion {{{2
 
-Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
-
-Plug 'dkarter/bullets.vim'
-" Plug 'esalter-va/vim-checklist' TODO
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Rip-Rip/clang_complete'
+Plug 'zchee/deoplete-jedi'
+Plug 'racer-rust/vim-racer'
+Plug 'Shougo/neco-vim'
 
 
 " folding {{{2
@@ -95,6 +89,35 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'editorconfig/editorconfig-vim'
+
+
+" fzf {{{2
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+
+" Git {{{2
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-rhubarb'
+
+
+" Markdown {{{2
+
+Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
+
+Plug 'dkarter/bullets.vim'
+" Plug 'esalter-va/vim-checklist' TODO
+
+
+" snippets {{{2
+
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 
 
 " syntax {{{2
@@ -125,6 +148,18 @@ Plug 'ekalinin/Dockerfile.vim'
 " Plug 'sheerun/vim-polyglot'
 
 
+" textobjects {{{2
+
+Plug 'kana/vim-textobj-user'
+
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'kana/vim-textobj-entire'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-function'
+
+
 " vim-operator-flashy {{{2
 
 Plug 'kana/vim-operator-user'
@@ -137,42 +172,12 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
 
 
-" Git {{{2
-
-Plug 'tpope/vim-fugitive'
-
-Plug 'airblade/vim-gitgutter'
-
-Plug 'tpope/vim-rhubarb'
-
-
 " vim-airline {{{2
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ntpeters/vim-airline-colornum'
-
-
-" snippets {{{2
-
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
-
-
-" closers {{{2
-
-Plug 'tpope/vim-endwise'
-Plug 'cjbassi/vim-closer'
-
-
-" completion {{{2
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Rip-Rip/clang_complete'
-Plug 'zchee/deoplete-jedi'
-Plug 'racer-rust/vim-racer'
-Plug 'Shougo/neco-vim'
 
 " }}}
 
@@ -732,7 +737,8 @@ set completeopt-=preview
 
 " fzf {{{2
 
-set rtp+=~/.fzf
+" set rtp+=/usr/bin/fzf
+" set rtp+=~/.fzf
 " let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
 " let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 let g:fzf_layout = { 'down': '40%' }
@@ -936,6 +942,8 @@ let g:move_key_modifier = 'S'
 
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
+
+let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
 
 
 " vim-racer {{{2

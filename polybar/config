@@ -234,7 +234,7 @@ ramp-4 = " "
 type = internal/battery
 battery = BAT0
 adapter = AC
-/* full-at = 98 */
+full-at = 99
 poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>

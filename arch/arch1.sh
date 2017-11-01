@@ -150,11 +150,6 @@ arch-chroot /mnt
 #PasswordAuthentication no
 #!!!!!May need to change other things!!!!!
 
-# Creates key and adds it to agent {{{2
-#ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"
-#eval $(ssh-agent)
-#ssh-add ~/.ssh/id_ed25519
-
 # Lengthens shell history {{{2
 #fbcon=scrollback:64k
 
