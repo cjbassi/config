@@ -24,8 +24,11 @@
     ],
 
     "rules": {
+        "dot-location": ["error", "property"],
         "eqeqeq": "error",
+        "lines-between-class-members": ["error", "always"],
         "max-len": ["warn", 80],
+        "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 0, "maxEOF": 0}],
         "no-tabs": "error",
         "no-undef": "error",
         "no-unused-vars": "warn",

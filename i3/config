@@ -89,6 +89,7 @@ bindsym $mod+Shift+0        move container to workspace 10
 # Windows {{{1
 
 new_window pixel
+new_float pixel
 
 client.focused #FF0000 #FF0000 #FF0000 #FF0000
 

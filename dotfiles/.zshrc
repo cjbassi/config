@@ -156,13 +156,8 @@ bindkey -a 'Y' zsh-Y-x-selection
 
 # fzf {{{2
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 bindkey -r '^r'
 bindkey -r '^[c'
-
-# export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
-# export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
 
 zle -N fzf-history-widget
 zle -N fzf-file-widget

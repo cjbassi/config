@@ -37,6 +37,8 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 hub clone cjbassi/config
 
+sudo ln -s /home/cjbassi/config/scripts/webserver/webserver.js /usr/bin/ws
+
 
 # symlinks {{{2
 
@@ -69,16 +71,16 @@ sudo systemctl enable suspend@cjbassi
 
 sudo systemctl enable bluetooth
 
+sudo systemctl enable insync@cjbassi.service
+
 
 # pip and npm {{{1
 
-sudo pip install glances
+# sudo pip install glances
 # sudo pip install xtermcolor
 
 sudo pip install --upgrade neovim
 
-# sudo pip install virtualenv
-# sudo pip install virtualenvwrapper
 sudo pip install pipenv
 
 sudo pip install colour-valgrind
@@ -93,6 +95,9 @@ sudo npm install -g js-beautify
 sudo npm install -g eslint-plugin-react
 sudo npm install -g babel-eslint
 sudo npm install -g create-react-app
+
+# sudo npm install -g gtop
+# sudo npm install -g vtop
 
 
 # Zsh {{{1
@@ -117,14 +122,14 @@ export EDITOR=nvim
 
 pacaur -S --noconfirm --noedit alacritty-git
 # pacaur -S --noconfirm --noedit discord
-pacaur -S --noconfirm --noedit dropbox
+# pacaur -S --noconfirm --noedit dropbox
 pacaur -S --noconfirm --noedit gitflow-avh-git
 pacaur -S --noconfirm --noedit google-chrome
 # pacaur -S --noconfirm --noedit heroku-cli
+pacaur -S --noconfirm --noedit insync
 pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 pacaur -S --noconfirm --noedit universal-ctags-git
-pacaur -S --noconfirm --noedit vtop
 pacaur -S --noconfirm --noedit yakyak-git
 
 pacaur -S --noconfirm --noedit i3-gaps-next-git

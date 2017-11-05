@@ -1,36 +1,10 @@
 snippet for "C++ for loop"
-for (int ${1:i} = 0; $1 < ${2:count}; $1++)
-$0
+for (int ${1:i} = 0; $1 < ${2:count}; $1++) {
+	$0
+}
 endsnippet
-snippet fori "C++ for loop"
-for (int ${1:i} = 0; $1 < ${2:count}; $1++)
-$0
-endsnippet
-snippet fore "C++ foreach loop"
-for (${1:auto} ${2:i} : ${3:container})
-$0
-endsnippet
-snippet while "C++ while loop"
-while (${1:condition})
-$0
-endsnippet
-snippet if "C++ if statement"
-if (${1:condition})
-$0
-endsnippet
-snippet ife "C++ if/else statement"
-if (${1:condition})
-$2
-else
-$0
-endsnippet
-snippet el "C++ else"
-else
-$0
-endsnippet
-snippet eli "C++ else if"
-else if (${1:condition})
-$0
+snippet inc "Include project headers" b
+#include "$1.h"
 endsnippet
 snippet cla "An entire .h generator" b
 #ifndef ${2:`!v substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E','')`}
@@ -47,15 +21,21 @@ private:
 
 #endif /* $2 */
 endsnippet
-snippet cl "class .. (class)"
-#include "$1.h"
+snippet endl "<< std::enl;"
+<< std::endl;
+endsnippet
 
-${1:`!p snip.rv = snip.basename or "name"`}::$1()
-{
-	$0
-}
+snippet cout "cout and endl" b
+std::cout << ${1:${VISUAL}} << std::endl;
+endsnippet
 
-$1::~$1()
-{
+snippet str "string" i
+std::string
+endsnippet
+
+
+snippet whi "while" b
+while (${1:true}) {
+	${0:${VISUAL}}
 }
 endsnippet

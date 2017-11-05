@@ -1,5 +1,5 @@
 # text/html; google-chrome-stable %s; test=test -n "$DISPLAY"; needsterminal
-text/html; /home/cjbassi/.mutt/static_server/server.js %s; test=test -n "$DISPLAY"; needsterminal
+text/html; webserver %s; test=test -n "$DISPLAY"; needsterminal
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
 image/*; ~/.mutt/mutt_image.sh %s; copiousoutput

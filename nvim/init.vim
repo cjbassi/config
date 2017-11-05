@@ -2,8 +2,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Plug 'severin-lemaignan/vim-minimap'
-
 " Plug 'fatih/vim-go'
 Plug 'vheon/vim-cursormode'
 Plug 'Shougo/echodoc.vim'
@@ -126,6 +124,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'styled-components/vim-styled-components'
+
+Plug 'hail2u/vim-css3-syntax'
 
 Plug 'rhysd/vim-gfm-syntax'
 
@@ -277,9 +278,9 @@ nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tc :ChecklistToggleCheckbox<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
-nnoremap <silent> <leader>tp :silent ! ~/Dropbox/projects/webserver/webserver.js '%' &<CR>
-nnoremap <leader>tsr :%s/
-vnoremap <leader>tsR :s/
+nnoremap <silent> <leader>tm :LivedownToggle<CR>
+nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
+nnoremap <leader>tr :%s/
 nnoremap <leader>tU :UltiSnipsEdit 
 nnoremap <leader>th :Help 
 nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
@@ -352,7 +353,7 @@ nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
 nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
-nnoremap <silent> <leader>eg :edit ~/Dropbox/notes/technology/programming_guide.md<CR>
+nnoremap <silent> <leader>eg :edit ~/Drive/Notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>

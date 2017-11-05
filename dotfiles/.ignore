@@ -1,6 +1,5 @@
 .cache
 .ccache/
-.dropbox
 .fzf
 .gnome
 .local
@@ -17,7 +16,6 @@ go
 
 
 .cargo
-.dropbox-dist
 .links
 .mozilla
 .mplayer

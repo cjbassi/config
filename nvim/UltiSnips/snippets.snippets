@@ -1,7 +1,15 @@
 # We use a little hack so that the snippet is expanded
 # and parsed correctly
 snippet snip "Ultisnips snippet definition" b
-`!p snip.rv = "snippet"` ${1:trigger} "${2:description}" ${3:b}
+`!p snip.rv = "snippet"` ${1:trigger} "${2:description}" ${3:bw}
 ${0:${VISUAL}}
 `!p snip.rv = "endsnippet"`
+endsnippet
+
+snippet vis "${VISUAL}" i
+\$\{VISUAL\}
+endsnippet
+
+snippet $ "$ snippet"
+${${1:1}:${0:${VISUAL}}}
 endsnippet

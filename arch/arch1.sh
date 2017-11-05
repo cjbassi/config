@@ -102,6 +102,12 @@ pacstrap /mnt                                                   \
     httpie                                                      \
     docker                                                      \
     whois                                                       \
+    moreutils                                                   \
+
+# imagemagick
+# gimp poppler-glib
+# inkscape
+# ghostscript
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \

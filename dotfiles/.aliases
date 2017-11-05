@@ -7,7 +7,7 @@ alias ea2='e ~/config/arch/arch2.sh'
 alias ea3='e ~/config/arch/arch3.sh'
 alias eal='e ~/config/dotfiles/.aliases'
 alias ee='e ~/config/dotfiles/.editorconfig'
-alias eg='e ~/Dropbox/notes/technology/programming_guide.md'
+alias eg='e ~/Drive/Notes/technology/programming_guide.md'
 alias eh='e ~/.histfile'
 alias ei3='e ~/config/i3/config'
 alias em='e ~/config/mutt/muttrc'
@@ -24,17 +24,17 @@ alias eM='e Makefile'
 
 # Changing Dir {{{1
 
-alias cda='cd ~/Dropbox/arch'
+alias cda='cd ~/Drive/Arch'
 alias cdc='cd /home/cjbassi/config'
 alias cdC='cd /home/cjbassi/.config'
-alias cdd='cd /home/cjbassi/Dropbox'
+alias cdd='cd /home/cjbassi/Drive'
 alias cdD='cd /home/cjbassi/Downloads'
 alias cdm='cd /home/cjbassi/.mutt'
-alias cdn='cd /home/cjbassi/Dropbox/notes'
-alias cdp='cd /home/cjbassi/Dropbox/projects'
+alias cdn='cd /home/cjbassi/Drive/Notes'
+alias cdp='cd /home/cjbassi/Drive/Programming/projects'
 alias cdP='cd /home/cjbassi/.local/share/nvim/plugged'
 alias cdr='cd /home/cjbassi/.config/ranger'
-alias cds='cd /home/cjbassi/Dropbox/school'
+alias cds='cd /home/cjbassi/Drive/School/Cabrillo'
 alias cdt='cd /home/cjbassi/test'
 alias cdS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
 alias cdv='cd /home/cjbassi/.config/nvim'
@@ -44,28 +44,29 @@ alias cdM='cd /mnt'
 
 # Git {{{1
 
-alias ga='git add'
-alias gb='git blame'
-alias gB='git branch'
-alias gc='git commit'
-alias gca='git commit --ammend'
-alias gco='git checkout'
-alias gC='git clone'
-alias gd='git diff'
-alias gf='git fetch'
-alias gi='git init'
-alias gm='git merge'
-alias gp='git push'
-alias gpu='git push -u origin master'
-alias gP='git pull'
-alias gs='git status'
-alias gS='git stash'
+alias gita='git add'
+alias gitb='git blame'
+alias gitB='git branch'
+alias gitc='git commit'
+alias gitcm='git commit -m'
+alias gitca='git commit --ammend'
+alias gitco='git checkout'
+alias gitC='git clone'
+alias gitd='git diff'
+alias gitf='git fetch'
+alias giti='git init'
+alias gitm='git merge'
+alias gitp='git push'
+alias gitpu='git push -u origin master'
+alias gitP='git pull'
+alias gits='git status'
+alias gitS='git stash'
 
-alias grsu='git remote set-url'
+alias gitrsu='git remote set-url'
 
-alias gau='git reset HEAD'
-alias gcu='git reset HEAD~'
-alias grh='git reset --hard HEAD'
+alias gitau='git reset HEAD'
+alias gitcu='git reset HEAD~'
+alias gitrh='git reset --hard HEAD'
 
 
 # pacaur {{{1
@@ -111,6 +112,10 @@ alias gpgkey='gpg --full-gen-key'
 
 
 # Tools {{{1
+
+function prepend() {
+    cat - "$@" | sponge "$@"
+}
 
 function fork() { nohup "$@" </dev/null >/dev/null 2>&1 &; disown }
 
@@ -160,7 +165,7 @@ function pacaur()
 
 # TODO progress1 and 2
 # alias rsync='rsync -h --info=all2'
-alias rsync='rsync -h'
+alias rsync='rsync -h --progress'
 
 alias sshfs='sshfs -C -o reconnect'
 

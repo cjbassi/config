@@ -3,7 +3,6 @@
 # Applets {{{1
 
 nm-applet &
-dropbox &
 blueman-applet &
 redshift-gtk &
 

@@ -7,19 +7,16 @@ const app = express()
 
 const filename = process.argv[2]
 
-
 let main = () => {
-
   fs.readFile(filename, 'utf8', (err, data) => {
     app.get('/', (req, res) => {
       res.send(data)
     })
     opn('http://localhost:3000', {app: 'google-chrome-stable'})
   })
-
   app.listen(3000)
-
 }
 
-if (require.main === module)
+if (require.main === module) {
     main()
+}
