@@ -2,42 +2,24 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Plug 'fatih/vim-go'
+" Plug 'LucHermitte/VimFold4C'
+
+" Plug 'OmniSharp/omnisharp-vim'
+" , { 'dir': '~/.local/share/nvim/plugged/omnisharp-vim/server', 'do': 'msbuild' }
+" Plug 'tpope/vim-dispatch'
+
+" Plug 'tpope/vim-sleuth'
+
 Plug 'vheon/vim-cursormode'
 Plug 'Shougo/echodoc.vim'
 
 Plug 'rhysd/github-complete.vim'
 
-Plug 'francoiscabrol/ranger.vim'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/vim-asterisk'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'craigemery/vim-autotag'
-Plug 'Yggdroot/indentLine'
-Plug 'chrisbra/Colorizer'
-Plug 'kshenoy/vim-signature'
-Plug 'tpope/vim-eunuch'
-Plug 'junegunn/vim-easy-align'
-Plug 'mbbill/undotree'
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-smooth-scroll'
-Plug 'matze/vim-move'
-Plug 'moll/vim-node'
-Plug 'farmergreg/vim-lastplace'
-Plug 'vim-utils/vim-vertical-move'
-Plug 'wincent/loupe'
-
-Plug 'icymind/NeoSolarized'
+" Plug 'junegunn/vim-slash'
 
 " Plug 'Konfekt/FastFold'
 
-" Plug 'google/vim-searchindex'
-" Plug 'henrik/vim-indexed-search'
-" Plug 'osyo-manga/vim-anzu'
+Plug 'google/vim-searchindex'
 
 " Plug 'suan/vim-instant-markdown'
 " Plug 'jaxbot/browserlink.vim'
@@ -45,14 +27,20 @@ Plug 'icymind/NeoSolarized'
 " Plug 'Shougo/neoinclude.vim'
 " Plug 'Shougo/neco-syntax'
 
-" Plug 'vim-scripts/EnhancedJumps' TODO
+" Plug 'vim-scripts/EnhancedJumps'
 
 " Plug 'jaxbot/github-issues.vim'
-" Plug 'TKNGUE/github-issues.vim' TODO
-
-" Plug 'ternjs/tern_for_vim'
+" Plug 'TKNGUE/github-issues.vim'
 
 " Plug 'plasticboy/vim-markdown'
+
+" Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
+
+" Plug 'sheerun/vim-polyglot'
+
+" Plug 'esalter-va/vim-checklist'
+
+" Plug 'j16180339887/Global.vim'
 
 
 " closers {{{2
@@ -70,12 +58,23 @@ Plug 'racer-rust/vim-racer'
 Plug 'Shougo/neco-vim'
 
 
+" editing {{{2
+
+Plug 'matze/vim-move'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+
+
 " folding {{{2
 
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'matze/vim-ini-fold'
 
 Plug 'benknoble/vim-auto-origami'
+
+Plug 'tmhedberg/SimpylFold'
 
 
 " formatting/linting {{{2
@@ -104,12 +103,34 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
 
+" language-server {{{2
+
+Plug 'ternjs/tern_for_vim', { 'dir': '~/.local/share/nvim/plugged/tern_for_vim', 'do': 'npm install' }
+Plug 'moll/vim-node'
+
+Plug 'davidhalter/jedi-vim'
+
+
 " Markdown {{{2
 
 Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
 
 Plug 'dkarter/bullets.vim'
-" Plug 'esalter-va/vim-checklist' TODO
+
+
+" motion {{{2
+
+Plug 'terryma/vim-smooth-scroll'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/vim-edgemotion'
+Plug 'justinmk/vim-ipmotion'
+
+
+" searching {{{2
+
+" Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/vim-asterisk'
+" Plug 'wincent/loupe'
 
 
 " snippets {{{2
@@ -128,9 +149,7 @@ Plug 'styled-components/vim-styled-components'
 
 Plug 'hail2u/vim-css3-syntax'
 
-Plug 'rhysd/vim-gfm-syntax'
-
-" Plug 'j16180339887/Global.vim'
+Plug 'rhysd/vim-gfm-syntax'  " GitHub markdown
 
 Plug 'PotatoesMaster/i3-vim-syntax'
 
@@ -144,10 +163,6 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
 
-" Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting' TODO
-
-" Plug 'sheerun/vim-polyglot'
-
 
 " textobjects {{{2
 
@@ -156,9 +171,27 @@ Plug 'kana/vim-textobj-user'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'kana/vim-textobj-entire'
-Plug 'lucapette/vim-textobj-underscore'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-function'
+
+
+" utilities {{{2
+
+Plug 'farmergreg/vim-lastplace'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-eunuch'  " unix tools
+
+
+" vim-airline {{{2
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ntpeters/vim-airline-colornum'
 
 
 " vim-operator-flashy {{{2
@@ -173,25 +206,23 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
 
 
-" vim-airline {{{2
+" visuals {{{2
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'chrisbra/Colorizer'
+Plug 'kshenoy/vim-signature'  " shows marks
+Plug 'icymind/NeoSolarized'
 
-Plug 'ntpeters/vim-airline-colornum'
 
 " }}}
 
 call plug#end()
 
+autocmd BufNewFile,BufRead *.ts set filetype=javascript.jsx
 
 " Visuals {{{1
 
 syntax enable
-
-" set t_Co=256
-" let g:solarized_termcolors=256
-" colorscheme solarized
 
 let g:neosolarized_vertSplitBgTrans = 1
 let g:neosolarized_italic = 0
@@ -200,37 +231,26 @@ set background=dark
 set termguicolors
 colorscheme NeoSolarized
 
+set cursorline
+
+hi javaScript ctermfg=244 guifg=244
+
+autocmd FileType * syn match shebang "\%^#!.*$"
+hi def link shebang PreProc
+
 " hi LineNr guibg=NONE guifg=237
 " hi Normal guibg=NONE
 " hi StatusLine guibg=232 guifg=241
 
-hi javaScript ctermfg=244 guifg=244
-
-set cursorline
-" hi clear CursorLine
-
-let g:indentLine_color_term = 239
-
 " call matchadd('ColorColumn', '\%81v.\+', -1, 4) TODO
-
-let g:jsx_ext_required = 0
-
-" let g:gitgutter_override_sign_column_highlight = 0
-
-" highlight SignColumn guibg=red
 
 " hi Search guibg=peru guifg=wheat
 
-" highlight clear SignColumn
-highlight GitGutterAdd guibg=#073642
-highlight GitGutterChange guibg=#073642
-highlight GitGutterDelete guibg=#073642
-highlight GitGutterChangeDelete guibg=#073642
+" set t_Co=256
+" let g:solarized_termcolors=256
 
 
 " Keybinds {{{1
-
-imap <C-f> <plug>(fzf-complete-path)
 
 map Y y$
 nnoremap <silent> gG G
@@ -243,7 +263,7 @@ nnoremap L gt
 nmap <silent> j gj
 nmap <silent> k gk
 
-" adds insert deleting to undo list
+" backwards deleting in insert mode adds to undo list
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
@@ -251,6 +271,11 @@ nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
+
+" nnoremap <silent> <C-S-h> :wincmd H<CR>
+" nnoremap <silent> <C-S-j> :wincmd J<CR>
+" nnoremap <silent> <C-S-k> :wincmd K<CR>
+" nnoremap <silent> <C-S-l> :wincmd L<CR>
 
 
 " leader {{{2
@@ -260,34 +285,33 @@ let mapleader=" "
 set notimeout
 set ttimeout
 
-
 nnoremap <leader>/ /\C^\s*
 noremap <leader>: :<C-f>i
-
 
 nnoremap <leader>j i<CR><Esc>k$hl
 nnoremap <leader>k J
 nnoremap <leader>K Jx
 
+nnoremap <silent> <leader>c :q<CR>
 
 nnoremap <silent> <leader>S :SudoEdit<bar>nnoremap <buffer> <silent> <leader>w :SudoWrite<CR>
 
-
-nnoremap <silent> <leader>tf :Autoformat<CR>
-nnoremap <silent> <leader>tw :set wrap!<CR>
-nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tc :ChecklistToggleCheckbox<CR>
-nnoremap <silent> <leader>tu :UndotreeToggle<CR>
-nnoremap <silent> <leader>tm :LivedownToggle<CR>
-nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
-nnoremap <leader>tr :%s/
-nnoremap <leader>tU :UltiSnipsEdit 
+nnoremap <silent> <leader>tC :ColorToggle<CR>
+nnoremap <silent> <leader>tf :Autoformat<CR>
 nnoremap <leader>th :Help 
+nnoremap <silent> <leader>tm :LivedownToggle<CR>
+nnoremap <leader>tr :%s/
+nnoremap <silent> <leader>tR :RangerCurrentFile<CR>
+nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
+nnoremap <silent> <leader>tu :UndotreeToggle<CR>
+nnoremap <leader>tU :UltiSnipsEdit 
 nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
-nnoremap <silent> <leader>tr :Ranger<CR>
+nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tx :Chmod +x<CR>
 
 
+" nnoremap <silent> <leader>tr :vsplit <bar> RangerCurrentFile<CR>
 " nnoremap <silent> <leader>tR :!! %<CR>
 " nnoremap <silent> <leader>tW :StripWhitespace<CR>
 " nnoremap <silent> <leader>tr :retab<CR>
@@ -298,9 +322,9 @@ nnoremap <silent> <leader>tx :Chmod +x<CR>
 
 " buffers {{{3
 
-nnoremap <silent> <leader>bx :w<CR>:bdelete<CR>
-nnoremap <silent> <leader>bd :bd<CR>
-nnoremap <silent> <leader>bD :bd!<CR>
+nnoremap <silent> <leader>bx :w<CR>:Bclose<CR>
+nnoremap <silent> <leader>bd :Bclose<CR>
+nnoremap <silent> <leader>bD :Bclose!<CR>
 nnoremap <silent> <leader>bf :FZF<CR>
 nnoremap <silent> <leader>bF :FZF ~<CR>
 nnoremap <silent> <leader>bn :enew<CR>
@@ -314,18 +338,10 @@ nnoremap <leader>bM :Move
 nnoremap <silent> <leader>q :qa<CR>
 nnoremap <silent> <leader>C :cq<CR>
 nnoremap <silent> <leader>x :silent w<CR>:qa<CR>
-nnoremap <silent> <leader>! :bd!<CR>:qa<CR>
+nnoremap <silent> <leader>! :Bclose!<CR>:qa<CR>
 
 nnoremap <silent> <leader>w :silent w<CR>
 nnoremap <silent> <leader>W :silent wa<CR>
-
-
-" windows {{{3
-
-nnoremap <silent> <leader>sv :vs<CR>
-nnoremap <silent> <leader>ss :split<CR>
-
-nnoremap <silent> <leader>c :q<CR>
 
 
 " editing {{{3
@@ -342,8 +358,9 @@ map <silent> <leader>f <Plug>(easymotion-j)
 map <silent> <leader>F <Plug>(easymotion-k)
 
 nnoremap <silent> ' :Buffers<CR>
-nnoremap <silent> \ :b#<CR>
-nnoremap <silent> ? :Tags<CR>
+nnoremap <silent> <Tab> :b#<CR>
+
+nnoremap <silent> <leader>l :Lines<CR>
 
 
 " files {{{3
@@ -353,7 +370,7 @@ nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
 nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
-nnoremap <silent> <leader>eg :edit ~/Drive/Notes/technology/programming_guide.md<CR>
+nnoremap <silent> <leader>eg :edit ~/drive/notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
@@ -389,13 +406,11 @@ nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR
 
 " unmaps {{{2
 
-autocmd VimEnter * noremap # <Nop>
-map q: <Nop>
-" map # <Nop>
-map <Enter> <Nop>
-map <Backspace> <Nop>
-" map ' <Nop>
-" map ? <Nop>
+autocmd VimEnter * map # <Nop>
+autocmd VimEnter * map ? <Nop>
+autocmd VimEnter * map q: <Nop>
+autocmd VimEnter * map <Enter> <Nop>
+autocmd VimEnter * map <Backspace> <Nop>
 
 
 " prevent yanking {{{2
@@ -435,14 +450,14 @@ endfunction
 " noremap <silent> n nzz
 " noremap <silent> N Nzz
 
-noremap g; g;zz
-noremap g, g,zz
+" noremap g; g;zz
+" noremap g, g,zz
 
 noremap <silent> ; zz
 
-noremap za zazz
-noremap zc zczz
-noremap zo zozz
+" noremap za zazz
+" noremap zc zczz
+" noremap zo zozz
 noremap zj zjzz
 noremap zk zkzz
 noremap zv zvzz
@@ -456,12 +471,11 @@ noremap zm zmzz
 
 " Settings {{{1
 
-set tags=/home/cjbassi/.config/nvim/tags
-
 filetype plugin indent on
 
 set encoding=utf-8
 
+" Completion window height
 set pumheight=10
 
 " set concealcursor = "nc"
@@ -476,18 +490,23 @@ set nostartofline
 set splitbelow
 set splitright
 
+" how many lines from end of screen to start scrolling
 set scrolloff=1
 set sidescrolloff=5
 
+" for search and replace incrementally
 set inccommand=nosplit
 
- " Remove ESC delay in Vim
+" Remove ESC delay in Vim
 set timeoutlen=1000 ttimeoutlen=0
 
 set noshowmode
 set noshowcmd
+set noruler
 
+" Wraps lines on linebreak
 set linebreak
+
 set display+=lastline
 
 " Delete comment character when joining commented lines"
@@ -499,6 +518,7 @@ set hidden
 
 set clipboard=unnamedplus
 
+" Spell checking doesn't check capitalization
 set spellcapcheck=
 
 set sessionoptions-=options
@@ -510,28 +530,17 @@ set nowrap
 set iskeyword-=_
 " set iskeyword="a-z" TODO
 
-" autocmd BufRead * normal zv;
-
-" autocmd FileType * normal! zv
-" autocmd BufReadPre,FileReadPre * normal! zv
-
 " autocmd FileType mail autocmd BufWritePre normal! gggqG
 " \<C-o>\<C-o>"<CR>
 
-" autocmd InsertLeave,WinEnter * let &l:foldmethod=g:oldfoldmethod
-" autocmd InsertEnter,WinLeave * let g:oldfoldmethod=&l:foldmethod | setlocal foldmethod=manual
-
 autocmd FileType man call ManFileType()
-
 function! ManFileType()
-
     :IndentLinesDisable
 
     setlocal nonumber
     setlocal norelativenumber
 
     " call matchdelete(4) TODO
-
 endfunction
 
 
@@ -539,9 +548,6 @@ autocmd FileType mail set spell textwidth=0 wrap
 
 " Disables comments on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-autocmd BufRead,BufNewFile *.md,*.txt
-            \ let b:indentLine_enabled = 0 |
 
 autocmd VimResized,TabEnter * wincmd =
 
@@ -557,18 +563,33 @@ set diffopt+=vertical
 
 " folding {{{2
 
+set foldenable
+
 set foldmethod=marker
+autocmd FileType c,cpp,java,javascript setlocal foldmethod=syntax
+
 set foldcolumn=2
-" set foldlevel=99
+set foldlevel=0
+set foldnestmax=1
+
+" autocmd InsertLeave,WinEnter * let &l:foldmethod=g:oldfoldmethod
+" autocmd InsertEnter,WinLeave * let g:oldfoldmethod=&l:foldmethod | setlocal foldmethod=manual
+
+" set foldclose=all
+" set foldopen=all
+
 " autocmd BufReadPost * normal zR
-autocmd FileType python setlocal foldmethod=indent
-autocmd FileType cpp,java,javascript setlocal foldmethod=syntax
+
+" noremap zk zczkza
+
+nnoremap <silent> z] :<C-u>silent! normal! zc<CR>zjzozz
+nnoremap <silent> z[ :<C-u>silent! normal! zc<CR>zkzo[zzz
 
 
-augroup java_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
+" autocmd BufRead * normal zv;
+
+" autocmd FileType * normal! zv
+" autocmd BufReadPre,FileReadPre * normal! zv
 
 " set foldtext=MyFoldText()
 " function! MyFoldText()
@@ -625,13 +646,6 @@ autocmd CursorMovedI * let CursorColumnI = col('.')
 autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
 
 
-" statusline {{{2
-
-set ruler
-set laststatus=2
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-
 " swap, backup, and undo {{{2
 
 set directory=~/.config/nvim/swap//
@@ -656,29 +670,6 @@ endfunction
 command! -nargs=1 -complete=help Help call FullScreenHelp(<f-args>)
 cabbrev help Help
 cabbrev h Help
-
-
-" smart :bd {{{2
-" If more than 1 buffer exists close current buffer while retaining splits.
-" bangs(!) are supported as well as arguments after :bd (:bd index.html, etc)
-function! SmartBD(bang, argu)
-		if a:bang == 1
-			let bang = "!"
-		else
-			let bang = " "
-		endif
-
-		if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-			execute "bd" . bang . " " . a:argu
-		else
-			bp
-			execute "bd" . bang . " #"
-		endif
-
-endfunction
-
-command! -bang -nargs=* BD call SmartBD(<bang>0, <q-args>)
-" cnoreabbrev bd BD
 
 " }}}
 
@@ -738,21 +729,15 @@ set completeopt-=preview
 
 " fzf {{{2
 
-" set rtp+=/usr/bin/fzf
-" set rtp+=~/.fzf
-" let $FZF_DEFAULT_COMMAND = 'sudo ag --hidden --ignore .git -g ""'
-" let $FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+imap <C-f> <plug>(fzf-complete-path)
+
 let g:fzf_layout = { 'down': '40%' }
-" let g:fzf_layout = { 'window': '10split enew' }
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
     \ 'ctrl-v': 'vsplit' }
 
 function! s:fzf_statusline()
-  " Override statusline as you like
-    " highlight fzf1 guifg=161 guibg=233
-    " highlight fzf2 guifg=246 guibg=233
     highlight fzf1 guifg=normal guibg=#002b36
     highlight fzf2 guifg=normal guibg=#002b36
     setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
@@ -776,9 +761,14 @@ let g:fzf_colors =
   \ 'header':  ['#268bd2'] }
 
 
+" set rtp+=/usr/bin/fzf
+" set rtp+=~/.fzf
+" let g:fzf_layout = { 'window': '10split enew' }
+
+
 " incsearch.vim{{{2
 
-autocmd FileType * map / <Plug>(incsearch-stay)
+" autocmd FileType * map / <Plug>(incsearch-stay)
 
 " let g:incsearch#auto_nohlsearch = 1
 
@@ -792,6 +782,11 @@ autocmd FileType * map / <Plug>(incsearch-stay)
 " Loupe {{{2
 
 let g:LoupeCenterResults=0
+
+
+" tern_for_vim {{{2
+
+autocmd FileType javascript nnoremap <buffer> <C-]> :TernDef<CR>
 
 
 " UltiSnips{{{2
@@ -808,6 +803,8 @@ let g:ultisnips_python_style = "google"
 let g:ultisnips_javascript = {
     \ 'semi': 'never',
     \ }
+
+autocmd FileType snippets set foldlevel=0
 
 
 " vim-airline {{{2
@@ -852,8 +849,8 @@ let g:airline#extensions#promptline#enabled = 1
 
 " vim-asterisk{{{2
 
-map *  <Plug>(asterisk-z*)
-map g* <Plug>(asterisk-gz*)
+" map *  <Plug>(asterisk-z*)
+" map g* <Plug>(asterisk-gz*)
 
 
 " vim-auto-origami {{{2
@@ -906,10 +903,41 @@ set updatetime=250
 " for leader
 let g:gitgutter_map_keys = 0
 
+highlight GitGutterAdd guibg=#073642
+highlight GitGutterChange guibg=#073642
+highlight GitGutterDelete guibg=#073642
+highlight GitGutterChangeDelete guibg=#073642
+
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+
+nmap <Leader>hp <Plug>GitGutterPreviewHunk
+
+omap ih <Plug>GitGutterTextObjectInnerPending
+omap ah <Plug>GitGutterTextObjectOuterPending
+xmap ih <Plug>GitGutterTextObjectInnerVisual
+xmap ah <Plug>GitGutterTextObjectOuterVisual
+
 
 " vim-go {{{2
 
 let g:go_fmt_fail_silently = 0
+
+
+" indentLine {{{2
+
+autocmd BufRead,BufNewFile *.md,*.txt
+            \ let b:indentLine_enabled = 0 |
+
+let g:indentLine_color_term = 239
+
+
+" vim-ipmotion {{{2
+
+let g:ip_skipfold=1
 
 
 " vim-javascript {{{2
@@ -917,9 +945,21 @@ let g:go_fmt_fail_silently = 0
 let g:javascript_plugin_flow = 1
 
 
+" vim-jedi {{{2
+
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_definitions_command = "<C-]>"
+
+
 " vim-json{{{2
 
 let g:vim_json_syntax_conceal = 0
+
+
+" vim-jsx {{{2
+
+let g:jsx_ext_required = 0
 
 
 " vim-lastplace {{{2
@@ -937,6 +977,11 @@ let g:markdown_fenced_languages = ['html', 'cpp', 'java', 'python', 'bash=sh']
 " vim-move {{{2
 
 let g:move_key_modifier = 'S'
+
+
+" vim-node {{{2
+
+set runtimepath^=~/.loca/share/nvim/plugged/vim-node
 
 
 " vim-operator-flashy{{{2
@@ -992,6 +1037,25 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 " }}}
+" vim-textobj-comment {{{2
+
+let g:textobj_comment_no_default_key_mappings = 1
+
+xmap ax <Plug>(textobj-comment-a)
+omap ax <Plug>(textobj-comment-a)
+
+xmap ix <Plug>(textobj-comment-i)
+omap ix <Plug>(textobj-comment-i)
+
+xmap aX <Plug>(textobj-comment-big-a)
+omap aX <Plug>(textobj-comment-big-a)
+
+
+" vim-vertical-move {{{2
+
+map [v <Plug>(edgemotion-k)
+map ]v <Plug>(edgemotion-j)
+
 
 " Old Configs {{{1
 
@@ -1323,3 +1387,34 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
 "     " let g:vimpager.passthrough = 0
 " endif
+
+" }}}
+
+
+" Plug 'craigemery/vim-autotag'
+
+" map <C-n> :NERDTreeToggle<CR>
+" let NERDTreeIgnore = ['\.pyc$', '\.o$']
+" let NERDTreeMinimalUI=1
+
+" smart :bd {{{2
+" If more than 1 buffer exists close current buffer while retaining splits.
+" bangs(!) are supported as well as arguments after :bd (:bd index.html, etc)
+" function! SmartBD(bang, argu)
+" 		if a:bang == 1
+" 			let bang = "!"
+" 		else
+" 			let bang = " "
+" 		endif
+
+" 		if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+" 			execute "bd" . bang . " " . a:argu
+" 		else
+" 			bp
+" 			execute "bd" . bang . " #"
+" 		endif
+
+" endfunction
+
+" command! -bang -nargs=* BD call SmartBD(<bang>0, <q-args>)
+" " cnoreabbrev bd BD

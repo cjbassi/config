@@ -1,19 +1,51 @@
-snippet base "Sets up Makefile" b
-.PHONY: clean, mrproper
-CC = ${1:compiler}
-CFLAGS = -g -Wall
+snippet cpp "C++ Makefile" b
+EXE      = ${1}
 
-all: $2
+CC       = g++
+CFLAGS   = -g -Wall
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+SRCFILES = $(shell find . -name "*.cpp")
+OBJFILES = $(SRCFILES:.cpp=.o)
 
-${2:out}: ${3:$2.o}
+.PHONY: all
+all: $(EXE)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $<
+
+$(EXE): $(OBJFILES)
 	$(CC) $(CFLAGS) -o $@ $+
 
+.PHONY: clean
 clean:
-	rm -f *.o core.*
+	$(RM) *.o vgcore.*
 
-mrproper: clean
-	rm -f $2
+.PHONY: distclean
+distclean: clean
+	$(RM) $(EXE)
+endsnippet
+snippet java "Java Makefile" bw
+EXE      = ${1}
+
+JC       = javac
+JAVA	 = java
+JFLAGS   = -g
+
+SRCFILES = $(shell find . -name "*.java")
+DEPFILES = $(shell find . -name "*.java" | grep -v p1.java)
+CLAFILES = $(SRCFILES:.java=.class)
+
+.PHONY: all
+all: $(EXE).java
+
+$(EXE).java: $(DEPFILES)
+	$(JC) $(JFLAGS) $@
+
+.PHONY: run
+run:
+	$(JAVA) $(EXE)
+
+.PHONY: clean
+clean:
+	$(RM) *.class
 endsnippet

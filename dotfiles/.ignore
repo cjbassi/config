@@ -1,22 +1,28 @@
+.antigen
 .cache
-.ccache/
+.cargo
+.ccache
+.dbus
+.electron
 .fzf
 .gnome
 .local
+.node-gyp
+.npm
 .pki
-
-.config/google-chrome
-.config/nvim/undo
-.config/discord
-
-.histfile
+.pylint.d
+.w3m
 
 go
 
+.histfile
 
+.config/discord
+.config/google-chrome
 
-.cargo
-.links
-.mozilla
-.mplayer
-.vim
+config/old_configs
+
+node_modules
+.git
+
+drive/other/RES-2017-3-18-1489869468-5_4_3.resbackup

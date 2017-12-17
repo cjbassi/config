@@ -5,11 +5,12 @@
 nm-applet &
 blueman-applet &
 redshift-gtk &
+insync start --synchronous-full &
 
 
 # Visuals {{{1
 
-feh --bg-scale ~/Downloads/wallpaper* &
+./.fehbg &
 xrandr --output eDP-1 --mode 1920x1080 --rate 60 --scale 1x1 &
 # compton -b &
 unclutter --timeout 1 &

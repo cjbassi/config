@@ -1,10 +1,118 @@
 snippet base "React boilerplate" b
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 
+class $1 extends React.Component {
+	render() {
+		return (
+			${0:<div>
+			</div>}
+		)
+	}
+}
 
-$0
-
-
-ReactDOM.render(, document.getElementById('root'))
+ReactDOM.render(<${1:App} />, document.getElementById('root'))
+endsnippet
+snippet ri "Import React"
+import React from 'react'
+endsnippet
+snippet rid "Import react-dom"
+import ReactDOM from 'react-dom'
+endsnippet
+snippet rcwm "React componentWillMount"
+componentWillMount() {
+	$1
+}
+endsnippet
+snippet rcdm "React componentDidMount"
+componentDidMount() {
+	$1
+}
+endsnippet
+snippet rcwrp "React componentWillReceiveProps"
+componentWillReceiveProps(nextProps) {
+	$1
+}
+endsnippet
+snippet rscu "React shouldComponentUpdate"
+shouldComponentUpdate(nextProps, nextState) {
+	$1
+}
+endsnippet
+snippet rcwup "React componentWillUpdate"
+componentWillUpdate(nextProps, nextState) {
+	$1
+}
+endsnippet
+snippet rcdu "React componentDidUpdate"
+componentDidUpdate(prevProps, prevState) {
+	$1
+}
+endsnippet
+snippet rcwu "React componentWillUnmount"
+componentWillUnmount() {
+	$1
+}
+endsnippet
+snippet rhc "React handleChange" bw
+handleChange = (event) => {
+	this.setState({${1:value}: event.target.value})
+}
+endsnippet
+snippet rhs "React handleSubmit" bw
+handleSubmit = (event) => {
+	event.preventDefault()
+}
+endsnippet
+snippet rcla "React class definition"
+class ${1:ClassName} extends React.Component {
+	render() {
+		return (
+			${0:<div>
+			</div>}
+		)
+	}
+}
+endsnippet
+snippet rfunc "description" bw
+const ${1: } = ({ ${2: } }) => {
+	return (
+		<div>$0
+		</div>
+	)
+}
+endsnippet
+snippet rcon "React default constructor"
+constructor(props) {
+	super(props)
+	this.state = {
+		$0
+	}
+}
+endsnippet
+snippet rdp "React defaultProps"
+static defaultProps = {
+	$1: $2,
+}
+endsnippet
+snippet rpt "React propTypes" w
+static propTypes = {
+	$0
+}
+endsnippet
+snippet rdr "React render DOM"
+ReactDOM.render(<${1:App} />, document.getElementById('root'))
+endsnippet
+snippet rss "React setState"
+this.setState({
+	$0
+})
+endsnippet
+snippet ris "description" bw
+import styled from 'styled-components'
+endsnippet
+snippet styled "description" bw
+const ${1: } = styled.${2: }\`
+	${0:${VISUAL}}
+\`
 endsnippet

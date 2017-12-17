@@ -11,6 +11,6 @@ Each folder corresponds to a given application's configuration files except for:
 * `peripherals`
     * files to configure the mouse and keyboard
 * `scripts`
-    * various scripts, although currenlty just a simple webserver
+    * various scripts, although currently just a simple webserver
 
 Any additions or suggestions are welcome!

@@ -67,7 +67,7 @@ font-4 = Font Awesome:pixelsize=12;3
 
 modules-left = i3 blue_arrow1 i3index blue_arrow2
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
-modules-right = screen left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
+modules-right = backlight left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
 
 tray-position = right
 tray-background = ${colors.light}
@@ -197,9 +197,13 @@ label-unfocused =
 label-urgent =
 
 
-[module/screen]
+[module/backlight]
 type = internal/xbacklight
-/* output = eDP-1 */
+
+/* card = intel_backlight */
+
+output = eDP-1
+
 /* enable-scroll = false */
 /* format = <label> */
 /* label = %percentage%% */

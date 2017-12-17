@@ -1,6 +1,16 @@
 {
     "root": true,
 
+    "plugins": [
+        "react"
+    ],
+
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+
     "parser": "babel-eslint",
 
     "env": {
@@ -19,19 +29,36 @@
         }
     },
 
-    "plugins": [
-        "react"
-    ],
-
     "rules": {
+        "arrow-body-style": "off",
+        "arrow-parens": ["error", "always"],
+        "block-spacing": "error",
+        "camelcase": "error",
+        "comma-dangle": "off",
         "dot-location": ["error", "property"],
-        "eqeqeq": "error",
+        "eqeqeq": ["error", "smart"],
+        "function-paren-newline": "off",
+        "handle-callback-err": "error",
         "lines-between-class-members": ["error", "always"],
         "max-len": ["warn", 80],
-        "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 0, "maxEOF": 0}],
+        "new-parens": "error",
+        "no-extend-native": "off",
+        "no-multiple-empty-lines": ["error", {
+            "max": 1,
+            "maxBOF": 0,
+            "maxEOF": 0
+        }],
+        "no-plusplus": "off",
         "no-tabs": "error",
         "no-undef": "error",
+        "no-unexpected-multiline": "error",
         "no-unused-vars": "warn",
+        "object-curly-newline": "off",
+        "prefer-arrow-callback": "error",
+        "quotes": ["error", "single", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }],
         "semi": ["error", "never"],
         "space-before-function-paren": ["error", {
             "anonymous": "always",
@@ -39,7 +66,9 @@
             "asyncArrow": "always"
         }],
 
+        "react/jsx-filename-extension": "off",
         "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error"
+        "react/jsx-uses-vars": "error",
+        "react/no-unused-state": "warn"
     }
 }

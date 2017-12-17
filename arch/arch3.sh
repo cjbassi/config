@@ -7,7 +7,8 @@ rm -f arch3.sh
 
 # Directories {{{1
 
-mkdir -p Downloads
+mkdir -p downloads
+mkdir -p drive
 mkdir -p .ssh
 mkdir -p .config
 mkdir -p .mutt
@@ -37,7 +38,7 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 hub clone cjbassi/config
 
-sudo ln -s /home/cjbassi/config/scripts/webserver/webserver.js /usr/bin/ws
+# sudo ln -s /home/cjbassi/config/scripts/webserver/webserver.js /usr/bin/ws
 
 
 # symlinks {{{2
@@ -63,17 +64,6 @@ ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
 
 
-# Services {{{1
-
-sudo systemctl enable NetworkManager.service
-
-sudo systemctl enable suspend@cjbassi
-
-sudo systemctl enable bluetooth
-
-sudo systemctl enable insync@cjbassi.service
-
-
 # pip and npm {{{1
 
 # sudo pip install glances
@@ -84,6 +74,8 @@ sudo pip install --upgrade neovim
 sudo pip install pipenv
 
 sudo pip install colour-valgrind
+
+sudo pip install tldr
 
 # sudo pip install khal
 # sudo pip install vdirsyncer
@@ -96,13 +88,16 @@ sudo npm install -g eslint-plugin-react
 sudo npm install -g babel-eslint
 sudo npm install -g create-react-app
 
+# sudo npm install -g eslint-config-airbnb
+# sudo npm install -g eslint-config-google
+# sudo npm install -g eslint-config-standard
+# sudo npm install -g eslint-config-xo
+
+export PKG=eslint-config-airbnb
+npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs sudo npm install -g --save-dev "$PKG@latest"
+
 # sudo npm install -g gtop
 # sudo npm install -g vtop
-
-
-# Zsh {{{1
-
-curl -L git.io/antigen > .antigen.zsh
 
 
 # Neovim {{{1
@@ -121,15 +116,16 @@ bash ~/config/arch/pacaur.sh
 export EDITOR=nvim
 
 pacaur -S --noconfirm --noedit alacritty-git
+pacaur -S --noconfirm --noedit antigen-git
 # pacaur -S --noconfirm --noedit discord
 # pacaur -S --noconfirm --noedit dropbox
 pacaur -S --noconfirm --noedit gitflow-avh-git
 pacaur -S --noconfirm --noedit google-chrome
+# pacaur -S --noconfirm --noedit google-cloud-sdk
 # pacaur -S --noconfirm --noedit heroku-cli
 pacaur -S --noconfirm --noedit insync
 pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
-pacaur -S --noconfirm --noedit universal-ctags-git
 pacaur -S --noconfirm --noedit yakyak-git
 
 pacaur -S --noconfirm --noedit i3-gaps-next-git
@@ -138,7 +134,25 @@ pacaur -S --noconfirm --noedit i3lock-color-git
 pacaur -S --noconfirm --noedit polybar-git
 
 
+# Services {{{1
+
+sudo systemctl enable NetworkManager
+
+sudo systemctl enable suspend@cjbassi
+
+sudo systemctl enable bluetooth
+
+sudo systemctl enable insync@cjbassi
+
+sudo systemctl enable tlp
+sudo systemctl enable tlp-sleep
+sudo systemctl mask system-rfkill
+sudo systemctl mask system-rfkill.socket
+
+
 # Old Configs {{{1
+
+# pacaur -S --noconfirm --noedit universal-ctags-git
 
 # pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
 

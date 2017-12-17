@@ -47,6 +47,10 @@ bindsym Escape              mode "default"
 }
 
 
+bindsym $mod+Shift+minus    move scratchpad
+bindsym $mod+minus          scratchpad show
+
+
 bindsym $mod+d              exec rofi -show run -terminal $term
 bindsym $mod+Shift+e        exec ~/config/rofi/rofi_power.sh
 
@@ -61,7 +65,7 @@ bindsym $mod+g              exec google-chrome-stable
 bindsym $mod+y              exec yakyak
 
 
-# Workspaces {{{1
+# Workspaces {{{2
 
 bindsym $mod+1              workspace 1
 bindsym $mod+2              workspace 2
@@ -86,10 +90,10 @@ bindsym $mod+Shift+9        move container to workspace 9
 bindsym $mod+Shift+0        move container to workspace 10
 
 
-# Windows {{{1
+# Window Settings {{{1
 
-new_window pixel
-new_float pixel
+new_window pixel 2
+new_float pixel 2
 
 client.focused #FF0000 #FF0000 #FF0000 #FF0000
 

@@ -1,4 +1,4 @@
-#  vim: ft=sh
+# vim: ft=sh
 
 # Sources {{{1
 
@@ -30,11 +30,10 @@ export PATH="$PATH:$GOPATH/bin"
 
 # fzf {{{1
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
-export FZF_CTRL_T_COMMAND='sudo ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND='rg --files'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.fzf_solarized.sh
 
 

@@ -1,24 +1,22 @@
 # vim: ft=sh
 
-# {{{1
+# Interactivity {{{1
 
 # If not running interactively, don't do anything
 [[ -z "$PS1" ]] && return
 
-export TERM='xterm-256color'
-
 
 # Antigen {{{1
 
-source ~/.antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 
 antigen bundle zdharma/fast-syntax-highlighting
 antigen theme bhilburn/powerlevel9k powerlevel9k
-# antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle bobthecow/git-flow-completion
 antigen bundle zsh-users/zsh-completions
 antigen bundle unixorn/git-extra-commands
+
+antigen apply
 
 
 # History {{{1
@@ -30,7 +28,7 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="(l(| *)|ll(| *)|cd(| *)|rm(| *)|pwd|r|ranger(| *))"
+export HISTORY_IGNORE="(l(| *)|ll(| *)|cd(| *)|(|* )rm(| *)|pwd|r|ranger(| *)|m|e?|cd?|make)"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -47,7 +45,8 @@ export KEYTIMEOUT=1
 
 zle -N edit-command-line
 autoload -Uz edit-command-line
-bindkey -M vicmd '^v' edit-command-line
+bindkey -M viins '^e' edit-command-line
+bindkey -M vicmd '^e' edit-command-line
 
 bindkey '^w' backward-kill-word
 bindkey '^?' backward-delete-char
@@ -63,6 +62,8 @@ bindkey -r '^z'
 
 # Settings {{{1
 
+export TERM='xterm-256color'
+
 setopt globdots         # Tab completion includes dot files
 setopt kshglob          # Addes more globbs
 CASE_SENSITIVE="true"   # Case sensitive completion
@@ -71,14 +72,26 @@ stty -ixon              # Disables C-s and C-q
 # makes escape not move cursor back
 function zle-keymap-select
 {
-    if [[ $KEYMAP = 'vicmd' ]] ; then
+    if [[ $KEYMAP == 'vicmd' ]] ; then
         CURSOR=$CURSOR+1
     fi
 }
 zle -N zle-keymap-select
 
 # lists directory contents on cd
-function chpwd() { ll }
+function chpwd()
+{
+    ll
+}
+
+function my-accept-line
+{
+    if [[ $BUFFER != "" ]] ; then
+        zle accept-line
+    fi
+}
+zle -N my-accept-line
+bindkey '^M' my-accept-line
 
 # completion
 autoload -Uz compinit
@@ -115,6 +128,8 @@ alias fdisk='fdisk --color=auto'
 # Arch colors
 alias cower='cower --color=auto'
 alias pactree='pactree -c'
+
+export TLDR_COLOR_BLANK="white"
 
 
 # Copy/Paste {{{1
@@ -156,22 +171,25 @@ bindkey -a 'Y' zsh-Y-x-selection
 
 # fzf {{{2
 
-bindkey -r '^r'
-bindkey -r '^[c'
-
 zle -N fzf-history-widget
 zle -N fzf-file-widget
 zle -N fzf-cd-widget
+
+bindkey -r '^[c'
+bindkey -M viins -r '^t'
 
 bindkey -M vicmd '/' fzf-history-widget
 
 bindkey -M vicmd '^f' fzf-file-widget
 bindkey -M viins '^f' fzf-file-widget
 
-bindkey -M viins -r '^t'
-
 bindkey -M vicmd '^r' fzf-cd-widget
 bindkey -M viins '^r' fzf-cd-widget
+
+
+# pipenv {{{2
+
+export PIPENV_VENV_IN_PROJECT=1
 
 
 # Powerlevel9k {{{2
@@ -229,6 +247,7 @@ function ranger()
         command ranger "$@"
     fi
 }
+
 
 # }}}
 
@@ -332,8 +351,6 @@ function ranger()
 # }
 
 
-
-
 # function zle-line-init zle-keymap-select {
 #     RPS1="%{$fg_bold[yellow]%} [% $KEYMAP]%  %{$reset_color%}"
 #     # RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
@@ -384,4 +401,9 @@ function ranger()
 #     tmux setw automatic-rename on
 
 # zsh-autosuggestions {{{2
+
 # bindkey '^I' autosuggest-accept
+
+# 2}}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

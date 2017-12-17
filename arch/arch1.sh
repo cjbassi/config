@@ -53,12 +53,12 @@ pacstrap /mnt                                                   \
     xcape                                                       \
     xf86-input-wacom                                            \
 \
-    python python-pip                                           \
+    python python-pip python-jedi tk                            \
     jdk8-openjdk                                                \
     gdb valgrind                                                \
     go                                                          \
     nodejs npm                                                  \
-    astyle eslint autopep8 flake8 tidy rust-racer               \
+    astyle eslint autopep8 flake8 tidy rust-racer python-pylint \
     hub                                                         \
     mono                                                        \
 \
@@ -75,7 +75,6 @@ pacstrap /mnt                                                   \
     adobe-source-han-sans-otc-fonts                             \
 \
     neovim                                                      \
-    fzf                                                         \
     zsh                                                         \
     ranger w3m                                                  \
     rofi                                                        \
@@ -85,7 +84,8 @@ pacstrap /mnt                                                   \
     neomutt                                                     \
 \
     git tig                                                     \
-    the_silver_searcher                                         \
+    ripgrep                                                     \
+    fd-rs                                                       \
     openssh sshfs                                               \
     parted                                                      \
     gnome-keyring libsecret                                     \
@@ -103,6 +103,8 @@ pacstrap /mnt                                                   \
     docker                                                      \
     whois                                                       \
     moreutils                                                   \
+    zathura-pdf-mupdf                                           \
+    tlp x86_energy_perf_policy acpi_call tp_smapi               \
 
 # imagemagick
 # gimp poppler-glib

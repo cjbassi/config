@@ -5,11 +5,9 @@ snippet snip "Ultisnips snippet definition" b
 ${0:${VISUAL}}
 `!p snip.rv = "endsnippet"`
 endsnippet
-
 snippet vis "${VISUAL}" i
 \$\{VISUAL\}
 endsnippet
-
-snippet $ "$ snippet"
-${${1:1}:${0:${VISUAL}}}
+snippet $ "$ snippet" i
+${${1:1}:${2: ${VISUAL}}}$0
 endsnippet
