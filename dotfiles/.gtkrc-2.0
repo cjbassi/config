@@ -1,0 +1,5 @@
+gtk-icon-theme-name = "Breeze"
+gtk-theme-name = "Breeze"
+gtk-application-prefer-dark-theme = false
+gtk-font-name = "DejaVu Sans 11"
+gtk-menu-popup-delay = 0

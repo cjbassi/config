@@ -12,11 +12,8 @@ insync start --synchronous-full &
 
 ./.fehbg &
 xrandr --output eDP-1 --mode 1920x1080 --rate 60 --scale 1x1 &
-# compton -b &
 unclutter --timeout 1 &
-
-# sets brightness to 50%
-# echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness &
+# polybar main &
 
 
 # Volume {{{1
@@ -28,7 +25,7 @@ pactl set-source-volume 1 100%
 # Keyboard {{{1
 
 xmodmap ~/config/peripherals/xkeys &
-xbindkeys -p &
+sxhkd &
 xset r rate 400 25 &
 
 
@@ -42,6 +39,6 @@ xinput --disable 'SynPS/2 Synaptics TouchPad' &
 text-aid-too --editor 'alacritty -t nvim -e nvim' &
 
 
-# Exec i3 {{{1
+# Exec wm {{{1
 
-exec i3
+exec bspwm

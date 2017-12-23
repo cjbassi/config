@@ -2,7 +2,6 @@
 
 # Keybinds {{{1
 
-set $term alacritty
 set $mod Mod1
 
 
@@ -27,7 +26,7 @@ bindsym $mod+p              focus parent
 bindsym $mod+c              focus child
 
 
-bindsym $mod+Shift+r        restart
+# bindsym $mod+Shift+r        restart
 bindsym $mod+Shift+q        kill
 
 
@@ -49,20 +48,6 @@ bindsym Escape              mode "default"
 
 bindsym $mod+Shift+minus    move scratchpad
 bindsym $mod+minus          scratchpad show
-
-
-bindsym $mod+d              exec rofi -show run -terminal $term
-bindsym $mod+Shift+e        exec ~/config/rofi/rofi_power.sh
-
-bindsym $mod+Return         exec $term
-bindsym $mod+Shift+Return   exec ~/config/i3/current_dir.sh
-
-bindsym $mod+e              exec $term -t nvim -e nvim
-bindsym $mod+r              exec $term -t ranger -e ranger
-bindsym $mod+m              exec $term -t neomutt -e neomutt
-
-bindsym $mod+g              exec google-chrome-stable
-bindsym $mod+y              exec yakyak
 
 
 # Workspaces {{{2
@@ -100,16 +85,14 @@ client.focused #FF0000 #FF0000 #FF0000 #FF0000
 gaps inner 5
 gaps outer 0
 
-focus_follows_mouse no
+focus_follows_mouse yes
 smart_borders on
 smart_gaps on
 
 
 # Scripts {{{1
 
-exec_always --no-startup-id     ~/config/polybar/launch.sh
-exec_always --no-startup-id     ~/config/i3/home_setup.sh eDP-1 HDMI-1
-
+# exec_always --no-startup-id     ~/config/i3/home_setup.sh eDP-1 HDMI-1
 exec_always --no-startup-id     xcape -t 300
 
 

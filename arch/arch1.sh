@@ -48,7 +48,7 @@ pacstrap /mnt                                                   \
     feh                                                         \
     scrot                                                       \
 \
-    xbindkeys                                                   \
+    sxhkd                                                       \
     xclip                                                       \
     xcape                                                       \
     xf86-input-wacom                                            \
@@ -105,6 +105,8 @@ pacstrap /mnt                                                   \
     moreutils                                                   \
     zathura-pdf-mupdf                                           \
     tlp x86_energy_perf_policy acpi_call tp_smapi               \
+    breeze-gtk                                                  \
+    bspwm                                                       \
 
 # imagemagick
 # gimp poppler-glib

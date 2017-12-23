@@ -13,7 +13,7 @@ mkdir -p .ssh
 mkdir -p .config
 mkdir -p .mutt
 mkdir -p ~/.config/nvim/{backup,undo,swap}
-mkdir -p ~/.config/{ranger,ncmpcpp}
+mkdir -p ~/.config/{ranger,ncmpcpp,gtk-3.0}
 mkdir -p test
 mkdir -p public_html
 
@@ -38,9 +38,6 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 hub clone cjbassi/config
 
-# sudo ln -s /home/cjbassi/config/scripts/webserver/webserver.js /usr/bin/ws
-
-
 # symlinks {{{2
 
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
@@ -48,20 +45,31 @@ sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
-# ln -sf ~/config/compton/compton.conf ~/.config/
-
 ln -sf ~/config/dotfiles/.* ~/
 
 ln -sf ~/config/mutt/* ~/.mutt/
 
 ln -sf ~/{,.}config/alacritty
-ln -sf ~/{,.}config/i3
+ln -sf ~/{,.}config/bspwm
 ln -sf ~/{,.}config/polybar
 ln -sf ~/{,.}config/rofi
+ln -sf ~/{,.}config/sxhkd
+ln -sf ~/{,.}config/tig
 
+ln -sf ~/config/gtk-3.0/* ~/.config/gtk-3.0/
 ln -sf ~/config/ncmpcpp/* ~/.config/ncmpcpp/
 ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
+
+# }}}
+
+# Neovim {{{1
+
+# vim plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+nvim +PlugInstall +xall
 
 
 # pip and npm {{{1
@@ -100,15 +108,6 @@ npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/:
 # sudo npm install -g vtop
 
 
-# Neovim {{{1
-
-# vim plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-nvim +PlugInstall +xall
-
-
 # AUR {{{1
 
 bash ~/config/arch/pacaur.sh
@@ -126,9 +125,8 @@ pacaur -S --noconfirm --noedit google-chrome
 pacaur -S --noconfirm --noedit insync
 pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
-pacaur -S --noconfirm --noedit yakyak-git
 
-pacaur -S --noconfirm --noedit i3-gaps-next-git
+# pacaur -S --noconfirm --noedit i3-gaps-next-git
 pacaur -S --noconfirm --noedit i3lock-color-git
 
 pacaur -S --noconfirm --noedit polybar-git

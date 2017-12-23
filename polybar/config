@@ -58,14 +58,13 @@ bottom = true
 background =    ${colors.background}
 foreground =    ${colors.foreground}
 
-
 font-0 = fixed:pixelsize=12;3
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;3
 font-3 = siji:pixelsize=10;3
 font-2 = Hack:pixelsize=20;4
-font-4 = Font Awesome:pixelsize=12;3
+font-4 = FontAwesome:pixelsize=12;3
 
-modules-left = i3 blue_arrow1 i3index blue_arrow2
+modules-left = bspwm
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
 modules-right = backlight left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
 
@@ -79,6 +78,7 @@ content = " "
 content-font = 2
 content-foreground = ${colors.base03}
 content-background = ${colors.blue}
+
 
 [module/blue_arrow2]
 type = custom/text
@@ -95,6 +95,7 @@ content-font = 2
 content-foreground = ${colors.dark}
 content-background = ${colors.light}
 
+
 [module/right_arrow_light]
 type = custom/text
 content = " "
@@ -109,6 +110,7 @@ content = " "
 content-font = 2
 content-foreground = ${colors.dark}
 content-background = ${colors.light}
+
 
 [module/left_arrow_light]
 type = custom/text
@@ -129,6 +131,7 @@ label-background = ${colors.dark}
 
 label = %date%
 
+
 [module/day]
 type = internal/date
 interval = 1
@@ -139,6 +142,7 @@ label-foreground = ${colors.foreground}
 label-background = ${colors.dark}
 
 label = %date%
+
 
 [module/time]
 type = internal/date
@@ -152,38 +156,103 @@ label-background = ${colors.light}
 label = %time%
 
 
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state>
+
+label-focused-occupied = 
+label-focused-occupied-foreground = ${colors.base2}
+label-focused-occupied-background = ${colors.background}
+label-focused-occupied-padding = 1
+
+label-focused-urgent = 
+label-focused-urgent-foreground = ${colors.base2}
+label-focused-urgent-background = ${colors.background}
+label-focused-urgent-padding = 1
+
+label-focused-empty = 
+label-focused-empty-foreground = ${colors.base2}
+label-focused-empty-background = ${colors.background}
+label-focused-empty-padding = 1
+
+label-occupied = 
+label-occupied-foreground = ${colors.blue}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 1
+
+label-urgent = 
+label-urgent-foreground = ${colors.blue}
+label-urgent-background = ${colors.background}
+label-urgent-padding = 1
+
+label-empty = 
+label-empty-foreground = ${colors.blue}
+label-empty-background = ${colors.background}
+label-empty-padding = 1
+
+
+[module/i32]
+type = internal/i3
+
+format = <label-state>
+
+label-focused-occupied = 
+label-focused-occupied-foreground = ${colors.base2}
+label-focused-occupied-background = ${colors.background}
+label-focused-occupied-padding = 1
+
+label-focused-urgent = 
+label-focused-urgent-foreground = ${colors.base2}
+label-focused-urgent-background = ${colors.background}
+label-focused-urgent-padding = 1
+
+label-focused-empty = 
+label-focused-empty-foreground = ${colors.base2}
+label-focused-empty-background = ${colors.background}
+label-focused-empty-padding = 1
+
+label-occupied = 
+label-occupied-foreground = ${colors.blue}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 1
+
+label-urgent = 
+label-urgent-foreground = ${colors.blue}
+label-urgent-background = ${colors.background}
+label-urgent-padding = 1
+
+label-empty = 
+label-empty-foreground = ${colors.blue}
+label-empty-background = ${colors.background}
+label-empty-padding = 1
 [module/i3]
 type = internal/i3
+
 format = <label-state><label-mode>
 
 index-sort = true
-enable-click = false
-enable-scroll = false
-
-ws-icon-0 = 0;*
-ws-icon-default = ○
-
-; Only show workspaces on the same output as the bar
+enable-click = true
+enable-scroll = true
 pin-workspaces = true
+wrapping-scroll = false
 
 label-mode = " %mode% "
-label-mode-foreground = ${colors.red}
-label-mode-background = ${colors.background}
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.dark}
 
-; focused = Active workspace on focused monitor
-label-focused = " ● "
+label-focused = " %index% "
 label-focused-foreground = ${colors.blue}
-label-focused-background = ${colors.base03}
+label-focused-background = ${colors.dark}
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = " %icon% "
+label-unfocused = " %index% "
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.base03}
+label-unfocused-background = ${colors.dark}
 
-; urgent = Workspace with urgency hint set
-label-urgent = " ● "
+label-urgent = " %index% "
 label-urgent-foreground = ${colors.red}
-label-urgent-background = ${colors.base03}
+label-urgent-background = ${colors.dark}
+
 
 [module/i3index]
 type = internal/i3
@@ -198,15 +267,16 @@ label-urgent =
 
 
 [module/backlight]
-type = internal/xbacklight
+type = internal/backlight
 
-/* card = intel_backlight */
+card = intel_backlight
 
 output = eDP-1
 
-/* enable-scroll = false */
-/* format = <label> */
-/* label = %percentage%% */
+; enable-scroll = false
+; format = <label>
+; label = %percentage%%
+
 
 [module/temperature]
 type = internal/temperature
@@ -288,10 +358,20 @@ interval = 1
 format-prefix = " RAM "
 format-prefix-foreground = ${colors.cyan}
 format-prefix-background = ${colors.light}
-/* label = %percentage_used%% */
+; label = %percentage_used%%
 label = "%gb_free%"
 label-foreground = ${colors.cyan}
 label-background = ${colors.light}
+
+
+[module/xwindow]
+type = internal/xwindow
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label = " %title% "
+; label-maxlen = 50
 
 
 [module/volume]

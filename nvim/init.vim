@@ -2,6 +2,11 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'Shougo/context_filetype.vim'
+    Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
+
+" todo {{{2
+
 " Plug 'LucHermitte/VimFold4C'
 
 " Plug 'OmniSharp/omnisharp-vim'
@@ -52,10 +57,10 @@ Plug 'cjbassi/vim-closer'
 " completion {{{2
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Rip-Rip/clang_complete'
-Plug 'zchee/deoplete-jedi'
-Plug 'racer-rust/vim-racer'
-Plug 'Shougo/neco-vim'
+    Plug 'Rip-Rip/clang_complete'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'racer-rust/vim-racer'
+    Plug 'Shougo/neco-vim'
 
 
 " editing {{{2
@@ -91,7 +96,7 @@ Plug 'editorconfig/editorconfig-vim'
 " fzf {{{2
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf.vim'
 
 
 " Git {{{2
@@ -136,10 +141,12 @@ Plug 'justinmk/vim-ipmotion'
 " snippets {{{2
 
 Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+    Plug 'honza/vim-snippets'
 
 
 " syntax {{{2
+
+Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -167,12 +174,11 @@ Plug 'ekalinin/Dockerfile.vim'
 " textobjects {{{2
 
 Plug 'kana/vim-textobj-user'
-
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'coderifous/textobj-word-column.vim'
-Plug 'kana/vim-textobj-entire'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-function'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'coderifous/textobj-word-column.vim'
+    Plug 'kana/vim-textobj-entire'
+    Plug 'glts/vim-textobj-comment'
+    Plug 'kana/vim-textobj-function'
 
 
 " utilities {{{2
@@ -189,29 +195,19 @@ Plug 'tpope/vim-eunuch'  " unix tools
 " vim-airline {{{2
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'ntpeters/vim-airline-colornum'
-
-
-" vim-operator-flashy {{{2
-
-Plug 'kana/vim-operator-user'
-Plug 'haya14busa/vim-operator-flashy'
-
-
-" vim-precious {{{2
-
-Plug 'Shougo/context_filetype.vim'
-Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'ntpeters/vim-airline-colornum'
 
 
 " visuals {{{2
 
+Plug 'tjdevries/overlength.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'  " shows marks
 Plug 'icymind/NeoSolarized'
+Plug 'kana/vim-operator-user'
+    Plug 'haya14busa/vim-operator-flashy'
 
 
 " }}}
@@ -219,6 +215,11 @@ Plug 'icymind/NeoSolarized'
 call plug#end()
 
 autocmd BufNewFile,BufRead *.ts set filetype=javascript.jsx
+if &encoding == "utf-8"
+    set listchars=tab:│\ ,trail:⋅,nbsp:␣
+else
+    set listchars=tab:\|\ ,trail:.,nbsp:~
+endif
 
 " Visuals {{{1
 
@@ -235,14 +236,13 @@ set cursorline
 
 hi javaScript ctermfg=244 guifg=244
 
+" highlights shebang
 autocmd FileType * syn match shebang "\%^#!.*$"
 hi def link shebang PreProc
 
 " hi LineNr guibg=NONE guifg=237
 " hi Normal guibg=NONE
 " hi StatusLine guibg=232 guifg=241
-
-" call matchadd('ColorColumn', '\%81v.\+', -1, 4) TODO
 
 " hi Search guibg=peru guifg=wheat
 
@@ -266,6 +266,10 @@ nmap <silent> k gk
 " backwards deleting in insert mode adds to undo list
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+" keep selected text selected when fixing indentation
+vnoremap < <gv
+vnoremap > >gv
 
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
@@ -372,13 +376,14 @@ nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>eg :edit ~/drive/notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
-nnoremap <silent> <leader>ei3 :edit ~/config/i3/config<CR>
+nnoremap <silent> <leader>ek :edit ~/config/sxhkd/sxhkdrc<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
 nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>
 nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>er :edit ~/.config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>et :edit ~/config/alacritty/alacritty.yml<CR>
 nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>ew :edit ~/config/bspwm/bspwmrc<CR>
 nnoremap <silent> <leader>ex :edit ~/config/dotfiles/.xinitrc<CR>
 nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
 
@@ -474,6 +479,8 @@ noremap zm zmzz
 filetype plugin indent on
 
 set encoding=utf-8
+
+set mouse=a
 
 " Completion window height
 set pumheight=10
@@ -782,6 +789,14 @@ let g:fzf_colors =
 " Loupe {{{2
 
 let g:LoupeCenterResults=0
+
+
+" overlength.vim {{{2
+
+let overlength#default_overlength = 80
+let g:overlength#default_to_textwidth = 0
+
+" autocmd FileType man call overlength#disable()
 
 
 " tern_for_vim {{{2

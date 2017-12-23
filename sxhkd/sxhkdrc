@@ -1,0 +1,87 @@
+# meta_keys {{{1
+
+XF86Audio{Lower,Raise}Volume
+    amixer set Master 5%{-,+} unmute
+
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+XF86AudioMicMute
+    pactl set-source-mute 1 toggle
+
+XF86MonBrightness{Down,Up}
+    echo $(($(cat /sys/class/backlight/intel_backlight/brightness) {-,+} 106)) | sudo tee /sys/class/backlight/intel_backlight/brightness
+
+
+# applications {{{1
+
+alt + {e,r,m}
+	alacritty -e {nvim,ranger,neomutt}
+
+alt + Return
+	alacritty
+
+alt + g
+	chrome
+
+alt + d
+	rofi -show run -terminal $term
+alt + shift + e
+	~/config/scripts/rofi_power.sh
+
+
+# bspwm {{{1
+
+alt + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+alt + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+alt + ctrl + space
+	bspc node -p cancel
+
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+alt + {_,shift + }q
+	bspc node -{c,k}
+
+alt + f
+	bspc desktop -l next
+alt + {space,f}
+    state={floating,fullscreen}; \
+    bspc query -N -n "focused.$\{state\}" && state=tiled; \
+    bspc node -t "$state"
+
+# expand a window by moving one of its side outward
+super + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+alt + space + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+alt + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# # set the window state
+# alt + {t,shift + t,s,f}
+# 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+alt + {p,c}
+	bspc node -f @{parent,second}
+
+# Switch focus between the windows of the current desktop
+alt + {_,shift + } Tab
+    bspc node -f {next,prev}.local
+
+alt + x
+    tdrop -ma -w -4 -y "$PANEL_HEIGHT" -s dropdown alacritty
+
+
+# reload sxhkd, polybar, and wm {{{1
+
+alt + shift + r
+	~/config/bspwm/bspwmrc
