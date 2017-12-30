@@ -64,7 +64,7 @@ font-3 = siji:pixelsize=10;3
 font-2 = Hack:pixelsize=20;4
 font-4 = FontAwesome:pixelsize=12;3
 
-modules-left = bspwm
+modules-left = bspwm left_arrow1
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
 modules-right = backlight left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
 
@@ -72,15 +72,15 @@ tray-position = right
 tray-background = ${colors.light}
 
 
-[module/blue_arrow1]
+[module/left_arrow1]
 type = custom/text
 content = " "
 content-font = 2
-content-foreground = ${colors.base03}
-content-background = ${colors.blue}
+content-foreground = ${colors.dark}
+content-background = ${colors.background}
 
 
-[module/blue_arrow2]
+[module/left_arrow2]
 type = custom/text
 content = " "
 content-font = 2
@@ -163,107 +163,33 @@ format = <label-state>
 
 label-focused-occupied = 
 label-focused-occupied-foreground = ${colors.base2}
-label-focused-occupied-background = ${colors.background}
+label-focused-occupied-background = ${colors.dark}
 label-focused-occupied-padding = 1
 
 label-focused-urgent = 
 label-focused-urgent-foreground = ${colors.base2}
-label-focused-urgent-background = ${colors.background}
+label-focused-urgent-background = ${colors.dark}
 label-focused-urgent-padding = 1
 
 label-focused-empty = 
 label-focused-empty-foreground = ${colors.base2}
-label-focused-empty-background = ${colors.background}
+label-focused-empty-background = ${colors.dark}
 label-focused-empty-padding = 1
 
 label-occupied = 
 label-occupied-foreground = ${colors.blue}
-label-occupied-background = ${colors.background}
+label-occupied-background = ${colors.dark}
 label-occupied-padding = 1
 
 label-urgent = 
 label-urgent-foreground = ${colors.blue}
-label-urgent-background = ${colors.background}
-label-urgent-padding = 1
-
-label-empty = 
-label-empty-foreground = ${colors.blue}
-label-empty-background = ${colors.background}
-label-empty-padding = 1
-
-
-[module/i32]
-type = internal/i3
-
-format = <label-state>
-
-label-focused-occupied = 
-label-focused-occupied-foreground = ${colors.base2}
-label-focused-occupied-background = ${colors.background}
-label-focused-occupied-padding = 1
-
-label-focused-urgent = 
-label-focused-urgent-foreground = ${colors.base2}
-label-focused-urgent-background = ${colors.background}
-label-focused-urgent-padding = 1
-
-label-focused-empty = 
-label-focused-empty-foreground = ${colors.base2}
-label-focused-empty-background = ${colors.background}
-label-focused-empty-padding = 1
-
-label-occupied = 
-label-occupied-foreground = ${colors.blue}
-label-occupied-background = ${colors.background}
-label-occupied-padding = 1
-
-label-urgent = 
-label-urgent-foreground = ${colors.blue}
-label-urgent-background = ${colors.background}
-label-urgent-padding = 1
-
-label-empty = 
-label-empty-foreground = ${colors.blue}
-label-empty-background = ${colors.background}
-label-empty-padding = 1
-[module/i3]
-type = internal/i3
-
-format = <label-state><label-mode>
-
-index-sort = true
-enable-click = true
-enable-scroll = true
-pin-workspaces = true
-wrapping-scroll = false
-
-label-mode = " %mode% "
-label-mode-foreground = ${colors.foreground}
-label-mode-background = ${colors.dark}
-
-label-focused = " %index% "
-label-focused-foreground = ${colors.blue}
-label-focused-background = ${colors.dark}
-
-label-unfocused = " %index% "
-label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.dark}
-
-label-urgent = " %index% "
-label-urgent-foreground = ${colors.red}
 label-urgent-background = ${colors.dark}
+label-urgent-padding = 1
 
-
-[module/i3index]
-type = internal/i3
-format = <label-state>
-
-label-focused = " %name% "
-label-focused-foreground = ${colors.dark}
-label-focused-background = ${colors.blue}
-
-label-unfocused =
-label-urgent =
+label-empty = 
+label-empty-foreground = ${colors.blue}
+label-empty-background = ${colors.dark}
+label-empty-padding = 1
 
 
 [module/backlight]
@@ -364,16 +290,6 @@ label-foreground = ${colors.cyan}
 label-background = ${colors.light}
 
 
-[module/xwindow]
-type = internal/xwindow
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-label = " %title% "
-; label-maxlen = 50
-
-
 [module/volume]
 type = internal/volume
 
@@ -406,88 +322,3 @@ ramp-volume-2-background = ${colors.dark}
 ; ramp-volume-3 = "  "
 ; ramp-volume-3-foreground = ${colors.blue}
 ; ramp-volume-3-background = ${colors.dark_grey}
-
-
-# Old Configs
-
-
-; [module/my_filesystem]
-; type = custom/script
-; interval = 30
-; label = %{F#0a81f5}/%{F-} : %output%B
-; exec = ~/config/filesystem.sh
-; format-prefix = " "
-; format-underline = #006400
-
-
-; [module/xkeyboard]
-; type = internal/xkeyboard
-; blacklist-0 = num lock
-
-; format-prefix = " "
-; format-prefix-foreground = ${colors.foreground-alt}
-; format-prefix-underline = ${colors.secondary}
-
-; label-layout = %layout%
-; label-layout-underline = ${colors.secondary}
-
-; label-indicator-padding = 2
-; label-indicator-margin = 1
-; label-indicator-background = ${colors.secondary}
-; label-indicator-underline = ${colors.secondary}
-
-
-; [module/xwindow]
-; type = internal/xwindow
-; label = %title:0:30:...%
-
-
-; [colors]
-; ;background = ${xrdb:color0:#222}
-; background = #222
-; background-alt = #444
-; ;foreground = ${xrdb:color7:#222}
-; foreground = #dfdfdf
-; foreground-alt = #555
-; primary = #ffb52a
-; secondary = #e60053
-; alert = #bd2c40
-; background =    #131313
-; foreground =    #b2b2b2
-
-
-; [settings]
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-
-
-; [bar/main]
-;offset-x = 1%
-;offset-y = 1%
-;monitor = ${env:MONITOR:HDMI-1}
-; line-size = 3
-; line-color = #f00
-
-; border-size = 0
-; border-color = #00000000
-
-; padding-left = 0
-; padding-right = 2
-
-; module-margin-left = 1
-; module-margin-right = 0
-; tray-padding = 4
-; tray-transparent = true
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev

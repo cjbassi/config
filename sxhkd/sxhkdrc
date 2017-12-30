@@ -27,7 +27,7 @@ alt + g
 alt + d
 	rofi -show run -terminal $term
 alt + shift + e
-	~/config/scripts/rofi_power.sh
+	rofi_power.sh
 
 
 # bspwm {{{1

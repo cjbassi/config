@@ -26,6 +26,7 @@ alias eM='e Makefile'
 # Changing Dir {{{1
 
 alias cda='cd ~/drive/arch'
+alias cdb='cd ~/bin'
 alias cdc='cd /home/cjbassi/config'
 alias cdC='cd /home/cjbassi/.config'
 alias cdd='cd /home/cjbassi/drive'
@@ -174,39 +175,3 @@ alias gcc='gcc -g -Wall'
 alias docker='sudo docker'
 alias mount='sudo mount'
 alias umount='sudo umount'
-
-
-# Old Configs {{{1
-
-# math() {
-#     echo $(($@))
-# }
-
-# rm() {
-#     /usr/bin/rm -Iv "$@"
-#     reset
-# }
-
-# cd() {
-#     /usr/bin/cd "$@"
-#     ll
-# }
-
-
-# rm() {
-#     # ll $4
-#     # ignore -I
-#     #
-
-#     # echo -n 'rm: remove # '
-#     #/usr/bin/rm: remove 1 argument recursively?
-#     echo -n 'rm: continue with removal? '
-#     read
-#     if [[ $REPLY == 'y' ]] || [[ $REPLY == 'yes' ]]; then
-#         /usr/bin/rm "$@"
-#     fi
-# }
-
-# alias pwd='echo -e "${PWD/${HOME}/~}"'
-
-# alias ag='sudo ag --hidden --ignore .git'

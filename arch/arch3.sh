@@ -47,6 +47,8 @@ sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
 ln -sf ~/config/dotfiles/.* ~/
 
+ln -sf ~/config/bin ~/bin
+
 ln -sf ~/config/mutt/* ~/.mutt/
 
 ln -sf ~/{,.}config/alacritty
@@ -124,6 +126,7 @@ pacaur -S --noconfirm --noedit google-chrome
 # pacaur -S --noconfirm --noedit heroku-cli
 pacaur -S --noconfirm --noedit insync
 pacaur -S --noconfirm --noedit neofetch-git
+pacaur -S --noconfirm --noedit nerd-fonts-complete
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 
 # pacaur -S --noconfirm --noedit i3-gaps-next-git
@@ -146,37 +149,3 @@ sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
-
-
-# Old Configs {{{1
-
-# pacaur -S --noconfirm --noedit universal-ctags-git
-
-# pacaur -S --noconfirm --noedit gitflow-zshcompletion-avh
-
-# pacaur -S --noconfirm --noedit neomutt-git
-# pacaur -S --noconfirm --noedit neomutt
-
-# pacaur -S --noconfirm --noedit zsh-fast-syntax-highlighting-git
-
-# cd Downloads
-# git clone https://github.com/rkitover/vimpager
-# cd vimpager
-# sudo make install
-# cd ..
-# rm -rf vimpager
-# cd ~
-
-#cd Downloads
-#git clone https://github.com/powerline/fonts.git
-#cd fonts
-#./install.sh
-#cd ..
-#rm -rf fonts
-#cd ~
-
-# try safepipe highlight --config-file=/home/cjbassi/config/highlight/custom-solarized-dark.theme -s custom-solarized-dark --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
-
-# ranger --copy-config=scope
-
-# gpg --recv-keys 5FAF0A6EE7371805

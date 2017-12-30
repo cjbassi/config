@@ -17,12 +17,11 @@ LC_TIME="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 
 
-# ccache {{{1
+# Path {{{1
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
-
-# Golang {{{1
+export PATH=$PATH:$HOME/bin
 
 export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"

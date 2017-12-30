@@ -1,13 +1,13 @@
 #!/bin/bash
 
-$1 = eDP-1
-$2 = HDMI-1
+main='eDP-1'
+external='HDMI-1'
 
-if [[ -n $( xrandr | grep "$2 connected" ) ]] ; then
-    xrandr --output $2 --mode 1920x1080 --rate 60 --scale 1x1
-    xrandr --output $1 --off
+if [[ -n $( xrandr | grep "$external connected" ) ]] ; then
+    xrandr --output $external --mode 1920x1080 --rate 60 --scale 1x1
+    xrandr --output $main --off
 else
-    xrandr --output $1 --mode 1920x1080 --rate 60 --scale 1x1
+    xrandr --output $main --mode 1920x1080 --rate 60 --scale 1x1
 fi
 
 # if [[ ]] ; then
