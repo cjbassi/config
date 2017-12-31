@@ -13,7 +13,6 @@ insync start --synchronous-full &
 ./.fehbg &
 xrandr --output eDP-1 --mode 1920x1080 --rate 60 --scale 1x1 &
 unclutter --timeout 1 &
-# polybar main &
 
 
 # Volume {{{1
@@ -34,9 +33,15 @@ xset r rate 400 25 &
 xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1 &
 xinput --disable 'SynPS/2 Synaptics TouchPad' &
 
+
 # Text-Aid-Too {{{1
 
 text-aid-too --editor 'alacritty -t nvim -e nvim' &
+
+
+# python home_setup script {{{1
+
+home_setup_daemon.py &
 
 
 # Exec wm {{{1

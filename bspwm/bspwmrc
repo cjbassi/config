@@ -2,7 +2,7 @@
 
 xcape -t 300 &
 
-~/config/scripts/home_setup.sh
+home_setup.py
 
 pkill sxhkd
 sxhkd &
