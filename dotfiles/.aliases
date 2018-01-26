@@ -6,6 +6,7 @@ alias ea1='e ~/config/arch/arch1.sh'
 alias ea2='e ~/config/arch/arch2.sh'
 alias ea3='e ~/config/arch/arch3.sh'
 alias eal='e ~/config/dotfiles/.aliases'
+alias ed='e ~/drive/notes/other/dictionary.md'
 alias ee='e ~/config/dotfiles/.editorconfig'
 alias eg='e ~/drive/notes/technology/programming_guide.md'
 alias eh='e ~/.histfile'
@@ -16,7 +17,7 @@ alias ep='e ~/config/polybar/config'
 alias er='e ~/.config/ranger/rc.conf'
 alias et='e ~/config/alacritty/alacritty.yml'
 alias ev='e ~/config/nvim/init.vim'
-alias ew='e ~/config/bspwm/bspwmrc'
+alias ew='e ~/config/i3/config'
 alias ex='e ~/config/dotfiles/.xinitrc'
 alias ez='e ~/config/dotfiles/.zshrc'
 
@@ -37,7 +38,8 @@ alias cdp='cd /home/cjbassi/drive/programming/projects'
 alias cdP='cd /home/cjbassi/.local/share/nvim/plugged'
 alias cdr='cd /home/cjbassi/.config/ranger'
 alias cds='cd /home/cjbassi/drive/school/cabrillo'
-alias cdt='cd /home/cjbassi/test'
+alias cdt='cd /home/cjbassi/temp'
+alias cdT='cd /home/cjbassi/trash'
 alias cdS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
 alias cdv='cd /home/cjbassi/.config/nvim'
 
@@ -124,6 +126,8 @@ function random_words() { shuf /usr/share/dict/cracklib-small -rn }
 
 # Settings Aliases {{{1
 
+alias sudo='sudo '
+
 alias rg='rg -S --hidden'
 
 alias git='hub'
@@ -161,8 +165,10 @@ alias w='w -f'
 
 alias cp='cp -iv'
 alias mv='mv -iv'
-alias rm='rm -Idv'
-alias rmdir='rmdir -v'
+# alias rm='rm -Idv'
+# alias rmdir='rmdir -v'
+alias rm='rmtrash -Id'
+alias rmdir='rmdirtrash'
 alias mkdir='mkdir -vp'
 alias ln='ln -v'
 
@@ -173,5 +179,4 @@ alias g++='g++ -g -Wall'
 alias gcc='gcc -g -Wall'
 
 alias docker='sudo docker'
-alias mount='sudo mount'
-alias umount='sudo umount'
+alias docker-compose='sudo docker-compose'

@@ -2,12 +2,6 @@
 
 # Pre-installation {{{1
 
-# Verify the boot mode
-#ls /sys/firmware/efi/efivars
-
-# Conect to the internet
-#ping archlinux.org
-
 # Update the system clock
 timedatectl set-ntp true
 
@@ -26,7 +20,7 @@ timedatectl set-ntp true
 #mkdir /mnt/boot
 #mount /dev/sda2 /mnt/boot
 
-# Installation {{{1
+# Packages {{{1
 
 # Sync database, update keyring, and update mirrors with Reflector
 pacman -Sy
@@ -106,12 +100,10 @@ pacstrap /mnt                                                   \
     zathura-pdf-mupdf                                           \
     tlp x86_energy_perf_policy acpi_call tp_smapi               \
     breeze-gtk                                                  \
-    bspwm                                                       \
-
-# imagemagick
-# gimp poppler-glib
-# inkscape
-# ghostscript
+    i3-gaps                                                     \
+    krita                                                       \
+    gimp                                                        \
+    lsof                                                        \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \
@@ -129,8 +121,6 @@ pacstrap /mnt                                                   \
 # autofs
 # rustup
 # xf86-input-synaptics
-# xdotool
-# wmctrl
 # alsa-utils
 # dialog wpa_supplicant
 
@@ -143,4 +133,4 @@ genfstab -U /mnt >> /mnt/etc/fstab
 curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch2.sh > /mnt/arch2.sh
 
 # Chroot
-arch-chroot /mnt
+arch-chroot /mnt ./arch2.sh

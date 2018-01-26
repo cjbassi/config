@@ -100,8 +100,6 @@ compinit -u
 
 # Colors {{{1
 
-# LS_COLORS=$LS_COLORS:'di=1;38;5;27:' ; export LS_COLORS # directory colors
-
 alias ls='ls --color=auto'
 
 alias dir='dir --color=auto'

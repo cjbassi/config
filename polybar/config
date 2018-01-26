@@ -32,8 +32,8 @@ blue =          #268bd2
 cyan =          #2aa198
 green =         #859900
 
-light =         ${colors.base02}
-dark =          ${colors.base03}
+light =         ${colors.light_grey}
+dark =          ${colors.dark_grey}
 
 background =    ${colors.light}
 foreground =    ${colors.base2}
@@ -64,12 +64,12 @@ font-3 = siji:pixelsize=10;3
 font-2 = Hack:pixelsize=20;4
 font-4 = FontAwesome:pixelsize=12;3
 
-modules-left = bspwm left_arrow1
+modules-left = i3 left_arrow1 i3index left_arrow2 i3mode
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
-modules-right = backlight left_arrow_dark volume left_arrow_light ram left_arrow_dark cpu left_arrow_light temperature left_arrow_dark battery left_arrow_light
+modules-right = left_arrow_dark pomodoro left_arrow_light volume left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
 
 tray-position = right
-tray-background = ${colors.light}
+tray-background = ${colors.dark}
 
 
 [module/left_arrow1]
@@ -77,7 +77,7 @@ type = custom/text
 content = " "
 content-font = 2
 content-foreground = ${colors.dark}
-content-background = ${colors.background}
+content-background = ${colors.blue}
 
 
 [module/left_arrow2]
@@ -85,7 +85,7 @@ type = custom/text
 content = " "
 content-font = 2
 content-foreground = ${colors.blue}
-content-background = ${colors.base02}
+content-background = ${colors.light}
 
 
 [module/right_arrow_dark]
@@ -118,6 +118,54 @@ content = " "
 content-font = 2
 content-foreground = ${colors.light}
 content-background = ${colors.dark}
+
+
+[module/i3]
+type = internal/i3
+format = <label-state>
+
+index-sort = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+pin-workspaces = true
+
+label-focused = " ● "
+label-focused-foreground = ${colors.blue}
+label-focused-background = ${colors.dark}
+
+label-unfocused = " ○ "
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.dark}
+
+label-urgent = " ● "
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.dark}
+
+
+[module/i3index]
+type = internal/i3
+format = <label-state>
+
+label-focused = " %name% "
+label-focused-foreground = ${colors.dark}
+label-focused-background = ${colors.blue}
+
+label-unfocused =
+label-urgent =
+
+
+[module/i3mode]
+type = internal/i3
+format = <label-state><label-mode>
+
+label-mode = " %mode% "
+label-mode-foreground = ${colors.red}
+label-mode-background = ${colors.light}
+
+label-focused =
+label-unfocused =
+label-urgent =
 
 
 [module/date]
@@ -156,42 +204,6 @@ label-background = ${colors.light}
 label = %time%
 
 
-[module/bspwm]
-type = internal/bspwm
-
-format = <label-state>
-
-label-focused-occupied = 
-label-focused-occupied-foreground = ${colors.base2}
-label-focused-occupied-background = ${colors.dark}
-label-focused-occupied-padding = 1
-
-label-focused-urgent = 
-label-focused-urgent-foreground = ${colors.base2}
-label-focused-urgent-background = ${colors.dark}
-label-focused-urgent-padding = 1
-
-label-focused-empty = 
-label-focused-empty-foreground = ${colors.base2}
-label-focused-empty-background = ${colors.dark}
-label-focused-empty-padding = 1
-
-label-occupied = 
-label-occupied-foreground = ${colors.blue}
-label-occupied-background = ${colors.dark}
-label-occupied-padding = 1
-
-label-urgent = 
-label-urgent-foreground = ${colors.blue}
-label-urgent-background = ${colors.dark}
-label-urgent-padding = 1
-
-label-empty = 
-label-empty-foreground = ${colors.blue}
-label-empty-background = ${colors.dark}
-label-empty-padding = 1
-
-
 [module/backlight]
 type = internal/backlight
 
@@ -220,7 +232,7 @@ label-warn-foreground = ${colors.red}
 
 format = "<ramp> <label>"
 format-foreground = ${colors.yellow}
-format-background = ${colors.light}
+format-background = ${colors.dark}
 format-warn = "<ramp> <label-warn>"
 
 ramp-0 = " "
@@ -239,13 +251,13 @@ poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.green}
-format-charging-background = ${colors.dark}
+format-charging-background = ${colors.light}
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-foreground = ${colors.green}
-format-discharging-background = ${colors.dark}
+format-discharging-background = ${colors.light}
 format-full = <label-full>
 format-full-foreground = ${colors.green}
-format-full-background = ${colors.dark}
+format-full-background = ${colors.light}
 
 label-charging = " %percentage%%"
 label-discharging = "%percentage%%"
@@ -272,10 +284,10 @@ type = internal/cpu
 interval = 5
 format-prefix = " CPU "
 format-prefix-foreground = ${colors.violet}
-format-prefix-background = ${colors.dark}
+format-prefix-background = ${colors.light}
 label = %percentage%%
 label-foreground = ${colors.violet}
-label-background = ${colors.dark}
+label-background = ${colors.light}
 
 
 [module/ram]
@@ -283,11 +295,11 @@ type = internal/memory
 interval = 1
 format-prefix = " RAM "
 format-prefix-foreground = ${colors.cyan}
-format-prefix-background = ${colors.light}
+format-prefix-background = ${colors.dark}
 ; label = %percentage_used%%
 label = "%gb_free%"
 label-foreground = ${colors.cyan}
-label-background = ${colors.light}
+label-background = ${colors.dark}
 
 
 [module/volume]
@@ -302,23 +314,44 @@ format-volume = <ramp-volume><label-volume>
 
 label-volume = %percentage%%
 label-volume-foreground = ${colors.blue}
-label-volume-background = ${colors.dark}
+label-volume-background = ${colors.light}
 label-muted = " MUTED"
 label-muted-foreground = ${colors.blue}
-label-muted-background = ${colors.dark}
+label-muted-background = ${colors.light}
 
 ramp-volume-0 = "  "
 ramp-volume-0-foreground = ${colors.blue}
-ramp-volume-0-background = ${colors.dark}
+ramp-volume-0-background = ${colors.light}
 ramp-volume-1 = "  "
 ramp-volume-1-foreground = ${colors.blue}
-ramp-volume-1-background = ${colors.dark}
+ramp-volume-1-background = ${colors.light}
 ramp-volume-2 = "  "
 ramp-volume-2-foreground = ${colors.blue}
-ramp-volume-2-background = ${colors.dark}
+ramp-volume-2-background = ${colors.light}
 
 ; mapping = true
 
 ; ramp-volume-3 = "  "
 ; ramp-volume-3-foreground = ${colors.blue}
 ; ramp-volume-3-background = ${colors.dark_grey}
+
+[module/pomodoro]
+type = custom/script
+; Use pomodoro glyphs in Nerd fonts
+; exec = pymodoro --break-prefix " " --pomodoro-prefix " " --pomodoro  --empty  --break  --length 5
+; Use default symbols
+exec = pymodoro -sc 'mpg123 %s &' -sp '/home/cjbassi/config/polybar/light.mp3' -l 1 -p '-' -b '-' -e '-'
+
+label = %output%
+label-padding = 1
+label-background = ${colors.dark}
+
+tail = true
+interval = 0
+
+; Start or reset the timer
+click-left = if [ -e ~/.pomodoro_session ]; then rm ~/.pomodoro_session; else echo "25 5" > ~/.pomodoro_session; fi
+; Increase pomodoro time
+click-right = echo "$((`cut .pomodoro_session -d ' ' -f 1`+5)) 5" > .pomodoro_session
+; Reduce pomodoro time
+click-middle = echo "$((`cut .pomodoro_session -d ' ' -f 1`-5)) 5" > .pomodoro_session

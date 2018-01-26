@@ -1,0 +1,17 @@
+snippet main "description" bw
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	$0
+}
+endsnippet
+snippet base "description" bw
+package `!v expand('%:p:h:t')`
+
+import (
+)
+endsnippet

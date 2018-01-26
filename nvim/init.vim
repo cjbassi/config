@@ -5,6 +5,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/context_filetype.vim'
     Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
 
+Plug 'digitalrounin/vim-yaml-folds'
+
 " todo {{{2
 
 " Plug 'LucHermitte/VimFold4C'
@@ -146,6 +148,8 @@ Plug 'sirver/ultisnips'
 
 " syntax {{{2
 
+Plug 'chr4/nginx.vim'
+
 Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -169,6 +173,8 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
+
+" Plug 'fatih/vim-go'
 
 
 " textobjects {{{2
@@ -214,12 +220,7 @@ Plug 'kana/vim-operator-user'
 
 call plug#end()
 
-autocmd BufNewFile,BufRead *.ts set filetype=javascript.jsx
-if &encoding == "utf-8"
-    set listchars=tab:│\ ,trail:⋅,nbsp:␣
-else
-    set listchars=tab:\|\ ,trail:.,nbsp:~
-endif
+autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=javascript.jsx
 
 " Visuals {{{1
 
@@ -373,6 +374,7 @@ nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
 nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
 nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
+nnoremap <silent> <leader>ed :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>eg :edit ~/drive/notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
@@ -383,7 +385,7 @@ nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>er :edit ~/.config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>et :edit ~/config/alacritty/alacritty.yml<CR>
 nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
-nnoremap <silent> <leader>ew :edit ~/config/bspwm/bspwmrc<CR>
+nnoremap <silent> <leader>ew :edit ~/config/i3/config<CR>
 nnoremap <silent> <leader>ex :edit ~/config/dotfiles/.xinitrc<CR>
 nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
 
@@ -537,26 +539,23 @@ set nowrap
 set iskeyword-=_
 " set iskeyword="a-z" TODO
 
-" autocmd FileType mail autocmd BufWritePre normal! gggqG
-" \<C-o>\<C-o>"<CR>
-
 autocmd FileType man call ManFileType()
 function! ManFileType()
     :IndentLinesDisable
 
     setlocal nonumber
     setlocal norelativenumber
-
-    " call matchdelete(4) TODO
 endfunction
 
 
 autocmd FileType mail set spell textwidth=0 wrap
+autocmd FileType markdown set spell
 
 " Disables comments on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd VimResized,TabEnter * wincmd =
+
 
 
 " diff {{{2
@@ -578,6 +577,8 @@ autocmd FileType c,cpp,java,javascript setlocal foldmethod=syntax
 set foldcolumn=2
 set foldlevel=0
 set foldnestmax=1
+
+set foldminlines=0
 
 " autocmd InsertLeave,WinEnter * let &l:foldmethod=g:oldfoldmethod
 " autocmd InsertEnter,WinLeave * let g:oldfoldmethod=&l:foldmethod | setlocal foldmethod=manual
@@ -684,11 +685,11 @@ cabbrev h Help
 
 " ALE {{{2
 
-
 autocmd FileType markdown let b:ale_enabled=0
 
 let g:ale_linters = {
 \   'cpp': ['clang'],
+\   'javascript': ['eslint'],
 \}
 
 let g:ale_lint_on_save = 1
@@ -798,6 +799,7 @@ let g:overlength#default_to_textwidth = 0
 
 autocmd FileType man call overlength#toggle()
 autocmd FileType markdown call overlength#toggle()
+autocmd FileType text call overlength#toggle()
 
 
 " tern_for_vim {{{2
@@ -888,11 +890,6 @@ let g:autoformat_remove_trailing_spaces = 0
 "     au BufWritePre *.js Autoformat()
 " augroup END
 
-" autocmd FileType mail
-" autocmd BufWritePre :normal! gggqG
-
-    " \ autocmd BufWritePre :exe "normal! " . "gggqG\<C-o>\<C-o>"<CR>
-
 
 " vim-easy-align {{{2
 
@@ -963,6 +960,7 @@ let g:javascript_plugin_flow = 1
 
 " vim-jedi {{{2
 
+let g:jedi#auto_initialization = 0
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 let g:jedi#goto_definitions_command = "<C-]>"

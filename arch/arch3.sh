@@ -14,8 +14,10 @@ mkdir -p .config
 mkdir -p .mutt
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/{ranger,ncmpcpp,gtk-3.0}
-mkdir -p test
+mkdir -p temp
 mkdir -p public_html
+
+ln -sf ~/.local/share/Trash/files ~/trash
 
 
 # Keys {{{1
@@ -52,7 +54,7 @@ ln -sf ~/config/bin ~/bin
 ln -sf ~/config/mutt/* ~/.mutt/
 
 ln -sf ~/{,.}config/alacritty
-ln -sf ~/{,.}config/bspwm
+ln -sf ~/{,.}config/i3
 ln -sf ~/{,.}config/polybar
 ln -sf ~/{,.}config/rofi
 ln -sf ~/{,.}config/sxhkd
@@ -76,27 +78,21 @@ nvim +PlugInstall +xall
 
 # pip and npm {{{1
 
-# sudo pip install glances
-# sudo pip install xtermcolor
-
-sudo pip install --upgrade neovim
-
-sudo pip install pipenv
-
 sudo pip install colour-valgrind
-
+sudo pip install glances
+sudo pip install --upgrade neovim
+sudo pip install pipenv
 sudo pip install tldr
-
-# sudo pip install khal
-# sudo pip install vdirsyncer
+sudo pip install trash-cli
+# sudo pip install xtermcolor
 
 sudo npm install -g coffee-script
 sudo npm install -g text-aid-too
 
-sudo npm install -g js-beautify
-sudo npm install -g eslint-plugin-react
 sudo npm install -g babel-eslint
 sudo npm install -g create-react-app
+sudo npm install -g eslint-plugin-react
+sudo npm install -g js-beautify
 
 # sudo npm install -g eslint-config-airbnb
 # sudo npm install -g eslint-config-google
@@ -104,10 +100,10 @@ sudo npm install -g create-react-app
 # sudo npm install -g eslint-config-xo
 
 export PKG=eslint-config-airbnb
-npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs sudo npm install -g --save-dev "$PKG@latest"
+npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs sudo npm install -g "$PKG@latest"
 
-# sudo npm install -g gtop
-# sudo npm install -g vtop
+sudo npm install -g gtop
+sudo npm install -g vtop
 
 
 # AUR {{{1
@@ -129,7 +125,6 @@ pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit nerd-fonts-complete
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 
-# pacaur -S --noconfirm --noedit i3-gaps-next-git
 pacaur -S --noconfirm --noedit i3lock-color-git
 
 pacaur -S --noconfirm --noedit polybar-git

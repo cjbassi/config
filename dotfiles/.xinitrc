@@ -39,11 +39,11 @@ xinput --disable 'SynPS/2 Synaptics TouchPad' &
 text-aid-too --editor 'alacritty -t nvim -e nvim' &
 
 
-# python home_setup script {{{1
+# Dockerd {{{1
 
-home_setup_daemon.py &
+sudo dockerd &
 
 
 # Exec wm {{{1
 
-exec bspwm
+exec i3

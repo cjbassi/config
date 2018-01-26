@@ -118,4 +118,4 @@ perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 cd /home/cjbassi/
 touch .zshrc
 curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch3.sh > arch3.sh
-su cjbassi
+su cjbassi ./arch3.sh

@@ -13,9 +13,10 @@ EXTERNAL_MONITOR = 'HDMI-1'
 def print_function_name(function):
     def wrapper():
         print(f"before {function.__name__}")
-        function()
-        print(f"after  {function.__name__}")
         print()
+        function()
+        print()
+        print(f"after  {function.__name__}")
     return wrapper
 
 
@@ -34,7 +35,7 @@ def wacom_scripts():
                         'Area', '4100' '3500' '11100' '7438'])
         subprocess.run(['xsetwacom',
                         '--set', 'Wacom Intuos S Pen stylus',
-                        'PressureCurve', '0' '100' '50' '100'])
+                        'PressureCurve', '0' '25' '30' '100'])
         subprocess.run(['xsetwacom',
                         '--set', 'Wacom Intuos S Pen stylus',
                         'Threshold', '100'])

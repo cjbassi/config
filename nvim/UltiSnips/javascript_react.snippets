@@ -1,8 +1,7 @@
 snippet base "React boilerplate" b
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-class $1 extends React.Component {
+class ${1:ClassName} extends React.Component {
 	render() {
 		return (
 			${0:<div>
@@ -11,14 +10,22 @@ class $1 extends React.Component {
 	}
 }
 
-ReactDOM.render(<${1:App} />, document.getElementById('root'))
+export default $1
 endsnippet
-snippet ri "Import React"
+
+snippet rir "Import React"
 import React from 'react'
 endsnippet
 snippet rid "Import react-dom"
 import ReactDOM from 'react-dom'
 endsnippet
+snippet rip "Import prop-types"
+import PropTypes from 'prop-types'
+endsnippet
+snippet ric "Import CSS"
+import CSS from './CSS'
+endsnippet
+
 snippet rcwm "React componentWillMount"
 componentWillMount() {
 	$1
@@ -54,6 +61,7 @@ componentWillUnmount() {
 	$1
 }
 endsnippet
+
 snippet rhc "React handleChange" bw
 handleChange = (event) => {
 	this.setState({${1:value}: event.target.value})
@@ -64,6 +72,7 @@ handleSubmit = (event) => {
 	event.preventDefault()
 }
 endsnippet
+
 snippet rcla "React class definition"
 class ${1:ClassName} extends React.Component {
 	render() {
@@ -74,8 +83,16 @@ class ${1:ClassName} extends React.Component {
 	}
 }
 endsnippet
+snippet rpc "React pure component" w
+const ${1:ComponentName} = (props) => {
+	return (
+		<div>$0
+		</div>
+	)
+}
+endsnippet
 snippet rfunc "description" bw
-const ${1: } = ({ ${2: } }) => {
+const ${1: } = (props) => {
 	return (
 		<div>$0
 		</div>
@@ -90,16 +107,7 @@ constructor(props) {
 	}
 }
 endsnippet
-snippet rdp "React defaultProps"
-static defaultProps = {
-	$1: $2,
-}
-endsnippet
-snippet rpt "React propTypes" w
-static propTypes = {
-	$0
-}
-endsnippet
+
 snippet rdr "React render DOM"
 ReactDOM.render(<${1:App} />, document.getElementById('root'))
 endsnippet
@@ -108,11 +116,38 @@ this.setState({
 	$0
 })
 endsnippet
-snippet ris "description" bw
+
+snippet ris "React import styled" bw
 import styled from 'styled-components'
 endsnippet
 snippet styled "description" bw
 const ${1: } = styled.${2: }\`
 	${0:${VISUAL}}
 \`
+endsnippet
+
+snippet Rbase "Redux base"
+import { connect } from 'react-redux'
+
+import ${1: } from '../components/$1'
+import { ${2: } } from '../actions'
+
+const mapStateToProps = (state, ownProps) => {
+	return {
+
+	}
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		=> {
+			dispatch($2
+		}
+	}
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)($1)
 endsnippet
