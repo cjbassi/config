@@ -123,6 +123,7 @@ pacaur -S --noconfirm --noedit google-chrome
 pacaur -S --noconfirm --noedit insync
 pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit nerd-fonts-complete
+pacaur -S --noconfirm --noedit pymodoro-git
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
 
 pacaur -S --noconfirm --noedit i3lock-color-git
