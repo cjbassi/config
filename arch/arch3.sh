@@ -17,6 +17,11 @@ mkdir -p ~/.config/{ranger,ncmpcpp,gtk-3.0}
 mkdir -p temp
 mkdir -p public_html
 
+mkdir -p go
+mkdir -p go/bin
+mkdir -p go/pkg
+mkdir -p go/src
+
 ln -sf ~/.local/share/Trash/files ~/trash
 
 
