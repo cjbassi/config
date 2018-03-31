@@ -11,13 +11,13 @@ charset = utf-8
 
 trim_trailing_whitespace = true
 
-[*.yml]
+[*.{vim,toml}]
 indent_size = 2
 
-[*.{js,jsx,ts,tsx,html}]
+[*.{js,jsx,ts,tsx,html,php}]
 indent_size = 2
 
-[{*.md,init.vim,rc.conf}]
+[*.md]
 trim_trailing_whitespace = false
 
 [Makefile]

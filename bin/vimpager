@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat $1 | nvim -c 'set ft=man' -

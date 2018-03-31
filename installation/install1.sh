@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Pre-installation {{{1
 
@@ -34,13 +34,13 @@ pacstrap /mnt                                                   \
 \
     xorg xorg-xinit                                             \
 \
-    pulseaudio pulseaudio-alsa pavucontrol                      \
+    pulseaudio pulseaudio-alsa pavucontrol pamixer              \
     alsa-utils                                                  \
     blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils   \
 \
     redshift python-gobject python-xdg librsvg                  \
     feh                                                         \
-    scrot                                                       \
+    maim                                                        \
 \
     sxhkd                                                       \
     xclip                                                       \
@@ -55,6 +55,7 @@ pacstrap /mnt                                                   \
     astyle eslint autopep8 flake8 tidy rust-racer python-pylint \
     hub                                                         \
     mono                                                        \
+    php                                                         \
 \
     ttf-dejavu                                                  \
     ttf-hack                                                    \
@@ -68,13 +69,12 @@ pacstrap /mnt                                                   \
 \
     adobe-source-han-sans-otc-fonts                             \
 \
-    neovim                                                      \
+    neovim python-neovim                                        \
     zsh                                                         \
     ranger w3m                                                  \
     rofi                                                        \
     qbittorrent                                                 \
     networkmanager network-manager-applet                       \
-    mopidy ncmpcpp                                              \
     neomutt                                                     \
 \
     git tig                                                     \
@@ -104,6 +104,9 @@ pacstrap /mnt                                                   \
     krita                                                       \
     gimp                                                        \
     lsof                                                        \
+    qt4 vlc                                                     \
+    libreoffice                                                 \
+    xdotool                                                     \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \
@@ -130,6 +133,6 @@ pacstrap /mnt                                                   \
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-curl https://raw.githubusercontent.com/cjbassi/config/master/arch/arch2.sh > /mnt/arch2.sh
-chmod +x /mnt/arch2.sh
-arch-chroot /mnt ./arch2.sh
+curl https://raw.githubusercontent.com/cjbassi/config/master/installation/install2.sh > /mnt/install2.sh
+chmod +x /mnt/install2.sh
+arch-chroot /mnt ./install2.sh

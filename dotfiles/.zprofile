@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # sudo loadkeys ~/config/keyboard/consolekeys
 

@@ -2,14 +2,15 @@
 
 """
 First argument is how many numbers to print
-Second argument is the range to that number from 0 inclusive
+Second argument is the range upper limit from 0 inclusive
 """
 
 import sys
 from random import randint
 
+
 def main():
-    for i in range(int(sys.argv[1])):
+    for _ in range(int(sys.argv[1])):
         print(randint(0, int(sys.argv[2])))
 
 

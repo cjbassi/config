@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+folder="$HOME/drive/images/desktop_wallpapers"
+image=$(ls $folder | shuf -n 1)
+
+feh --bg-scale "$folder/$image"

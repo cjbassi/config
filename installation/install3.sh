@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Cleanup {{{1
 
-rm -f arch3.sh
+rm -f install3.sh
 
 
 # Directories {{{1
@@ -13,9 +13,7 @@ mkdir -p .ssh
 mkdir -p .config
 mkdir -p .mutt
 mkdir -p ~/.config/nvim/{backup,undo,swap}
-mkdir -p ~/.config/{ranger,ncmpcpp,gtk-3.0}
-mkdir -p temp
-mkdir -p public_html
+mkdir -p ~/.config/{ranger,gtk-3.0}
 
 mkdir -p go
 mkdir -p go/bin
@@ -45,8 +43,6 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 hub clone cjbassi/config
 
-# symlinks {{{2
-
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 
 sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
@@ -66,11 +62,14 @@ ln -sf ~/{,.}config/sxhkd
 ln -sf ~/{,.}config/tig
 
 ln -sf ~/config/gtk-3.0/* ~/.config/gtk-3.0/
-ln -sf ~/config/ncmpcpp/* ~/.config/ncmpcpp/
 ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
 
-# }}}
+
+# ranger {{{1
+
+ranger --copy-config=scope
+
 
 # Neovim {{{1
 
@@ -81,57 +80,55 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 nvim +PlugInstall +xall
 
 
-# pip and npm {{{1
+# pip {{{1
 
-sudo pip install colour-valgrind
-sudo pip install glances
-sudo pip install --upgrade neovim
-sudo pip install pipenv
-sudo pip install tldr
-sudo pip install trash-cli
-# sudo pip install xtermcolor
+pip install --user colour-valgrind
+pip install --user pipenv
+pip install --user tldr
+pip install --user trash-cli
+pip install --user wpm
+pip install --user xtermcolor
 
-sudo npm install -g coffee-script
-sudo npm install -g text-aid-too
 
-sudo npm install -g babel-eslint
-sudo npm install -g create-react-app
-sudo npm install -g eslint-plugin-react
-sudo npm install -g js-beautify
+# npm {{{1
 
-# sudo npm install -g eslint-config-airbnb
-# sudo npm install -g eslint-config-google
-# sudo npm install -g eslint-config-standard
-# sudo npm install -g eslint-config-xo
+npm install -g babel-eslint
+npm install -g eslint-plugin-react
+
+npm install -g js-beautify
 
 export PKG=eslint-config-airbnb
-npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs sudo npm install -g "$PKG@latest"
-
-sudo npm install -g gtop
-sudo npm install -g vtop
+npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install -g "$PKG@latest"
 
 
 # AUR {{{1
 
-bash ~/config/arch/pacaur.sh
+sh -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
 
-export EDITOR=nvim
+# export EDITOR=nvim
 
-pacaur -S --noconfirm --noedit alacritty-git
+# pacaur -S --noconfirm --noedit alacritty-git
+pacaur -S --noconfirm --noedit alacritty-scrollback-git
 pacaur -S --noconfirm --noedit antigen-git
 # pacaur -S --noconfirm --noedit discord
 # pacaur -S --noconfirm --noedit dropbox
 pacaur -S --noconfirm --noedit gitflow-avh-git
 pacaur -S --noconfirm --noedit google-chrome
 # pacaur -S --noconfirm --noedit google-cloud-sdk
+pacaur -S --noconfirm --noedit gotop
 # pacaur -S --noconfirm --noedit heroku-cli
 pacaur -S --noconfirm --noedit insync
 pacaur -S --noconfirm --noedit neofetch-git
 pacaur -S --noconfirm --noedit nerd-fonts-complete
 pacaur -S --noconfirm --noedit pymodoro-git
+pacaur -S --noconfirm --noedit rmtrash
+pacaur -S --noconfirm --noedit rofi-greenclip
+# pacaur -S --noconfirm --noedit shutter
 pacaur -S --noconfirm --noedit unclutter-xfixes-git
+pacaur -S --noconfirm --noedit vim-anywhere-git
 
 pacaur -S --noconfirm --noedit i3lock-color-git
+pacaur -S --noconfirm --noedit i3lock-fancy-git
 
 pacaur -S --noconfirm --noedit polybar-git
 

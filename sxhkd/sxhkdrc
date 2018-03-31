@@ -10,7 +10,8 @@ XF86AudioMicMute
     pactl set-source-mute 1 toggle
 
 XF86MonBrightness{Down,Up}
-    echo $(($(cat /sys/class/backlight/intel_backlight/brightness) {-,+} 106)) | sudo tee /sys/class/backlight/intel_backlight/brightness
+	file=/sys/class/backlight/intel_backlight/brightness; \
+    echo $(( $(cat $file) {-,+} 106 )) | sudo tee $file
 
 
 # applications {{{1
@@ -24,10 +25,68 @@ alt + Return
 alt + g
 	chrome
 
+alt + n
+	pomodoro-reset
+
+alt + a
+	vim-anywhere alacritty nvim
+
+
+# rofi {{{1
+
 alt + d
 	rofi -show run -terminal $term
-alt + shift + e
-	rofi_power
 
-alt + n
-	pomodoro_reset
+alt + y
+	rofi-power
+
+alt + u
+	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+
+# wm {{{1
+
+alt + {h,j,k,l}
+	i3-msg focus {left,down,up,right}
+
+alt + shift + {h,j,k,l}
+	i3-msg move {left,down,up,right}
+
+alt + {s,v}
+	i3-msg split {v,h}
+
+alt + f
+	i3-msg fullscreen toggle
+
+alt + t
+	i3-msg layout toggle split
+
+alt + {p,c}
+	i3-msg focus {parent,child}
+
+alt + + shift + r
+	i3-msg restart; monitor-script
+
+alt + shift + q
+	i3-msg kill
+
+alt + space
+	i3-msg focus mode_toggle
+
+alt + shift + space
+	i3-msg floating toggle
+
+alt + shift + s
+	i3-msg mode "resize"
+
+alt + minus
+	i3-msg scratchpad show
+
+alt + shift + minus
+	i3-msg move scratchpad
+
+alt + {1,2,3,4,5,6,7,8,9,0}
+	i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
+
+alt + shift + {1,2,3,4,5,6,7,8,9,0}
+	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}

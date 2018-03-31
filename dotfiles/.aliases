@@ -1,28 +1,4 @@
-#!/bin/bash
-
-# Files {{{1
-
-alias ea1='e ~/config/arch/arch1.sh'
-alias ea2='e ~/config/arch/arch2.sh'
-alias ea3='e ~/config/arch/arch3.sh'
-alias eal='e ~/config/dotfiles/.aliases'
-alias ed='e ~/drive/notes/other/dictionary.md'
-alias ee='e ~/config/dotfiles/.editorconfig'
-alias eg='e ~/drive/notes/technology/programming_guide.md'
-alias eh='e ~/.histfile'
-alias ek='e ~/config/sxhkd/sxhkdrc'
-alias em='e ~/config/mutt/muttrc'
-alias en='e ~/config/dotfiles/.zshenv'
-alias ep='e ~/config/polybar/config'
-alias er='e ~/.config/ranger/rc.conf'
-alias et='e ~/config/alacritty/alacritty.yml'
-alias ev='e ~/config/nvim/init.vim'
-alias ew='e ~/config/i3/config'
-alias ex='e ~/config/dotfiles/.xinitrc'
-alias ez='e ~/config/dotfiles/.zshrc'
-
-alias eM='e Makefile'
-
+#!/usr/bin/env bash
 
 # Changing Dir {{{1
 
@@ -52,7 +28,7 @@ alias blt='bluetoothctl'
 
 alias chrome='google-chrome-stable'
 
-alias cra='create-react-app'
+alias cra='npx create-react-app'
 
 alias g='git'
 
@@ -83,6 +59,14 @@ alias gpgkey='gpg --full-gen-key'
 
 # Functions {{{1
 
+function init-and-push {
+    hub init
+    hub add .
+    hub commit -m "Initial commit"
+    hub create
+    hub push -u origin master
+}
+
 function hub() {
     if [[ "$@" == "unstage" ]]; then
         command hub reset HEAD
@@ -105,7 +89,7 @@ function math() { echo $(($@)) }
 
 function mkcd() { mkdir "$@"; cd "$@" }
 
-function term() { fork alacritty --working-directory . }
+function terminal() { fork alacritty --working-directory . -e 'ranger' }
 
 function random_characters() {}
 function random_lines()
@@ -131,8 +115,6 @@ alias sudo='sudo '
 alias rg='rg -S --hidden'
 
 alias git='hub'
-
-alias glances='glances -1 --fs-free-space --disable-memswap --disable-diskio --process-short-name --byte'
 
 alias ll='ls -AhgoF --group-directories-first --color=always'
 

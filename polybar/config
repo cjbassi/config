@@ -55,8 +55,8 @@ radius = 1.0
 fixed-center = true
 bottom = true
 
-background =    ${colors.background}
-foreground =    ${colors.foreground}
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 font-0 = fixed:pixelsize=12;3
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;3
@@ -66,7 +66,7 @@ font-4 = FontAwesome:pixelsize=12;3
 
 modules-left = i3 left_arrow1 i3index left_arrow2 i3mode
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
-modules-right = left_arrow_dark pomodoro left_arrow_light volume left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
+modules-right = left_arrow_dark pomodoro left_arrow_light pulseaudio left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
 
 tray-position = right
 tray-background = ${colors.dark}
@@ -259,10 +259,10 @@ format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.light}
 
-label-charging = " %percentage%%"
+label-charging = "  %percentage%%"
 label-discharging = "%percentage%%"
 label-discharging-foreground = ${colors.green}
-label-full = " %percentage%%"
+label-full = "  %percentage%%"
 
 ramp-capacity-0 = " "
 ramp-capacity-0-foreground = ${colors.red}
@@ -302,39 +302,6 @@ label-foreground = ${colors.cyan}
 label-background = ${colors.dark}
 
 
-[module/volume]
-type = internal/volume
-
-mapped = false
-
-; Name of the master mixer
-master-mixer = Master
-
-format-volume = <ramp-volume><label-volume>
-
-label-volume = %percentage%%
-label-volume-foreground = ${colors.blue}
-label-volume-background = ${colors.light}
-label-muted = " MUTED"
-label-muted-foreground = ${colors.blue}
-label-muted-background = ${colors.light}
-
-ramp-volume-0 = "  "
-ramp-volume-0-foreground = ${colors.blue}
-ramp-volume-0-background = ${colors.light}
-ramp-volume-1 = "  "
-ramp-volume-1-foreground = ${colors.blue}
-ramp-volume-1-background = ${colors.light}
-ramp-volume-2 = "  "
-ramp-volume-2-foreground = ${colors.blue}
-ramp-volume-2-background = ${colors.light}
-
-; mapping = true
-
-; ramp-volume-3 = "  "
-; ramp-volume-3-foreground = ${colors.blue}
-; ramp-volume-3-background = ${colors.dark_grey}
-
 [module/pomodoro]
 type = custom/script
 ; Use pomodoro glyphs in Nerd fonts
@@ -342,8 +309,7 @@ type = custom/script
 ; Use default symbols
 exec = pymodoro -sc 'mpg123 %s &' -sp '/home/cjbassi/config/polybar/light.mp3' -l 1 -p '-' -b '-' -e '-'
 
-label = %output%
-label-padding = 1
+label = " %output%"
 label-background = ${colors.dark}
 
 tail = true
@@ -355,3 +321,16 @@ click-left = if [ -e ~/.pomodoro_session ]; then rm ~/.pomodoro_session; else ec
 click-right = echo "$((`cut .pomodoro_session -d ' ' -f 1`+5)) 5" > .pomodoro_session
 ; Reduce pomodoro time
 click-middle = echo "$((`cut .pomodoro_session -d ' ' -f 1`-5)) 5" > .pomodoro_session
+
+
+[module/pulseaudio]
+type = custom/script
+exec = pulseaudio-tail
+tail = true
+click-right = exec pavucontrol &
+click-left = pulseaudio-tail --mute
+scroll-up = pulseaudio-tail --up
+scroll-down = pulseaudio-tail --down
+label = " %output%"
+label-background = ${colors.light}
+label-foreground = ${colors.blue}

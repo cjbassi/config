@@ -19,11 +19,15 @@ LC_ALL="en_US.UTF-8"
 
 # Path {{{1
 
+# pip and npm
+export PATH=$PATH:~/.local/bin
+
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 export PATH=$PATH:$HOME/bin
 
 export GOPATH=~/go
+export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOPATH/bin"
 
 
@@ -42,11 +46,9 @@ export EDITOR='nvim'
 export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
 
-
-export PAGER="nvim -c 'set ft=man' -"
+export PAGER="vimpager"
 export MANPAGER=$PAGER
 
 alias pager=$PAGER
 alias zless=$PAGER
 alias less=$PAGER
-alias vimpager=$PAGER

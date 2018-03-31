@@ -2,50 +2,24 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/context_filetype.vim'
-    Plug 'osyo-manga/vim-precious', { 'for': ['markdown', 'help'] }
-
-Plug 'digitalrounin/vim-yaml-folds'
-
 " todo {{{2
+
+Plug '~/drive/programming/jumplist-contained.vim'
 
 " Plug 'LucHermitte/VimFold4C'
 
 " Plug 'OmniSharp/omnisharp-vim'
 " , { 'dir': '~/.local/share/nvim/plugged/omnisharp-vim/server', 'do': 'msbuild' }
-" Plug 'tpope/vim-dispatch'
 
 " Plug 'tpope/vim-sleuth'
 
-Plug 'vheon/vim-cursormode'
 Plug 'Shougo/echodoc.vim'
-
-Plug 'rhysd/github-complete.vim'
-
-" Plug 'junegunn/vim-slash'
 
 " Plug 'Konfekt/FastFold'
 
 Plug 'google/vim-searchindex'
 
-" Plug 'suan/vim-instant-markdown'
-" Plug 'jaxbot/browserlink.vim'
-
-" Plug 'Shougo/neoinclude.vim'
-" Plug 'Shougo/neco-syntax'
-
-" Plug 'vim-scripts/EnhancedJumps'
-
-" Plug 'jaxbot/github-issues.vim'
-" Plug 'TKNGUE/github-issues.vim'
-
-" Plug 'plasticboy/vim-markdown'
-
 " Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
-
-" Plug 'sheerun/vim-polyglot'
-
-" Plug 'esalter-va/vim-checklist'
 
 " Plug 'j16180339887/Global.vim'
 
@@ -53,16 +27,16 @@ Plug 'google/vim-searchindex'
 " closers {{{2
 
 Plug 'tpope/vim-endwise'
-Plug 'cjbassi/vim-closer'
+Plug 'ozelentok/vim-closer'
 
 
 " completion {{{2
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Rip-Rip/clang_complete'
-    Plug 'zchee/deoplete-jedi'
-    Plug 'racer-rust/vim-racer'
-    Plug 'Shougo/neco-vim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Rip-Rip/clang_complete'
+Plug 'zchee/deoplete-jedi'
+Plug 'racer-rust/vim-racer'
+Plug 'Shougo/neco-vim'
 
 
 " editing {{{2
@@ -83,10 +57,14 @@ Plug 'benknoble/vim-auto-origami'
 
 Plug 'tmhedberg/SimpylFold'
 
+Plug 'digitalrounin/vim-yaml-folds'
+
+Plug 'cjbassi/improved-foldtext.vim'
+
 
 " formatting/linting {{{2
 
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 Plug 'Chiel92/vim-autoformat'
 
@@ -98,19 +76,20 @@ Plug 'editorconfig/editorconfig-vim'
 " fzf {{{2
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 
 
 " Git {{{2
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'tpope/vim-rhubarb'
+Plug 'rhysd/github-complete.vim'
 
 
-" language-server {{{2
+" language-servers {{{2
 
 Plug 'ternjs/tern_for_vim', { 'dir': '~/.local/share/nvim/plugged/tern_for_vim', 'do': 'npm install' }
 Plug 'moll/vim-node'
@@ -122,7 +101,7 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
 
-Plug 'dkarter/bullets.vim'
+Plug 'dkarter/bullets.vim' " for toggling checkboxes
 
 
 " motion {{{2
@@ -137,16 +116,17 @@ Plug 'justinmk/vim-ipmotion'
 
 " Plug 'haya14busa/incsearch.vim'
 " Plug 'haya14busa/vim-asterisk'
-" Plug 'wincent/loupe'
 
 
 " snippets {{{2
 
 Plug 'sirver/ultisnips'
-    Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 
 " syntax {{{2
+
+Plug 'plasticboy/vim-markdown'
 
 Plug 'chr4/nginx.vim'
 
@@ -162,29 +142,31 @@ Plug 'hail2u/vim-css3-syntax'
 
 Plug 'rhysd/vim-gfm-syntax'  " GitHub markdown
 
-Plug 'PotatoesMaster/i3-vim-syntax'
+" Plug 'PotatoesMaster/i3-vim-syntax'
+" Plug 'mboughaba/i3config.vim'
+Plug 'cjbassi/i3-vim-syntax'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'elzr/vim-json'
 
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml'  " for TOML files
 
 Plug 'rust-lang/rust.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
 
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 
 " textobjects {{{2
 
 Plug 'kana/vim-textobj-user'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'coderifous/textobj-word-column.vim'
-    Plug 'kana/vim-textobj-entire'
-    Plug 'glts/vim-textobj-comment'
-    Plug 'kana/vim-textobj-function'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'kana/vim-textobj-entire'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-function'
 
 
 " utilities {{{2
@@ -196,59 +178,70 @@ Plug 'tpope/vim-unimpaired'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-eunuch'  " unix tools
+Plug 'tpope/vim-sleuth'  " for indent size
+Plug 'cjbassi/fullscreen-help.vim'
+Plug 'cjbassi/cursor-stop.vim'
 
 
 " vim-airline {{{2
 
 Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'ntpeters/vim-airline-colornum'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-airline-colornum'
 
 
 " visuals {{{2
 
-Plug 'tjdevries/overlength.vim'
-Plug 'Yggdroot/indentLine'
+" Plug 'tjdevries/overlength.vim'
+" Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'  " shows marks
-Plug 'icymind/NeoSolarized'
+Plug 'chriskempson/base16-vim'
 Plug 'kana/vim-operator-user'
-    Plug 'haya14busa/vim-operator-flashy'
-
+" Plug 'haya14busa/vim-operator-flashy'
+Plug 'cjbassi/vim-operator-flashy'
 
 " }}}
 
 call plug#end()
 
-autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=javascript.jsx
-
 " Visuals {{{1
 
 syntax enable
 
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_italic = 0
-
 set background=dark
 set termguicolors
-colorscheme NeoSolarized
+
+colorscheme base16-solarized-dark
+
+" changes some default colors for base16-solarized
+call g:Base16hi("String",         "2aa198", "", "", "", "", "")
+call g:Base16hi("Identifier",     "268bd2", "", "", "", "", "")
+call g:Base16hi("Statement",      "b58900", "", "", "", "NONE", "") " bolded
+call g:Base16hi("Type",           "268bd2", "", "", "", "", "")
+call g:Base16hi("Special",        "dc322f", "", "", "", "", "")
+call g:Base16hi("Delimiter",      "dc322f", "", "", "", "", "")
+call g:Base16hi("Conditional",    "859900", "", "", "", "", "")
+call g:Base16hi("Keyword",        "859900", "", "", "", "", "")
+call g:Base16hi("Todo",           "d33682", "NONE", "", "", "Bold", "")
+
+call g:Base16hi("Error",          "dc322f", "", "", "", "", "")
+
+call g:Base16hi("pythonOperator", "859900", "", "", "", "", "")
+call g:Base16hi("pythonRepeat",   "859900", "", "", "", "", "")
+call g:Base16hi("pythonInclude",  "859900", "", "", "", "", "")
+call g:Base16hi("pythonStatement","859900", "", "", "", "", "")
 
 set cursorline
 
+hi EndOfBuffer guifg=bg
+
+" TODO
 hi javaScript ctermfg=244 guifg=244
 
 " highlights shebang
-autocmd FileType * syn match shebang "\%^#!.*$"
-hi def link shebang PreProc
-
-" hi LineNr guibg=NONE guifg=237
-" hi Normal guibg=NONE
-" hi StatusLine guibg=232 guifg=241
-
-" hi Search guibg=peru guifg=wheat
-
-" set t_Co=256
-" let g:solarized_termcolors=256
+autocmd FileType * syn match Shebang "\%^#!.*$"
+hi Shebang guifg=#cb4b16
 
 
 " Keybinds {{{1
@@ -256,8 +249,10 @@ hi def link shebang PreProc
 map Y y$
 nnoremap <silent> gG G
 nnoremap Q @q
+" updates diffs, clears statusline, clears highlights
 nnoremap <silent> , :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
+" switch tabs
 nnoremap H gT
 nnoremap L gt
 
@@ -290,6 +285,7 @@ let mapleader=" "
 set notimeout
 set ttimeout
 
+" for searching man pages
 nnoremap <leader>/ /\C^\s*
 noremap <leader>: :<C-f>i
 
@@ -301,28 +297,21 @@ nnoremap <silent> <leader>c :q<CR>
 
 nnoremap <silent> <leader>S :SudoEdit<bar>nnoremap <buffer> <silent> <leader>w :SudoWrite<CR>
 
-nnoremap <silent> <leader>tc :ChecklistToggleCheckbox<CR>
+nnoremap <silent> <leader>T :silent !terminal<CR>
+
+nnoremap <silent> <leader>tc :ToggleCheckbox<CR>
 nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tf :Autoformat<CR>
-nnoremap <leader>th :Help 
+nnoremap <leader>th :Help<Space>
 nnoremap <silent> <leader>tm :LivedownToggle<CR>
 nnoremap <leader>tr :%s/
 nnoremap <silent> <leader>tR :RangerCurrentFile<CR>
 nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
-nnoremap <leader>tU :UltiSnipsEdit 
+nnoremap <leader>tU :UltiSnipsEdit<Space>
 nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
 nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tx :Chmod +x<CR>
-
-
-" nnoremap <silent> <leader>tr :vsplit <bar> RangerCurrentFile<CR>
-" nnoremap <silent> <leader>tR :!! %<CR>
-" nnoremap <silent> <leader>tW :StripWhitespace<CR>
-" nnoremap <silent> <leader>tr :retab<CR>
-" noremap <silent> <leader>tf :Autoformat<CR>
-" nnoremap <silent> <leader>tC :silent ! ~/config/scripts/webserver.js '%' &<CR>
-" nnoremap <silent> <leader>sw :SudoWrite<CR>
 
 
 " buffers {{{3
@@ -334,8 +323,8 @@ nnoremap <silent> <leader>bf :FZF<CR>
 nnoremap <silent> <leader>bF :FZF ~<CR>
 nnoremap <silent> <leader>bn :enew<CR>
 nnoremap <silent> <leader>br :edit<CR>
-nnoremap <leader>bm :Rename 
-nnoremap <leader>bM :Move 
+nnoremap <leader>bm :Rename<Space>
+nnoremap <leader>bM :Move<Space>
 
 
 " write/quit {{{3
@@ -345,7 +334,7 @@ nnoremap <silent> <leader>C :cq<CR>
 nnoremap <silent> <leader>x :silent w<CR>:qa<CR>
 nnoremap <silent> <leader>! :Bclose!<CR>:qa<CR>
 
-nnoremap <silent> <leader>w :silent w<CR>
+nnoremap <silent> <leader>w :silent w<CR>zv
 nnoremap <silent> <leader>W :silent wa<CR>
 
 
@@ -374,6 +363,7 @@ nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
 nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
 nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
+nnoremap <silent> <leader>eb :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>ed :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>eg :edit ~/drive/notes/technology/programming_guide.md<CR>
@@ -381,7 +371,7 @@ nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
 nnoremap <silent> <leader>ek :edit ~/config/sxhkd/sxhkdrc<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
 nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>
-nnoremap <silent> <leader>ep :edit ~/config/polybar/config<CR>
+nnoremap <silent> <leader>ep :edit ~/drive/notes/self_improvement/daily_planner.md<CR>
 nnoremap <silent> <leader>er :edit ~/.config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>et :edit ~/config/alacritty/alacritty.yml<CR>
 nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
@@ -399,7 +389,7 @@ nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gbrowse<CR>
 nnoremap <silent> <leader>gp :Gpush<CR>
-nnoremap <leader>gm :Gmove 
+nnoremap <leader>gm :Gmove<Space>
 
 
 " vim-plug {{{3
@@ -442,37 +432,27 @@ xnoremap p pgvy
 
 " o and O {{{2
 
+" 'o' and 'O' add lines without inserting
+
 nnoremap <silent> o o<Esc>
 
 nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call O_fixer(v:count)<CR>
 function! O_fixer(count)
-    if a:count > 0
-        :exe "normal! " . (a:count - 1) . "k"
-    endif
+  if a:count > 0
+    :exe "normal! " . (a:count - 1) . "k"
+  endif
 endfunction
 
 
 " centering screen {{{2
 
-" noremap <silent> n nzz
-" noremap <silent> N Nzz
-
-" noremap g; g;zz
-" noremap g, g,zz
-
 noremap <silent> ; zz
 
-" noremap za zazz
-" noremap zc zczz
-" noremap zo zozz
 noremap zj zjzz
 noremap zk zkzz
 noremap zv zvzz
 noremap zM zMzz
 noremap zm zmzz
-
-" noremap u uzz
-" noremap
 
 " }}}
 
@@ -487,13 +467,14 @@ set mouse=a
 " Completion window height
 set pumheight=10
 
+" TODO
 " set concealcursor = "nc"
 " set conceallevel=0
 
 " startup message, n and N, and file info on load
 set shortmess=IsF
 
-" movement commands don't move cursor to start of line
+" screen movement commands don't move cursor to start of line
 set nostartofline
 
 set splitbelow
@@ -516,6 +497,7 @@ set noruler
 " Wraps lines on linebreak
 set linebreak
 
+" TODO
 set display+=lastline
 
 " Delete comment character when joining commented lines"
@@ -541,27 +523,28 @@ set iskeyword-=_
 
 autocmd FileType man call ManFileType()
 function! ManFileType()
-    :IndentLinesDisable
-
-    setlocal nonumber
-    setlocal norelativenumber
+  setlocal nonumber
+  setlocal norelativenumber
 endfunction
 
 
-autocmd FileType mail set spell textwidth=0 wrap
-autocmd FileType markdown set spell
+autocmd FileType mail setlocal spell textwidth=0 wrap
+autocmd FileType markdown setlocal spell
 
 " Disables comments on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd VimResized,TabEnter * wincmd =
 
+autocmd VimResized normal ,
+
+autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=javascript.jsx
 
 
 " diff {{{2
 
 if &diff
-    highlight! link DiffText MatchParen
+  highlight! link DiffText MatchParen
 endif
 
 set diffopt+=vertical
@@ -572,7 +555,7 @@ set diffopt+=vertical
 set foldenable
 
 set foldmethod=marker
-autocmd FileType c,cpp,java,javascript setlocal foldmethod=syntax
+autocmd FileType go,c,cpp,java,javascript setlocal foldmethod=syntax
 
 set foldcolumn=2
 set foldlevel=0
@@ -598,16 +581,6 @@ nnoremap <silent> z[ :<C-u>silent! normal! zc<CR>zkzo[zzz
 
 " autocmd FileType * normal! zv
 " autocmd BufReadPre,FileReadPre * normal! zv
-
-" set foldtext=MyFoldText()
-" function! MyFoldText()
-"     let line = getline(v:foldstart)
-"     let string = ''
-"     for i in range(v:foldlevel, 5)
-"         let string = string . '    '
-"     " let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g') }}}
-"     return string . line . ' '
-" endfunction
 
 
 " numberline {{{2
@@ -646,38 +619,12 @@ set wildignore+=tags
 set wildignore+=*.tar.*
 
 
-" cursor doesn't move on ESC {{{2
-
-let CursorColumnI = 0 "the cursor column position in INSERT
-autocmd InsertEnter * let CursorColumnI = col('.')
-autocmd CursorMovedI * let CursorColumnI = col('.')
-autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
-
-
 " swap, backup, and undo {{{2
 
 set directory=~/.config/nvim/swap//
 set backupdir=~/.config/nvim/backup//
 set undodir=~/.config/nvim/undo//
 set undofile
-
-
-" fullscreen help {{{2
-" Opens Help files as if any other file was opened with "e file"
-" also works with completion like regular :help
-
-" This works by opening a blank buffer and setting it's buffer type to 'help'. Now when you run 'help ...' the blank buffer will show the helpfile in fullscreen. The function then adds the buffer to the bufferlist so you can use :bn, :bp, etc.
-function! FullScreenHelp(helpfile)
-	enew
-	set bt=help
-	execute "help " . a:helpfile
-	set buflisted
-endfunction
-
-" Open help files the same as you usually do with "help example" and they'll open in a new buffer similar to "e file"
-command! -nargs=1 -complete=help Help call FullScreenHelp(<f-args>)
-cabbrev help Help
-cabbrev h Help
 
 " }}}
 
@@ -688,9 +635,9 @@ cabbrev h Help
 autocmd FileType markdown let b:ale_enabled=0
 
 let g:ale_linters = {
-\   'cpp': ['clang'],
-\   'javascript': ['eslint'],
-\}
+      \   'cpp': ['clang'],
+      \   'javascript': ['eslint'],
+      \}
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
@@ -700,39 +647,42 @@ let g:ale_set_quickfix=1
 
 let g:ale_set_highlights=1
 
+highlight ALEErrorSign guifg=#dc322f guibg=#073642
+highlight ALEWarningSign guifg=#b58900 guibg=#073642
+
 
 " Bullets.vim {{{2
 
 let g:bullets_set_mappings = 0
 
 
-" Deoplete{{{2
+" " Deoplete{{{2
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 0
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
-let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#max_abbr_width = 50
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_refresh_always = 0
+" inoremap <C-j> <C-n>
+" inoremap <C-k> <C-p>
+" let g:deoplete#auto_complete_start_length = 2
+" let g:deoplete#max_abbr_width = 50
 
-autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-    return deoplete#close_popup() . "\<CR>"
-endfunction
+" autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function() abort
+"   return deoplete#close_popup() . "\<CR>"
+" endfunction
 
-autocmd CompleteDone * silent! pclose!
+" autocmd CompleteDone * silent! pclose!
 
-if has("patch-7.4.314")
-    set shortmess+=c
-endif
+" if has("patch-7.4.314")
+"   set shortmess+=c
+" endif
 
-call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
-            \ 'matcher_length'])
+" call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
+"       \ 'matcher_length'])
 
-let g:clang_library_path='/usr/lib'
-let g:deoplete#sources#jedi#show_docstring = 1
+" let g:clang_library_path='/usr/lib'
+" let g:deoplete#sources#jedi#show_docstring = 1
 
-set completeopt-=preview
+" set completeopt-=preview
 
 
 " fzf {{{2
@@ -741,32 +691,32 @@ imap <C-f> <plug>(fzf-complete-path)
 
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_action = {
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-s': 'split',
-    \ 'ctrl-v': 'vsplit' }
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit' }
 
 function! s:fzf_statusline()
-    highlight fzf1 guifg=normal guibg=#002b36
-    highlight fzf2 guifg=normal guibg=#002b36
-    setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
+  highlight fzf1 guifg=normal guibg=#002b36
+  highlight fzf2 guifg=normal guibg=#002b36
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 let g:fzf_colors =
-\ { 'fg':      ['#839496'],
-  \ 'bg':      ['#002b36'],
-  \ 'hl':      ['#268bd2'],
-  \ 'fg+':     ['#eee8d5'],
-  \ 'bg+':     ['#073642'],
-  \ 'hl+':     ['#268bd2'],
-  \ 'info':    ['#b58900'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['#b58900'],
-  \ 'pointer': ['#2aa198'],
-  \ 'marker':  ['#2aa198'],
-  \ 'spinner': ['#2aa198'],
-  \ 'header':  ['#268bd2'] }
+      \ { 'fg':      ['#839496'],
+      \ 'bg':      ['#002b36'],
+      \ 'hl':      ['#268bd2'],
+      \ 'fg+':     ['#eee8d5'],
+      \ 'bg+':     ['#073642'],
+      \ 'hl+':     ['#268bd2'],
+      \ 'info':    ['#b58900'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['#b58900'],
+      \ 'pointer': ['#2aa198'],
+      \ 'marker':  ['#2aa198'],
+      \ 'spinner': ['#2aa198'],
+      \ 'header':  ['#268bd2'] }
 
 
 " set rtp+=/usr/bin/fzf
@@ -787,19 +737,14 @@ let g:fzf_colors =
 " map <C-k> <Over>(incsearch-scroll-b)
 
 
-" Loupe {{{2
-
-let g:LoupeCenterResults=0
-
-
 " overlength.vim {{{2
 
 let overlength#default_overlength = 80
 let g:overlength#default_to_textwidth = 0
 
-autocmd FileType man call overlength#toggle()
-autocmd FileType markdown call overlength#toggle()
-autocmd FileType text call overlength#toggle()
+" autocmd FileType man call overlength#toggle()
+" autocmd FileType markdown call overlength#toggle()
+" autocmd FileType text call overlength#toggle()
 
 
 " tern_for_vim {{{2
@@ -819,8 +764,8 @@ let g:snips_author = "cjbassi"
 let g:ultisnips_python_style = "google"
 
 let g:ultisnips_javascript = {
-    \ 'semi': 'never',
-    \ }
+      \ 'semi': 'never',
+      \ }
 
 autocmd FileType snippets set foldlevel=0
 
@@ -850,9 +795,9 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#fnamecollapse = 1
 
 let g:airline#extensions#default#layout = [
-    \ [ 'a', 'b', 'c' ],
-    \ [ 'x', 'y', 'z', 'error', 'warning' ]
-    \ ]
+      \ [ 'a', 'b', 'c' ],
+      \ [ 'x', 'y', 'z', 'error', 'warning' ]
+      \ ]
 
 
 " let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
@@ -874,8 +819,8 @@ let g:airline#extensions#promptline#enabled = 1
 " vim-auto-origami {{{2
 
 augroup autofoldcolumn
-    au!
-    au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+  au!
+  au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
 augroup END
 
 
@@ -884,11 +829,6 @@ augroup END
 let g:autoformat_remove_trailing_spaces = 0
 " let g:formatdef_my_custom_javascript = '"js-beautify -a -s ".&shiftwidth'
 " let g:formatters_javascript = ['my_custom_javascript']
-
-" augroup autoformat
-"     au!
-"     au BufWritePre *.js Autoformat()
-" augroup END
 
 
 " vim-easy-align {{{2
@@ -913,7 +853,7 @@ map T <Plug>(easymotion-T)
 
 set updatetime=250
 
-" for leader
+" unmaps leader keys
 let g:gitgutter_map_keys = 0
 
 highlight GitGutterAdd guibg=#073642
@@ -925,9 +865,9 @@ nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
 nmap <Leader>hs <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterUndoHunk
+nmap <Leader>hS <Plug>GitGutterUndoHunk
 
-nmap <Leader>hp <Plug>GitGutterPreviewHunk
+nmap <Leader>hd <Plug>GitGutterPreviewHunk
 
 omap ih <Plug>GitGutterTextObjectInnerPending
 omap ah <Plug>GitGutterTextObjectOuterPending
@@ -939,11 +879,22 @@ xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 let g:go_fmt_fail_silently = 0
 
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+
+let g:go_highlight_operators = 0
+let g:go_highlight_build_constraints = 0
+
+let g:go_doc_keywordprg_enabled = 0
+
 
 " indentLine {{{2
 
 autocmd BufRead,BufNewFile *.md,*.txt
-            \ let b:indentLine_enabled = 0 |
+      \ let b:indentLine_enabled = 0 |
 
 let g:indentLine_color_term = 239
 
@@ -981,11 +932,20 @@ let g:jsx_ext_required = 0
 let g:lastplace_open_folds = 0
 
 
-" vim-markdown{{{2
+" vim-markdown {{{2
 
 let g:vim_markdown_conceal = 0
 
-let g:markdown_fenced_languages = ['html', 'cpp', 'java', 'python', 'bash=sh']
+" including java makes spelling not work
+let g:markdown_fenced_languages = ['html', 'cpp', 'python', 'bash=sh']
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
+
+
+" vim-markdown-folding {{{2
+
+let g:markdown_fold_style = 'nested'
 
 
 " vim-move {{{2
@@ -1003,7 +963,7 @@ set runtimepath^=~/.loca/share/nvim/plugged/vim-node
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
-let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
+" let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
 
 
 " vim-racer {{{2
@@ -1019,28 +979,28 @@ let g:ranger_map_keys = 0
 " vim-signature  {{{2
 
 let g:SignatureMap = {
-            \ 'Leader'             :  "m",
-            \ 'PlaceNextMark'      :  "m,",
-            \ 'ToggleMarkAtLine'   :  "m.",
-            \ 'PurgeMarksAtLine'   :  "m-",
-            \ 'DeleteMark'         :  "dm",
-            \ 'PurgeMarks'         :  "m<Space>",
-            \ 'PurgeMarkers'       :  "m<BS>",
-            \ 'GotoNextLineAlpha'  :  "",
-            \ 'GotoPrevLineAlpha'  :  "",
-            \ 'GotoNextSpotAlpha'  :  "`]",
-            \ 'GotoPrevSpotAlpha'  :  "`[",
-            \ 'GotoNextLineByPos'  :  "]'",
-            \ 'GotoPrevLineByPos'  :  "['",
-            \ 'GotoNextSpotByPos'  :  "]`",
-            \ 'GotoPrevSpotByPos'  :  "[`",
-            \ 'GotoNextMarker'     :  "]-",
-            \ 'GotoPrevMarker'     :  "[-",
-            \ 'GotoNextMarkerAny'  :  "]=",
-            \ 'GotoPrevMarkerAny'  :  "[=",
-            \ 'ListBufferMarks'    :  "m/",
-            \ 'ListBufferMarkers'  :  "m?"
-            \ }
+      \ 'Leader'             :  "m",
+      \ 'PlaceNextMark'      :  "m,",
+      \ 'ToggleMarkAtLine'   :  "m.",
+      \ 'PurgeMarksAtLine'   :  "m-",
+      \ 'DeleteMark'         :  "dm",
+      \ 'PurgeMarks'         :  "m<Space>",
+      \ 'PurgeMarkers'       :  "m<BS>",
+      \ 'GotoNextLineAlpha'  :  "",
+      \ 'GotoPrevLineAlpha'  :  "",
+      \ 'GotoNextSpotAlpha'  :  "`]",
+      \ 'GotoPrevSpotAlpha'  :  "`[",
+      \ 'GotoNextLineByPos'  :  "]'",
+      \ 'GotoPrevLineByPos'  :  "['",
+      \ 'GotoNextSpotByPos'  :  "]`",
+      \ 'GotoPrevSpotByPos'  :  "[`",
+      \ 'GotoNextMarker'     :  "]-",
+      \ 'GotoPrevMarker'     :  "[-",
+      \ 'GotoNextMarkerAny'  :  "]=",
+      \ 'GotoPrevMarkerAny'  :  "[=",
+      \ 'ListBufferMarks'    :  "m/",
+      \ 'ListBufferMarkers'  :  "m?"
+      \ }
 
 
 " vim-smooth-scroll {{{2

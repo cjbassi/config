@@ -15,6 +15,7 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen bundle bobthecow/git-flow-completion
 antigen bundle zsh-users/zsh-completions
 antigen bundle unixorn/git-extra-commands
+antigen bundle cjbassi/zsh-vi-mode-clipboard
 
 antigen apply
 
@@ -28,7 +29,7 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="(l(| *)|ll(| *)|cd(| *)|(|* )rm(| *)|pwd|r|ranger(| *)|m|e?|cd?|make)"
+export HISTORY_IGNORE="(l(| *)|ll(| *)|cd|(|* )rm(| *)|pwd|r|ranger(| *)|m|e?|cd?|make)"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -41,23 +42,15 @@ setopt APPEND_HISTORY
 # Keybinds {{{1
 
 bindkey -v
-export KEYTIMEOUT=1
 
-zle -N edit-command-line
-autoload -Uz edit-command-line
-bindkey -M viins '^e' edit-command-line
-bindkey -M vicmd '^e' edit-command-line
+# reduces ESC delay
+export KEYTIMEOUT=1
 
 bindkey '^w' backward-kill-word
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 
 bindkey -r '^z'
-
-# allow v to edit the command line (standard behaviour)
-#zle -N edit-command-line
-#autoload -Uz edit-command-line
-#bindkey -M vicmd 'v' edit-command-line
 
 
 # Settings {{{1
@@ -70,8 +63,7 @@ CASE_SENSITIVE="true"   # Case sensitive completion
 stty -ixon              # Disables C-s and C-q
 
 # makes escape not move cursor back
-function zle-keymap-select
-{
+function zle-keymap-select {
     if [[ $KEYMAP == 'vicmd' ]] ; then
         CURSOR=$CURSOR+1
     fi
@@ -79,13 +71,10 @@ function zle-keymap-select
 zle -N zle-keymap-select
 
 # lists directory contents on cd
-function chpwd()
-{
-    ll
-}
+function chpwd() { ll }
 
-function my-accept-line
-{
+# pressing Enter without any text doesn't do anything
+function my-accept-line {
     if [[ $BUFFER != "" ]] ; then
         zle accept-line
     fi
@@ -95,7 +84,29 @@ bindkey '^M' my-accept-line
 
 # completion
 autoload -Uz compinit
-compinit -u
+compinit
+
+zstyle ':completion:*' menu select
+# setopt COMPLETE_ALIASES
+
+
+# Title {{{1
+
+autoload -Uz add-zsh-hook
+
+function xterm_title_precmd () {
+	print -Pn '\e]2;%n@%m %1~\a'
+}
+
+function xterm_title_preexec () {
+	print -Pn '\e]2;%n@%m %1~ %# '
+	print -n "${(q)1}\a"
+}
+
+if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
+	add-zsh-hook -Uz precmd xterm_title_precmd
+	add-zsh-hook -Uz preexec xterm_title_preexec
+fi
 
 
 # Colors {{{1
@@ -130,48 +141,12 @@ alias pactree='pactree -c'
 export TLDR_COLOR_BLANK="white"
 
 
-# Copy/Paste {{{1
-
-vi-prepend-x-selection () {
-    PASTE=$(xclip -o -sel c </dev/null)
-    LEN=${#PASTE}
-    BUFFER=$LBUFFER$PASTE$RBUFFER;
-    CURSOR=$CURSOR+LEN-1
-}
-zle -N vi-prepend-x-selection
-bindkey -a 'P' vi-prepend-x-selection
-
-vi-append-x-selection () {
-    PASTE=$(xclip -o -sel c </dev/null)
-    LEN=${#PASTE}
-    BUFFER=${BUFFER:0:$CURSOR+1}$PASTE${BUFFER:$CURSOR+1};
-    CURSOR=$CURSOR+LEN
-}
-zle -N vi-append-x-selection
-bindkey -a 'p' vi-append-x-selection
-
-zsh-y-x-selection () {
-    zle vi-yank
-    echo -n $CUTBUFFER | xclip -i -sel c;
-}
-zle -N zsh-y-x-selection
-bindkey -a 'y' zsh-y-x-selection
-
-zsh-Y-x-selection () {
-    zle vi-yank-eol
-    echo -n $CUTBUFFER | xclip -i -sel c;
-}
-zle -N zsh-Y-x-selection
-bindkey -a 'Y' zsh-Y-x-selection
-
-
-# Other Programs{{{1
+# Other Programs {{{1
 
 # fzf {{{2
 
 zle -N fzf-history-widget
 zle -N fzf-file-widget
-zle -N fzf-cd-widget
 
 bindkey -r '^[c'
 bindkey -M viins -r '^t'
@@ -181,8 +156,19 @@ bindkey -M vicmd '/' fzf-history-widget
 bindkey -M vicmd '^f' fzf-file-widget
 bindkey -M viins '^f' fzf-file-widget
 
-bindkey -M vicmd '^r' fzf-cd-widget
-bindkey -M viins '^r' fzf-cd-widget
+fzf-directories() {
+    fd -t d | fzf
+}
+zle -N fzf-directories
+bindkey -M vicmd '^r' fzf-directories
+bindkey -M viins '^r' fzf-directories
+
+fzf-homedir() {
+    rg --files ~ | fzf
+}
+zle -N fzf-homedir
+bindkey -M vicmd '^t' fzf-homedir
+bindkey -M viins '^t' fzf-homedir
 
 
 # pipenv {{{2
@@ -237,6 +223,7 @@ export POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND=125
 
 # ranger {{{2
 
+# running ranger in a subshell of an already running ranger just exists that shell
 function ranger()
 {
     if [ -n "$RANGER_LEVEL" ]; then

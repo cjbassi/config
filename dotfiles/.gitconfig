@@ -5,13 +5,27 @@
 [core]
     editor = nvim
     pager = vimpager
+
 [diff]
     tool = vimdiff
 [difftool]
     prompt = false
 
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [color]
     ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    pager = false
 [color "branch"]
     current = yellow bold
     local = green bold
