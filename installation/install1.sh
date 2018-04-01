@@ -78,7 +78,7 @@ pacstrap /mnt                                                   \
 \
     git tig                                                     \
     ripgrep                                                     \
-    fd-rs                                                       \
+    fd                                                          \
     openssh sshfs                                               \
     parted                                                      \
     gnome-keyring libsecret                                     \
@@ -104,8 +104,8 @@ pacstrap /mnt                                                   \
     gimp                                                        \
     lsof                                                        \
     qt4 vlc                                                     \
-    #libreoffice                                                 \
-    #xdotool                                                     \
+    libreoffice                                                 \
+    xdotool                                                     \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \
