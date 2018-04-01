@@ -41,7 +41,10 @@ gpg --import /mnt/usb/gnupg/privkey.asc
 
 # Config {{{1
 
-hub clone cjbassi/config
+#while [[ ! -d "~/config" ]]; do
+#    hub clone cjbassi/config
+#done
+git clone cjbassi/config
 
 sudo ln -sf ~/config/i3lock/suspend@.service /etc/systemd/system/
 
