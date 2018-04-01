@@ -359,15 +359,15 @@ nnoremap <silent> <leader>l :Lines<CR>
 
 " files {{{3
 
-nnoremap <silent> <leader>ea1 :edit ~/config/arch/arch1.sh<CR>
-nnoremap <silent> <leader>ea2 :edit ~/config/arch/arch2.sh<CR>
-nnoremap <silent> <leader>ea3 :edit ~/config/arch/arch3.sh<CR>
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
 nnoremap <silent> <leader>eb :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>ed :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>eg :edit ~/drive/notes/technology/programming_guide.md<CR>
 nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
+nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
+nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
+nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
 nnoremap <silent> <leader>ek :edit ~/config/sxhkd/sxhkdrc<CR>
 nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
 nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>

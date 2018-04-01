@@ -59,7 +59,7 @@ alias gpgkey='gpg --full-gen-key'
 
 # Functions {{{1
 
-function init-and-push {
+function giap {
     hub init
     hub add .
     hub commit -m "Initial commit"
@@ -120,12 +120,11 @@ alias ll='ls -AhgoF --group-directories-first --color=always'
 
 alias makepkg='makepkg -si'
 
-function pacaur()
-{
+function yay() {
     if [[ "$1" == "-S" ]]; then
-        command pacaur "$@" --needed
+        command yay "$@" --needed
     else
-        command pacaur  "$@"
+        command yay "$@"
     fi
 }
 

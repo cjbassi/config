@@ -65,6 +65,8 @@ ln -sf ~/config/gtk-3.0/* ~/.config/gtk-3.0/
 ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
 
+ln -sf ~/drive/programming/go ~/go/src/github.com/cjbassi
+
 
 # ranger {{{1
 
@@ -101,36 +103,41 @@ export PKG=eslint-config-airbnb
 npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install -g "$PKG@latest"
 
 
+# go {{{1
+
+go get -u github.com/nishanths/license
+
+
 # AUR {{{1
 
-sh -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
 
 # export EDITOR=nvim
 
-# pacaur -S --noconfirm --noedit alacritty-git
-pacaur -S --noconfirm --noedit alacritty-scrollback-git
-pacaur -S --noconfirm --noedit antigen-git
-# pacaur -S --noconfirm --noedit discord
-# pacaur -S --noconfirm --noedit dropbox
-pacaur -S --noconfirm --noedit gitflow-avh-git
-pacaur -S --noconfirm --noedit google-chrome
-# pacaur -S --noconfirm --noedit google-cloud-sdk
-pacaur -S --noconfirm --noedit gotop
-# pacaur -S --noconfirm --noedit heroku-cli
-pacaur -S --noconfirm --noedit insync
-pacaur -S --noconfirm --noedit neofetch-git
-pacaur -S --noconfirm --noedit nerd-fonts-complete
-pacaur -S --noconfirm --noedit pymodoro-git
-pacaur -S --noconfirm --noedit rmtrash
-pacaur -S --noconfirm --noedit rofi-greenclip
-# pacaur -S --noconfirm --noedit shutter
-pacaur -S --noconfirm --noedit unclutter-xfixes-git
-pacaur -S --noconfirm --noedit vim-anywhere-git
+# yay -S --noconfirm --noedit alacritty-git
+yay -S --noconfirm --noedit alacritty-scrollback-git
+yay -S --noconfirm --noedit antigen-git
+# yay -S --noconfirm --noedit discord
+# yay -S --noconfirm --noedit dropbox
+yay -S --noconfirm --noedit gitflow-avh-git
+yay -S --noconfirm --noedit google-chrome
+# yay -S --noconfirm --noedit google-cloud-sdk
+yay -S --noconfirm --noedit gotop
+# yay -S --noconfirm --noedit heroku-cli
+yay -S --noconfirm --noedit insync
+yay -S --noconfirm --noedit neofetch-git
+yay -S --noconfirm --noedit nerd-fonts-complete
+yay -S --noconfirm --noedit pymodoro-git
+yay -S --noconfirm --noedit rmtrash
+yay -S --noconfirm --noedit rofi-greenclip
+# yay -S --noconfirm --noedit shutter
+yay -S --noconfirm --noedit unclutter-xfixes-git
+yay -S --noconfirm --noedit vim-anywhere-git
 
-pacaur -S --noconfirm --noedit i3lock-color-git
-pacaur -S --noconfirm --noedit i3lock-fancy-git
+yay -S --noconfirm --noedit i3lock-color-git
+yay -S --noconfirm --noedit i3lock-fancy-git
 
-pacaur -S --noconfirm --noedit polybar-git
+yay -S --noconfirm --noedit polybar-git
 
 
 # Services {{{1
