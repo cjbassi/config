@@ -104,8 +104,8 @@ pacstrap /mnt                                                   \
     gimp                                                        \
     lsof                                                        \
     qt4 vlc                                                     \
-    libreoffice                                                 \
-    xdotool                                                     \
+    #libreoffice                                                 \
+    #xdotool                                                     \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \
