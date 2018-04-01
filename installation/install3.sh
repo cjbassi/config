@@ -114,30 +114,30 @@ bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/y
 
 # export EDITOR=nvim
 
-# yay -S --noconfirm --noedit alacritty-git
-yay -S --noconfirm --noedit alacritty-scrollback-git
-yay -S --noconfirm --noedit antigen-git
-# yay -S --noconfirm --noedit discord
-# yay -S --noconfirm --noedit dropbox
-yay -S --noconfirm --noedit gitflow-avh-git
-yay -S --noconfirm --noedit google-chrome
-# yay -S --noconfirm --noedit google-cloud-sdk
-yay -S --noconfirm --noedit gotop
-# yay -S --noconfirm --noedit heroku-cli
-yay -S --noconfirm --noedit insync
-yay -S --noconfirm --noedit neofetch-git
-yay -S --noconfirm --noedit nerd-fonts-complete
-yay -S --noconfirm --noedit pymodoro-git
-yay -S --noconfirm --noedit rmtrash
-yay -S --noconfirm --noedit rofi-greenclip
-# yay -S --noconfirm --noedit shutter
-yay -S --noconfirm --noedit unclutter-xfixes-git
-yay -S --noconfirm --noedit vim-anywhere-git
+# yay -S --noconfirm alacritty-git
+yay -S --noconfirm alacritty-scrollback-git
+yay -S --noconfirm antigen-git
+# yay -S --noconfirm discord
+# yay -S --noconfirm dropbox
+yay -S --noconfirm gitflow-avh-git
+yay -S --noconfirm google-chrome
+# yay -S --noconfirm google-cloud-sdk
+yay -S --noconfirm gotop
+# yay -S --noconfirm heroku-cli
+yay -S --noconfirm insync
+yay -S --noconfirm neofetch-git
+yay -S --noconfirm nerd-fonts-complete
+yay -S --noconfirm pymodoro-git
+yay -S --noconfirm rmtrash
+yay -S --noconfirm rofi-greenclip
+# yay -S --noconfirm shutter
+yay -S --noconfirm unclutter-xfixes-git
+yay -S --noconfirm vim-anywhere-git
 
-yay -S --noconfirm --noedit i3lock-color-git
-yay -S --noconfirm --noedit i3lock-fancy-git
+yay -S --noconfirm i3lock-color-git
+yay -S --noconfirm i3lock-fancy-git
 
-yay -S --noconfirm --noedit polybar-git
+yay -S --noconfirm polybar-git
 
 
 # Services {{{1
