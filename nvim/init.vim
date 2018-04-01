@@ -99,7 +99,7 @@ Plug 'davidhalter/jedi-vim'
 
 " Markdown {{{2
 
-Plug 'shime/vim-livedown', { 'do': 'sudo npm install -g livedown' }
+Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
 
 Plug 'dkarter/bullets.vim' " for toggling checkboxes
 
