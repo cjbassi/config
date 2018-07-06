@@ -4,6 +4,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " todo {{{2
 
+Plug 'lervag/vimtex'
+
 Plug '~/drive/programming/jumplist-contained.vim'
 
 " Plug 'LucHermitte/VimFold4C'
@@ -99,9 +101,9 @@ Plug 'davidhalter/jedi-vim'
 
 " Markdown {{{2
 
-Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
-
 Plug 'dkarter/bullets.vim' " for toggling checkboxes
+
+Plug 'cjbassi/grip.vim'
 
 
 " motion {{{2
@@ -303,10 +305,10 @@ nnoremap <silent> <leader>tc :ToggleCheckbox<CR>
 nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tf :Autoformat<CR>
 nnoremap <leader>th :Help<Space>
-nnoremap <silent> <leader>tm :LivedownToggle<CR>
 nnoremap <leader>tr :%s/
 nnoremap <silent> <leader>tR :RangerCurrentFile<CR>
 nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
+nnoremap <silent> <leader>tt :VimtexCompile<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
 nnoremap <leader>tU :UltiSnipsEdit<Space>
 nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
@@ -360,24 +362,23 @@ nnoremap <silent> <leader>l :Lines<CR>
 " files {{{3
 
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
-nnoremap <silent> <leader>eb :edit ~/config/polybar/config<CR>
-nnoremap <silent> <leader>ed :edit ~/drive/notes/other/dictionary.md<CR>
-nnoremap <silent> <leader>ee :edit ~/config/dotfiles/.editorconfig<CR>
-nnoremap <silent> <leader>eg :edit ~/drive/notes/technology/programming_guide.md<CR>
-nnoremap <silent> <leader>eh :edit ~/.histfile<CR>
+nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
+nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
+nnoremap <silent> <leader>een :edit ~/config/dotfiles/.zshenv<CR>
+nnoremap <silent> <leader>ehf :edit ~/.histfile<CR>
+nnoremap <silent> <leader>egc :edit ~/config/dotfiles/.gitconfig<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>ek :edit ~/config/sxhkd/sxhkdrc<CR>
-nnoremap <silent> <leader>em :edit ~/config/mutt/muttrc<CR>
-nnoremap <silent> <leader>en :edit ~/config/dotfiles/.zshenv<CR>
-nnoremap <silent> <leader>ep :edit ~/drive/notes/self_improvement/daily_planner.md<CR>
-nnoremap <silent> <leader>er :edit ~/.config/ranger/rc.conf<CR>
-nnoremap <silent> <leader>et :edit ~/config/alacritty/alacritty.yml<CR>
-nnoremap <silent> <leader>ev :edit ~/config/nvim/init.vim<CR>
-nnoremap <silent> <leader>ew :edit ~/config/i3/config<CR>
-nnoremap <silent> <leader>ex :edit ~/config/dotfiles/.xinitrc<CR>
-nnoremap <silent> <leader>ez :edit ~/config/dotfiles/.zshrc<CR>
+nnoremap <silent> <leader>ekb :edit ~/config/sxhkd/sxhkdrc<CR>
+nnoremap <silent> <leader>emr :edit ~/config/mutt/muttrc<CR>
+nnoremap <silent> <leader>epb :edit ~/config/polybar/config<CR>
+nnoremap <silent> <leader>err :edit ~/.config/ranger/rc.conf<CR>
+nnoremap <silent> <leader>etr :edit ~/config/alacritty/alacritty.yml<CR>
+nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>ewm :edit ~/config/i3/config<CR>
+nnoremap <silent> <leader>exr :edit ~/config/dotfiles/.xinitrc<CR>
+nnoremap <silent> <leader>ezr :edit ~/config/dotfiles/.zshrc<CR>
 
 nnoremap <silent> <leader>eM :edit Makefile<CR>
 
@@ -527,6 +528,7 @@ function! ManFileType()
   setlocal norelativenumber
 endfunction
 
+autocmd FileType plaintex setlocal ft=tex
 
 autocmd FileType mail setlocal spell textwidth=0 wrap
 autocmd FileType markdown setlocal spell
@@ -556,6 +558,7 @@ set foldenable
 
 set foldmethod=marker
 autocmd FileType go,c,cpp,java,javascript setlocal foldmethod=syntax
+autocmd FileType * normal zR
 
 set foldcolumn=2
 set foldlevel=0
@@ -724,6 +727,11 @@ let g:fzf_colors =
 " let g:fzf_layout = { 'window': '10split enew' }
 
 
+" grip.vim {{{2
+
+nnoremap <silent> <C-p> :call Grip()<CR>
+
+
 " incsearch.vim{{{2
 
 " autocmd FileType * map / <Plug>(incsearch-stay)
@@ -735,6 +743,14 @@ let g:fzf_colors =
 
 " map <C-j> <Over>(incsearch-scroll-f)
 " map <C-k> <Over>(incsearch-scroll-b)
+
+
+" indentLine {{{2
+
+autocmd BufRead,BufNewFile *.md,*.txt
+      \ let b:indentLine_enabled = 0 |
+
+let g:indentLine_color_term = 239
 
 
 " overlength.vim {{{2
@@ -891,14 +907,6 @@ let g:go_highlight_build_constraints = 0
 let g:go_doc_keywordprg_enabled = 0
 
 
-" indentLine {{{2
-
-autocmd BufRead,BufNewFile *.md,*.txt
-      \ let b:indentLine_enabled = 0 |
-
-let g:indentLine_color_term = 239
-
-
 " vim-ipmotion {{{2
 
 let g:ip_skipfold=1
@@ -1029,3 +1037,8 @@ omap aX <Plug>(textobj-comment-big-a)
 
 map [v <Plug>(edgemotion-k)
 map ]v <Plug>(edgemotion-j)
+
+
+" vimtex {{{2
+
+let g:vimtex_view_method='zathura'

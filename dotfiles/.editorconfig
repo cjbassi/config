@@ -11,10 +11,7 @@ charset = utf-8
 
 trim_trailing_whitespace = true
 
-[*.{vim,toml}]
-indent_size = 2
-
-[*.{js,jsx,ts,tsx,html,php}]
+[*.{js,jsx,ts,tsx,html,php,vim,toml,yml}]
 indent_size = 2
 
 [*.md]

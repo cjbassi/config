@@ -66,7 +66,7 @@ font-4 = FontAwesome:pixelsize=12;3
 
 modules-left = i3 left_arrow1 i3index left_arrow2 i3mode
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
-modules-right = left_arrow_dark pomodoro left_arrow_light pulseaudio left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
+modules-right = left_arrow_dark volume left_arrow_light brightness left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
 
 tray-position = right
 tray-background = ${colors.dark}
@@ -204,12 +204,12 @@ label-background = ${colors.light}
 label = %time%
 
 
-[module/backlight]
-type = internal/backlight
-
-card = intel_backlight
-
-output = eDP-1
+; [module/backlight]
+; type = internal/backlight
+;
+; card = intel_backlight
+;
+; output = eDP-1
 
 ; enable-scroll = false
 ; format = <label>
@@ -302,35 +302,25 @@ label-foreground = ${colors.cyan}
 label-background = ${colors.dark}
 
 
-[module/pomodoro]
+[module/volume]
 type = custom/script
-; Use pomodoro glyphs in Nerd fonts
-; exec = pymodoro --break-prefix " " --pomodoro-prefix " " --pomodoro  --empty  --break  --length 5
-; Use default symbols
-exec = pymodoro -sc 'mpg123 %s &' -sp '/home/cjbassi/config/polybar/light.mp3' -l 1 -p '-' -b '-' -e '-'
-
-label = " %output%"
-label-background = ${colors.dark}
-
-tail = true
-interval = 0
-
-; Start or reset the timer
-click-left = if [ -e ~/.pomodoro_session ]; then rm ~/.pomodoro_session; else echo "25 5" > ~/.pomodoro_session; fi
-; Increase pomodoro time
-click-right = echo "$((`cut .pomodoro_session -d ' ' -f 1`+5)) 5" > .pomodoro_session
-; Reduce pomodoro time
-click-middle = echo "$((`cut .pomodoro_session -d ' ' -f 1`-5)) 5" > .pomodoro_session
-
-
-[module/pulseaudio]
-type = custom/script
-exec = pulseaudio-tail
+exec = volume-control
 tail = true
 click-right = exec pavucontrol &
-click-left = pulseaudio-tail --mute
-scroll-up = pulseaudio-tail --up
-scroll-down = pulseaudio-tail --down
+click-left = volume-control --mute
+scroll-up = volume-control --up
+scroll-down = volume-control --down
 label = " %output%"
-label-background = ${colors.light}
+label-background = ${colors.dark}
 label-foreground = ${colors.blue}
+
+
+[module/brightness]
+type = custom/script
+exec = brightness-control
+tail = true
+label = " %output%"
+scroll-up = brightness-control --up
+scroll-down = brightness-control --down
+label-foreground = ${colors.yellow}
+label-background = ${colors.light}

@@ -1,0 +1,135 @@
+{
+    "vim.startInInsertMode": false,
+    "vim.easymotion": true,
+    "vim.leader": " ",
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "solid",
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "j"],
+            "after": ["i", "<enter>", "<esc>"]
+        },
+        {
+            "before": ["<leader>", "k"],
+            "after": ["j", "0", "i", "<backspace>"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["J"],
+            "after": ["d", "d", "p"]
+        },
+        {
+            "before": ["K"],
+            "after": ["d", "d", "k", "P"]
+        },
+        {
+            "before": ["f"],
+            "after": ["<leader>", "<leader>", "f"]
+        },
+        {
+            "before": ["F"],
+            "after": ["<leader>", "<leader>", "F"]
+        },
+        {
+            "before": ["t"],
+            "after": ["<leader>", "<leader>", "t"]
+        },
+        {
+            "before": ["T"],
+            "after": ["<leader>", "<leader>", "T"]
+        },
+        {
+            "before": ["<leader>", "o"],
+            "after": ["o"]
+        },
+        {
+            "before": ["<leader>", "O"],
+            "after": ["O"]
+        },
+        {
+            "before": ["o"],
+            "after": ["o", "<esc>"]
+        },
+        {
+            "before": ["O"],
+            "after": ["O", "<esc>"]
+        },
+        {
+            "before": ["<C-n>"],
+            "commands": [
+                {
+                    "command": ":nohl"
+                },
+            ],
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.indentLines"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.outdentLines"
+                }
+            ]
+        },
+    ],
+    "editor.wordWrap": "on",
+    "terminal.external.linuxExec": "alacritty",
+    "editor.fontFamily": "Hack",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Solarized Dark",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "keyboard.dispatch": "keyCode",
+    "files.trimFinalNewlines": true,
+    "editor.lightbulb.enabled": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+    "window.menuBarVisibility": "hidden",
+    "files.autoSave": "onFocusChange",
+    "workbench.editor.showTabs": false,
+    "search.exclude": {
+        "**/.git*": true,
+        "**/node_modules": true,
+    },
+    "files.exclude": {
+        "**/.git*": true,
+        "**/node_modules": true,
+    },
+    "terminal.integrated.rendererType": "dom",
+}

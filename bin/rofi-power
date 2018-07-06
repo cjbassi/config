@@ -3,14 +3,15 @@
 import subprocess as sb
 
 
-def main():
+if __name__ == '__main__':
 
     options = ['Suspend', 'Lock', 'Restart', 'Shutdown']
-    title   = 'rofi-power:'
+    title   = 'rofi-power'
 
-    selection = sb.check_output(['rofi', '-dmenu', '-i', '-p', title],
-                                        input='\n'.join(x for x in options),
-                                        encoding='ascii').strip()
+    selection = sb.check_output(f'rofi -dmenu -i -p {title}',
+                                shell=True,
+                                input='\n'.join(x for x in options),
+                                encoding='utf-8').strip()
 
     if selection == 'Suspend':
         sb.run(['systemctl', 'suspend'])
@@ -20,7 +21,3 @@ def main():
         sb.run(['shutdown', '-r', 'now'])
     elif selection == 'Shutdown':
         sb.run(['shutdown', 'now'])
-
-
-if __name__ == '__main__':
-    main()

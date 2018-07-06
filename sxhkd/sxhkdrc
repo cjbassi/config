@@ -1,23 +1,22 @@
 # meta_keys {{{1
 
 XF86Audio{Lower,Raise}Volume
-    amixer set Master 5%{-,+} unmute
+	volume-control {--down,--up}
 
 XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
+	volume-control --mute
 
 XF86AudioMicMute
-    pactl set-source-mute 1 toggle
+    volume-control --mic-mute
 
 XF86MonBrightness{Down,Up}
-	file=/sys/class/backlight/intel_backlight/brightness; \
-    echo $(( $(cat $file) {-,+} 106 )) | sudo tee $file
+	brightness-control --{down,up}
 
 
 # applications {{{1
 
-alt + {e,r,m}
-	alacritty -e {nvim,ranger,neomutt}
+alt + r
+	alacritty -e ranger
 
 alt + Return
 	alacritty
@@ -25,11 +24,14 @@ alt + Return
 alt + g
 	chrome
 
-alt + n
-	pomodoro-reset
-
 alt + a
-	vim-anywhere alacritty nvim
+	vim-anywhere nvim alacritty
+
+alt + o
+	alacritty -e gotop
+
+alt + e
+	code
 
 
 # rofi {{{1
@@ -41,7 +43,7 @@ alt + y
 	rofi-power
 
 alt + u
-	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+	open-greenclip
 
 
 # wm {{{1
@@ -65,7 +67,7 @@ alt + {p,c}
 	i3-msg focus {parent,child}
 
 alt + + shift + r
-	i3-msg restart; monitor-script
+	i3-msg restart; monitor-detect
 
 alt + shift + q
 	i3-msg kill

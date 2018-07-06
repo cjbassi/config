@@ -5,7 +5,7 @@
 set $mod Mod1
 
 floating_modifier $mod
-bindsym $mod+Shift+space    floating toggle
+bindsym $mod+Shift+space        floating toggle
 
 mode "resize"
 {
@@ -53,7 +53,7 @@ exec        --no-startup-id     unclutter --timeout 1
 
 # Volume {{{2
 
-exec        --no-startup-id     sh -c "pactl set-sink-mute 0 false; pactl set-sink-volume 0 40%"
+exec        --no-startup-id     volume-control --set-volume 40
 exec        --no-startup-id     pactl set-source-volume 1 100%
 
 

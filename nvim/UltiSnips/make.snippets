@@ -29,23 +29,21 @@ EXE      = ${1}
 
 JC       = javac
 JAVA	 = java
-JFLAGS   = -g
+JFLAGS   = -g -Xlint
 
 SRCFILES = $(shell find . -name "*.java")
-DEPFILES = $(shell find . -name "*.java" | grep -v p1.java)
+DEPFILES = $(shell find . -name "*.java" | grep -v $(EXE).java)
 CLAFILES = $(SRCFILES:.java=.class)
 
-.PHONY: all
+.PHONY: all test clean run
 all: $(EXE).java
 
 $(EXE).java: $(DEPFILES)
 	$(JC) $(JFLAGS) $@
 
-.PHONY: run
 run:
 	$(JAVA) $(EXE)
 
-.PHONY: clean
 clean:
 	$(RM) *.class
 endsnippet

@@ -1,0 +1,15 @@
+{
+	"#!": {
+		"prefix": "#!",
+		"body": [
+			"#!/usr/bin/env python"
+		]
+	},
+	"ifmain": {
+		"prefix": "ifmain",
+		"body": [
+			"if __name__ == '__main__':"
+			"	$0"
+		]
+	},
+}

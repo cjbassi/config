@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-monitor-script &
+monitor-detect &
 
 exec i3

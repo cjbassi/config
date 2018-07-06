@@ -2,10 +2,10 @@
 
 # Vim Keybinds {{{1
 
-# bind generic h scroll-left
+bind generic h scroll-left
 bind generic j move-down
 bind generic k move-up
-# bind generic l scroll-right
+bind generic l scroll-right
 
 bind generic g  none
 bind generic gg move-first-line
@@ -21,8 +21,6 @@ bind generic G move-last-line
 bind generic <C-f> move-page-down
 bind generic <C-b> move-page-up
 
-bind generic H view-help
-bind generic h view-close
 bind generic q quit
 
 bind generic v  none
@@ -72,8 +70,30 @@ bind generic c  none
 bind generic cc !git commit
 bind generic ca !?@git commit --amend --no-edit
 
-# bind generic K view-help
-bind generic <C-w><C-w> view-next
+
+# Other keybinds {{{1
+
+bind generic ? view-help
+bind generic H view-close-no-quit
+
+# Unbinds {{{1
+
+bind generic <PageDown> none
+bind generic <PageUp> none
+bind generic <Space> none
+bind generic <Home> none
+bind generic <End> none
+bind generic - none
+bind generic <Insert> none
+bind generic <Delete> none
+bind generic | none
+bind generic O none
+bind generic <F5> none
+bind generic <Left> none
+bind generic <Right> none
+bind generic <Down> none
+bind generic <Up> none
+bind generic <Enter> none
 
 
 # Solarized {{{1

@@ -1,50 +1,25 @@
 #!/usr/bin/env bash
 
-# Changing Dir {{{1
-
-alias cda='cd ~/drive/arch'
-alias cdb='cd ~/bin'
-alias cdc='cd /home/cjbassi/config'
-alias cdC='cd /home/cjbassi/.config'
-alias cdd='cd /home/cjbassi/drive'
-alias cdD='cd /home/cjbassi/downloads'
-alias cdm='cd /home/cjbassi/.mutt'
-alias cdn='cd /home/cjbassi/drive/notes'
-alias cdp='cd /home/cjbassi/drive/programming/projects'
-alias cdP='cd /home/cjbassi/.local/share/nvim/plugged'
-alias cdr='cd /home/cjbassi/.config/ranger'
-alias cds='cd /home/cjbassi/drive/school/cabrillo'
-alias cdt='cd /home/cjbassi/temp'
-alias cdT='cd /home/cjbassi/trash'
-alias cdS='cd /home/cjbassi/.local/share/nvim/plugged/vim-snippets'
-alias cdv='cd /home/cjbassi/.config/nvim'
-
-alias cdM='cd /mnt'
-
-
-# Command Aliases {{{1
+# Abbreviations {{{1
 
 alias blt='bluetoothctl'
 
 alias chrome='google-chrome-stable'
 
 alias cra='npx create-react-app'
+alias crat='npx create-react-app --scripts-version=react-scripts-ts'
 
 alias g='git'
+
+alias grm='go run main.go'
 
 alias l='ll'
 
 alias m='make'
 
-alias music='ncmpcpp'
-
-alias pacsignkey='pacman -r'
-
 alias py='pipenv run -- python'
 
 alias r='ranger'
-
-alias vg='valgrind'
 
 alias se='sudoedit'
 alias e='vim'
@@ -56,10 +31,26 @@ alias vp='vimpager'
 alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
 alias gpgkey='gpg --full-gen-key'
 
+alias nw='new-wallpaper'
 
-# Functions {{{1
+alias update='yay -Syu --noconfirm --needed'
 
-function giap {
+
+# New Commands {{{1
+
+function new-wallpaper {
+    folder_path=$HOME/drive/images/desktop_wallpapers
+    image_path=$(fd --full-path $folder_path --type f | shuf -n 1)
+    feh --bg-scale $image_path
+}
+
+alias open-greenclip='rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}''
+
+alias clean-tmp='sudo find /tmp -type f -atime +7 -delete'
+alias clean-trash='find /home/cjbassi/trash -type f -atime +7 -delete'
+# alias clear-temp='tmpreaper 7d /tmp'
+
+function iaccp {
     hub init
     hub add .
     hub commit -m "Initial commit"
@@ -67,48 +58,28 @@ function giap {
     hub push -u origin master
 }
 
-function hub() {
-    if [[ "$@" == "unstage" ]]; then
-        command hub reset HEAD
-    elif [[ "$@" == "uncommit" ]]; then
-        command hub reset HEAD~
-    elif [[ "$@" == "restore" ]]; then
-        command hub reset --hard HEAD
-    else
-        command hub "$@"
-    fi
-}
-
-function prepend() {
+function prepend {
     cat - "$@" | sponge "$@"
 }
 
-function fork() { nohup "$@" </dev/null >/dev/null 2>&1 &; disown }
-
-function math() { echo $(($@)) }
-
-function mkcd() { mkdir "$@"; cd "$@" }
-
-function terminal() { fork alacritty --working-directory . -e 'ranger' }
-
-function random_characters() {}
-function random_lines()
-{
-    tr -dc a-z1-4 </dev/urandom |
-    tr 1-2 ' \n' |
-    awk 'length==0 || length>50' |
-    tr 3-4 ' ' |
-    sed 's/^ *//' |
-    cat -s |
-    sed 's/ / /g' |
-    fmt |
-    head -n "$1"
+function fork {
+    nohup "$@" </dev/null >/dev/null 2>&1 &; disown
 }
-function random_number() { echo ${RANDOM} }
-function random_words() { shuf /usr/share/dict/cracklib-small -rn }
+
+function math {
+    echo $(($@))
+}
+
+function mkcd {
+    mkdir "$@"; cd "$@"
+}
+
+function terminal {
+    fork alacritty --working-directory . -e 'ranger'
+}
 
 
-# Settings Aliases {{{1
+# Settings {{{1
 
 alias sudo='sudo '
 
@@ -120,7 +91,7 @@ alias ll='ls -AhgoF --group-directories-first --color=always'
 
 alias makepkg='makepkg -si'
 
-function yay() {
+function yay {
     if [[ "$1" == "-S" ]]; then
         command yay "$@" --needed
     else
@@ -146,8 +117,6 @@ alias w='w -f'
 
 alias cp='cp -iv'
 alias mv='mv -iv'
-# alias rm='rm -Idv'
-# alias rmdir='rmdir -v'
 alias rm='rmtrash -Id'
 alias rmdir='rmdirtrash'
 alias mkdir='mkdir -vp'
@@ -158,6 +127,3 @@ alias du='du -h'
 
 alias g++='g++ -g -Wall'
 alias gcc='gcc -g -Wall'
-
-alias docker='sudo docker'
-alias docker-compose='sudo docker-compose'

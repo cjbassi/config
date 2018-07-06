@@ -1,5 +1,5 @@
 [Unit]
-Description=Starts i3lock at suspend time
+Description=Starts i3lock on suspend
 Before=sleep.target
 
 [Service]

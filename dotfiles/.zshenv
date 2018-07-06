@@ -33,7 +33,7 @@ export PATH="$PATH:$GOPATH/bin"
 
 # fzf {{{1
 
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --preview "head -100 {}"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export FZF_CTRL_T_COMMAND='rg --files'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -42,7 +42,7 @@ source ~/.fzf_solarized.sh
 
 # Editor/Pager {{{1
 
-export EDITOR='nvim'
+export EDITOR='code -n'
 export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
 

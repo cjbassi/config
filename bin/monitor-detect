@@ -4,8 +4,8 @@ MAIN_MONITOR='eDP-1'
 EXTERNAL_MONITOR='HDMI-1'
 
 if output=$(xrandr | grep "$EXTERNAL_MONITOR connected"); then
-    xrandr --output $EXTERNAL_MONITOR --mode 1920x1080 --rate 60 --scale 1x1
+    xrandr --output $EXTERNAL_MONITOR --mode 1920x1080 --scale 1x1
     xrandr --output $MAIN_MONITOR --off
 else
-    xrandr --output $MAIN_MONITOR --mode 1920x1080 --rate 60 --scale 1x1
+    xrandr --output $MAIN_MONITOR --mode 1920x1080 --scale 1x1
 fi

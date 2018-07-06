@@ -14,6 +14,15 @@ volume_mute() {
     pactl set-sink-mute $sink toggle
 }
 
+mic_mute() {
+    pactl set-source-mute 1 toggle
+}
+
+set_volume() {
+    pactl set-sink-mute $sink false
+    pactl set-sink-volume $sink $1%
+}
+
 volume_print() {
     muted=$(pamixer --sink $sink --get-mute)
 
@@ -35,6 +44,7 @@ listen() {
 
     pactl subscribe | while read -r event; do
         if echo "$event" | grep -q "#$sink"; then
+            sink=$(pacmd list-sinks | grep '*' | awk '{print $3}')
             volume_print
         fi
     done
@@ -49,6 +59,12 @@ case "$1" in
         ;;
     --mute)
         volume_mute
+        ;;
+    --mic-mute)
+        mic_mute
+        ;;
+    --set-volume)
+        set_volume $2
         ;;
     *)
         listen

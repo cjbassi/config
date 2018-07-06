@@ -40,3 +40,19 @@
     added = green bold
     changed = yellow bold
     untracked = red bold
+
+[alias]
+    ad = add .
+    co = commit
+    cm = commit -m
+    ca = commit --amend -C HEAD
+    st = status
+    di = diff
+    ps = push
+    pl = pull
+    ch = checkout
+    cl = clone
+
+    unstage = reset HEAD --
+    uncommit = reset --soft HEAD^
+    restore = !git clean -df && git reset --hard HEAD

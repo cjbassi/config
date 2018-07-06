@@ -9,6 +9,7 @@
 .local
 .node-gyp
 .npm
+.nuget
 .pki
 .pylint.d
 .w3m

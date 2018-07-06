@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+import random
+import string
+import sys
+
+
+def binary(count=1):
+    for _ in range(count):
+        print(''.join(random.choice(['0', '1'])))
+
+
+def ints(count=1, max=10, min=0):
+    for _ in range(count):
+        print(random.randint(min, max))
+
+
+def floats(count=1, max=10, min=0):
+    for _ in range(count):
+        print('{:.2f}'.format(random.uniform(min, max)))
+
+
+def characters(x=1, y=1):
+    alphanumeric = string.ascii_letters + string.digits
+    for _ in range(y):
+        print(''.join([random.choice(alphanumeric) for i in range(x)]))
+
+
+def words(count=1):
+    word_file = '/usr/share/dict/cracklib-small'
+    with open(word_file) as f:
+        words = f.read().splitlines()
+    for _ in range(count):
+        print(random.choice(words))
+
+
+if __name__ == '__main__':
+    args = list(map(int, sys.argv[2:]))
+    if sys.argv[1] in ['ints', 'integers']:
+        ints(*args)
+    elif sys.argv[1] in ['chars', 'characters']:
+        characters(*args)
+    elif sys.argv[1] == 'words':
+        words(*args)
+    elif sys.argv[1] == 'binary':
+        binary(*args)
+    elif sys.argv[1] == 'floats':
+        floats(*args)

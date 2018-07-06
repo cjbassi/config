@@ -91,7 +91,7 @@ pacstrap /mnt                                                   \
     cmake                                                       \
     clang                                                       \
     sxiv                                                        \
-    unzip                                                       \
+    unzip zip                                                   \
     httpie                                                      \
     docker                                                      \
     whois                                                       \
@@ -106,6 +106,10 @@ pacstrap /mnt                                                   \
     qt4 vlc                                                     \
     libreoffice                                                 \
     xdotool                                                     \
+    dep                                                         \
+    tmpreaper                                                   \
+    inotify-tools                                               \
+    calibre                                                     \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \

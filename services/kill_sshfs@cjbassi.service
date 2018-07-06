@@ -1,0 +1,10 @@
+[Unit]
+Description=Kills sshfs on suspend
+Before=sleep.target
+
+[Service]
+Type=simple
+ExecStart=-/usr/bin/pkill sshfs
+
+[Install]
+WantedBy=sleep.target
