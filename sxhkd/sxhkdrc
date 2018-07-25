@@ -46,57 +46,6 @@ alt + u
 	open-greenclip
 
 
-## i3 {{{1
-#
-#alt + {h,j,k,l}
-#	i3-msg focus {left,down,up,right}
-#
-#alt + shift + {h,j,k,l}
-#	i3-msg move {left,down,up,right}
-#
-#alt + shift + ctrl + {h,l}
-#	i3-msg resize {grow,shrink} width 5 px or 5 ppt
-#
-#alt + shift + ctrl + {j,k}
-#	i3-msg resize {shrink,grow} height 5 px or 5 ppt
-#
-##alt + shift + space
-##	i3-msg floating toggle
-#
-#alt + {s,v}
-#	i3-msg split {v,h}
-#
-#alt + f
-#	i3-msg fullscreen toggle
-#
-#alt + t
-#	i3-msg layout toggle split
-#
-#alt + {p,c}
-#	i3-msg focus {parent,child}
-#
-#alt + shift + r
-#	monitor-script; i3-msg reload; reload-settings
-#
-#alt + shift + q
-#	i3-msg kill
-#
-#alt + space
-#	i3-msg focus mode_toggle
-#
-#alt + minus
-#	i3-msg scratchpad show
-#
-#alt + shift + minus
-#	i3-msg move scratchpad
-#
-#alt + {1,2,3,4,5,6,7,8,9,0}
-#	i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
-#
-#alt + shift + {1,2,3,4,5,6,7,8,9,0}
-#	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
-
-
 # bspwm {{{1
 
 alt + {_,shift + }{h,j,k,l}

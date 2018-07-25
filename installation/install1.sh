@@ -100,7 +100,6 @@ pacstrap /mnt                                                   \
     zathura-pdf-mupdf                                           \
     tlp x86_energy_perf_policy acpi_call tp_smapi               \
     breeze-gtk                                                  \
-    i3-gaps                                                     \
     krita                                                       \
     gimp                                                        \
     lsof                                                        \
