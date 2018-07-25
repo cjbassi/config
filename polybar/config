@@ -44,11 +44,12 @@ screenchange-reload = true
 
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 
 [bar/main]
+monitor = ${env:MONITOR}
 width = 100%
 height = 25
 radius = 1.0
@@ -64,12 +65,15 @@ font-3 = siji:pixelsize=10;3
 font-2 = Hack:pixelsize=20;4
 font-4 = FontAwesome:pixelsize=12;3
 
-modules-left = i3 left_arrow1 i3index left_arrow2 i3mode
+# modules-left = i3 left_arrow1 i3index left_arrow2
+modules-left = bspwm
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
 modules-right = left_arrow_dark volume left_arrow_light brightness left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
 
 tray-position = right
 tray-background = ${colors.dark}
+tray-detached = false
+;tray-padding = 2
 
 
 [module/left_arrow1]
@@ -120,6 +124,37 @@ content-foreground = ${colors.light}
 content-background = ${colors.dark}
 
 
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = false
+reverse-scroll = false
+;scroll-up = bspc desktop -f prev.local
+;scroll-down = bspc desktop -f next.local
+
+;   ● ○
+label-focused = 
+label-focused-foreground = ${colors.blue}
+;label-focused-background = ${colors.xcolor1}
+label-focused-padding = 2
+label-focused-font = 3
+label-occupied = 
+label-occupied-foreground = ${colors.base2}
+;label-occupied-background = ${colors.xcolor1}
+label-occupied-padding = 2
+label-occupied-font = 3
+label-urgent = 
+label-urgent-foreground = ${colors.red}
+;label-urgent-background = ${colors.xcolor1}
+label-urgent-padding = 2
+label-urgent-font = 3
+label-empty = 
+label-empty-foreground = ${colors.base2}
+;label-empty-background = ${colors.xcolor1}
+label-empty-padding = 2
+label-empty-font = 3
+
+
 [module/i3]
 type = internal/i3
 format = <label-state>
@@ -151,19 +186,6 @@ label-focused = " %name% "
 label-focused-foreground = ${colors.dark}
 label-focused-background = ${colors.blue}
 
-label-unfocused =
-label-urgent =
-
-
-[module/i3mode]
-type = internal/i3
-format = <label-state><label-mode>
-
-label-mode = " %mode% "
-label-mode-foreground = ${colors.red}
-label-mode-background = ${colors.light}
-
-label-focused =
 label-unfocused =
 label-urgent =
 
@@ -225,9 +247,9 @@ interval = 5
 
 warn-temperature = 80
 
-label = "%temperature%"
+label = "%temperature-c%"
 
-label-warn = "%temperature%"
+label-warn = "%temperature-c%"
 label-warn-foreground = ${colors.red}
 
 format = "<ramp> <label>"

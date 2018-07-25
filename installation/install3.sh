@@ -15,10 +15,8 @@ mkdir -p .mutt
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/{ranger,gtk-3.0}
 
-mkdir -p go
-mkdir -p go/bin
-mkdir -p go/pkg
-mkdir -p go/src
+# go
+mkdir -p ~/local/{bin,pkg,src}
 
 ln -sf ~/.local/share/Trash/files ~/trash
 
@@ -72,12 +70,12 @@ ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
 ln -sf ~/config/vscode/* ~/.config/Code/User
 
-ln -sf ~/drive/programming/go ~/go/src/github.com/cjbassi
-
 
 # ranger {{{1
 
 ranger --copy-config=scope
+
+xdg-mime default ranger.desktop inode/directory
 
 
 # Neovim {{{1
@@ -102,50 +100,50 @@ pip install --user xtermcolor
 
 # npm {{{1
 
-npm install -g babel-eslint
-npm install -g eslint-plugin-react
-
-npm install -g js-beautify
-
-npm install -g typesync
-
-export PKG=eslint-config-airbnb
-npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install -g "$PKG@latest"
+yarn global add npx
 
 
 # go {{{1
 
-go get -u github.com/nishanths/license
+go get github.com/nishanths/license
 go get github.com/goreleaser/goreleaser
+
+
+# rust {{{1
+
+rustup install stable
+rustup default stable
 
 
 # AUR {{{1
 
 bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
 
-# yay -S --noconfirm alacritty-git
-yay -S --noconfirm alacritty-scrollback-git
-yay -S --noconfirm antigen-git
-yay -S --noconfirm --mflags --nocheck discord
-yay -S --noconfirm gitflow-avh-git
-yay -S --noconfirm google-chrome
-# yay -S --noconfirm google-cloud-sdk
-yay -S --noconfirm gotop-bin
-# yay -S --noconfirm heroku-cli
-yay -S --noconfirm insync
-yay -S --noconfirm neofetch-git
-yay -S --noconfirm nerd-fonts-complete
-yay -S --noconfirm rmtrash
-yay -S --noconfirm rofi-greenclip
-# yay -S --noconfirm shutter
-yay -S --noconfirm spotify
-yay -S --noconfirm unclutter-xfixes-git
-yay -S --noconfirm vim-anywhere-git
+alias yay='yay -S --noconfirm --needed --mflags "--nocheck"'
 
-yay -S --noconfirm i3lock-color-git
-yay -S --noconfirm i3lock-fancy-git
-
-yay -S --noconfirm polybar-git
+# yay alacritty-git
+yay alacritty-scrollback-git
+yay antigen-git
+yay discord
+yay gitflow-avh-git
+yay google-chrome
+# yay google-cloud-sdk
+yay gotop-bin
+# yay heroku-cli
+yay i3lock-fancy-git
+yay insync
+yay neofetch-git
+yay nerd-fonts-complete
+yay osu-lazer-git
+yay polybar-git
+yay rmtrash
+yay rofi-greenclip
+# yay shutter
+yay spotify
+yay texlive-latexindent-meta
+yay unclutter-xfixes-git
+yay vim-anywhere-git
+yay visual-studio-code-bin
 
 
 # Services {{{1
@@ -165,4 +163,5 @@ sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
 
+# disables tmpfs
 sudo systemctl mask tmp.mount

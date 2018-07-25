@@ -1,8 +1,8 @@
 {
-	"#!": {
-		"prefix": "#!",
+	"shebang": {
+		"prefix": "shebang",
 		"body": [
 			"#!/usr/bin/env bash"
 		]
-	},
+	}
 }

@@ -19,16 +19,15 @@ LC_ALL="en_US.UTF-8"
 
 # Path {{{1
 
-# pip and npm
+# pip, npm, go
 export PATH=$PATH:~/.local/bin
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 export PATH=$PATH:$HOME/bin
 
-export GOPATH=~/go
+export GOPATH=~/.local
 export GOBIN=$GOPATH/bin
-export PATH="$PATH:$GOPATH/bin"
 
 
 # fzf {{{1
@@ -40,10 +39,10 @@ export FZF_CTRL_T_COMMAND='rg --files'
 source ~/.fzf_solarized.sh
 
 
-# Editor/Pager {{{1
+# env variables {{{1
 
-export EDITOR='code -n'
-export VISUAL=$EDITOR
+export EDITOR='nvim'
+export VISUAL=$EDITR
 export USE_EDITOR=$EDITOR
 
 export PAGER="vimpager"
@@ -52,3 +51,5 @@ export MANPAGER=$PAGER
 alias pager=$PAGER
 alias zless=$PAGER
 alias less=$PAGER
+
+export BROWSER=google-chrome-stable

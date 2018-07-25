@@ -1,4 +1,7 @@
 {
+    "vim.showcmd": true,
+    "vim.useCtrlKeys": true,
+    "vim.showmodename": true,
     "vim.startInInsertMode": false,
     "vim.easymotion": true,
     "vim.leader": " ",
@@ -9,63 +12,218 @@
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["<leader>", "j"],
-            "after": ["i", "<enter>", "<esc>"]
+            "before": [
+                "K"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesUpAction"
+                }
+            ]
         },
         {
-            "before": ["<leader>", "k"],
-            "after": ["j", "0", "i", "<backspace>"]
+            "before": [
+                "J"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesDownAction"
+                }
+            ]
         },
         {
-            "before": ["j"],
-            "after": ["g", "j"]
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "S",
+                "<esc>"
+            ]
         },
         {
-            "before": ["k"],
-            "after": ["g", "k"]
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
         },
         {
-            "before": ["J"],
-            "after": ["d", "d", "p"]
+            "before": [
+                ";"
+            ],
+            "after": [
+                "z",
+                "z"
+            ]
         },
         {
-            "before": ["K"],
-            "after": ["d", "d", "k", "P"]
+            "before": [
+                "Q"
+            ],
+            "after": [
+                "@",
+                "q"
+            ]
+        },
+        // {
+        //     "before": [
+        //         ":"
+        //     ],
+        //     "commands": [
+        //         {
+        //             "command": "workbench.action.showCommands",
+        //         }
+        //     ]
+        // },
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo",
+                    "args": []
+                }
+            ]
         },
         {
-            "before": ["f"],
-            "after": ["<leader>", "<leader>", "f"]
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo",
+                    "args": []
+                }
+            ]
         },
         {
-            "before": ["F"],
-            "after": ["<leader>", "<leader>", "F"]
+            "before": [
+                "<leader>",
+                "j"
+            ],
+            "after": [
+                "i",
+                "<enter>",
+                "<esc>"
+            ]
         },
         {
-            "before": ["t"],
-            "after": ["<leader>", "<leader>", "t"]
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "after": [
+                "j",
+                "0",
+                "i",
+                "<backspace>",
+                "<esc>"
+            ]
         },
         {
-            "before": ["T"],
-            "after": ["<leader>", "<leader>", "T"]
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
         },
         {
-            "before": ["<leader>", "o"],
-            "after": ["o"]
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
         },
         {
-            "before": ["<leader>", "O"],
-            "after": ["O"]
+            "before": [
+                "f"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "f"
+            ]
         },
         {
-            "before": ["o"],
-            "after": ["o", "<esc>"]
+            "before": [
+                "F"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "F"
+            ]
         },
         {
-            "before": ["O"],
-            "after": ["O", "<esc>"]
+            "before": [
+                "t"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "t"
+            ]
         },
         {
-            "before": ["<C-n>"],
+            "before": [
+                "T"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "T"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "after": [
+                "o"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "O"
+            ],
+            "after": [
+                "O"
+            ]
+        },
+        {
+            "before": [
+                "o"
+            ],
+            "after": [
+                "o",
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                "O"
+            ],
+            "after": [
+                "O",
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
             "commands": [
                 {
                     "command": ":nohl"
@@ -74,6 +232,26 @@
         },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesUpAction"
+                }
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesDownAction"
+                }
+            ]
+        },
         {
             "before": [
                 "p",
@@ -116,20 +294,86 @@
     },
     "keyboard.dispatch": "keyCode",
     "files.trimFinalNewlines": true,
-    "editor.lightbulb.enabled": false,
-    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.lightbulb.enabled": true,
     "workbench.statusBar.visible": true,
     "workbench.activityBar.visible": false,
     "window.menuBarVisibility": "hidden",
-    "files.autoSave": "onFocusChange",
+    "files.autoSave": "off",
     "workbench.editor.showTabs": false,
     "search.exclude": {
-        "**/.git*": true,
-        "**/node_modules": true,
+        "**/.vscode/": true,
+        "**/.git/": true,
+        "**/node_modules/": true,
+        "**/__pycache__/": true,
+        "**/*.o": true,
+        "**/*.class": true,
     },
     "files.exclude": {
-        "**/.git*": true,
-        "**/node_modules": true,
+        "**/.vscode/": true,
+        "**/.git/": true,
+        "**/node_modules/": true,
+        "**/__pycache__/": true,
+        "**/*.o": true,
+        "**/*.class": true,
     },
     "terminal.integrated.rendererType": "dom",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.command": {
+        "command": "zathura",
+        "args": [
+            "%PDF%"
+        ]
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.renderIndentGuides": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "python.linting.pylintPath": "/usr/bin/pylint",
+    "editor.occurrencesHighlight": false,
+    "files.associations": {
+        "**/.i3/config": "i3",
+        "**/i3/config": "i3",
+        "**/sxhkd/sxhkdrc": "sxhkd"
+    },
+    "sync.autoUpload": true,
+    "sync.gist": "50c3015b02f1335ec12a3458ba309654",
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": true,
+    "sync.askGistName": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "sync.autoDownload": false,
+    "sync.lastUpload": "2018-07-23T18:14:07.402Z",
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "npm.enableScriptExplorer": true,
+    // "typescriptHero.imports.insertSemicolons": false,
+    // "typescriptHero.imports.organizeOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.overviewRulerBorder": true,
+    "editor.hideCursorInOverviewRuler": false,
+    "editor.smoothScrolling": false,
+    "editor.scrollBeyondLastLine": false,
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+    "editor.glyphMargin": false,
+    "workbench.sideBar.location": "right",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "prettier.eslintIntegration": true,
+    "prettier.tslintIntegration": true,
+    "[json]": {
+        "editor.formatOnSave": false
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": false
+    },
+    "latex-workshop.message.error.show": false,
+    "window.zoomLevel": 0,
+    "explorer.confirmDragAndDrop": false,
+    "window.restoreWindows": "none",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "editor.acceptSuggestionOnCommitCharacter": false,
 }

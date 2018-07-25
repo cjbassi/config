@@ -5,16 +5,7 @@
 set $mod Mod1
 
 floating_modifier $mod
-bindsym $mod+Shift+space        floating toggle
-
-mode "resize"
-{
-    bindsym h                   resize shrink width 5 px or 5 ppt
-    bindsym j                   resize grow height 5 px or 5 ppt
-    bindsym k                   resize shrink height 5 px or 5 ppt
-    bindsym l                   resize grow width 5 px or 5 ppt
-    bindsym Escape              mode "default"
-}
+bindsym $mod+Shift+space floating toggle
 
 # Window Settings {{{1
 
@@ -32,41 +23,7 @@ smart_borders on
 smart_gaps on
 
 
-# Scripts {{{1
+# applications and settings
 
-exec        --no-startup-id     xcape
-exec        --no-startup-id     greenclip daemon
-
-# Applets {{{2
-
-exec        --no-startup-id     insync start --synchronous-full
-exec        --no-startup-id     nm-applet
-exec        --no-startup-id     blueman-applet
-exec        --no-startup-id     redshift-gtk
-
-
-# Visuals {{{2
-
-exec        --no-startup-id     ./.fehbg
-exec        --no-startup-id     unclutter --timeout 1
-
-
-# Volume {{{2
-
-exec        --no-startup-id     volume-control --set-volume 40
-exec        --no-startup-id     pactl set-source-volume 1 100%
-
-
-# Laptop {{{2
-
-exec        --no-startup-id     xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1
-exec        --no-startup-id     xinput --disable 'SynPS/2 Synaptics TouchPad'
-
-
-# exec_always {{{2
-
-exec_always --no-startup-id     pkill polybar; polybar main
-exec_always --no-startup-id     pkill sxhkd; sxhkd
-exec_always --no-startup-id     xmodmap ~/config/peripherals/xkeys
-exec_always --no-startup-id     xset r rate 400 25
-exec_always --no-startup-id     pkill xcape; xcape
+exec --no-startup-id startup
+exec --no-startup-id reload-settings

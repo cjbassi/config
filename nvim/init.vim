@@ -34,7 +34,7 @@ Plug 'ozelentok/vim-closer'
 
 " completion {{{2
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Rip-Rip/clang_complete'
 Plug 'zchee/deoplete-jedi'
 Plug 'racer-rust/vim-racer'
@@ -132,7 +132,8 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'chr4/nginx.vim'
 
-Plug 'kovetskiy/sxhkd-vim'
+" Plug 'kovetskiy/sxhkd-vim'
+Plug 'baskerville/vim-sxhkdrc'
 
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -158,7 +159,7 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 
 " textobjects {{{2
@@ -262,8 +263,8 @@ nmap <silent> j gj
 nmap <silent> k gk
 
 " backwards deleting in insert mode adds to undo list
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+" inoremap <c-u> <c-g>u<c-u>
+" inoremap <c-w> <c-g>u<c-w>
 
 " keep selected text selected when fixing indentation
 vnoremap < <gv
@@ -331,6 +332,7 @@ nnoremap <leader>bM :Move<Space>
 
 " write/quit {{{3
 
+nnoremap <silent> <C-s> :silent w<CR>
 nnoremap <silent> <leader>q :qa<CR>
 nnoremap <silent> <leader>C :cq<CR>
 nnoremap <silent> <leader>x :silent w<CR>:qa<CR>
@@ -346,6 +348,9 @@ nnoremap <silent> <leader>o o
 nnoremap <silent> <leader>O O
 
 nnoremap <silent> <leader>d S<Esc>
+
+noremap! <C-BS> <C-w>
+noremap! <C-h> <C-w>
 
 
 " movement {{{3
@@ -659,33 +664,33 @@ highlight ALEWarningSign guifg=#b58900 guibg=#073642
 let g:bullets_set_mappings = 0
 
 
-" " Deoplete{{{2
+" Deoplete{{{2
 
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#enable_refresh_always = 0
-" inoremap <C-j> <C-n>
-" inoremap <C-k> <C-p>
-" let g:deoplete#auto_complete_start_length = 2
-" let g:deoplete#max_abbr_width = 50
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 0
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
+let g:deoplete#auto_complete_start_length = 2
+let g:deoplete#max_abbr_width = 50
 
-" autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function() abort
-"   return deoplete#close_popup() . "\<CR>"
-" endfunction
+autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 
-" autocmd CompleteDone * silent! pclose!
+autocmd CompleteDone * silent! pclose!
 
-" if has("patch-7.4.314")
-"   set shortmess+=c
-" endif
+if has("patch-7.4.314")
+  set shortmess+=c
+endif
 
-" call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
-"       \ 'matcher_length'])
+call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
+      \ 'matcher_length'])
 
-" let g:clang_library_path='/usr/lib'
-" let g:deoplete#sources#jedi#show_docstring = 1
+let g:clang_library_path='/usr/lib'
+let g:deoplete#sources#jedi#show_docstring = 1
 
-" set completeopt-=preview
+set completeopt-=preview
 
 
 " fzf {{{2

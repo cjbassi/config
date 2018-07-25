@@ -16,6 +16,7 @@ antigen bundle bobthecow/git-flow-completion
 antigen bundle zsh-users/zsh-completions
 antigen bundle unixorn/git-extra-commands
 antigen bundle cjbassi/zsh-vi-mode-clipboard
+antigen bundle softmoth/zsh-vim-mode
 
 antigen apply
 
@@ -46,9 +47,7 @@ bindkey -v
 # reduces ESC delay
 export KEYTIMEOUT=1
 
-bindkey '^w' backward-kill-word
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
+bindkey '^H' backward-kill-word
 
 bindkey -r '^z'
 
@@ -145,30 +144,32 @@ export TLDR_COLOR_BLANK="white"
 
 # fzf {{{2
 
-zle -N fzf-history-widget
-zle -N fzf-file-widget
+# zle -N fzf-history-widget
+# zle -N fzf-file-widget
 
+# remove bindings
 bindkey -r '^[c'
 bindkey -M viins -r '^t'
 
 bindkey -M vicmd '/' fzf-history-widget
 
-bindkey -M vicmd '^f' fzf-file-widget
-bindkey -M viins '^f' fzf-file-widget
-
-fzf-directories() {
-    fd -t d | fzf
+fzf-local() {
+    local path=$(fd | fzf)
+    LBUFFER+=$path
+    zle redisplay
 }
-zle -N fzf-directories
-bindkey -M vicmd '^r' fzf-directories
-bindkey -M viins '^r' fzf-directories
+zle -N fzf-local
+bindkey -M vicmd '^f' fzf-local
+bindkey -M viins '^f' fzf-local
 
-fzf-homedir() {
-    rg --files ~ | fzf
+fzf-root() {
+    local path=$(fd . ~ | fzf)
+    LBUFFER+=$path
+    zle redisplay
 }
-zle -N fzf-homedir
-bindkey -M vicmd '^t' fzf-homedir
-bindkey -M viins '^t' fzf-homedir
+zle -N fzf-root
+bindkey -M vicmd '^r' fzf-root
+bindkey -M viins '^r' fzf-root
 
 
 # pipenv {{{2
@@ -177,6 +178,13 @@ export PIPENV_VENV_IN_PROJECT=1
 
 
 # Powerlevel9k {{{2
+
+# Mode indication {{{
+function zle-line-init zle-keymap-select {
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir root_indicator virtualenv background_jobs)
 export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
@@ -224,8 +232,7 @@ export POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND=125
 # ranger {{{2
 
 # running ranger in a subshell of an already running ranger just exists that shell
-function ranger()
-{
+function ranger() {
     if [ -n "$RANGER_LEVEL" ]; then
         exit
     else

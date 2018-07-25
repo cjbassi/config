@@ -35,14 +35,16 @@ def words(count=1):
 
 
 if __name__ == '__main__':
-    args = list(map(int, sys.argv[2:]))
-    if sys.argv[1] in ['ints', 'integers']:
-        ints(*args)
-    elif sys.argv[1] in ['chars', 'characters']:
-        characters(*args)
-    elif sys.argv[1] == 'words':
-        words(*args)
-    elif sys.argv[1] == 'binary':
-        binary(*args)
-    elif sys.argv[1] == 'floats':
-        floats(*args)
+    func_name = sys.argv[1]
+    args = sys.argv[2:]
+    args = list(map(int, args))
+    function = {
+        'ints': ints,
+        'integers': ints,
+        'chars': characters,
+        'characters': characters,
+        'words': words,
+        'binary': binary,
+        'floats': floats,
+    }
+    function[func_name](*args)

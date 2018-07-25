@@ -9,6 +9,8 @@ alias chrome='google-chrome-stable'
 alias cra='npx create-react-app'
 alias crat='npx create-react-app --scripts-version=react-scripts-ts'
 
+alias typesync='npx typesync'
+
 alias g='git'
 
 alias grm='go run main.go'
@@ -21,11 +23,9 @@ alias py='pipenv run -- python'
 
 alias r='ranger'
 
-alias se='sudoedit'
-alias e='vim'
-alias vim='nvim'
-alias vd='vimdiff'
+alias codediff='code -n -d'
 alias vimdiff='nvim -d'
+alias se='sudoedit'
 alias vp='vimpager'
 
 alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
@@ -66,10 +66,6 @@ function fork {
     nohup "$@" </dev/null >/dev/null 2>&1 &; disown
 }
 
-function math {
-    echo $(($@))
-}
-
 function mkcd {
     mkdir "$@"; cd "$@"
 }
@@ -93,7 +89,7 @@ alias makepkg='makepkg -si'
 
 function yay {
     if [[ "$1" == "-S" ]]; then
-        command yay "$@" --needed
+        command yay "$@" --needed --mflags '--nocheck'
     else
         command yay "$@"
     fi

@@ -50,11 +50,12 @@ pacstrap /mnt                                                   \
     jdk8-openjdk                                                \
     gdb valgrind                                                \
     go                                                          \
-    nodejs npm                                                  \
+    nodejs yarn npm                                             \
     astyle eslint autopep8 flake8 tidy rust-racer python-pylint \
     hub                                                         \
     mono                                                        \
     php                                                         \
+    rustup cargo                                                \
 \
     ttf-dejavu                                                  \
     ttf-hack                                                    \
@@ -106,10 +107,11 @@ pacstrap /mnt                                                   \
     qt4 vlc                                                     \
     libreoffice                                                 \
     xdotool                                                     \
-    dep                                                         \
     tmpreaper                                                   \
     inotify-tools                                               \
     calibre                                                     \
+    fzf                                                         \
+    xterm                                                       \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \

@@ -7,17 +7,15 @@
     pager = vimpager
 
 [diff]
-    tool = vimdiff
+    tool = code
 [difftool]
     prompt = false
 
 [merge]
-    tool = vimdiff
+    tool = code
     conflictstyle = diff3
 [mergetool]
     prompt = false
-[mergetool "vimdiff"]
-    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [color]
     ui = auto
@@ -42,7 +40,7 @@
     untracked = red bold
 
 [alias]
-    ad = add .
+    ad = add
     co = commit
     cm = commit -m
     ca = commit --amend -C HEAD
