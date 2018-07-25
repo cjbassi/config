@@ -112,6 +112,7 @@ pacstrap /mnt                                                   \
     fzf                                                         \
     xterm                                                       \
     xdo                                                         \
+    i3-gaps                                                     \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \

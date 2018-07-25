@@ -59,7 +59,7 @@ ln -sf ~/config/bin ~/bin
 ln -sf ~/config/mutt/* ~/.mutt/
 
 ln -sf ~/{,.}config/alacritty
-ln -sf ~/{,.}config/bspwm
+ln -sf ~/{,.}config/i3
 ln -sf ~/{,.}config/polybar
 ln -sf ~/{,.}config/rofi
 ln -sf ~/{,.}config/sxhkd

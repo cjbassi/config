@@ -31,4 +31,4 @@ xinput --disable 'Synaptics TM3289-002' &
 
 monitor-script &
 
-exec bspwm
+exec i3

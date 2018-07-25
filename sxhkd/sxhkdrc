@@ -46,52 +46,43 @@ alt + u
 	open-greenclip
 
 
-# bspwm {{{1
+# i3 {{{1
 
-alt + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+alt + {_, shift +} {h,j,k,l}
+	i3-msg {focus, move} {left,down,up,right}
 
-alt + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+alt + shift + ctrl + {h,j,k,l}
+	i3-msg resize {grow width,shrink height,grow height,shrink width} 5 px or 5 ppt
 
-alt + ctrl + space
-	bspc node -p cancel
+alt + {s,v}
+	i3-msg split {v,h}
 
-alt + ctrl + shift + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+alt + f
+	i3-msg fullscreen toggle
 
-alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+alt + t
+	i3-msg layout toggle split
 
-alt + {_,shift + }w
-	bspc node -{c,k}
+alt + T
+	i3-msg layout toggle tabbed split
 
 alt + {p,c}
-	bspc node -f @{parent,first}
-
-alt + {f,shift + space}
-	bspc node -t '~{fullscreen,floating}'
+	i3-msg focus {parent,child}
 
 alt + shift + r
-	monitor-script; .config/bspwm/bspwmrc
+	monitor-script; i3-msg reload; reload-settings
 
-alt + {shift +,_} t
-	bspc node -R {-,+}90
+alt + {_, shift + } w
+	{i3-msg kill,xdo kill}
 
-# alt + Tab
-#     bspc window focused -f next
-
-# alt + {_,shift + } Tab
-#     bspc node -f {next,prev}.local
-
-alt + underscore
-	bspc node -t floating; \
-	bspc node -g hidden
+alt + space
+	i3-msg focus mode_toggle
 
 alt + minus
-	node=$(bspc query -N -n .hidden | tail -n1); \
-	bspc node $node -g hidden=off; \
-	bspc node -f $node
-	# alacritty -e math
-	# id=$(cat /tmp/scratchid); \
-	# bspc node $id -g hidden; bspc node -f $id
+	i3-msg scratchpad show
+
+alt + shift + minus
+	i3-msg move scratchpad
+
+alt + {_, shift +} {0-9}
+	i3-msg { ,move container to} workspace {10,1-9}

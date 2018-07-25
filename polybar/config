@@ -65,7 +65,7 @@ font-3 = siji:pixelsize=10;3
 font-2 = Hack:pixelsize=20;4
 font-4 = FontAwesome:pixelsize=12;3
 
-modules-left = bspwm right_arrow_dark
+modules-left = i3 right_arrow_dark
 modules-center = left_arrow_dark day left_arrow_light time right_arrow_light date right_arrow_dark
 modules-right = left_arrow_dark volume left_arrow_light brightness left_arrow_dark ram left_arrow_light cpu left_arrow_dark temperature left_arrow_light battery left_arrow_dark
 
@@ -74,7 +74,7 @@ tray-background = ${colors.dark}
 tray-detached = false
 ;tray-padding = 2
 
-wm-restack = bspwm
+;wm-restack = bspwm
 
 
 [module/left_arrow1]
@@ -125,35 +125,31 @@ content-foreground = ${colors.light}
 content-background = ${colors.dark}
 
 
-[module/bspwm]
-type = internal/bspwm
+[module/i3]
+type = internal/i3
+format = <label-state>
 
-pin-workspaces = false
-reverse-scroll = true
+index-sort = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+pin-workspaces = true
 
 label-focused = %name%
+label-focused-padding = 1
 label-focused-foreground = ${colors.blue}
 label-focused-background = ${colors.dark}
-label-focused-padding = 1
 ;label-focused-font = 1
 
-label-occupied = %name%
-label-occupied-foreground = ${colors.base2}
-label-occupied-background = ${colors.dark}
-label-occupied-padding = 1
-;label-occupied-font = 3
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.dark}
 
 label-urget = %name%
+label-urgent-padding = 1
 label-urgent-foreground = ${colors.red}
 label-urgent-background = ${colors.dark}
-label-urgent-padding = 1
-;label-urgent-font = 3
-
-label-empty = %name%
-label-empty-foreground = ${colors.base01}
-label-empty-background = ${colors.dark}
-;label-empty-font = 3
-label-empty-padding = 1
 
 
 [module/date]
