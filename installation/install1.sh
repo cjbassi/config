@@ -111,6 +111,7 @@ pacstrap /mnt                                                   \
     calibre                                                     \
     fzf                                                         \
     xterm                                                       \
+    xdo                                                         \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \

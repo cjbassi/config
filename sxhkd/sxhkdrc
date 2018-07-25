@@ -69,8 +69,29 @@ alt + {_,shift + }w
 alt + {p,c}
 	bspc node -f @{parent,first}
 
-alt + f
-	bspc desktop -l next
+alt + {f,shift + space}
+	bspc node -t '~{fullscreen,floating}'
 
 alt + shift + r
 	monitor-script; .config/bspwm/bspwmrc
+
+alt + {shift +,_} t
+	bspc node -R {-,+}90
+
+# alt + Tab
+#     bspc window focused -f next
+
+# alt + {_,shift + } Tab
+#     bspc node -f {next,prev}.local
+
+alt + underscore
+	bspc node -t floating; \
+	bspc node -g hidden
+
+alt + minus
+	node=$(bspc query -N -n .hidden | tail -n1); \
+	bspc node $node -g hidden=off; \
+	bspc node -f $node
+	# alacritty -e math
+	# id=$(cat /tmp/scratchid); \
+	# bspc node $id -g hidden; bspc node -f $id

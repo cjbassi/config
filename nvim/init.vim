@@ -132,8 +132,8 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'chr4/nginx.vim'
 
-" Plug 'kovetskiy/sxhkd-vim'
-Plug 'baskerville/vim-sxhkdrc'
+Plug 'kovetskiy/sxhkd-vim'
+" Plug 'baskerville/vim-sxhkdrc'
 
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
