@@ -11,7 +11,6 @@ mkdir -p downloads
 mkdir -p drive
 mkdir -p .ssh
 mkdir -p .config
-mkdir -p .mutt
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/{ranger,gtk-3.0}
 
@@ -55,8 +54,6 @@ sudo ln -sf ~/config/ranger/ranger.desktop /usr/share/applications
 ln -sf ~/config/dotfiles/.* ~/
 
 ln -sf ~/config/bin ~/bin
-
-ln -sf ~/config/mutt/* ~/.mutt/
 
 ln -sf ~/{,.}config/alacritty
 ln -sf ~/{,.}config/i3

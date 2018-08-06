@@ -75,7 +75,6 @@ pacstrap /mnt                                                   \
     rofi                                                        \
     qbittorrent                                                 \
     networkmanager network-manager-applet                       \
-    neomutt                                                     \
 \
     git tig                                                     \
     ripgrep                                                     \
