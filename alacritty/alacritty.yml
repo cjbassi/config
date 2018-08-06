@@ -39,8 +39,8 @@ colors:
     # Base16 Solarized Dark 256 - alacritty color config
 
     primary:
-        background: '0x002b36'
         foreground: '0x93a1a1'
+        background: '0x002b36'
 
         # background: '0xFFFFFF'
         # foreground: '0x000000'

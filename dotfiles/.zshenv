@@ -25,9 +25,12 @@ export PATH=$PATH:~/.local/bin
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin/personal
 
 export GOPATH=~/.local
 export GOBIN=$GOPATH/bin
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 # fzf {{{1
@@ -53,3 +56,5 @@ alias zless=$PAGER
 alias less=$PAGER
 
 export BROWSER=google-chrome-stable
+
+export TERM='xterm-256color'

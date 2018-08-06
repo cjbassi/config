@@ -12,15 +12,44 @@ bindsym $mod+Shift+space floating toggle
 new_window pixel 3
 new_float pixel 3
 
-client.focused #FF0000 #FF0000 #FF0000 #FF0000
-# client.focused #333333 #333333 #333333 #333333
-
 gaps inner 5
 gaps outer 0
 
 focus_follows_mouse yes
 smart_borders on
 smart_gaps on
+
+font pango:Hack 12px
+
+
+# Colors {{{1
+
+set $black      #000000
+set $white      #FFFFFF
+set $gray1      #1a1a1a
+set $gray2      #292b2e
+set $gray3      #5f676a
+
+set $base03     #002b36
+set $base02     #073642
+set $base01     #586e75
+set $base00     #657b83
+set $base0      #839496
+set $base1      #93a1a1
+set $base2      #eee8d5
+set $base3      #fdf6e3
+set $yellow     #b58900
+set $orange     #cb4b16
+set $red        #dc322f
+set $magenta    #d33682
+set $violet     #6c71c4
+set $blue       #268bd2
+set $cyan       #2aa198
+set $green      #859900
+
+# class                 border  backgr. text    indica. child_border
+client.focused          $red    $gray3  $white  $red    $red
+client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 
 # Other Settings {{{1

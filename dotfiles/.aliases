@@ -39,7 +39,7 @@ alias update='yay -Syu --noconfirm --needed'
 # New Commands {{{1
 
 function new-wallpaper {
-    folder_path=$HOME/drive/images/desktop_wallpapers
+    folder_path=$HOME/drive/images/desktop_wallpapers/other
     image_path=$(fd --full-path $folder_path --type f | shuf -n 1)
     feh --bg-scale $image_path
 }

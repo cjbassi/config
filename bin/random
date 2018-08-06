@@ -37,7 +37,7 @@ def words(count=1):
 if __name__ == '__main__':
     func_name = sys.argv[1]
     args = sys.argv[2:]
-    args = list(map(int, args))
+    args = map(int, args)
     function = {
         'ints': ints,
         'integers': ints,

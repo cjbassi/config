@@ -77,8 +77,8 @@ Plug 'editorconfig/editorconfig-vim'
 
 " fzf {{{2
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 
 
 " Git {{{2
@@ -382,7 +382,7 @@ nnoremap <silent> <leader>err :edit ~/.config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>etr :edit ~/config/alacritty/alacritty.yml<CR>
 nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ewm :edit ~/config/i3/config<CR>
-nnoremap <silent> <leader>exr :edit ~/config/dotfiles/.xinitrc<CR>
+nnoremap <silent> <leader>exi :edit ~/config/dotfiles/.xinitrc<CR>
 nnoremap <silent> <leader>ezr :edit ~/config/dotfiles/.zshrc<CR>
 
 nnoremap <silent> <leader>eM :edit Makefile<CR>

@@ -21,7 +21,7 @@ alt + r
 alt + Return
 	alacritty
 
-alt + g
+alt + c
 	chrome --remote-debugging-port=9222
 
 alt + a

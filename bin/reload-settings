@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-polybar-script &
-pkill sxhkd; sxhkd &
-xmodmap ~/config/peripherals/xkeys &
-xset r rate 400 25 &
-pkill xcape; xcape &

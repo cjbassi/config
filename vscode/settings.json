@@ -1,7 +1,7 @@
 {
-    "vim.showcmd": true,
+    "vim.showcmd": false,
     "vim.useCtrlKeys": true,
-    "vim.showmodename": true,
+    "vim.showmodename": false,
     "vim.startInInsertMode": false,
     "vim.easymotion": true,
     "vim.leader": " ",
@@ -68,16 +68,6 @@
                 "q"
             ]
         },
-        // {
-        //     "before": [
-        //         ":"
-        //     ],
-        //     "commands": [
-        //         {
-        //             "command": "workbench.action.showCommands",
-        //         }
-        //     ]
-        // },
         {
             "before": [
                 "u"
@@ -284,24 +274,20 @@
             ]
         },
     ],
-    "editor.wordWrap": "on",
-    "terminal.external.linuxExec": "alacritty",
-    "editor.fontFamily": "Hack",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Solarized Dark",
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
+
+    "[json]": {
+        "editor.formatOnSave": false
     },
-    "keyboard.dispatch": "keyCode",
-    "files.trimFinalNewlines": true,
-    "editor.lightbulb.enabled": true,
-    "workbench.statusBar.visible": true,
-    "workbench.activityBar.visible": false,
-    "window.menuBarVisibility": "hidden",
-    "files.autoSave": "off",
-    "workbench.editor.showTabs": false,
+    "[jsonc]": {
+        "editor.formatOnSave": false
+    },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+
     "search.exclude": {
-        "**/.vscode/": true,
         "**/.git/": true,
         "**/node_modules/": true,
         "**/__pycache__/": true,
@@ -309,14 +295,46 @@
         "**/*.class": true,
     },
     "files.exclude": {
-        "**/.vscode/": true,
         "**/.git/": true,
         "**/node_modules/": true,
         "**/__pycache__/": true,
         "**/*.o": true,
         "**/*.class": true,
     },
+
+    "editor.wordWrap": "on",
+    "editor.renderIndentGuides": false,
+    "editor.occurrencesHighlight": false,
+    "editor.minimap.enabled": false,
+    "editor.overviewRulerBorder": true,
+    "editor.hideCursorInOverviewRuler": false,
+    "editor.smoothScrolling": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.glyphMargin": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.fontFamily": "Hack",
+    "editor.lightbulb.enabled": true,
+    "explorer.confirmDragAndDrop": false,
+    "files.trimFinalNewlines": true,
+    "files.autoSave": "off",
+    "keyboard.dispatch": "keyCode",
+    "terminal.external.linuxExec": "alacritty",
     "terminal.integrated.rendererType": "dom",
+    "window.menuBarVisibility": "hidden",
+    "window.zoomLevel": 0,
+    "window.restoreWindows": "none",
+    "workbench.statusBar.visible": true,
+    "workbench.editor.showTabs": false,
+    "workbench.activityBar.visible": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.feedback.visible": false,
+
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.view.pdf.external.command": {
         "command": "zathura",
@@ -324,18 +342,15 @@
             "%PDF%"
         ]
     },
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.renderIndentGuides": false,
+    "latex-workshop.message.error.show": false,
+
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
     "gitlens.currentLine.enabled": false,
     "gitlens.codeLens.enabled": false,
     "gitlens.statusBar.enabled": false,
-    "python.linting.pylintPath": "/usr/bin/pylint",
-    "editor.occurrencesHighlight": false,
-    "files.associations": {
-        "**/.i3/config": "i3",
-        "**/i3/config": "i3",
-        "**/sxhkd/sxhkdrc": "sxhkd"
-    },
+
     "sync.autoUpload": true,
     "sync.gist": "50c3015b02f1335ec12a3458ba309654",
     "sync.host": "",
@@ -345,35 +360,26 @@
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
     "sync.autoDownload": false,
-    "sync.lastUpload": "2018-07-23T18:14:07.402Z",
+    "sync.lastUpload": "2018-08-06T01:14:16.331Z",
     "sync.lastDownload": "",
     "sync.forceDownload": false,
+
     "npm.enableScriptExplorer": true,
-    // "typescriptHero.imports.insertSemicolons": false,
-    // "typescriptHero.imports.organizeOnSave": true,
-    "editor.minimap.enabled": false,
-    "editor.overviewRulerBorder": true,
-    "editor.hideCursorInOverviewRuler": false,
-    "editor.smoothScrolling": false,
-    "editor.scrollBeyondLastLine": false,
-    "typescript.updateImportsOnFileMove.enabled": "prompt",
-    "editor.glyphMargin": false,
-    "workbench.sideBar.location": "right",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
+
     "prettier.eslintIntegration": true,
     "prettier.tslintIntegration": true,
-    "[json]": {
-        "editor.formatOnSave": false
-    },
-    "[jsonc]": {
-        "editor.formatOnSave": false
-    },
-    "latex-workshop.message.error.show": false,
-    "window.zoomLevel": 0,
-    "explorer.confirmDragAndDrop": false,
-    "window.restoreWindows": "none",
+
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+
     "java.errors.incompleteClasspath.severity": "ignore",
-    "editor.acceptSuggestionOnCommitCharacter": false,
+
+    "python.linting.mypyEnabled": true,
+    "python.sortImports.args": [
+        "-rc",
+        "--atomic"
+    ],
+
+    "liveshare.showInStatusBar": "whileCollaborating",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.renderWhitespace": "none",
 }

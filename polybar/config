@@ -35,8 +35,8 @@ green =         #859900
 light =         ${colors.light_grey}
 dark =          ${colors.dark_grey}
 
+foreground =    ${colors.base3}
 background =    ${colors.light}
-foreground =    ${colors.base2}
 
 
 [settings]

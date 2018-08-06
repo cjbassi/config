@@ -54,8 +54,6 @@ bindkey -r '^z'
 
 # Settings {{{1
 
-export TERM='xterm-256color'
-
 setopt globdots         # Tab completion includes dot files
 setopt kshglob          # Addes more globbs
 CASE_SENSITIVE="true"   # Case sensitive completion

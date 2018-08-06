@@ -91,16 +91,20 @@ nvim +PlugInstall +xall
 
 pip install --user colour-valgrind
 pip install --user grip
+pip install --user mypy
 pip install --user pipenv
+pip install --user pymath2
+pip install --user rope
 pip install --user tldr
 pip install --user trash-cli
 pip install --user wpm
 pip install --user xtermcolor
 
 
-# npm {{{1
+# npm/yarn {{{1
 
 yarn global add npx
+yarn global add typescript
 
 
 # go {{{1

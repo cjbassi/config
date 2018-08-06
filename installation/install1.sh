@@ -112,7 +112,7 @@ pacstrap /mnt                                                   \
     fzf                                                         \
     xterm                                                       \
     xdo                                                         \
-    i3-gaps                                                     \
+    i3-gaps perl-anyevent-i3                                    \
 
     # otf-ipafont                                                 \
     # ttf-hanazono                                                \
