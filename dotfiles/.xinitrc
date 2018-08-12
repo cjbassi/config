@@ -7,8 +7,9 @@ insync start --synchronous-full &
 nm-applet &
 blueman-applet &
 redshift-gtk &
-# ./.fehbg &
 unclutter --timeout 1 &
+# ./.fehbg &
+variety &
 
 discord &
 spotify &

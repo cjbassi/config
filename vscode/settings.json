@@ -108,12 +108,12 @@
                 "<leader>",
                 "k"
             ],
-            "after": [
-                "j",
-                "0",
-                "i",
-                "<backspace>",
-                "<esc>"
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.joinLines",
+                    "args": []
+                }
             ]
         },
         {
@@ -302,6 +302,7 @@
         "**/*.class": true,
     },
 
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.wordWrap": "on",
     "editor.renderIndentGuides": false,
     "editor.occurrencesHighlight": false,
@@ -316,7 +317,9 @@
     "editor.formatOnPaste": true,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.fontFamily": "Hack",
+    "editor.renderWhitespace": "none",
     "editor.lightbulb.enabled": true,
+    "editor.fontLigatures": false,
     "explorer.confirmDragAndDrop": false,
     "files.trimFinalNewlines": true,
     "files.autoSave": "off",
@@ -360,7 +363,7 @@
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
     "sync.autoDownload": false,
-    "sync.lastUpload": "2018-08-06T01:14:16.331Z",
+    "sync.lastUpload": "2018-08-12T00:38:15.898Z",
     "sync.lastDownload": "",
     "sync.forceDownload": false,
 
@@ -380,6 +383,6 @@
     ],
 
     "liveshare.showInStatusBar": "whileCollaborating",
-    "diffEditor.ignoreTrimWhitespace": true,
-    "editor.renderWhitespace": "none",
+
+    "C_Cpp.clang_format_style": "WebKit",
 }

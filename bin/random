@@ -10,20 +10,25 @@ def binary(count=1):
         print(''.join(random.choice(['0', '1'])))
 
 
-def ints(count=1, max=10, min=0):
+def ints(count=1, min=0, max=10):
     for _ in range(count):
         print(random.randint(min, max))
 
 
-def floats(count=1, max=10, min=0):
+def floats(count=1, precision=2, min=0, max=10):
     for _ in range(count):
-        print('{:.2f}'.format(random.uniform(min, max)))
+        num = random.uniform(min, max)
+        print(f'{num:.{precision}f}')
 
 
-def characters(x=1, y=1):
+def characters(x=1, y=1, spaces=0):
     alphanumeric = string.ascii_letters + string.digits
+    if spaces:
+        alphanumeric += ' '
     for _ in range(y):
-        print(''.join([random.choice(alphanumeric) for i in range(x)]))
+        for _ in range(x):
+            print(random.choice(alphanumeric), end='')
+        print()
 
 
 def words(count=1):
@@ -38,13 +43,17 @@ if __name__ == '__main__':
     func_name = sys.argv[1]
     args = sys.argv[2:]
     args = map(int, args)
-    function = {
+    functions = {
         'ints': ints,
         'integers': ints,
+
         'chars': characters,
         'characters': characters,
+
         'words': words,
+
         'binary': binary,
+
         'floats': floats,
     }
-    function[func_name](*args)
+    functions[func_name](*args)

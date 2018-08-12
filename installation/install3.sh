@@ -126,22 +126,24 @@ alias yay='yay -S --noconfirm --needed --mflags "--nocheck"'
 yay alacritty-scrollback-git
 yay antigen-git
 yay discord
-yay gitflow-avh-git
+yay gitflow-avh-git             # idk
 yay google-chrome
 # yay google-cloud-sdk
 yay gotop-bin
 # yay heroku-cli
 yay i3lock-fancy-git
 yay insync
+yay ncurses5-compat-libs        # for vscode C/C++ formatting
 yay neofetch-git
 yay nerd-fonts-complete
 yay osu-lazer-git
 yay polybar-git
 yay rmtrash
 yay rofi-greenclip
+yay sccache-bin
 # yay shutter
 yay spotify
-yay texlive-latexindent-meta
+yay texlive-latexindent-meta    # for vscode latex formatting
 yay unclutter-xfixes-git
 yay vim-anywhere-git
 yay visual-studio-code-bin

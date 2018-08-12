@@ -1,23 +1,22 @@
 #!/usr/bin/env python
 
-import subprocess as sb
-
+import subprocess as sp
 
 if __name__ == '__main__':
 
-    options = ['Suspend', 'Lock', 'Restart', 'Shutdown']
-    title   = 'rofi-power'
+    commands = {
+        'Suspend': 'systemctl suspend',
+        'Lock': 'i3lock-fancy -- maim',
+        'Restart': 'shutdown -r now',
+        'Shutdown': 'shutdown now',
+    }
 
-    selection = sb.check_output(f'rofi -dmenu -i -p {title}',
-                                shell=True,
-                                input='\n'.join(x for x in options),
-                                encoding='utf-8').strip()
+    options = commands.keys()
+    title = 'rofi-power'
+    rofi = f'rofi -dmenu -i -p {title}'.split()
+    rofi_input = '\n'.join(x for x in options)
 
-    if selection == 'Suspend':
-        sb.run(['systemctl', 'suspend'])
-    elif selection == 'Lock':
-        sb.run(['i3lock-fancy', '--', 'maim'])
-    elif selection == 'Restart':
-        sb.run(['shutdown', '-r', 'now'])
-    elif selection == 'Shutdown':
-        sb.run(['shutdown', 'now'])
+    selection = sp.check_output(
+        rofi, input=rofi_input, encoding='utf-8').strip()
+
+    sp.run(commands[selection].split())

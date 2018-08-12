@@ -28,109 +28,144 @@ reflector --verbose --country 'United States' --protocol https --sort rate --sav
 
 
 # Install packages
-pacstrap /mnt                                                   \
-    base base-devel                                             \
+pacstrap /mnt                       \
+    base                            \
+    base-devel                      \
 \
-    xorg xorg-xinit                                             \
+    xorg                            \
+    xorg-xinit                      \
 \
-    pulseaudio pulseaudio-alsa pavucontrol pamixer              \
-    alsa-utils                                                  \
-    blueman pulseaudio-bluetooth bluez bluez-libs bluez-utils   \
+    pulseaudio                      \
+    pulseaudio-alsa                 \
+    pavucontrol                     \
+    pamixer                         \
+    alsa-utils                      \
 \
-    redshift python-gobject python-xdg librsvg                  \
-    feh                                                         \
-    maim                                                        \
+    blueman                         \
+    pulseaudio-bluetooth            \
+    bluez                           \
+    bluez-libs                      \
+    bluez-utils                     \
 \
-    sxhkd                                                       \
-    xclip                                                       \
-    xcape                                                       \
-    xf86-input-wacom                                            \
+    tlp                             \
+    x86_energy_perf_policy          \
+    acpi_call                       \
+    tp_smapi                        \
 \
-    python python-pip python-jedi tk                            \
-    jdk8-openjdk                                                \
-    gdb valgrind                                                \
-    go                                                          \
-    nodejs yarn npm                                             \
-    astyle eslint autopep8 flake8 tidy rust-racer python-pylint \
-    hub                                                         \
-    mono                                                        \
-    php                                                         \
-    rustup cargo                                                \
+\   # Programming Languages
 \
-    ttf-dejavu                                                  \
-    ttf-hack                                                    \
+\   # C/C++
+        gdb                         \
+        valgrind                    \
+        clang                       \
+\   # C#
+        mono                        \
+    go                              \
+    # Java
+        jdk8-openjdk                \
+\   # JavaScripts/TypeScript
+        nodejs                      \
+        yarn                        \
+        npm                         \
+        eslint                      \
+    php                             \
+    python                          \
+        python-pip                  \
+        python-jedi                 \
+        python-pylint               \
+        autopep8                    \
+        flake8                      \
+\   # Rust
+        rustup                      \
+        cargo                       \
+        rust-racer                  \
+\   # Other
+        astyle                      \  # C, C++, Objective-C, C#, Java formatting
+        cmake                       \
+        tidy                        \  # HTML formatting
 \
-    noto-fonts-emoji                                            \
-    awesome-terminal-fonts                                      \
+    ttf-dejavu                      \
+    ttf-hack                        \
+    noto-fonts-emoji                \
+    awesome-terminal-fonts          \
+    ttf-freefont                    \
+    ttf-arphic-uming                \
+    ttf-indic-otf                   \
+    adobe-source-han-sans-otc-fonts \
 \
-    ttf-freefont                                                \
-    ttf-arphic-uming                                            \
-    ttf-indic-otf                                               \
+    networkmanager                  \
+    network-manager-applet          \
 \
-    adobe-source-han-sans-otc-fonts                             \
+    unzip                           \
+    zip                             \
 \
-    neovim python-neovim                                        \
-    zsh                                                         \
-    ranger w3m                                                  \
-    rofi                                                        \
-    qbittorrent                                                 \
-    networkmanager network-manager-applet                       \
+    gnome-keyring                   \
+    libsecret                       \
 \
-    git tig                                                     \
-    ripgrep                                                     \
-    fd                                                          \
-    openssh sshfs                                               \
-    parted                                                      \
-    gnome-keyring libsecret                                     \
-    gnupg                                                       \
-    ccache                                                      \
-    rsync                                                       \
-    fuse                                                        \
-    strace                                                      \
-    reflector                                                   \
-    cmake                                                       \
-    clang                                                       \
-    sxiv                                                        \
-    unzip zip                                                   \
-    httpie                                                      \
-    docker                                                      \
-    whois                                                       \
-    moreutils                                                   \
-    zathura-pdf-mupdf                                           \
-    tlp x86_energy_perf_policy acpi_call tp_smapi               \
-    breeze-gtk                                                  \
-    krita                                                       \
-    gimp                                                        \
-    lsof                                                        \
-    qt4 vlc                                                     \
-    libreoffice                                                 \
-    xdotool                                                     \
-    tmpreaper                                                   \
-    inotify-tools                                               \
-    calibre                                                     \
-    fzf                                                         \
-    xterm                                                       \
-    xdo                                                         \
-    i3-gaps perl-anyevent-i3                                    \
+    breeze-gtk                      \
+    calibre                         \
+    ccache                          \
+    docker                          \
+    fd                              \
+    feh                             \
+    fuse                            \
+    fzf                             \
+    gimp                            \
+    git                             \
+    gnupg                           \
+    httpie                          \
+    hub                             \
+    i3-gaps                         \
+        perl-anyevent-i3            \  # for i3 workspace saving
+    inotify-tools                   \
+    krita                           \
+    libreoffice                     \
+    lsof                            \
+    maim                            \
+    moreutils                       \
+    neovim                          \
+        python-neovim               \
+    openssh                         \
+    parted                          \
+    qbittorrent                     \
+    qt4                             \
+    ranger                          \
+        w3m                         \  # for image preview
+    redshift                        \
+        python-gobject              \
+        python-xdg                  \
+        librsvg                     \
+    reflector                       \
+    ripgrep                         \
+    rofi                            \
+    rsync                           \
+    sshfs                           \
+    strace                          \
+    sxhkd                           \
+    sxiv                            \
+    tig                             \
+    tk                              \
+    tmpreaper                       \
+    variety                         \
+    vlc                             \
+    whois                           \
+    xcape                           \
+    xclip                           \
+    xdo                             \
+    xdotool                         \
+    xf86-input-wacom                \
+    xterm                           \
+    zathura-pdf-mupdf               \
+    zsh                             \
 
-    # otf-ipafont                                                 \
-    # ttf-hanazono                                                \
 
-
-    # ttf-symbola                                                 \
-    # ttf-emojione-color
-    # ttf-twemoji-color
-
-    # adobe-source-han-sans-jp-fonts                              \
-    # ttf-sazanami                                                \
-
-
-# compton
-# autofs
-# rustup
-# xf86-input-synaptics
-# alsa-utils
-# dialog wpa_supplicant
+# otf-ipafont
+# ttf-hanazono
+# ttf-symbola
+# ttf-emojione-color
+# ttf-twemoji-color
+# adobe-source-han-sans-jp-fonts
+# ttf-sazanami
 
 
 # Chroot {{{1

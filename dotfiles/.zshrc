@@ -237,3 +237,8 @@ function ranger() {
         command ranger "$@"
     fi
 }
+
+
+# sccache {{{2
+
+export RUSTC_WRAPPER=sccache

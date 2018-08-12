@@ -58,3 +58,5 @@ alias less=$PAGER
 export BROWSER=google-chrome-stable
 
 export TERM='xterm-256color'
+
+export XDG_CURRENT_DESKTOP=i3-gaps
