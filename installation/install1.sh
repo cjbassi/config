@@ -52,37 +52,36 @@ pacstrap /mnt                       \
     acpi_call                       \
     tp_smapi                        \
 \
-\   # Programming Languages
 \
-\   # C/C++
-        gdb                         \
-        valgrind                    \
-        clang                       \
-\   # C#
-        mono                        \
+    mono                            \
     go                              \
-    # Java
-        jdk8-openjdk                \
-\   # JavaScripts/TypeScript
-        nodejs                      \
-        yarn                        \
-        npm                         \
-        eslint                      \
+    jdk8-openjdk                    \
     php                             \
+\
+    gdb                             \
+    valgrind                        \
+    clang                           \
+\
+    nodejs                          \
+    yarn                            \
+    npm                             \
+    eslint                          \
+\
     python                          \
-        python-pip                  \
-        python-jedi                 \
-        python-pylint               \
-        autopep8                    \
-        flake8                      \
-\   # Rust
-        rustup                      \
-        cargo                       \
-        rust-racer                  \
-\   # Other
-        astyle                      \  # C, C++, Objective-C, C#, Java formatting
-        cmake                       \
-        tidy                        \  # HTML formatting
+    python-pip                      \
+    python-jedi                     \
+    python-pylint                   \
+    autopep8                        \
+    flake8                          \
+\
+    rustup                          \
+    cargo                           \
+    rust-racer                      \
+\
+    astyle                          \
+    cmake                           \
+    tidy                            \
+\
 \
     ttf-dejavu                      \
     ttf-hack                        \
@@ -116,7 +115,7 @@ pacstrap /mnt                       \
     httpie                          \
     hub                             \
     i3-gaps                         \
-        perl-anyevent-i3            \  # for i3 workspace saving
+        perl-anyevent-i3            \
     inotify-tools                   \
     krita                           \
     libreoffice                     \
@@ -130,7 +129,7 @@ pacstrap /mnt                       \
     qbittorrent                     \
     qt4                             \
     ranger                          \
-        w3m                         \  # for image preview
+        w3m                         \
     redshift                        \
         python-gobject              \
         python-xdg                  \
