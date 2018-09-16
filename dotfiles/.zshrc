@@ -12,7 +12,6 @@ source /usr/share/zsh/share/antigen.zsh
 
 antigen bundle zdharma/fast-syntax-highlighting
 antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen bundle bobthecow/git-flow-completion
 antigen bundle zsh-users/zsh-completions
 antigen bundle unixorn/git-extra-commands
 antigen bundle cjbassi/zsh-vi-mode-clipboard
@@ -141,6 +140,8 @@ export TLDR_COLOR_BLANK="white"
 # Other Programs {{{1
 
 # fzf {{{2
+
+source /usr/share/fzf/key-bindings.zsh
 
 # zle -N fzf-history-widget
 # zle -N fzf-file-widget

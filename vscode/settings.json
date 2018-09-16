@@ -320,6 +320,7 @@
     "editor.renderWhitespace": "none",
     "editor.lightbulb.enabled": true,
     "editor.fontLigatures": false,
+    "explorer.autoReveal": false,
     "explorer.confirmDragAndDrop": false,
     "files.trimFinalNewlines": true,
     "files.autoSave": "off",
@@ -356,15 +357,11 @@
 
     "sync.autoUpload": true,
     "sync.gist": "50c3015b02f1335ec12a3458ba309654",
-    "sync.host": "",
-    "sync.pathPrefix": "",
     "sync.quietSync": true,
     "sync.askGistName": false,
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
     "sync.autoDownload": false,
-    "sync.lastUpload": "2018-08-12T00:38:15.898Z",
-    "sync.lastDownload": "",
     "sync.forceDownload": false,
 
     "npm.enableScriptExplorer": true,
@@ -377,9 +374,15 @@
     "java.errors.incompleteClasspath.severity": "ignore",
 
     "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
     "python.sortImports.args": [
         "-rc",
         "--atomic"
+    ],
+
+
+    "python.formatting.autopep8Args": [
+        "--max-line-length=80"
     ],
 
     "liveshare.showInStatusBar": "whileCollaborating",

@@ -301,11 +301,6 @@
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+l",
-        "command": "workbench.action.terminal.focusNextPane",
-        "when": "terminalFocus"
-    },
-    {
         "key": "alt+right",
         "command": "-workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
@@ -383,10 +378,6 @@
         "key": "ctrl+f",
         "command": "-workbench.action.terminal.focusFindWidget",
         "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.toggleSidebarVisibility"
     },
     {
         "key": "ctrl+b",
@@ -608,5 +599,48 @@
     "key": "ctrl+shift+j",
     "command": "-workbench.action.search.toggleQueryDetails",
     "when": "searchViewletVisible"
+},
+{
+    "key": "f1",
+    "command": "-workbench.action.showCommands"
+},
+{
+    "key": "j",
+    "command": "-list.focusDown",
+    "when": "listFocus && !inputFocus"
+},
+{
+    "key": "alt+down",
+    "command": "-history.showNext",
+    "when": "historyNavigationEnabled && historyNavigationWidget"
+},
+{
+    "key": "down",
+    "command": "-breadcrumbs.selectFocused",
+    "when": "breadcrumbsActive && breadcrumbsVisible"
+},
+{
+    "key": "alt+down",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+},
+{
+    "key": "ctrl+down",
+    "command": "-search.focus.nextInputBox",
+    "when": "inputBoxFocus && searchViewletVisible"
+},
+{
+    "key": "ctrl+down",
+    "command": "-selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+},
+{
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.toggleSidebarVisibility"
+},
+{
+    "key": "ctrl+f",
+    "command": "-keybindings.editor.searchKeybindings",
+    "when": "inKeybindings && keybindingFocus"
 }
 ]

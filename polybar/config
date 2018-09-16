@@ -288,12 +288,12 @@ label-background = ${colors.dark}
 
 [module/volume]
 type = custom/script
-exec = volume-control
+exec = monitor-volume
 tail = true
 click-right = exec pavucontrol &
-click-left = volume-control --mute
-scroll-up = volume-control --up
-scroll-down = volume-control --down
+click-left = pulseaudio-ctl mute
+scroll-up = pulseaudio-ctl up
+scroll-down = pulseaudio-ctl down
 label = " %output%"
 label-background = ${colors.dark}
 label-foreground = ${colors.blue}
@@ -301,10 +301,10 @@ label-foreground = ${colors.blue}
 
 [module/brightness]
 type = custom/script
-exec = brightness-control
+exec = monitor-brightness
 tail = true
 label = " %output%"
-scroll-up = brightness-control --up
-scroll-down = brightness-control --down
+scroll-up = light -A 10%
+scroll-down = light -U 10%
 label-foreground = ${colors.yellow}
 label-background = ${colors.light}

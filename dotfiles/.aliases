@@ -9,6 +9,10 @@ alias chrome='google-chrome-stable'
 alias cra='npx create-react-app'
 alias crat='npx create-react-app --scripts-version=react-scripts-ts'
 
+alias cr='cargo run'
+alias cb='cargo build -j 1'
+alias ci='cargo install -j 1'
+
 alias typesync='npx typesync'
 
 alias g='git'
@@ -19,7 +23,7 @@ alias l='ll'
 
 alias m='make'
 
-alias py='pipenv run -- python'
+alias per='pipenv run'
 
 alias r='ranger'
 
@@ -83,7 +87,8 @@ alias rg='rg -S --hidden'
 
 alias git='hub'
 
-alias ll='ls -AhgoF --group-directories-first --color=always'
+# alias ll='exa -AhgoF --group-directories-first --color=always'
+alias ll='exa -aFl --group-directories-first --git'
 
 alias makepkg='makepkg -si'
 
@@ -123,3 +128,11 @@ alias du='du -h'
 
 alias g++='g++ -g -Wall'
 alias gcc='gcc -g -Wall'
+
+alias ncdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+
+alias ls='exa'
+
+alias df='pydf'
+
+alias fd='fd -H'

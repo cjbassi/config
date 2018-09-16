@@ -94,6 +94,9 @@ echo "cjbassi:$password" | chpasswd
 useradd -m -G wheel -s $(which zsh) develop
 echo "develop:$password" | chpasswd
 
+usermod -a -G docker cjbassi
+usermod -a -G docker develop
+
 
 # Enable members of 'wheel' group to use root {{{2
 

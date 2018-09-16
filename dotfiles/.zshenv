@@ -44,7 +44,7 @@ source ~/.fzf_solarized.sh
 
 # env variables {{{1
 
-export EDITOR='nvim'
+export EDITOR="nvim"
 export VISUAL=$EDITR
 export USE_EDITOR=$EDITOR
 

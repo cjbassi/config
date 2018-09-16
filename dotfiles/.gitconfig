@@ -16,6 +16,8 @@
     conflictstyle = diff3
 [mergetool]
     prompt = false
+[pull]
+	ff = only
 
 [color]
     ui = auto
@@ -51,6 +53,4 @@
     ch = checkout
     cl = clone
 
-    unstage = reset HEAD --
-    uncommit = reset --soft HEAD^
-    restore = !git clean -df && git reset --hard HEAD
+    ia = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)

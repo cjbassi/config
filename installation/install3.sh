@@ -13,9 +13,10 @@ mkdir -p .ssh
 mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/{ranger,gtk-3.0}
+mkdir -p ~/playground
 
 # go
-mkdir -p ~/local/{bin,pkg,src}
+mkdir -p ~/.local/{bin,pkg,src}
 
 ln -sf ~/.local/share/Trash/files ~/trash
 
@@ -56,16 +57,22 @@ ln -sf ~/config/dotfiles/.* ~/
 ln -sf ~/config/bin ~/bin
 
 ln -sf ~/{,.}config/alacritty
+ln -sf ~/{,.}config/dunst
 ln -sf ~/{,.}config/i3
 ln -sf ~/{,.}config/polybar
 ln -sf ~/{,.}config/rofi
 ln -sf ~/{,.}config/sxhkd
 ln -sf ~/{,.}config/tig
+ln -sf ~/{,.}config/ulauncher
 
 ln -sf ~/config/gtk-3.0/* ~/.config/gtk-3.0/
 ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
-ln -sf ~/config/vscode/* ~/.config/Code/User
+ln -sf ~/config/vscode/* ~/.config/Code/User # TODO
+
+ln -sf ~/config/default-apps/mimeapps.list ~/.config
+
+ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
 
 
 # ranger {{{1
@@ -84,18 +91,28 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 nvim +PlugInstall +xall
 
 
+# vscode {{{1
+
+echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
+
+
 # pip {{{1
 
 pip install --user colour-valgrind
+pip install --user fire
 pip install --user grip
 pip install --user mypy
 pip install --user pipenv
 pip install --user pymath2
+pip install --user pytest
 pip install --user rope
-pip install --user tldr
 pip install --user trash-cli
+pip install --user twine
+pip install --user wheel
 pip install --user wpm
 pip install --user xtermcolor
+
+pip install --user git+https://github.com/cjbassi/random
 
 
 # npm/yarn {{{1
@@ -106,14 +123,17 @@ yarn global add typescript
 
 # go {{{1
 
+export GOPATH=~/.local
+export GOBIN=$GOPATH/bin
+
 go get github.com/nishanths/license
 go get github.com/goreleaser/goreleaser
 
 
 # rust {{{1
 
-rustup install stable
-rustup default stable
+rustup install nightly
+rustup default nightly
 
 
 # AUR {{{1
@@ -122,30 +142,37 @@ bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/y
 
 alias yay='yay -S --noconfirm --needed --mflags "--nocheck"'
 
+yay sccache-bin
+
 # yay alacritty-git
 yay alacritty-scrollback-git
 yay antigen-git
+yay cargo-edit-git
+yay cht.sh
+yay copyq
 yay discord
-yay gitflow-avh-git             # idk
+yay git-extras-git
 yay google-chrome
 # yay google-cloud-sdk
 yay gotop-bin
 # yay heroku-cli
 yay i3lock-fancy-git
+yay imgurbash2
 yay insync
+yay light
+yay loop
 yay ncurses5-compat-libs        # for vscode C/C++ formatting
 yay neofetch-git
 yay nerd-fonts-complete
 yay osu-lazer-git
+yay pasystray-git
 yay polybar-git
+yay pulseaudio-ctl
 yay rmtrash
-yay rofi-greenclip
-yay sccache-bin
 # yay shutter
 yay spotify
 yay texlive-latexindent-meta    # for vscode latex formatting
 yay unclutter-xfixes-git
-yay vim-anywhere-git
 yay visual-studio-code-bin
 
 

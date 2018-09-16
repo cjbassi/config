@@ -22,10 +22,14 @@ timedatectl set-ntp true
 
 # Packages {{{1
 
-# Sync database, update keyring, and update mirrors with Reflector
-pacman -Sy --noconfirm archlinux-keyring reflector
-reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+# rm -f /usr/include/rpcsvc/{nis.h,nis.x,nis_callback.h,nis_callback.x,nis_object.x,nis_tags.h,nislib.h,yp.h,yp.x,yp_prot.h,ypclnt.h,yppasswd.h,yppasswd.x,ypypd.h}
+# rm -f /usr/lib/libnsl.so
+# TODO
 
+# Sync database, update keyring, and update mirrors with Reflector
+pacman -Sy --noconfirm archlinux-keyring reflector --overwrite '*'
+reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+# TODO didn't work last time
 
 # Install packages
 pacstrap /mnt                       \
@@ -54,9 +58,11 @@ pacstrap /mnt                       \
 \
 \
     mono                            \
-    go                              \
     jdk8-openjdk                    \
     php                             \
+\
+    go                              \
+    dep                             \
 \
     gdb                             \
     valgrind                        \
@@ -105,6 +111,8 @@ pacstrap /mnt                       \
     calibre                         \
     ccache                          \
     docker                          \
+    dunst                           \
+    exa                             \
     fd                              \
     feh                             \
     fuse                            \
@@ -122,10 +130,12 @@ pacstrap /mnt                       \
     lsof                            \
     maim                            \
     moreutils                       \
+    ncdu                            \
     neovim                          \
         python-neovim               \
     openssh                         \
     parted                          \
+    pydf                            \
     qbittorrent                     \
     qt4                             \
     ranger                          \
@@ -136,7 +146,6 @@ pacstrap /mnt                       \
         librsvg                     \
     reflector                       \
     ripgrep                         \
-    rofi                            \
     rsync                           \
     sshfs                           \
     strace                          \
@@ -144,7 +153,6 @@ pacstrap /mnt                       \
     sxiv                            \
     tig                             \
     tk                              \
-    tmpreaper                       \
     variety                         \
     vlc                             \
     whois                           \
@@ -153,6 +161,7 @@ pacstrap /mnt                       \
     xdo                             \
     xdotool                         \
     xf86-input-wacom                \
+    xsel                            \
     xterm                           \
     zathura-pdf-mupdf               \
     zsh                             \
@@ -165,6 +174,8 @@ pacstrap /mnt                       \
 # ttf-twemoji-color
 # adobe-source-han-sans-jp-fonts
 # ttf-sazanami
+
+# tmpreaper
 
 
 # Chroot {{{1

@@ -1,31 +1,13 @@
-.antigen
-.cache
-.cargo
-.ccache
-.dbus
-.electron
-.fzf
-.gnome
-.local
-.node-gyp
-.npm
-.nuget
-.pki
-.pylint.d
-.w3m
+.pylint.d/
 
-go
+.config/nvim/
 
-trash
+trash/
+.local/share/Trash/
 
 .histfile
 
-.config/discord
-.config/google-chrome
-
-config/old_configs
-
-node_modules
-.git
+node_modules/
+.git/
 
 drive/other/RES-2017-3-18-1489869468-5_4_3.resbackup

@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "tslint:recommended",
+        "tslint-react",
+        "tslint-config-prettier"
+    ],
+    "linterOptions": {
+        "exclude": [
+            "config/**/*.js",
+            "node_modules/**/*.ts"
+        ]
+    },
+    "rules": {
+        "jsx-no-lambda": false,
+        "member-ordering": false,
+        "no-console": false,
+        "quotemark": [true, "single"],
+        "semicolon": [true, "never"],
+        "trailing-comma": [true, {"multiline": "always", "singleline": "never"}]
+    }
+}

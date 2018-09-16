@@ -1,16 +1,16 @@
 # meta_keys {{{1
 
 XF86Audio{Lower,Raise}Volume
-	volume-control {--down,--up}
+	pulseaudio-ctl {down,up}
 
 XF86AudioMute
-	volume-control --mute
+	pulseaudio-ctl mute
 
 XF86AudioMicMute
-    volume-control --mic-mute
+    pulseaudio-ctl mute-input
 
 XF86MonBrightness{Down,Up}
-	brightness-control --{down,up}
+	light -{U,A} 5%
 
 
 # applications {{{1
@@ -21,29 +21,17 @@ alt + r
 alt + Return
 	alacritty
 
-alt + c
+alt + b
 	chrome --remote-debugging-port=9222
 
 alt + a
-	vim-anywhere nvim alacritty
+	alacritty -e vimclip
 
 alt + o
 	alacritty -e gotop
 
 alt + e
 	alacritty -e nvim
-
-
-# rofi {{{1
-
-alt + d
-	rofi -show run -terminal $term
-
-alt + y
-	rofi-power
-
-alt + u
-	open-greenclip
 
 
 # i3 {{{1
@@ -70,10 +58,10 @@ alt + {p,c}
 	i3-msg focus {parent,child}
 
 alt + shift + r
-	monitor-script; i3-msg reload; reload-settings
+	detect-monitor; i3-msg reload; reload-settings
 
 alt + {_, shift + } w
-	{i3-msg kill,xdo kill}
+	{i3-msg,xdo} kill
 
 alt + space
 	i3-msg focus mode_toggle
