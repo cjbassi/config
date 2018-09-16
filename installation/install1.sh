@@ -5,29 +5,29 @@
 # Update the system clock
 timedatectl set-ntp true
 
-# Partition the disks
-    # boot partition
-        # Create a 512 MiB FAT32 partition in parted
-        # Set the boot flag (not legacy_boot)
-    # root partition
-        # Format to ext4
+# Partition
+# gdisk /dev/sda
+# create new partition table
+# boot: 512 MiB EFI (EF00)
+# root: rest is Linux filesystem (8300)
 
-# Format the partitions
-#mkfs.ext4 /dev/sda2
+# Encrypted root partition
+# cryptsetup -y -v luksFormat --type luks2 /dev/sda2
+cryptsetup open /dev/sda2 cryptroot
+# mkfs.ext4 /dev/mapper/cryptroot
+mount /dev/mapper/cryptroot /mnt
 
-# Mount the file systems
-#mount /dev/sda1 /mnt
-#mkdir /mnt/boot
-#mount /dev/sda2 /mnt/boot
+# Boot partition
+# mkfs.fat -F32 /dev/sda1
+# mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+
+rm -rf /mnt
 
 # Packages {{{1
 
-# rm -f /usr/include/rpcsvc/{nis.h,nis.x,nis_callback.h,nis_callback.x,nis_object.x,nis_tags.h,nislib.h,yp.h,yp.x,yp_prot.h,ypclnt.h,yppasswd.h,yppasswd.x,ypypd.h}
-# rm -f /usr/lib/libnsl.so
-# TODO
-
 # Sync database, update keyring, and update mirrors with Reflector
-pacman -Sy --noconfirm archlinux-keyring reflector --overwrite '*'
+pacman -Sy --noconfirm --force archlinux-keyring reflector
 reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 # TODO didn't work last time
 
