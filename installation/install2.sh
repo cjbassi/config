@@ -4,6 +4,10 @@
 
 rm -f /install2.sh
 
+vi /etc/mkinitcpio.conf
+
+mkinitcpio -p linux
+
 
 # Configure the System {{{1
 
@@ -49,18 +53,20 @@ bootctl --path=/boot install
 
 echo "\
 default arch
-#timeout 4
 editor  0" \
 > /boot/loader/loader.conf
 
+UUID=$(blkid /dev/sda2 | awk '{print $3}' | sed 's/.*"\(.*\)"/\1/')
+
 echo "\
-title       Arch Linux
-linux       /vmlinuz-linux
-initrd      /intel-ucode.img
-initrd      /initramfs-linux.img
-options     root=PARTLABEL=ROOT rw" \
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot quiet rw" \
 > /boot/loader/entries/arch.conf
 
+# options     root=PARTLABEL=ROOT rw" \
 
 # Swap {{{2
 

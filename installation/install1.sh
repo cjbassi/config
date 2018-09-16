@@ -13,7 +13,7 @@ timedatectl set-ntp true
         # Format to ext4
 
 # Format the partitions
-#mkfs.ext4 /dev/sda1
+#mkfs.ext4 /dev/sda2
 
 # Mount the file systems
 #mount /dev/sda1 /mnt
