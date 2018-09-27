@@ -1,0 +1,24 @@
+{
+  "locale": "en-US",
+  "lang": "en",
+  "country": "US",
+  "theme": "../dist/main/css/themes/light.css",
+  "hotkey": "Alt+`",
+  "showInTray": true,
+  "firstStart": false,
+  "developerMode": true,
+  "cleanOnHide": false,
+  "skipDonateDialog": true,
+  "lastShownDonateDialog": 1537902070502,
+  "plugins": {},
+  "isMigratedPlugins": true,
+  "trackingEnabled": true,
+  "crashreportingEnabled": true,
+  "openAtLogin": true,
+  "positions": {
+    "2764015089717250": [
+      635,
+      280
+    ]
+  }
+}

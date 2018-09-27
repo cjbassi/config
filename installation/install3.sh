@@ -14,6 +14,7 @@ mkdir -p .config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
 mkdir -p ~/.config/{ranger,gtk-3.0}
 mkdir -p ~/playground
+mkdir -p ~/.config/variety
 
 # go
 mkdir -p ~/.local/{bin,pkg,src}
@@ -21,7 +22,7 @@ mkdir -p ~/.local/{bin,pkg,src}
 ln -sf ~/.local/share/Trash/files ~/trash
 
 
-# Keys {{{1
+# ssh/gpg {{{1
 
 sudo mount -L KEYS /mnt/usb
 
@@ -43,7 +44,7 @@ while [[ ! -d "config" ]]; do
    hub clone cjbassi/config
 done
 
-sudo ln -sf ~/config/tmp/tmp.conf /etc/tmpfiles.d/tmp.conf
+sudo ln -sf ~/config/other/tmp.conf /etc/tmpfiles.d/tmp.conf
 
 sudo ln -sf ~/config/services/* /etc/systemd/system/
 
@@ -56,23 +57,42 @@ ln -sf ~/config/dotfiles/.* ~/
 
 ln -sf ~/config/bin ~/bin
 
-ln -sf ~/{,.}config/alacritty
-ln -sf ~/{,.}config/dunst
-ln -sf ~/{,.}config/i3
-ln -sf ~/{,.}config/polybar
-ln -sf ~/{,.}config/rofi
-ln -sf ~/{,.}config/sxhkd
-ln -sf ~/{,.}config/tig
-ln -sf ~/{,.}config/ulauncher
+mkdir -p ~/.config/alacritty
+ln -sf ~/config/other/alacritty.yml ~/.config/alacritty/
 
-ln -sf ~/config/gtk-3.0/* ~/.config/gtk-3.0/
+mkdir -p ~/.config/dunst
+ln -sf ~/config/other/dunstrc ~/.config/dunst/
+
+mkdir -p ~/.config/i3
+ln -sf ~/config/other/i3 ~/.config/i3/config
+
+mkdir -p ~/.config/polybar
+ln -sf ~/config/other/polybar ~/.config/polybar/config
+
+mkdir -p ~/.config/sxhkd
+ln -sf ~/config/other/sxhkdrc ~/.config/sxhkd/
+
+mkdir -p ~/.config/tig
+ln -sf ~/config/other/tig ~/.config/tig/config
+
+mkdir -p ~/.config/variety
+ln -sf ~/config/other/variety.conf ~/.config/variety/
+
+mkdir -p ~/.config/gtk-3.0
+ln -sf ~/config/other/gtk-3.0 ~/.config/gtk-3.0/settings.ini
+
 ln -sf ~/config/nvim/* ~/.config/nvim/
 ln -sf ~/config/ranger/* ~/.config/ranger/
-ln -sf ~/config/vscode/* ~/.config/Code/User # TODO
 
-ln -sf ~/config/default-apps/mimeapps.list ~/.config
+mkdir -p ~/.config/Code/User/snippets
+ln -sfn ~/config/vscode/snippets ~/.config/Code/User/snippets
+
+ln -sf ~/config/other/mimeapps.list ~/.config/
 
 ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
+
+ln -sf ~/config/cerebro/config.json ~/.config/Cerebro
+ln -sf ~/config/cerebro/package.json ~/.config/Cerebro/plugins
 
 
 # ranger {{{1
@@ -80,6 +100,12 @@ ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
 ranger --copy-config=scope
 
 xdg-mime default ranger.desktop inode/directory
+
+
+# rust {{{1
+
+rustup install nightly
+rustup default nightly
 
 
 # Neovim {{{1
@@ -99,9 +125,9 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 # pip {{{1
 
 pip install --user colour-valgrind
-pip install --user fire
 pip install --user grip
 pip install --user mypy
+pip install --user pip-review
 pip install --user pipenv
 pip install --user pymath2
 pip install --user pytest
@@ -115,12 +141,6 @@ pip install --user xtermcolor
 pip install --user git+https://github.com/cjbassi/random
 
 
-# npm/yarn {{{1
-
-yarn global add npx
-yarn global add typescript
-
-
 # go {{{1
 
 export GOPATH=~/.local
@@ -130,10 +150,9 @@ go get github.com/nishanths/license
 go get github.com/goreleaser/goreleaser
 
 
-# rust {{{1
+# cargo {{{1
 
-rustup install nightly
-rustup default nightly
+cargo install cargo-update
 
 
 # AUR {{{1
@@ -144,8 +163,6 @@ alias yay='yay -S --noconfirm --needed --mflags "--nocheck"'
 
 yay sccache-bin
 
-# yay alacritty-git
-yay alacritty-scrollback-git
 yay antigen-git
 yay cargo-edit-git
 yay cht.sh
@@ -172,6 +189,7 @@ yay rmtrash
 # yay shutter
 yay spotify
 yay texlive-latexindent-meta    # for vscode latex formatting
+yay topgrade
 yay unclutter-xfixes-git
 yay visual-studio-code-bin
 
@@ -186,8 +204,6 @@ sudo systemctl enable monitor-detect@cjbassi
 
 sudo systemctl enable bluetooth
 
-sudo systemctl enable insync@cjbassi
-
 sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
@@ -195,3 +211,5 @@ sudo systemctl mask system-rfkill.socket
 
 # disables tmpfs
 sudo systemctl mask tmp.mount
+
+# TODO auto-login

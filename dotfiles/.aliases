@@ -37,7 +37,13 @@ alias gpgkey='gpg --full-gen-key'
 
 alias nw='new-wallpaper'
 
-alias update='yay -Syu --noconfirm --needed'
+function update {
+    # yay -Syu --noconfirm --needed
+
+    # update python
+    antigen update
+    topgrade --no-git-repos
+}
 
 
 # New Commands {{{1
@@ -83,7 +89,7 @@ function terminal {
 
 alias sudo='sudo '
 
-alias rg='rg -S --hidden'
+alias rg='rg -S'
 
 alias git='hub'
 
@@ -135,4 +141,4 @@ alias ls='exa'
 
 alias df='pydf'
 
-alias fd='fd -H'
+alias fd='fd --ignore-file ~/.ignore'

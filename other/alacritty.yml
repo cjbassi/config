@@ -99,6 +99,12 @@ unfocused_hollow_cursor: true
 
 live_config_reload: true
 
+scrolling:
+  history: 10000
+  multiplier: 3
+  faux_multiplier: 3
+  auto_scroll: false
+
 key_bindings:
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }

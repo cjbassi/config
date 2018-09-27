@@ -36,7 +36,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # fzf {{{1
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-export FZF_CTRL_T_COMMAND='rg --files'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.fzf_solarized.sh

@@ -4,12 +4,15 @@
 
 rm -f /install2.sh
 
-vi /etc/mkinitcpio.conf
+# Configure the System {{{1
+
+# Change mkinitcpio cause of encryption
+SEARCH="^HOOKS=(.*)$"
+REPLACE="HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt filesystems fsck)"
+perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/mkinitcpio.conf
 
 mkinitcpio -p linux
 
-
-# Configure the System {{{1
 
 # Time Zone {{{2
 
@@ -97,11 +100,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 useradd -m -G wheel -s $(which zsh) cjbassi
 echo "cjbassi:$password" | chpasswd
 
-useradd -m -G wheel -s $(which zsh) develop
-echo "develop:$password" | chpasswd
-
 usermod -a -G docker cjbassi
-usermod -a -G docker develop
 
 
 # Enable members of 'wheel' group to use root {{{2

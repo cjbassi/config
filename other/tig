@@ -75,6 +75,7 @@ bind generic ca !?@git commit --amend --no-edit
 
 bind generic ? view-help
 bind generic H view-close-no-quit
+bind generic <Enter> enter
 
 # Unbinds {{{1
 
@@ -93,7 +94,6 @@ bind generic <Left> none
 bind generic <Right> none
 bind generic <Down> none
 bind generic <Up> none
-bind generic <Enter> none
 
 
 # Solarized {{{1

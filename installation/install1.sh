@@ -27,8 +27,10 @@ rm -rf /mnt
 # Packages {{{1
 
 # Sync database, update keyring, and update mirrors with Reflector
-pacman -Sy --noconfirm --force archlinux-keyring reflector
+pacman -Syu --noconfirm --needed
+pacman -S --noconfirm --force archlinux-keyring reflector
 reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+pacman -Syyu
 # TODO didn't work last time
 
 # Install packages
@@ -71,7 +73,6 @@ pacstrap /mnt                       \
     nodejs                          \
     yarn                            \
     npm                             \
-    eslint                          \
 \
     python                          \
     python-pip                      \
@@ -107,6 +108,7 @@ pacstrap /mnt                       \
     gnome-keyring                   \
     libsecret                       \
 \
+    alacritty                       \
     breeze-gtk                      \
     calibre                         \
     ccache                          \

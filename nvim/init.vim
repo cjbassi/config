@@ -367,6 +367,7 @@ nnoremap <silent> <leader>l :Lines<CR>
 " files {{{3
 
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
+nnoremap <silent> <leader>ebr :edit ~/config/other/polybar<CR>
 nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>een :edit ~/config/dotfiles/.zshenv<CR>
@@ -375,13 +376,12 @@ nnoremap <silent> <leader>egc :edit ~/config/dotfiles/.gitconfig<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>ekb :edit ~/config/sxhkd/sxhkdrc<CR>
+nnoremap <silent> <leader>ekb :edit ~/config/other/sxhkdrc<CR>
 nnoremap <silent> <leader>emr :edit ~/config/mutt/muttrc<CR>
-nnoremap <silent> <leader>epb :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>err :edit ~/.config/ranger/rc.conf<CR>
-nnoremap <silent> <leader>etr :edit ~/config/alacritty/alacritty.yml<CR>
+nnoremap <silent> <leader>etr :edit ~/config/other/alacritty.yml<CR>
 nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>
-nnoremap <silent> <leader>ewm :edit ~/config/i3/config<CR>
+nnoremap <silent> <leader>ewm :edit ~/config/other/i3<CR>
 nnoremap <silent> <leader>exi :edit ~/config/dotfiles/.xinitrc<CR>
 nnoremap <silent> <leader>ezr :edit ~/config/dotfiles/.zshrc<CR>
 

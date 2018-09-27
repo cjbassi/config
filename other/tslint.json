@@ -14,6 +14,8 @@
         "jsx-no-lambda": false,
         "member-ordering": false,
         "no-console": false,
+        "object-literal-sort-keys": false,
+        "only-arrow-functions": [true, "allow-declarations"],
         "quotemark": [true, "single"],
         "semicolon": [true, "never"],
         "trailing-comma": [true, {"multiline": "always", "singleline": "never"}]

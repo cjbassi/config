@@ -1,13 +1,6 @@
-.pylint.d/
-
-.config/nvim/
-
 trash/
-.local/share/Trash/
-
-.histfile
-
 node_modules/
+.pyenv
 .git/
-
-drive/other/RES-2017-3-18-1489869468-5_4_3.resbackup
+__pycache__/
+*.pyc

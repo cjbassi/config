@@ -12,7 +12,7 @@ source /usr/share/zsh/share/antigen.zsh
 
 antigen bundle zdharma/fast-syntax-highlighting
 antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen bundle zsh-users/zsh-completions
+# antigen bundle zsh-users/zsh-completions
 antigen bundle unixorn/git-extra-commands
 antigen bundle cjbassi/zsh-vi-mode-clipboard
 antigen bundle softmoth/zsh-vim-mode
