@@ -1,6 +1,6 @@
 # vim: ft=sh
 
-# Sources {{{1
+# aliases {{{1
 
 source ~/.aliases
 
@@ -19,26 +19,13 @@ LC_ALL="en_US.UTF-8"
 
 # Path {{{1
 
-# pip, npm, go
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin  # python, node, go
+export PATH="$HOME/.cargo/bin:$PATH"  # rust
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bin/personal
-
-export GOPATH=~/.local
-export GOBIN=$GOPATH/bin
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
-# fzf {{{1
-
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.fzf_solarized.sh
 
 
 # env variables {{{1
@@ -59,3 +46,17 @@ export BROWSER=google-chrome-stable
 export TERM='xterm-256color'
 
 export XDG_CURRENT_DESKTOP=i3-gaps
+
+export PIPENV_VENV_IN_PROJECT=1
+
+export RUSTC_WRAPPER=sccache
+
+export GOPATH=~/.local
+export GOBIN=$GOPATH/bin
+
+
+# fzf {{{1
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+source ~/.fzf_solarized.sh

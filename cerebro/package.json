@@ -8,6 +8,6 @@
     "cerebro-urban-define": "1.0.0",
     "cerebro-define": "1.0.1",
     "cerebro-shell": "0.1.7",
-    "cerebro-clipboard": "1.2.1"
+    "cerebro-file-search": "0.1.2"
   }
 }

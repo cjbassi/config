@@ -308,3 +308,5 @@ scroll-up = light -A 10%
 scroll-down = light -U 10%
 label-foreground = ${colors.yellow}
 label-background = ${colors.light}
+
+click-left = alacritty

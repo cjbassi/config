@@ -34,7 +34,7 @@ alt + e
 	alacritty -e nvim
 
 
-# i3 {{{1
+# wm {{{1
 
 alt + {_, shift +} {h,j,k,l}
 	i3-msg {focus, move} {left,down,up,right}

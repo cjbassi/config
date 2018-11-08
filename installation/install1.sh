@@ -65,6 +65,7 @@ pacstrap /mnt                       \
 \
     go                              \
     dep                             \
+    go-tools                        \
 \
     gdb                             \
     valgrind                        \
@@ -155,8 +156,10 @@ pacstrap /mnt                       \
     sxiv                            \
     tig                             \
     tk                              \
+    tree                            \
     variety                         \
     vlc                             \
+    wget                            \
     whois                           \
     xcape                           \
     xclip                           \

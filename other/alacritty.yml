@@ -15,62 +15,62 @@ tabspaces: 4
 draw_bold_text_with_bright_colors: true
 
 font:
-    normal:
-        family: Hack
-    bold:
-        family: Hack
-    italic:
-        family: Hack
-    size: 11.0
-    offset:
-        x: 0
-        y: 0
-    glyph_offset:
-        x: 0
-        y: 0
-    scale_with_dpi: false
-    use_thin_strokes: true
+  normal:
+    family: Hack
+  bold:
+    family: Hack
+  italic:
+    family: Hack
+  size: 11.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+  scale_with_dpi: false
+  use_thin_strokes: true
 
 render_timer: false
 
 custom_cursor_colors: true
 
 colors:
-    # Base16 Solarized Dark 256 - alacritty color config
+  # Base16 Solarized Dark 256 - alacritty color config
 
-    primary:
-        foreground: '0x93a1a1'
-        background: '0x002b36'
+  primary:
+    foreground: '0x93a1a1'
+    background: '0x002b36'
 
-        # foreground: '0x000000'
-        # background: '0x000000'
+    # foreground: '0x000000'
+    # background: '0x000000'
 
-        # foreground: '0xdcdccc'
-        # background: '0x1a1a1a'
+    # foreground: '0xdcdccc'
+    # background: '0x1a1a1a'
 
-    cursor:
-        text:       '0x002b36'
-        cursor:     '0x93a1a1'
+  cursor:
+    text:       '0x002b36'
+    cursor:     '0x93a1a1'
 
-    normal:
-        black:      '0x002b36'
-        red:        '0xdc322f'
-        green:      '0x859900'
-        yellow:     '0xb58900'
-        blue:       '0x268bd2'
-        magenta:    '0x6c71c4'
-        cyan:       '0x2aa198'
-        white:      '0x93a1a1'
+  normal:
+    black:      '0x002b36'
+    red:        '0xdc322f'
+    green:      '0x859900'
+    yellow:     '0xb58900'
+    blue:       '0x268bd2'
+    magenta:    '0x6c71c4'
+    cyan:       '0x2aa198'
+    white:      '0x93a1a1'
 
-    bright:
-        black:      '0x657b83'
-        red:        '0xdc322f'
-        green:      '0x859900'
-        yellow:     '0xb58900'
-        blue:       '0x268bd2'
-        magenta:    '0x6c71c4'
-        cyan:       '0x2aa198'
-        white:      '0x93a1a1'
+  bright:
+    black:      '0x657b83'
+    red:        '0xdc322f'
+    green:      '0x859900'
+    yellow:     '0xb58900'
+    blue:       '0x268bd2'
+    magenta:    '0x6c71c4'
+    cyan:       '0x2aa198'
+    white:      '0x93a1a1'
 
 visual_bell:
   animation: EaseOutExpo
@@ -87,7 +87,7 @@ mouse:
   faux_scrolling_lines: 1
 
 selection:
-    semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 dynamic_title: true
 

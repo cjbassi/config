@@ -20,7 +20,7 @@
 			"\\newtheorem{definition}{Definition}[section]",
 			"",
 			"\\title{$1}",
-			"\\date{$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}",
+			"\\date{${2:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}}",
 			"\\author{Caleb Bassi}",
 			"",
 			"\\begin{document}",
@@ -107,5 +107,11 @@
 			"	\\end{forest}",
 			"\\end{center}"
 		]
-	}
+    },
+    "strikethrough": {
+        "prefix": "strikethrough",
+        "body": [
+            "\\usepackage[normalem]{ulem}"
+        ]
+    },
 }

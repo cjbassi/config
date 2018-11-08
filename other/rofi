@@ -1,0 +1,99 @@
+# vim:ft=xdefaults
+
+! Terminal {{{1
+
+rofi.terminal:                      alacritty
+
+
+! Theme {{{1
+
+rofi.color-enabled:                 true
+rofi.color-window:                  #003642
+/* rofi.color-normal:                  #002b37, #819396, #003643, #008ed4, #ffffff */
+rofi.color-normal:                  #002b37, #819396, #003642, #008ed4
+rofi.color-active:                  #002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:                  #002b37, #da4281, #003643, #008ed4, #890661
+
+
+! Size {{{1
+
+rofi.width:                         22
+rofi.lines:                         8
+rofi.bw:                            1
+rofi.padding:                       5
+rofi.hide-scrollbar:                true
+rofi.separator-style:               solid
+
+
+! Keybinds {{{1
+
+! "Paste primary selection"
+rofi.kb-primary-paste:
+! "Paste clipboard"
+rofi.kb-secondary-paste:            Alt+p
+! "Clear input line"
+rofi.kb-clear-line:
+! "Beginning of line"
+rofi.kb-move-front:
+! "End of line"
+rofi.kb-move-end:
+! "Move back one word"
+rofi.kb-move-word-back:             Alt+b
+! "Move forward one word"
+rofi.kb-move-word-forward:          Alt+w
+! "Move back one char"
+rofi.kb-move-char-back:             Alt+h
+! "Move forward one char"
+rofi.kb-move-char-forward:          Alt+l
+! "Delete previous word"
+rofi.kb-remove-word-back:Control+BackSpace
+! "Delete next word"
+rofi.kb-remove-word-forward:
+! "Delete next char"
+rofi.kb-remove-char-forward:        Alt+x
+! "Delete previous char"
+rofi.kb-remove-char-back:           BackSpace,Alt+X
+! "Delete till the end of line"
+rofi.kb-remove-to-eol:              Alt+D
+! "Delete till the start of line"
+rofi.kb-remove-to-sol:
+! "Accept entry"
+rofi.kb-accept-entry:               Return,KP_Enter
+! "Use entered text as command (in ssh/run modi)"
+rofi.kb-accept-custom:
+! "Use alternate accept command."
+rofi.kb-accept-alt:                 Shift+Return
+! "Delete entry from history"
+rofi.kb-delete-entry:
+! "Switch to the next mode."
+rofi.kb-mode-next:                  Control+Tab
+! "Switch to the previous mode."
+rofi.kb-mode-previous:              Control+Shift+Tab
+! "Go to the previous column"
+rofi.kb-row-left:
+! "Go to the next column"
+rofi.kb-row-right:
+! "Select previous entry"
+rofi.kb-row-up:                     Control+k,Shift+Tab
+! "Select next entry"
+rofi.kb-row-down:                   Control+j,Tab
+! "Go to next row, if one left, accept it, if no left next mode."
+rofi.kb-row-tab:
+! "Go to the previous page"
+rofi.kb-page-prev:
+! "Go to the next page"
+rofi.kb-page-next:
+! "Go to the first entry"
+rofi.kb-row-first:
+! "Go to the last entry"
+rofi.kb-row-last:
+! "Set selected item as input text"
+rofi.kb-row-select:
+! "Take a screenshot of the rofi window"
+rofi.kb-screenshot:
+! "Toggle case sensitivity"
+rofi.kb-toggle-case-sensitivity:
+! "Toggle sort"
+rofi.kb-toggle-sort:
+! "Quit rofi"
+rofi.kb-cancel:                     Escape

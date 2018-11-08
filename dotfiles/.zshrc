@@ -29,7 +29,7 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="(l(| *)|ll(| *)|cd|(|* )rm(| *)|pwd|r|ranger(| *)|m|e?|cd?|make)"
+export HISTORY_IGNORE="((cd|rm|rmdir|nvim|code|ls)(| *))"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -171,14 +171,9 @@ bindkey -M vicmd '^r' fzf-root
 bindkey -M viins '^r' fzf-root
 
 
-# pipenv {{{2
-
-export PIPENV_VENV_IN_PROJECT=1
-
-
 # Powerlevel9k {{{2
 
-# Mode indication {{{
+# Mode indicator
 function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
@@ -226,20 +221,3 @@ export POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND=125
 
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 # source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
-
-
-# ranger {{{2
-
-# running ranger in a subshell of an already running ranger just exists that shell
-function ranger() {
-    if [ -n "$RANGER_LEVEL" ]; then
-        exit
-    else
-        command ranger "$@"
-    fi
-}
-
-
-# sccache {{{2
-
-export RUSTC_WRAPPER=sccache

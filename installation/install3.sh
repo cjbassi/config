@@ -69,6 +69,9 @@ ln -sf ~/config/other/i3 ~/.config/i3/config
 mkdir -p ~/.config/polybar
 ln -sf ~/config/other/polybar ~/.config/polybar/config
 
+mkdir -p ~/.config/rofi
+ln -sf ~/config/other/rofi ~/.config/rofi/config
+
 mkdir -p ~/.config/sxhkd
 ln -sf ~/config/other/sxhkdrc ~/.config/sxhkd/
 
@@ -127,7 +130,6 @@ echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-wat
 pip install --user colour-valgrind
 pip install --user grip
 pip install --user mypy
-pip install --user pip-review
 pip install --user pipenv
 pip install --user pymath2
 pip install --user pytest
@@ -159,7 +161,7 @@ cargo install cargo-update
 
 bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
 
-alias yay='yay -S --noconfirm --needed --mflags "--nocheck"'
+alias yay='yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck"'
 
 yay sccache-bin
 
@@ -189,7 +191,6 @@ yay rmtrash
 # yay shutter
 yay spotify
 yay texlive-latexindent-meta    # for vscode latex formatting
-yay topgrade
 yay unclutter-xfixes-git
 yay visual-studio-code-bin
 
@@ -204,12 +205,12 @@ sudo systemctl enable monitor-detect@cjbassi
 
 sudo systemctl enable bluetooth
 
+# tlp (battery improvements)
 sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
 
-# disables tmpfs
-sudo systemctl mask tmp.mount
+sudo systemctl mask tmp.mount  # disables tmpfs
 
 # TODO auto-login

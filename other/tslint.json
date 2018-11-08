@@ -11,6 +11,7 @@
         ]
     },
     "rules": {
+        "arrow-parens": true,
         "jsx-no-lambda": false,
         "member-ordering": false,
         "no-console": false,

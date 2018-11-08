@@ -7,9 +7,11 @@ alias blt='bluetoothctl'
 alias chrome='google-chrome-stable'
 
 alias cra='npx create-react-app'
-alias crat='npx create-react-app --scripts-version=react-scripts-ts'
+function crat {
+    npx create-react-app "$@" --typescript
+}
 
-alias cr='cargo run'
+alias cr='cargo run --'
 alias cb='cargo build -j 1'
 alias ci='cargo install -j 1'
 
@@ -22,6 +24,9 @@ alias grm='go run main.go'
 alias l='ll'
 
 alias m='make'
+alias mr='make run'
+
+alias open='fork xdg-open'
 
 alias per='pipenv run'
 
@@ -37,16 +42,30 @@ alias gpgkey='gpg --full-gen-key'
 
 alias nw='new-wallpaper'
 
-function update {
+function upgrade {
     # yay -Syu --noconfirm --needed
 
-    # update python
+    yay -Syu --mflags '--nocheck'
     antigen update
-    topgrade --no-git-repos
+    rustup update
+    cargo install-update -a
+    # go get -u all
+    # nvim TODO
+    yarn global upgrade
+    npm update -g
+    pip-upgrade --user
 }
 
 
 # New Commands {{{1
+
+function pip-upgrade {
+    if [[ $1 == '--user' ]]; then
+        pip list --outdated --format=freeze --user | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U --user
+    else
+        pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+    fi
+}
 
 function new-wallpaper {
     folder_path=$HOME/drive/images/desktop_wallpapers/other
@@ -54,13 +73,11 @@ function new-wallpaper {
     feh --bg-scale $image_path
 }
 
-alias open-greenclip='rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}''
-
 alias clean-tmp='sudo find /tmp -type f -atime +7 -delete'
 alias clean-trash='find /home/cjbassi/trash -type f -atime +7 -delete'
 # alias clear-temp='tmpreaper 7d /tmp'
 
-function iaccp {
+function push-new-project {
     hub init
     hub add .
     hub commit -m "Initial commit"
@@ -80,8 +97,8 @@ function mkcd {
     mkdir "$@"; cd "$@"
 }
 
-function terminal {
-    fork alacritty --working-directory . -e 'ranger'
+function fork-term {
+    fork alacritty --working-directory .
 }
 
 
@@ -101,6 +118,8 @@ alias makepkg='makepkg -si'
 function yay {
     if [[ "$1" == "-S" ]]; then
         command yay "$@" --needed --mflags '--nocheck'
+    elif [[ "$1" == "-R" ]]; then
+        command yay "$@" --recursive
     else
         command yay "$@"
     fi
@@ -142,3 +161,12 @@ alias ls='exa'
 alias df='pydf'
 
 alias fd='fd --ignore-file ~/.ignore'
+
+# running ranger in a subshell of an already running ranger just exists that shell
+function ranger() {
+    if [ -n "$RANGER_LEVEL" ]; then
+        exit
+    else
+        command ranger "$@"
+    fi
+}
