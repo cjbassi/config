@@ -17,8 +17,8 @@ rofi.color-urgent:                  #002b37, #da4281, #003643, #008ed4, #890661
 
 ! Size {{{1
 
-rofi.width:                         22
-rofi.lines:                         8
+rofi.width:                         30
+rofi.lines:                         10
 rofi.bw:                            1
 rofi.padding:                       5
 rofi.hide-scrollbar:                true
@@ -46,7 +46,7 @@ rofi.kb-move-char-back:             Alt+h
 ! "Move forward one char"
 rofi.kb-move-char-forward:          Alt+l
 ! "Delete previous word"
-rofi.kb-remove-word-back:Control+BackSpace
+rofi.kb-remove-word-back:           Control+BackSpace
 ! "Delete next word"
 rofi.kb-remove-word-forward:
 ! "Delete next char"
@@ -66,9 +66,9 @@ rofi.kb-accept-alt:                 Shift+Return
 ! "Delete entry from history"
 rofi.kb-delete-entry:
 ! "Switch to the next mode."
-rofi.kb-mode-next:                  Control+Tab
+rofi.kb-mode-next:                  Control+l
 ! "Switch to the previous mode."
-rofi.kb-mode-previous:              Control+Shift+Tab
+rofi.kb-mode-previous:              Control+h
 ! "Go to the previous column"
 rofi.kb-row-left:
 ! "Go to the next column"

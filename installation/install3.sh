@@ -94,9 +94,6 @@ ln -sf ~/config/other/mimeapps.list ~/.config/
 
 ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
 
-ln -sf ~/config/cerebro/config.json ~/.config/Cerebro
-ln -sf ~/config/cerebro/package.json ~/.config/Cerebro/plugins
-
 
 # ranger {{{1
 
@@ -190,6 +187,7 @@ yay pulseaudio-ctl
 yay rmtrash
 # yay shutter
 yay spotify
+yay teiler-git
 yay texlive-latexindent-meta    # for vscode latex formatting
 yay unclutter-xfixes-git
 yay visual-studio-code-bin

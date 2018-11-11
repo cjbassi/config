@@ -149,6 +149,7 @@ pacstrap /mnt                       \
         librsvg                     \
     reflector                       \
     ripgrep                         \
+    rofi                            \
     rsync                           \
     sshfs                           \
     strace                          \

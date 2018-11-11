@@ -50,6 +50,7 @@ export XDG_CURRENT_DESKTOP=i3-gaps
 export PIPENV_VENV_IN_PROJECT=1
 
 export RUSTC_WRAPPER=sccache
+export RUST_BACKTRACE=1
 
 export GOPATH=~/.local
 export GOBIN=$GOPATH/bin

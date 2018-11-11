@@ -33,13 +33,16 @@ alt + o
 alt + e
 	alacritty -e nvim
 
+alt + grave
+    rofi -show run
+
 
 # wm {{{1
 
 alt + {_, shift +} {h,j,k,l}
 	i3-msg {focus, move} {left,down,up,right}
 
-alt + shift + ctrl + {h,j,k,l}
+alt + ctrl + shift + {h,j,k,l}
 	i3-msg resize {grow width,shrink height,grow height,shrink width} 5 px or 5 ppt
 
 alt + {s,v}
@@ -73,4 +76,13 @@ alt + shift + minus
 	i3-msg move scratchpad
 
 alt + {_, shift +} {0-9}
-	i3-msg { ,move container to} workspace {10,1-9}
+	i3-workspace-groups {focus-workspace,move-container-to-workspace} {10,1-9}
+
+alt + ctrl + {_, shift +} {0-9}
+	i3-msg {workspace number,move to workspace} {10,1-9}
+
+alt + {_, shift +, ctrl + shift +} g
+	i3-workspace-groups {focus-group,move-workspace-to-group,rename-group}
+
+alt + Tab
+    i3-msg workspace back_and_forth

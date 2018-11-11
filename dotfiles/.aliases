@@ -11,9 +11,10 @@ function crat {
     npx create-react-app "$@" --typescript
 }
 
-alias cr='cargo run --'
 alias cb='cargo build -j 1'
 alias ci='cargo install -j 1'
+alias cr='cargo run --'
+alias ct='cargo test'
 
 alias typesync='npx typesync'
 
@@ -77,7 +78,8 @@ alias clean-tmp='sudo find /tmp -type f -atime +7 -delete'
 alias clean-trash='find /home/cjbassi/trash -type f -atime +7 -delete'
 # alias clear-temp='tmpreaper 7d /tmp'
 
-function push-new-project {
+function new-git-project {
+    license mit > LICENSE
     hub init
     hub add .
     hub commit -m "Initial commit"
