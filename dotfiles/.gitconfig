@@ -46,6 +46,7 @@
     co = commit
     cm = commit -m
     ca = commit --amend -C HEAD
+    cao = commit --amend
     st = status
     di = diff
     ps = push

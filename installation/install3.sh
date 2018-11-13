@@ -52,6 +52,7 @@ sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
 sudo ln -sf ~/config/ranger/ranger.desktop /usr/share/applications
+sudo ln -sf ~/config/other/visual-studio-code.desktop /usr/share/applications/visual-studio-code.desktop
 
 ln -sf ~/config/dotfiles/.* ~/
 
@@ -93,6 +94,9 @@ ln -sfn ~/config/vscode/snippets ~/.config/Code/User/snippets
 ln -sf ~/config/other/mimeapps.list ~/.config/
 
 ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
+
+mkdir -p ~/.config/networkmanager-dmenu/
+ln -sf ~/config/other/networkmanager-dmenu.ini ~/.config/networkmanager-dmenu/config.ini
 
 
 # ranger {{{1
@@ -138,6 +142,8 @@ pip install --user wpm
 pip install --user xtermcolor
 
 pip install --user git+https://github.com/cjbassi/random
+pip install --user git+https://github.com/cjbassi/rofi-power
+pip install --user git+https://github.com/cjbassi/rofi-copyq
 
 
 # go {{{1
@@ -167,7 +173,9 @@ yay cargo-edit-git
 yay cht.sh
 yay copyq
 yay discord
+yay dmenu-extended-git
 yay git-extras-git
+yay git-fire-git
 yay google-chrome
 # yay google-cloud-sdk
 yay gotop-bin
@@ -180,7 +188,8 @@ yay loop
 yay ncurses5-compat-libs        # for vscode C/C++ formatting
 yay neofetch-git
 yay nerd-fonts-complete
-yay osu-lazer-git
+yay networkmanager-dmenu
+# yay osu-lazer-git
 yay pasystray-git
 yay polybar-git
 yay pulseaudio-ctl

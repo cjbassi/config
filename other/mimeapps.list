@@ -3,3 +3,4 @@ inode/directory=ranger.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 image/png=sxiv.desktop;
 image/jpeg=sxiv.desktop;
+text/x-tex=visual-studio-code.desktop;

@@ -4,24 +4,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " todo {{{2
 
-Plug 'lervag/vimtex'
-
 Plug '~/drive/programming/jumplist-contained.vim'
 
-" Plug 'LucHermitte/VimFold4C'
-
-" Plug 'OmniSharp/omnisharp-vim'
-" , { 'dir': '~/.local/share/nvim/plugged/omnisharp-vim/server', 'do': 'msbuild' }
-
 " Plug 'tpope/vim-sleuth'
-
-Plug 'Shougo/echodoc.vim'
 
 " Plug 'Konfekt/FastFold'
 
 Plug 'google/vim-searchindex'
-
-" Plug 'sentientmachine/erics_vim_syntax_and_color_highlighting'
 
 " Plug 'j16180339887/Global.vim'
 
@@ -35,9 +24,6 @@ Plug 'ozelentok/vim-closer'
 " completion {{{2
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Rip-Rip/clang_complete'
-Plug 'zchee/deoplete-jedi'
-Plug 'racer-rust/vim-racer'
 Plug 'Shougo/neco-vim'
 
 
@@ -66,18 +52,11 @@ Plug 'cjbassi/improved-foldtext.vim'
 
 " formatting/linting {{{2
 
-" Plug 'w0rp/ale'
-
-Plug 'Chiel92/vim-autoformat'
-
-Plug 'Vimjas/vim-python-pep8-indent'
-
 Plug 'editorconfig/editorconfig-vim'
 
 
 " fzf {{{2
 
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
 
 
@@ -91,19 +70,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/github-complete.vim'
 
 
-" language-servers {{{2
-
-Plug 'ternjs/tern_for_vim', { 'dir': '~/.local/share/nvim/plugged/tern_for_vim', 'do': 'npm install' }
-Plug 'moll/vim-node'
-
-Plug 'davidhalter/jedi-vim'
-
-
 " Markdown {{{2
 
 Plug 'dkarter/bullets.vim' " for toggling checkboxes
-
-Plug 'cjbassi/grip.vim'
 
 
 " motion {{{2
@@ -135,31 +104,17 @@ Plug 'chr4/nginx.vim'
 Plug 'kovetskiy/sxhkd-vim'
 " Plug 'baskerville/vim-sxhkdrc'
 
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'styled-components/vim-styled-components'
-
-Plug 'hail2u/vim-css3-syntax'
-
 Plug 'rhysd/vim-gfm-syntax'  " GitHub markdown
 
 " Plug 'PotatoesMaster/i3-vim-syntax'
 " Plug 'mboughaba/i3config.vim'
 Plug 'cjbassi/i3-vim-syntax'
 
-Plug 'octol/vim-cpp-enhanced-highlight'
-
 Plug 'elzr/vim-json'
 
 Plug 'cespare/vim-toml'  " for TOML files
 
-Plug 'rust-lang/rust.vim'
-
 Plug 'ekalinin/Dockerfile.vim'
-
-" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 
 " textobjects {{{2
@@ -309,7 +264,6 @@ nnoremap <leader>th :Help<Space>
 nnoremap <leader>tr :%s/
 nnoremap <silent> <leader>tR :RangerCurrentFile<CR>
 nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
-nnoremap <silent> <leader>tt :VimtexCompile<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
 nnoremap <leader>tU :UltiSnipsEdit<Space>
 nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
@@ -638,27 +592,6 @@ set undofile
 
 " Plugin Settings {{{1
 
-" ALE {{{2
-
-autocmd FileType markdown let b:ale_enabled=0
-
-let g:ale_linters = {
-      \   'cpp': ['clang'],
-      \   'javascript': ['eslint'],
-      \}
-
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-
-let g:ale_set_loclist=1
-let g:ale_set_quickfix=1
-
-let g:ale_set_highlights=1
-
-highlight ALEErrorSign guifg=#dc322f guibg=#073642
-highlight ALEWarningSign guifg=#b58900 guibg=#073642
-
-
 " Bullets.vim {{{2
 
 let g:bullets_set_mappings = 0
@@ -732,11 +665,6 @@ let g:fzf_colors =
 " let g:fzf_layout = { 'window': '10split enew' }
 
 
-" grip.vim {{{2
-
-nnoremap <silent> <C-p> :call Grip()<CR>
-
-
 " incsearch.vim{{{2
 
 " autocmd FileType * map / <Plug>(incsearch-stay)
@@ -766,11 +694,6 @@ let g:overlength#default_to_textwidth = 0
 " autocmd FileType man call overlength#toggle()
 " autocmd FileType markdown call overlength#toggle()
 " autocmd FileType text call overlength#toggle()
-
-
-" tern_for_vim {{{2
-
-autocmd FileType javascript nnoremap <buffer> <C-]> :TernDef<CR>
 
 
 " UltiSnips{{{2
@@ -845,13 +768,6 @@ augroup autofoldcolumn
 augroup END
 
 
-" vim-autoformat {{{2
-
-let g:autoformat_remove_trailing_spaces = 0
-" let g:formatdef_my_custom_javascript = '"js-beautify -a -s ".&shiftwidth'
-" let g:formatters_javascript = ['my_custom_javascript']
-
-
 " vim-easy-align {{{2
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -896,48 +812,14 @@ xmap ih <Plug>GitGutterTextObjectInnerVisual
 xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 
-" vim-go {{{2
-
-let g:go_fmt_fail_silently = 0
-
-let g:go_highlight_types = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-
-let g:go_highlight_operators = 0
-let g:go_highlight_build_constraints = 0
-
-let g:go_doc_keywordprg_enabled = 0
-
-
 " vim-ipmotion {{{2
 
 let g:ip_skipfold=1
 
 
-" vim-javascript {{{2
-
-let g:javascript_plugin_flow = 1
-
-
-" vim-jedi {{{2
-
-let g:jedi#auto_initialization = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#goto_definitions_command = "<C-]>"
-
-
 " vim-json{{{2
 
 let g:vim_json_syntax_conceal = 0
-
-
-" vim-jsx {{{2
-
-let g:jsx_ext_required = 0
 
 
 " vim-lastplace {{{2
@@ -966,22 +848,12 @@ let g:markdown_fold_style = 'nested'
 let g:move_key_modifier = 'S'
 
 
-" vim-node {{{2
-
-set runtimepath^=~/.loca/share/nvim/plugged/vim-node
-
-
 " vim-operator-flashy{{{2
 
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
 " let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
-
-
-" vim-racer {{{2
-
-let g:racer_cmd = "/usr/bin"
 
 
 " vim-ranger {{{2
@@ -1023,7 +895,7 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 8)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 8)<CR>
 
-" }}}
+
 " vim-textobj-comment {{{2
 
 let g:textobj_comment_no_default_key_mappings = 1
@@ -1042,8 +914,3 @@ omap aX <Plug>(textobj-comment-big-a)
 
 map [v <Plug>(edgemotion-k)
 map ]v <Plug>(edgemotion-j)
-
-
-" vimtex {{{2
-
-let g:vimtex_view_method='zathura'

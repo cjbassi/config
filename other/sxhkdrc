@@ -34,7 +34,7 @@ alt + e
 	alacritty -e nvim
 
 alt + grave
-    rofi -show run
+    rofi -show run -modi run,ssh
 
 
 # wm {{{1

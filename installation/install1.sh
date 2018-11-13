@@ -138,6 +138,7 @@ pacstrap /mnt                       \
         python-neovim               \
     openssh                         \
     parted                          \
+    perl-file-mimeinfo              \
     pydf                            \
     qbittorrent                     \
     qt4                             \

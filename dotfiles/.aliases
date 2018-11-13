@@ -44,14 +44,12 @@ alias gpgkey='gpg --full-gen-key'
 alias nw='new-wallpaper'
 
 function upgrade {
-    # yay -Syu --noconfirm --needed
-
-    yay -Syu --mflags '--nocheck'
+    yay -Syu --noconfirm --needed --mflags '--nocheck'
     antigen update
     rustup update
     cargo install-update -a
     # go get -u all
-    # nvim TODO
+    nvim +PlugUpdate +xall
     yarn global upgrade
     npm update -g
     pip-upgrade --user
@@ -105,6 +103,8 @@ function fork-term {
 
 
 # Settings {{{1
+
+alias git-fire='git-fire | head -n -3'
 
 alias sudo='sudo '
 

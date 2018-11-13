@@ -55,6 +55,8 @@ export RUST_BACKTRACE=1
 export GOPATH=~/.local
 export GOBIN=$GOPATH/bin
 
+export LOCKPRG='i3lock-fancy -- maim'
+
 
 # fzf {{{1
 
