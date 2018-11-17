@@ -57,6 +57,8 @@ export GOBIN=$GOPATH/bin
 
 export LOCKPRG='i3lock-fancy -- maim'
 
+export WINIT_HIDPI_FACTOR=1.0 # alacritty
+
 
 # fzf {{{1
 

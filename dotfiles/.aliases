@@ -3,78 +3,53 @@
 # Abbreviations {{{1
 
 alias blt='bluetoothctl'
-
 alias chrome='google-chrome-stable'
-
-alias cra='npx create-react-app'
-function crat {
-    npx create-react-app "$@" --typescript
-}
-
-alias cb='cargo build -j 1'
-alias ci='cargo install -j 1'
-alias cr='cargo run --'
-alias ct='cargo test'
-
-alias typesync='npx typesync'
-
 alias g='git'
-
-alias grm='go run main.go'
-
 alias l='ll'
+alias nw='new-wallpaper'
+alias open='fork xdg-open'
+alias r='ranger'
 
 alias m='make'
 alias mr='make run'
 
-alias open='fork xdg-open'
+alias cra='npx create-react-app'
+function crat { npx create-react-app "$@" --typescript }
+alias typesync='npx typesync'
 
-alias per='pipenv run'
-
-alias r='ranger'
+alias cb='cargo build'
+alias ci='cargo install'
+alias cil='cargo install --path . --force'
+alias cr='cargo run --'
+alias ct='cargo test'
+alias grm='go run main.go'
+alias pyr='pipenv run'
 
 alias codediff='code -n -d'
 alias vimdiff='nvim -d'
 alias se='sudoedit'
 alias vp='vimpager'
 
-alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
 alias gpgkey='gpg --full-gen-key'
-
-alias nw='new-wallpaper'
-
-function upgrade {
-    yay -Syu --noconfirm --needed --mflags '--nocheck'
-    antigen update
-    rustup update
-    cargo install-update -a
-    # go get -u all
-    nvim +PlugUpdate +xall
-    yarn global upgrade
-    npm update -g
-    pip-upgrade --user
-}
+alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
 
 
 # New Commands {{{1
 
-function pip-upgrade {
-    if [[ $1 == '--user' ]]; then
-        pip list --outdated --format=freeze --user | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U --user
-    else
-        pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
-    fi
-}
-
-function new-wallpaper {
-    folder_path=$HOME/drive/images/desktop_wallpapers/other
-    image_path=$(fd --full-path $folder_path --type f | shuf -n 1)
-    feh --bg-scale $image_path
-}
-
 alias clean-tmp='sudo find /tmp -type f -atime +7 -delete'
 alias clean-trash='find /home/cjbassi/trash -type f -atime +7 -delete'
-# alias clear-temp='tmpreaper 7d /tmp'
+
+function fork {
+    nohup "$@" </dev/null >/dev/null 2>&1 &; disown
+}
+
+function fork-term {
+    fork alacritty --working-directory .
+}
+
+function mkcd {
+    mkdir "$@"; cd "$@"
+}
 
 function new-git-project {
     license mit > LICENSE
@@ -85,37 +60,81 @@ function new-git-project {
     hub push -u origin master
 }
 
+function new-wallpaper {
+    folder_path=$HOME/drive/images/desktop_wallpapers/other
+    image_path=$(fd --full-path $folder_path --type f | shuf -n 1)
+    feh --bg-scale $image_path
+}
+
 function prepend {
     cat - "$@" | sponge "$@"
 }
 
-function fork {
-    nohup "$@" </dev/null >/dev/null 2>&1 &; disown
+function upgrade {
+    upgrade-yay
+    antigen update
+    rustup update
+    cargo install-update -a
+    # go get -u all
+    nvim +PlugUpdate +xall
+    yarn global upgrade
+    npm update -g
+    upgrade-pip --user
 }
 
-function mkcd {
-    mkdir "$@"; cd "$@"
+function upgrade-pip {
+    if [[ $1 == '--user' ]]; then
+        pip list --outdated --format=freeze --user | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U --user
+    else
+        pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+    fi
 }
 
-function fork-term {
-    fork alacritty --working-directory .
-}
+alias upgrade-yay="yay -Syu --noconfirm --needed --mflags '--nocheck'"
 
 
 # Settings {{{1
 
+alias fd='fd --ignore-file ~/.ignore'
 alias git-fire='git-fire | head -n -3'
-
-alias sudo='sudo '
-
-alias rg='rg -S'
-
-alias git='hub'
-
-# alias ll='exa -AhgoF --group-directories-first --color=always'
 alias ll='exa -aFl --group-directories-first --git'
-
 alias makepkg='makepkg -si'
+alias ncdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+alias ps='ps aux'
+alias rg='rg -S'
+alias rsync='rsync -h --progress'
+alias sshfs='sshfs -C -o reconnect'
+alias su='sudo -E su -m'
+alias sudo='sudo '
+alias uname='uname -a'
+alias w='w -f'
+
+alias cp='cp -iv'
+alias ln='ln -v'
+alias mkdir='mkdir -vp'
+alias mv='mv -iv'
+
+alias df='df -h'
+alias du='du -h'
+
+alias g++='g++ -g -Wall'
+alias gcc='gcc -g -Wall'
+
+alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
+alias df='pydf'
+alias git='hub'
+alias ls='exa'
+alias rm='rmtrash -Id'
+alias rmdir='rmdirtrash'
+
+# running ranger in a subshell of an already running ranger just exists that shell
+function ranger() {
+    if [ -n "$RANGER_LEVEL" ]; then
+        exit
+    else
+        command ranger "$@"
+    fi
+}
 
 function yay {
     if [[ "$1" == "-S" ]]; then
@@ -127,48 +146,7 @@ function yay {
     fi
 }
 
-alias ps='ps aux'
-
-# TODO progress1 and 2
+# alias ll='exa -AhgoF --group-directories-first --color=always'
+# TODO rsync progress1 and 2
 # alias rsync='rsync -h --info=all2'
-alias rsync='rsync -h --progress'
-
-alias sshfs='sshfs -C -o reconnect'
-
-alias su='sudo -E su -m'
-
-alias uname='uname -a'
-
-alias valgrind='colour-valgrind --leak-check=yes --track-origins=yes'
-
-alias w='w -f'
-
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rmtrash -Id'
-alias rmdir='rmdirtrash'
-alias mkdir='mkdir -vp'
-alias ln='ln -v'
-
-alias df='df -h'
-alias du='du -h'
-
-alias g++='g++ -g -Wall'
-alias gcc='gcc -g -Wall'
-
-alias ncdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
-
-alias ls='exa'
-
-alias df='pydf'
-
-alias fd='fd --ignore-file ~/.ignore'
-
-# running ranger in a subshell of an already running ranger just exists that shell
-function ranger() {
-    if [ -n "$RANGER_LEVEL" ]; then
-        exit
-    else
-        command ranger "$@"
-    fi
-}
+# alias clear-temp='tmpreaper 7d /tmp'

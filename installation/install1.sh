@@ -110,6 +110,7 @@ pacstrap /mnt                       \
     libsecret                       \
 \
     alacritty                       \
+    bat                             \
     breeze-gtk                      \
     calibre                         \
     ccache                          \

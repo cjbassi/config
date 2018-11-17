@@ -129,6 +129,8 @@ content-background = ${colors.dark}
 type = internal/i3
 format = <label-state>
 
+strip-wsnumbers = true
+
 index-sort = true
 enable-click = true
 enable-scroll = true

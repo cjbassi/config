@@ -7,7 +7,7 @@ set $mod Mod1
 floating_modifier $mod
 bindsym $mod+Shift+space floating toggle
 
-# Window Settings {{{1
+# Settings {{{1
 
 new_window pixel 3
 new_float pixel 3
@@ -20,6 +20,8 @@ smart_borders on
 smart_gaps on
 
 font pango:Hack 12px
+
+# set strip_workspace_numbers yes
 
 
 # Colors {{{1
@@ -50,6 +52,21 @@ set $green      #859900
 # class                 border  backgr. text    indica. child_border
 client.focused          $red    $gray3  $white  $red    $red
 client.unfocused        $base00 #222222 #888888 #292d2e #222222
+
+# bar {
+#     font pango:DejaVu Sans Mono, FontAwesome 12
+#     position bottom
+#     status_command i3status-rs /home/cjbassi/playground/i3status-rust/config
+#     colors {
+#         separator #666666
+#         background #222222
+#         statusline #dddddd
+#         focused_workspace #0088CC #0088CC #ffffff
+#         active_workspace #333333 #333333 #ffffff
+#         inactive_workspace #333333 #333333 #888888
+#         urgent_workspace #2f343a #900000 #ffffff
+#     }
+# }
 
 
 # Other Settings {{{1

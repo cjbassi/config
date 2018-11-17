@@ -8,7 +8,13 @@ window:
   padding:
     x: 1
     y: 1
-  decorations: true
+  decorations: full
+
+scrolling:
+  history: 10000
+  multiplier: 3
+  faux_multiplier: 3
+  auto_scroll: false
 
 tabspaces: 4
 
@@ -28,12 +34,9 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  scale_with_dpi: false
   use_thin_strokes: true
 
 render_timer: false
-
-custom_cursor_colors: true
 
 colors:
   # Base16 Solarized Dark 256 - alacritty color config
@@ -76,7 +79,7 @@ visual_bell:
   animation: EaseOutExpo
   duration: 0
 
-background_opacity: 1.00
+background_opacity: 1.0
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -84,26 +87,22 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-  faux_scrolling_lines: 1
+  hide_when_typing: false
+  url:
+    launcher: xdg-open
+    modifiers: Control|Shift
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: false
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
-
-cursor_style: Block
-
-unfocused_hollow_cursor: true
+cursor:
+  style: Block
+  unfocused_hollow: true
 
 live_config_reload: true
-
-scrolling:
-  history: 10000
-  multiplier: 3
-  faux_multiplier: 3
-  auto_scroll: false
 
 key_bindings:
   - { key: V,        mods: Control|Shift,    action: Paste               }

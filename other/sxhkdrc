@@ -79,7 +79,7 @@ alt + {_, shift +} {0-9}
 	i3-workspace-groups {focus-workspace,move-container-to-workspace} {10,1-9}
 
 alt + ctrl + {_, shift +} {0-9}
-	i3-msg {workspace number,move to workspace} {10,1-9}
+	i3-msg {workspace number,move to workspace number} {10,1-9}
 
 alt + {_, shift +, ctrl + shift +} g
 	i3-workspace-groups {focus-group,move-workspace-to-group,rename-group}

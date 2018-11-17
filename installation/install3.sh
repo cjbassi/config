@@ -158,6 +158,7 @@ go get github.com/goreleaser/goreleaser
 # cargo {{{1
 
 cargo install cargo-update
+cargo install i3-workspace-groups
 
 
 # AUR {{{1
@@ -173,7 +174,7 @@ yay cargo-edit-git
 yay cht.sh
 yay copyq
 yay discord
-yay dmenu-extended-git
+# yay dmenu-extended-git
 yay git-extras-git
 yay git-fire-git
 yay google-chrome

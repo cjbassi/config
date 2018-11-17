@@ -15,11 +15,6 @@ sudo dockerd &
 /usr/lib/geoclue-2.0/demos/agent &
 redshift-gtk &
 
-google-chrome-stable &
-spotify &
-discord &
-alacritty -e pymath &
-
 volume-control --set-volume 40 &
 pactl set-source-volume 1 100% &
 
@@ -27,4 +22,10 @@ xinput --disable 'Synaptics TM3289-002' &
 
 detect-monitor &
 
+# google-chrome-stable &
+# spotify &
+# discord &
+# alacritty -e pymath &
+
 exec i3
+# exec sway
