@@ -71,4 +71,4 @@ client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 # Other Settings {{{1
 
-exec_always --no-startup-id reload-settings
+exec_always --no-startup-id bash -c 'source ~/.aliases; shopt -s expand_aliases; reload-settings'

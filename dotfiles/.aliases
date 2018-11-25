@@ -14,7 +14,7 @@ alias m='make'
 alias mr='make run'
 
 alias cra='npx create-react-app'
-function crat { npx create-react-app "$@" --typescript }
+function crat { npx create-react-app "$@" --typescript; }
 alias typesync='npx typesync'
 
 alias cb='cargo build'
@@ -28,7 +28,7 @@ alias pyr='pipenv run'
 alias codediff='code -n -d'
 alias vimdiff='nvim -d'
 alias se='sudoedit'
-alias vp='vimpager'
+alias nvp='nvimpager'
 
 alias gpgkey='gpg --full-gen-key'
 alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
@@ -40,7 +40,7 @@ alias clean-tmp='sudo find /tmp -type f -atime +7 -delete'
 alias clean-trash='find /home/cjbassi/trash -type f -atime +7 -delete'
 
 function fork {
-    nohup "$@" </dev/null >/dev/null 2>&1 &; disown
+    nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }
 
 function fork-term {
@@ -66,8 +66,36 @@ function new-wallpaper {
     feh --bg-scale $image_path
 }
 
+function pkill-wait {
+    while pgrep -u $UID -x $1 >/dev/null; do sleep 1; done
+}
+
 function prepend {
     cat - "$@" | sponge "$@"
+}
+
+function reload-process {
+    killall -q "$@"
+    pkill-wait "$@"
+    fork "$@"
+}
+
+function reload-settings {
+    MONITOR=$(polybar -m|tail -1|sed -e 's/:.*$//g') reload-process polybar main
+    reload-process dunst
+    reload-process sxhkd
+    reload-process xcape
+    xmodmap ~/config/peripherals/xkeys
+    xset r rate 400 25
+}
+
+function select-display {
+    if output=$(xrandr | grep "$EXTERNAL_DISPLAY connected"); then
+        xrandr --output $EXTERNAL_DISPLAY --auto
+        xrandr --output $INTERNAL_DISPLAY --off
+    else
+        xrandr --output $INTERNAL_DISPLAY --auto
+    fi
 }
 
 function upgrade {
@@ -97,6 +125,7 @@ alias upgrade-yay="yay -Syu --noconfirm --needed --mflags '--nocheck'"
 
 alias fd='fd --ignore-file ~/.ignore'
 alias git-fire='git-fire | head -n -3'
+alias google-chrome-stable='google-chrome-stable --remote-debugging-port=9222'
 alias ll='exa -aFl --group-directories-first --git'
 alias makepkg='makepkg -si'
 alias ncdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
@@ -128,7 +157,7 @@ alias rm='rmtrash -Id'
 alias rmdir='rmdirtrash'
 
 # running ranger in a subshell of an already running ranger just exists that shell
-function ranger() {
+function ranger {
     if [ -n "$RANGER_LEVEL" ]; then
         exit
     else

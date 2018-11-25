@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-killall -q polybar
-pkill-wait polybar
-export MONITOR=$(polybar -m|tail -1|sed -e 's/:.*$//g')
-polybar main &

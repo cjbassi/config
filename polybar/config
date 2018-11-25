@@ -290,7 +290,7 @@ label-background = ${colors.dark}
 
 [module/volume]
 type = custom/script
-exec = monitor-volume
+exec = ~/config/polybar/subscribe-volume
 tail = true
 click-right = exec pavucontrol &
 click-left = pulseaudio-ctl mute
@@ -303,7 +303,7 @@ label-foreground = ${colors.blue}
 
 [module/brightness]
 type = custom/script
-exec = monitor-brightness
+exec = ~/config/polybar/subscribe-brightness
 tail = true
 label = " %output%"
 scroll-up = light -A 10%

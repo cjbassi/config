@@ -129,17 +129,21 @@ pacstrap /mnt                       \
     i3-gaps                         \
         perl-anyevent-i3            \
     inotify-tools                   \
+    jq                              \
     krita                           \
     libreoffice                     \
     lsof                            \
     maim                            \
     moreutils                       \
     ncdu                            \
+    neofetch                        \
     neovim                          \
         python-neovim               \
     openssh                         \
+    pacman-contrib                  \
     parted                          \
     perl-file-mimeinfo              \
+    playerctl                       \
     pydf                            \
     qbittorrent                     \
     qt4                             \

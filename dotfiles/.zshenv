@@ -19,8 +19,8 @@ LC_ALL="en_US.UTF-8"
 
 # Path {{{1
 
-export PATH=$PATH:~/.local/bin  # python, node, go
-export PATH="$HOME/.cargo/bin:$PATH"  # rust
+export PATH=$PATH:~/.local/bin  # pip, npm, yarn, go
+export PATH="$HOME/.cargo/bin:$PATH"  # cargo
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 
@@ -31,17 +31,18 @@ export PATH=$PATH:$HOME/bin/personal
 # env variables {{{1
 
 export EDITOR="nvim"
-export VISUAL=$EDITR
+export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
 
-export PAGER="vimpager"
+export PAGER="nvimpager"
 export MANPAGER=$PAGER
-
 alias pager=$PAGER
 alias zless=$PAGER
 alias less=$PAGER
 
-export BROWSER=google-chrome-stable
+export TERMINAL='alacritty'
+
+export BROWSER='google-chrome-stable'
 
 export TERM='xterm-256color'
 
@@ -58,6 +59,9 @@ export GOBIN=$GOPATH/bin
 export LOCKPRG='i3lock-fancy -- maim'
 
 export WINIT_HIDPI_FACTOR=1.0 # alacritty
+
+export INTERNAL_DISPLAY='eDP-1'
+export EXTERNAL_DISPLAY='HDMI-1'
 
 
 # fzf {{{1

@@ -4,7 +4,7 @@
 
 [core]
     editor = nvim
-    pager = vimpager
+    pager = nvimpager
 
 [diff]
     tool = code
@@ -54,4 +54,4 @@
     ch = checkout
     cl = clone
 
-    ia = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)
+    fzf = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)

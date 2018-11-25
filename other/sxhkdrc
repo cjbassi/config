@@ -1,37 +1,43 @@
 # meta_keys {{{1
 
-XF86Audio{Lower,Raise}Volume
-	pulseaudio-ctl {down,up}
-
-XF86AudioMute
-	pulseaudio-ctl mute
-
-XF86AudioMicMute
-    pulseaudio-ctl mute-input
+XF86Audio{LowerVolume,RaiseVolume,Mute,MicMute}
+	pulseaudio-ctl {down,up,mute,mute-input}
 
 XF86MonBrightness{Down,Up}
 	light -{U,A} 5%
 
+XF86Audio{Play,Stop,Prev,Next}
+    playerctl {play-pause,stop,previous,next}
+
+
+# control {{{1
+
+alt + m
+    playerctl play-pause
+
+alt + shift + r
+    bash -c 'source ~/.aliases; shopt -s expand_aliases; select-display; i3-msg reload; reload-settings'
+
 
 # applications {{{1
 
-alt + r
-	alacritty -e ranger
-
 alt + Return
-	alacritty
+    $TERMINAL
+
+alt + r
+	$TERMINAL -e ranger
 
 alt + b
-	chrome --remote-debugging-port=9222
+	$BROWSER
 
 alt + a
-	alacritty -e vimclip
+	$TERMINAL -e vimclip
 
 alt + o
-	alacritty -e gotop
+	$TERMINAL -e gotop
 
 alt + e
-	alacritty -e nvim
+	$TERMINAL -e nvim
 
 alt + grave
     rofi -show run -modi run,ssh
@@ -59,9 +65,6 @@ alt + T
 
 alt + {p,c}
 	i3-msg focus {parent,child}
-
-alt + shift + r
-	detect-monitor; i3-msg reload; reload-settings
 
 alt + {_, shift + } w
 	{i3-msg,xdo} kill

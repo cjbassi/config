@@ -20,7 +20,7 @@ pactl set-source-volume 1 100% &
 
 xinput --disable 'Synaptics TM3289-002' &
 
-detect-monitor &
+bash -c 'source ~/.aliases; shopt -s expand_aliases; select-display' &
 
 # google-chrome-stable &
 # spotify &

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-reload-polybar &
-killall -q dunst; pkill-wait dunst; dunst &
-killall -q sxhkd; pkill-wait sxhkd; sxhkd &
-xmodmap ~/config/peripherals/xkeys &
-xset r rate 400 25 &
-killall -q xcape; pkill-wait xcape; xcape &

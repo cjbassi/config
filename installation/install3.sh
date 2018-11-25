@@ -7,7 +7,9 @@ rm -f install3.sh
 
 # Directories {{{1
 
-mkdir -p downloads
+mkdir -p Documents
+mkdir -p Downloads
+mkdir -p Pictures
 mkdir -p drive
 mkdir -p .ssh
 mkdir -p .config
@@ -56,8 +58,6 @@ sudo ln -sf ~/config/other/visual-studio-code.desktop /usr/share/applications/vi
 
 ln -sf ~/config/dotfiles/.* ~/
 
-ln -sf ~/config/bin ~/bin
-
 mkdir -p ~/.config/alacritty
 ln -sf ~/config/other/alacritty.yml ~/.config/alacritty/
 
@@ -68,7 +68,7 @@ mkdir -p ~/.config/i3
 ln -sf ~/config/other/i3 ~/.config/i3/config
 
 mkdir -p ~/.config/polybar
-ln -sf ~/config/other/polybar ~/.config/polybar/config
+ln -sf ~/config/polybar/config ~/.config/polybar/config
 
 mkdir -p ~/.config/rofi
 ln -sf ~/config/other/rofi ~/.config/rofi/config
@@ -97,6 +97,15 @@ ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
 
 mkdir -p ~/.config/networkmanager-dmenu/
 ln -sf ~/config/other/networkmanager-dmenu.ini ~/.config/networkmanager-dmenu/config.ini
+
+mkdir -p ~/.config/zathura/
+ln -sf ~/config/other/zathurarc ~/.config/zathura/
+
+
+# nvimpager
+
+ln -s ~/.config/{nvim,nvimpager}
+ln -s ~/.local/share/{nvim,nvimpager}
 
 
 # ranger {{{1
@@ -157,6 +166,7 @@ go get github.com/goreleaser/goreleaser
 
 # cargo {{{1
 
+cargo install cargo-edit
 cargo install cargo-update
 cargo install i3-workspace-groups
 
@@ -167,14 +177,16 @@ bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/y
 
 alias yay='yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck"'
 
+yay neovim-symlinks
+yay pandoc-bin
+yay rofi-dmenu
 yay sccache-bin
 
 yay antigen-git
-yay cargo-edit-git
 yay cht.sh
 yay copyq
 yay discord
-# yay dmenu-extended-git
+yay dmenu-extended-git
 yay git-extras-git
 yay git-fire-git
 yay google-chrome
@@ -187,9 +199,9 @@ yay insync
 yay light
 yay loop
 yay ncurses5-compat-libs        # for vscode C/C++ formatting
-yay neofetch-git
 yay nerd-fonts-complete
 yay networkmanager-dmenu
+yay nvimpager-git
 # yay osu-lazer-git
 yay pasystray-git
 yay polybar-git
@@ -200,6 +212,7 @@ yay spotify
 yay teiler-git
 yay texlive-latexindent-meta    # for vscode latex formatting
 yay unclutter-xfixes-git
+yay vimclip-git
 yay visual-studio-code-bin
 
 

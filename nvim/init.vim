@@ -214,8 +214,8 @@ nnoremap <silent> , :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-
 nnoremap H gT
 nnoremap L gt
 
-nmap <silent> j gj
-nmap <silent> k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " backwards deleting in insert mode adds to undo list
 " inoremap <c-u> <c-g>u<c-u>
@@ -321,7 +321,7 @@ nnoremap <silent> <leader>l :Lines<CR>
 " files {{{3
 
 nnoremap <silent> <leader>eal :edit ~/config/dotfiles/.aliases<CR>
-nnoremap <silent> <leader>ebr :edit ~/config/other/polybar<CR>
+nnoremap <silent> <leader>ebr :edit ~/config/polybar/config<CR>
 nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>een :edit ~/config/dotfiles/.zshenv<CR>
@@ -424,6 +424,8 @@ set encoding=utf-8
 
 set mouse=a
 
+set laststatus=2
+
 " Completion window height
 set pumheight=10
 
@@ -486,6 +488,8 @@ function! ManFileType()
   setlocal nonumber
   setlocal norelativenumber
 endfunction
+
+autocmd FileType PKGBUILD setlocal ft=sh
 
 autocmd FileType plaintex setlocal ft=tex
 
