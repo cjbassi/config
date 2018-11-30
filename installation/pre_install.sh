@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wifi-menu
-curl -L https://goo.gl/BnzNsk > install1.sh
-cat install1.sh
-bash install1.sh
+mount -o remount,size=2G /run/archiso/cowspace
+pacman -Sy glibc git
+git clone https://github.com/cjbassi/config
+bash config/installation/install1.sh

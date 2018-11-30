@@ -26,12 +26,14 @@ rm -rf /mnt
 
 # Packages {{{1
 
-# Sync database, update keyring, and update mirrors with Reflector
-pacman -Syu --noconfirm --needed
-pacman -S --noconfirm --force archlinux-keyring reflector
-reflector --verbose --country 'United States' --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-pacman -Syyu
-# TODO didn't work last time
+# Update mirrorlist
+curl "https://ww.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4" > mirrorlist
+sed -i '/#Server/s/^# *//' mirrorlist
+rankmirror mirrorlist > /etc/pacman.d/mirrorlist
+
+# Sync database and update keyring
+# performs a partial upgrade on the live image
+#pacman -Sy archlinux-keyring
 
 # Install packages
 pacstrap /mnt                       \
@@ -138,17 +140,17 @@ pacstrap /mnt                       \
     neovim                          \
         python-neovim               \
     openssh                         \
-    pacman-contrib                  \   # pactree
+    pacman-contrib                  \
     pamixer                         \
     parted                          \
     pavucontrol                     \
     perl-file-mimeinfo              \
-    playerctl                       \   # control spotify
-    pydf                            \   # better `df`
+    playerctl                       \
+    pydf                            \
     qbittorrent                     \
     qt4                             \
     ranger                          \
-        w3m                         \   # for image preview
+        w3m                         \
     redshift                        \
         python-gobject              \
         python-xdg                  \
@@ -162,11 +164,11 @@ pacstrap /mnt                       \
     sxhkd                           \
     sxiv                            \
     tig                             \
-    tk                              \   # for random optional dependencies
+    tk                              \
     tree                            \
     variety                         \
     vlc                             \
-    wget                            \   # for recursively downloading websites
+    wget                            \
     whois                           \
     xcape                           \
     xclip                           \
