@@ -1,0 +1,8 @@
+[Unit]
+Description=variety
+
+[Service]
+ExecStart=variety
+
+[Install]
+WantedBy=user-applications.target

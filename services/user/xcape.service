@@ -1,0 +1,8 @@
+[Unit]
+Description=xcape
+
+[Service]
+ExecStart=xcape -d
+
+[Install]
+WantedBy=user-applications.target

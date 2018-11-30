@@ -491,6 +491,8 @@ endfunction
 
 autocmd FileType PKGBUILD setlocal ft=sh
 
+autocmd BufNewFile,BufRead *.service set filetype=systemd
+
 autocmd FileType plaintex setlocal ft=tex
 
 autocmd FileType mail setlocal spell textwidth=0 wrap

@@ -43,8 +43,6 @@ pacstrap /mnt                       \
 \
     pulseaudio                      \
     pulseaudio-alsa                 \
-    pavucontrol                     \
-    pamixer                         \
     alsa-utils                      \
 \
     blueman                         \
@@ -140,15 +138,17 @@ pacstrap /mnt                       \
     neovim                          \
         python-neovim               \
     openssh                         \
-    pacman-contrib                  \
+    pacman-contrib                  \   # pactree
+    pamixer                         \
     parted                          \
+    pavucontrol                     \
     perl-file-mimeinfo              \
-    playerctl                       \
-    pydf                            \
+    playerctl                       \   # control spotify
+    pydf                            \   # better `df`
     qbittorrent                     \
     qt4                             \
     ranger                          \
-        w3m                         \
+        w3m                         \   # for image preview
     redshift                        \
         python-gobject              \
         python-xdg                  \
@@ -162,11 +162,11 @@ pacstrap /mnt                       \
     sxhkd                           \
     sxiv                            \
     tig                             \
-    tk                              \
+    tk                              \   # for random optional dependencies
     tree                            \
     variety                         \
     vlc                             \
-    wget                            \
+    wget                            \   # for recursively downloading websites
     whois                           \
     xcape                           \
     xclip                           \
@@ -186,8 +186,6 @@ pacstrap /mnt                       \
 # ttf-twemoji-color
 # adobe-source-han-sans-jp-fonts
 # ttf-sazanami
-
-# tmpreaper
 
 
 # Chroot {{{1

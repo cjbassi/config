@@ -1,7 +1,7 @@
 # meta_keys {{{1
 
 XF86Audio{LowerVolume,RaiseVolume,Mute,MicMute}
-	pulseaudio-ctl {down,up,mute,mute-input}
+	pamixer {-d 5,-i 5 --allow-boost,-t,--default-source -t}
 
 XF86MonBrightness{Down,Up}
 	light -{U,A} 5%
@@ -16,7 +16,7 @@ alt + m
     playerctl play-pause
 
 alt + shift + r
-    bash -c 'source ~/.aliases; shopt -s expand_aliases; select-display; i3-msg reload; reload-settings'
+    bash -c "$SOURCE_ALIASES; select-display; reload-settings"; i3-msg reload
 
 
 # applications {{{1

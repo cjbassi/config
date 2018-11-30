@@ -7,68 +7,89 @@ rm -f install3.sh
 
 # Directories {{{1
 
-mkdir -p Documents
-mkdir -p Downloads
-mkdir -p Pictures
-mkdir -p drive
-mkdir -p .ssh
-mkdir -p .config
+mkdir -p ~/Documents
+mkdir -p ~/Downloads
+mkdir -p ~/Pictures
+mkdir -p ~/drive
+mkdir -p ~/.ssh
+mkdir -p ~/.config
 mkdir -p ~/.config/nvim/{backup,undo,swap}
-mkdir -p ~/.config/{ranger,gtk-3.0}
 mkdir -p ~/playground
-mkdir -p ~/.config/variety
+mkdir -p ~/.local/{bin,pkg,src}  # go
+mkdir -p ~/.config/systemd/user
 
-# go
-mkdir -p ~/.local/{bin,pkg,src}
-
-ln -sf ~/.local/share/Trash/files ~/trash
+ln -sf ~/.local/share/Trash/files ~/Trash
 
 
 # ssh/gpg {{{1
 
-sudo mount -L KEYS /mnt/usb
+sudo mount -L KEYS /mnt/usb  # TODO
 
 cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
-
 chmod 700 /home/cjbassi/.ssh
-
 chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
 chmod 600 /home/cjbassi/.ssh/id_ed25519
-# chmod 600 /home/cjbassi/.ssh/known_hosts
 chmod 600 /home/cjbassi/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
 
 
-# Config {{{1
+# config files {{{1
+
+# cloning {{{2
 
 while [[ ! -d "config" ]]; do
    hub clone cjbassi/config
 done
 
-sudo ln -sf ~/config/other/tmp.conf /etc/tmpfiles.d/tmp.conf
+# root symlinks {{{2
 
-sudo ln -sf ~/config/services/* /etc/systemd/system/
+sudo ln -sf ~/config/services/root/* /etc/systemd/system/
+
+sudo ln -sf ~/config/other/tmp.conf /etc/tmpfiles.d/
 
 sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
 sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
-sudo ln -sf ~/config/ranger/ranger.desktop /usr/share/applications
-sudo ln -sf ~/config/other/visual-studio-code.desktop /usr/share/applications/visual-studio-code.desktop
+# user symlinks {{{2
+
+ln -sf ~/config/services/user/* ~/.config/systemd/user/
 
 ln -sf ~/config/dotfiles/.* ~/
+
+ln -sf ~/config/other/mimeapps.list ~/.config/
+
+# ln -sf ~/config/desktop_files/* ~/.local/share/applications/ # TODO
 
 mkdir -p ~/.config/alacritty
 ln -sf ~/config/other/alacritty.yml ~/.config/alacritty/
 
+# mkdir -p ~/.config/Code/User/snippets
+# ln -sfn ~/config/vscode/snippets/ ~/.config/Code/User/snippets/ # TODO
+
+mkdir -p ~/.config/dmenu-extended/config
+ln -sf ~/config/other/dmenuExtended_preferences.txt ~/.config/dmenu-extended/config/
+
 mkdir -p ~/.config/dunst
 ln -sf ~/config/other/dunstrc ~/.config/dunst/
+
+mkdir -p ~/.config/gtk-3.0
+ln -sf ~/config/other/gtk-3.0 ~/.config/gtk-3.0/settings.ini
 
 mkdir -p ~/.config/i3
 ln -sf ~/config/other/i3 ~/.config/i3/config
 
+mkdir -p ~/.config/networkmanager-dmenu
+ln -sf ~/config/other/networkmanager-dmenu.ini ~/.config/networkmanager-dmenu/config.ini
+
+mkdir -p ~/.config/nvim
+ln -sf ~/config/nvim/* ~/.config/nvim/
+
 mkdir -p ~/.config/polybar
 ln -sf ~/config/polybar/config ~/.config/polybar/config
+
+mkdir -p ~/.config/ranger
+ln -sf ~/config/ranger/* ~/.config/ranger/
 
 mkdir -p ~/.config/rofi
 ln -sf ~/config/other/rofi ~/.config/rofi/config
@@ -82,27 +103,18 @@ ln -sf ~/config/other/tig ~/.config/tig/config
 mkdir -p ~/.config/variety
 ln -sf ~/config/other/variety.conf ~/.config/variety/
 
-mkdir -p ~/.config/gtk-3.0
-ln -sf ~/config/other/gtk-3.0 ~/.config/gtk-3.0/settings.ini
-
-ln -sf ~/config/nvim/* ~/.config/nvim/
-ln -sf ~/config/ranger/* ~/.config/ranger/
-
-mkdir -p ~/.config/Code/User/snippets
-ln -sfn ~/config/vscode/snippets ~/.config/Code/User/snippets
-
-ln -sf ~/config/other/mimeapps.list ~/.config/
-
-ln -sf ~/config/ranger/ranger.desktop ~/.local/share/applications
-
-mkdir -p ~/.config/networkmanager-dmenu/
-ln -sf ~/config/other/networkmanager-dmenu.ini ~/.config/networkmanager-dmenu/config.ini
-
-mkdir -p ~/.config/zathura/
+mkdir -p ~/.config/zathura
 ln -sf ~/config/other/zathurarc ~/.config/zathura/
 
 
-# nvimpager
+# ranger_devicons {{{1
+
+git clone https://github.com/alexanderjeurissen/ranger_devicons
+(cd ranger_devicons; make install)
+rm -rf ranger_devicons
+
+
+# nvimpager {{{1
 
 ln -s ~/.config/{nvim,nvimpager}
 ln -s ~/.local/share/{nvim,nvimpager}
@@ -110,9 +122,7 @@ ln -s ~/.local/share/{nvim,nvimpager}
 
 # ranger {{{1
 
-ranger --copy-config=scope
-
-xdg-mime default ranger.desktop inode/directory
+# ranger --copy-config=scope # TODO
 
 
 # rust {{{1
@@ -143,10 +153,10 @@ pip install --user mypy
 pip install --user pipenv
 pip install --user pymath2
 pip install --user pytest
-pip install --user rope
+pip install --user rope  # TODO
 pip install --user trash-cli
-pip install --user twine
-pip install --user wheel
+pip install --user twine  # for publishing to PyPI
+pip install --user wheel  # TODO
 pip install --user wpm
 pip install --user xtermcolor
 
@@ -205,12 +215,12 @@ yay nvimpager-git
 # yay osu-lazer-git
 yay pasystray-git
 yay polybar-git
-yay pulseaudio-ctl
 yay rmtrash
 # yay shutter
 yay spotify
 yay teiler-git
 yay texlive-latexindent-meta    # for vscode latex formatting
+yay tmpreaper
 yay unclutter-xfixes-git
 yay vimclip-git
 yay visual-studio-code-bin
@@ -218,20 +228,34 @@ yay visual-studio-code-bin
 
 # Services {{{1
 
-sudo systemctl enable NetworkManager
+systemctl --user enable dunst
+systemctl --user enable redshift-gtk
+
+systemctl --user enable blueman-applet
+systemctl --user enable copyq
+systemctl --user enable insync
+systemctl --user enable nm-applet
+systemctl --user enable pasystray
+systemctl --user enable polybar
+systemctl --user enable sxhkd
+systemctl --user enable unclutter
+systemctl --user enable variety
+systemctl --user enable xcape
 
 sudo systemctl enable i3lock@cjbassi
-sudo systemctl enable kill_sshfs@cjbassi
-sudo systemctl enable monitor-detect@cjbassi
+sudo systemctl enable kill-sshfs-suspend
+# sudo systemctl enable monitor-detect@cjbassi TODO
 
+sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
+sudo systemctl enable docker
+
+sudo systemctl mask tmp.mount  # disables tmpfs
 
 # tlp (battery improvements)
 sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
-
-sudo systemctl mask tmp.mount  # disables tmpfs
 
 # TODO auto-login

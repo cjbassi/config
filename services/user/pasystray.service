@@ -1,0 +1,8 @@
+[Unit]
+Description=pasystray
+
+[Service]
+ExecStart=pasystray
+
+[Install]
+WantedBy=user-applications.target

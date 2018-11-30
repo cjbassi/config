@@ -1,0 +1,8 @@
+[Unit]
+Description=blueman-applet
+
+[Service]
+ExecStart=blueman-applet
+
+[Install]
+WantedBy=user-applications.target

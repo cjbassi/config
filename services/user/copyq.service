@@ -1,0 +1,8 @@
+[Unit]
+Description=copyq
+
+[Service]
+ExecStart=copyq
+
+[Install]
+WantedBy=user-applications.target

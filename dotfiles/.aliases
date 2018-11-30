@@ -10,6 +10,10 @@ alias nw='new-wallpaper'
 alias open='fork xdg-open'
 alias r='ranger'
 
+alias scu='systemctl --user'
+alias jcu='journalctl --user'
+alias scur='systemctl --user daemon-reload'
+
 alias m='make'
 alias mr='make run'
 
@@ -36,15 +40,15 @@ alias sshkey='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"'
 
 # New Commands {{{1
 
-alias clean-tmp='sudo find /tmp -type f -atime +7 -delete'
-alias clean-trash='find /home/cjbassi/trash -type f -atime +7 -delete'
+alias clean-tmp='tmpreaper 14d /tmp/'
+alias clean-trash='trash-empty 14'
 
 function fork {
     nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }
 
 function fork-term {
-    fork alacritty --working-directory .
+    fork $TERMINAL --working-directory .
 }
 
 function mkcd {
@@ -81,12 +85,13 @@ function reload-process {
 }
 
 function reload-settings {
-    MONITOR=$(polybar -m|tail -1|sed -e 's/:.*$//g') reload-process polybar main
-    reload-process dunst
-    reload-process sxhkd
-    reload-process xcape
-    xmodmap ~/config/peripherals/xkeys
-    xset r rate 400 25
+    systemctl --user restart polybar
+    systemctl --user restart dunst
+    systemctl --user reload sxhkd
+
+    systemctl --user restart xcape
+    xmodmap ~/config/peripherals/xkeys # TODO
+    xset r rate 400 25 # TODO
 }
 
 function select-display {
@@ -125,7 +130,7 @@ alias upgrade-yay="yay -Syu --noconfirm --needed --mflags '--nocheck'"
 
 alias fd='fd --ignore-file ~/.ignore'
 alias git-fire='git-fire | head -n -3'
-alias google-chrome-stable='google-chrome-stable --remote-debugging-port=9222'
+alias google-chrome-stable='google-chrome-stable --remote-debugging-port=9222 --new-window'
 alias ll='exa -aFl --group-directories-first --git'
 alias makepkg='makepkg -si'
 alias ncdu='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
@@ -134,7 +139,7 @@ alias rg='rg -S'
 alias rsync='rsync -h --progress'
 alias sshfs='sshfs -C -o reconnect'
 alias su='sudo -E su -m'
-alias sudo='sudo '
+alias sudo='sudo '  # expands aliases for sudo commands
 alias uname='uname -a'
 alias w='w -f'
 
@@ -155,6 +160,14 @@ alias git='hub'
 alias ls='exa'
 alias rm='rmtrash -Id'
 alias rmdir='rmdirtrash'
+
+function pip {
+    if [[ "$1" == "install" ]]; then
+        command pip "$@" --user
+    else
+        command pip "$@"
+    fi
+}
 
 # running ranger in a subshell of an already running ranger just exists that shell
 function ranger {
@@ -178,4 +191,3 @@ function yay {
 # alias ll='exa -AhgoF --group-directories-first --color=always'
 # TODO rsync progress1 and 2
 # alias rsync='rsync -h --info=all2'
-# alias clear-temp='tmpreaper 7d /tmp'

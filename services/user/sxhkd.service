@@ -1,0 +1,12 @@
+# https://wiki.archlinux.org/index.php/Sxhkd#Systemd_service_file
+
+[Unit]
+Description=Simple X Hotkey Daemon
+Documentation=man:sxhkd(1)
+
+[Service]
+ExecStart=sxhkd
+ExecReload=kill -SIGUSR1 $MAINPID
+
+[Install]
+WantedBy=user-applications.target

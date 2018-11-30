@@ -1,0 +1,8 @@
+[Unit]
+Description=unclutter
+
+[Service]
+ExecStart=unclutter --timeout 1
+
+[Install]
+WantedBy=user-applications.target

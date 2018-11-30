@@ -1,26 +1,17 @@
 #!/usr/bin/env bash
 
-xcape &
+# https://daniel.perez.sh/blog/2018/user-systemd/
+systemctl --user import-environment DISPLAY XAUTHORITY
+systemctl --user start user-applications.target
+
+pamixer --set-volume 40 &
+pamixer --default-source --set-volume 100 &
+
 xsetroot -cursor_name left_ptr &  # sets pointer icon
-insync start --synchronous-full &
-nm-applet &
-blueman-applet &
-unclutter --timeout 1 &
-variety &
-pasystray &
-copyq &
-dunst &
-sudo dockerd &
-
-/usr/lib/geoclue-2.0/demos/agent &
-redshift-gtk &
-
-volume-control --set-volume 40 &
-pactl set-source-volume 1 100% &
 
 xinput --disable 'Synaptics TM3289-002' &
 
-bash -c 'source ~/.aliases; shopt -s expand_aliases; select-display' &
+bash -c "$SOURCE_ALIASES; select-display" &
 
 # google-chrome-stable &
 # spotify &
@@ -28,4 +19,3 @@ bash -c 'source ~/.aliases; shopt -s expand_aliases; select-display' &
 # alacritty -e pymath &
 
 exec i3
-# exec sway

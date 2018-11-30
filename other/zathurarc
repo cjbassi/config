@@ -1,7 +1,13 @@
-#stop at page boundries
+# https://gist.github.com/michaelmrose/9595075b43f24aa903fa
+
+# stop at page boundaries
 set scroll-page-aware "true"
 set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
 set selection-clipboard clipboard
+
+map <C--> zoom out
+map <C-=> zoom in
+map <C-0> zoom default

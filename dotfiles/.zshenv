@@ -4,6 +4,8 @@
 
 source ~/.aliases
 
+export SOURCE_ALIASES='source ~/.aliases; shopt -s expand_aliases'
+
 
 # Locales {{{1
 
@@ -57,6 +59,7 @@ export GOPATH=~/.local
 export GOBIN=$GOPATH/bin
 
 export LOCKPRG='i3lock-fancy -- maim'
+export EXITPRG='i3-msg exit'
 
 export WINIT_HIDPI_FACTOR=1.0 # alacritty
 

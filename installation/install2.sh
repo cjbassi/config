@@ -100,7 +100,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 useradd -m -G wheel -s $(which zsh) cjbassi
 echo "cjbassi:$password" | chpasswd
 
-usermod -a -G docker cjbassi
+usermod -a -G docker cjbassi # can run docker commands
 
 
 # Enable members of 'wheel' group to use root {{{2

@@ -1,0 +1,8 @@
+[Unit]
+Description=nm-applet
+
+[Service]
+ExecStart=nm-applet
+
+[Install]
+WantedBy=user-applications.target
