@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
-# Cleanup {{{1
-
-rm -f /install2.sh
-
 # Configure the System {{{1
 
-# Change mkinitcpio cause of encryption
+# Change mkinitcpio because of encryption {{{2
+
 SEARCH="^HOOKS=(.*)$"
 REPLACE="HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt filesystems fsck)"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/mkinitcpio.conf
@@ -80,8 +77,8 @@ echo "\
 /swapfile none swap defaults 0 0" \
 >> /etc/fstab
 
-
 # }}}
+
 
 # Post-installation {{{1
 
@@ -141,7 +138,8 @@ SEARCH="COMPRESSXZ=\(xz -c -z -\)"
 REPLACE="COMPRESSXZ=(xz -c -z --threads=$(nproc))"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
-# Auto login
+
+# Auto login {{{2
 
 mkdir -p /etc/systemd/system/getty@tty1.service.d
 echo "\
@@ -152,9 +150,15 @@ ExecStart=-/usr/bin/agetty --autologin $user --noclear %I \$TERM" \
 
 # }}}
 
+
 # Change to regular user {{{1
 
 cd /home/$user
 touch .zshrc
 curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh" > install3.sh
 su $user ./install3.sh
+
+
+# Cleanup {{{1
+
+rm -f /install2.sh

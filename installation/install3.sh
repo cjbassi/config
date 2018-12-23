@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Cleanup {{{1
-
-rm -f install3.sh
-
-
 # ssh/gpg {{{1
 
 sudo mkdir /mnt/usb
@@ -133,7 +128,9 @@ ln -sf ~/config/zsh/* $XDG_CONFIG_HOME/zsh/
 
 bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
 
-alias yay="yay -S --noconfirm --needed --mflags \"--nocheck --skippgpcheck\""
+function yay {
+    command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" "$@"
+}
 
 yay neovim-symlinks
 yay pandoc-bin
@@ -287,3 +284,8 @@ sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
+
+
+# Cleanup {{{1
+
+rm -f install3.sh
