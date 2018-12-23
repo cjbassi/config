@@ -6,26 +6,26 @@
 [[ -z "$PS1" ]] && return
 
 
-# Antigen {{{1
+# Plugins {{{1
 
-source /usr/share/zsh/share/antigen.zsh
+source /usr/share/zsh/share/zgen.zsh
 
-antigen bundle zdharma/fast-syntax-highlighting
-antigen theme bhilburn/powerlevel9k powerlevel9k
-# antigen bundle zsh-users/zsh-completions
-antigen bundle unixorn/git-extra-commands
-antigen bundle cjbassi/zsh-vi-mode-clipboard
-antigen bundle softmoth/zsh-vim-mode
+if ! zgen saved; then
+  zgen load zdharma/fast-syntax-highlighting
+  zgen load bhilburn/powerlevel9k powerlevel9k
+  zgen load zsh-users/zsh-completions
+  zgen load unixorn/git-extra-commands
+  zgen load cjbassi/zsh-vi-mode-clipboard
+  zgen load softmoth/zsh-vim-mode
 
-antigen apply
+  zgen save
+fi
 
 
 # History {{{1
 
-HISTFILE=~/.histfile
-
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -53,21 +53,21 @@ bindkey -r '^z'
 
 # Settings {{{1
 
-setopt globdots         # Tab completion includes dot files
-setopt kshglob          # Addes more globbs
-CASE_SENSITIVE="true"   # Case sensitive completion
-stty -ixon              # Disables C-s and C-q
+setopt globdots     # Tab completion includes dot files
+setopt kshglob      # Addes more globbs
+CASE_SENSITIVE=true # Case sensitive completion
+stty -ixon          # Disables C-s and C-q
 
 # makes escape not move cursor back
 function zle-keymap-select {
-    if [[ $KEYMAP == 'vicmd' ]] ; then
+    if [[ $KEYMAP == "vicmd" ]] ; then
         CURSOR=$CURSOR+1
     fi
 }
 zle -N zle-keymap-select
 
 # lists directory contents on cd
-function chpwd() { ll }
+function chpwd { ll }
 
 # pressing Enter without any text doesn't do anything
 function my-accept-line {
@@ -82,59 +82,60 @@ bindkey '^M' my-accept-line
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' menu select
+zstyle ":completion:*" menu select
 # setopt COMPLETE_ALIASES
 
 
 # Title {{{1
+# https://wiki.archlinux.org/index.php/zsh#xterm_title
 
 autoload -Uz add-zsh-hook
 
-function xterm_title_precmd () {
-	print -Pn '\e]2;%n@%m %1~\a'
+function xterm-title-precmd {
+    print -Pn "\e]2;%n@%m %1~\a"
 }
 
-function xterm_title_preexec () {
-	print -Pn '\e]2;%n@%m %1~ %# '
-	print -n "${(q)1}\a"
+function xterm-title-preexec {
+    print -Pn "\e]2;%n@%m %1~ %# "
+    print -n "${(q)1}\a"
 }
 
 if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
-	add-zsh-hook -Uz precmd xterm_title_precmd
-	add-zsh-hook -Uz preexec xterm_title_preexec
+    add-zsh-hook -Uz precmd xterm-title-precmd
+    add-zsh-hook -Uz preexec xterm-title-preexec
 fi
 
 
 # Colors {{{1
 
-alias ls='ls --color=auto'
+alias ls="ls --color=auto"
 
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
 
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias pcregrep='pcregrep --color=auto'
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias pcregrep="pcregrep --color=auto"
 
-alias watch='watch --color'
+alias watch="watch --color"
 
-alias diff='diff --color=auto'
+alias diff="diff --color=auto"
 
-alias ip='ip -c'
+alias ip="ip -c"
 
-alias dmesg='dmesg --color=auto'
-alias tree='tree -C'
+alias dmesg="dmesg --color=auto"
+# alias tree='tree -C'
 
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 
-alias fdisk='fdisk --color=auto'
+alias fdisk="fdisk --color=auto"
 
 # Arch colors
-alias cower='cower --color=auto'
-alias pactree='pactree -c'
+alias cower="cower --color=auto"
+alias pactree="pactree -c"
 
-export TLDR_COLOR_BLANK="white"
+export TLDR_COLOR_BLANK=white
 
 
 # Other Programs {{{1
@@ -152,7 +153,7 @@ bindkey -M viins -r '^t'
 
 bindkey -M vicmd '/' fzf-history-widget
 
-fzf-local() {
+function fzf-local {
     local path=$(fd | fzf)
     LBUFFER+=$path
     zle redisplay
@@ -161,7 +162,7 @@ zle -N fzf-local
 bindkey -M vicmd '^f' fzf-local
 bindkey -M viins '^f' fzf-local
 
-fzf-root() {
+function fzf-root {
     local path=$(fd . ~ | fzf)
     LBUFFER+=$path
     zle redisplay
@@ -173,7 +174,7 @@ bindkey -M viins '^r' fzf-root
 
 # Powerlevel9k {{{2
 
-# Mode indicator
+# vi-mode indicator
 function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
@@ -224,7 +225,7 @@ export POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND=125
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/cjbassi/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/cjbassi/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/cjbassi/node_modules/tabtab/.completions/sls.zsh ]] && . /home/cjbassi/node_modules/tabtab/.completions/sls.zsh
+[[ -f /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh

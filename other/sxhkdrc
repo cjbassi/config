@@ -16,7 +16,7 @@ alt + m
     playerctl play-pause
 
 alt + shift + r
-    bash -c "$SOURCE_ALIASES; select-display; reload-settings"; i3-msg reload
+    bash -c "$SOURCE_ALIASES; reload-settings"; i3-msg reload
 
 
 # applications {{{1
@@ -78,6 +78,11 @@ alt + minus
 alt + shift + minus
 	i3-msg move scratchpad
 
+alt + Tab
+    i3-msg workspace back_and_forth
+
+## i3-workspace-groups
+
 alt + {_, shift +} {0-9}
 	i3-workspace-groups {focus-workspace,move-container-to-workspace} {10,1-9}
 
@@ -85,7 +90,4 @@ alt + ctrl + {_, shift +} {0-9}
 	i3-msg {workspace number,move to workspace number} {10,1-9}
 
 alt + {_, shift +, ctrl + shift +} g
-	i3-workspace-groups {focus-group,move-workspace-to-group,rename-group}
-
-alt + Tab
-    i3-msg workspace back_and_forth
+	i3-workspace-groups {focus-group,move-container-to-group,rename-group}

@@ -26,23 +26,21 @@ SEARCH="#en_US.UTF-8 UTF-8"
 REPLACE="en_US.UTF-8 UTF-8"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/locale.gen
 locale-gen
-echo LANG=en_US.UTF-8 > /etc/locale.conf
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 
 # Hostname {{{2
 
-echo arch > /etc/hostname
+echo "arch" > /etc/hostname
 
 
 # Passwords {{{2
 
-read -p "Please give password: " password
-read -p "Please repeat password: " password2
-
-while [[ $password != $password2 ]] ; do
-    echo "Passwords do not match"
+while : ; do
     read -p "Please give password: " password
     read -p "Please repeat password: " password2
+    [[ $password != $password2 ]] || break
+    echo "Passwords do not match"
 done
 
 # Root password
@@ -87,11 +85,6 @@ echo "\
 
 # Post-installation {{{1
 
-mkdir /mnt/{usb,sshfs}
-
-# sets brightness to 50%
-echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) / 2)) | sudo tee /sys/class/backlight/intel_backlight/brightness
-
 # disables computer beep
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
@@ -110,7 +103,7 @@ REPLACE="%wheel ALL=\(ALL\) NOPASSWD: ALL"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/sudoers
 
 
-# Edit pacman.conf {{{2
+# Pacman settings {{{2
 
 perl -i -pe "s/#Color/Color/g" /etc/pacman.conf
 perl -i -pe "s/#TotalDownload/TotalDownload/g" /etc/pacman.conf
@@ -119,9 +112,9 @@ perl -i -pe "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
 
 # Bluetooth {{{2
 
-echo '
+echo "
 # automatically switch to newly-connected devices
-load-module module-switch-on-connect' | sudo tee -a /etc/pulse/default.pa
+load-module module-switch-on-connect" >> /etc/pulse/default.pa
 
 
 # Compiling Optimization {{{2
@@ -146,11 +139,20 @@ SEARCH="COMPRESSXZ=\(xz -c -z -\)"
 REPLACE="COMPRESSXZ=(xz -c -z --threads=$(nproc))"
 perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/makepkg.conf
 
+# Auto login
+
+mkdir -p /etc/systemd/system/getty@tty1.service.d
+echo "\
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin cjbassi --noclear %I \$TERM" \
+> /etc/systemd/system/getty@tty1.service.d/override.conf
+
 # }}}
 
 # Change to regular user {{{1
 
 cd /home/cjbassi
 touch .zshrc
-curl https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh > install3.sh
+curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh" > install3.sh
 su cjbassi ./install3.sh

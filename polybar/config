@@ -40,7 +40,7 @@ background =    ${colors.light}
 
 
 [settings]
-screenchange-reload = true
+screenchange-reload = false
 
 
 [global/wm]
@@ -55,6 +55,7 @@ height = 25
 radius = 1.0
 fixed-center = true
 bottom = true
+enable-ipc = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -306,8 +307,8 @@ type = custom/script
 exec = ~/config/polybar/subscribe-brightness
 tail = true
 label = " %output%"
-scroll-up = light -A 10%
-scroll-down = light -U 10%
+scroll-up = light -A 5%
+scroll-down = light -U 5%
 label-foreground = ${colors.yellow}
 label-background = ${colors.light}
 

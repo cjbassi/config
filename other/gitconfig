@@ -1,3 +1,5 @@
+# vim:ft=gitconfig
+
 [user]
     name = Caleb Bassi
     email = calebjbassi@gmail.com
@@ -42,16 +44,18 @@
     untracked = red bold
 
 [alias]
-    ad = add
-    co = commit
+    a = add
+    c = commit
     cm = commit -m
-    ca = commit --amend -C HEAD
-    cao = commit --amend
-    st = status
-    di = diff
+    ca = commit --amend
+    cah = commit --amend -C HEAD
+    s = status
+    d = diff
     ps = push
     pl = pull
-    ch = checkout
     cl = clone
+    ch = checkout
+    m = merge
+    r = reset
 
     fzf = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)

@@ -1,6 +1,6 @@
 trash/
 node_modules/
-.pyenv
+.venv/
 .git/
 __pycache__/
 *.pyc

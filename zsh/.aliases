@@ -1,0 +1,235 @@
+#!/usr/bin/env bash
+
+# Abbreviations {{{1
+
+alias blt=bluetoothctl
+alias chrome=google-chrome-stable
+alias g=hub
+alias l=ll
+alias nw=new-wallpaper
+alias open="fork xdg-open"
+alias r=ranger
+
+alias scu="systemctl --user"
+alias jcu="journalctl --user"
+alias scur="systemctl --user daemon-reload"
+
+alias m=make
+alias mr="make run"
+
+alias cra="npx create-react-app"
+function crat { npx create-react-app "$@" --typescript; }
+alias typesync="npx typesync"
+
+alias cargo="rustup run nightly cargo"
+alias cb="cargo build"
+alias ci="cargo install"
+alias cil="cargo install --path . --force"
+alias cr="cargo run --"
+alias ct="cargo test"
+alias grm="go run main.go"
+alias pyr="pipenv run"
+
+alias codediff="code -n -d"
+alias nvimdiff="nvim -d"
+alias se=sudoedit
+alias nvp=nvimpager
+
+alias gpgkey="gpg --full-gen-key"
+alias sshkey="ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)""
+
+
+# New Commands {{{1
+
+alias clean-tmp="tmpreaper 14d /tmp/"
+alias clean-trash="trash-empty 14"
+
+function fork {
+    nohup "$@" </dev/null >/dev/null 2>&1 & disown
+}
+
+function fork-term {
+    fork $TERMINAL --working-directory .
+}
+
+alias install-history="grep -i installed /var/log/pacman.log"
+
+function mkcd {
+    mkdir "$@"; cd "$@"
+}
+
+function new-git-project {
+    license mit > LICENSE
+    hub init
+    hub add .
+    hub commit -m "Initial commit"
+    hub create
+    hub push -u origin master
+}
+
+function new-wallpaper {
+    folder_path=$HOME/Drive/images/desktop_wallpapers/other
+    image_path=$(fd --full-path --type f $folder_path | shuf -n 1)
+    feh --bg-scale $image_path
+}
+
+function pkill-wait {
+    while pgrep -u $UID -x $1 >/dev/null; do sleep 1; done
+}
+
+function prepend {
+    cat - "$@" | sponge "$@"
+}
+
+function reload-process {
+    killall -q "$@"
+    pkill-wait "$@"
+    fork "$@"
+}
+
+function remove-go-package {
+    go clean -i "$@"...
+}
+
+function upgrade {
+    upgrade-yay
+    antigen update
+    rustup update
+    cargo install-update -a
+    # go get -u all
+    nvim +PlugUpgrade +PlugUpdate +xall
+    yarn global upgrade
+    npm update -g
+    upgrade-pip --user
+}
+
+function upgrade-pip {
+    if [[ $1 == "--user" ]]; then
+        pip list --outdated --format=freeze --user | grep -v "^\-e" | cut -d = -f 1 | xargs -n1 pip install -U --user
+    else
+        pip list --outdated --format=freeze | grep -v "^\-e" | cut -d = -f 1 | xargs -n1 pip install -U
+    fi
+}
+
+function upgrade-yay {
+    yay -Syu --noconfirm --needed --mflags "--nocheck"
+}
+
+
+# Runtime configuration {{{1
+
+function keyboard-settings {
+    xmodmap /home/cjbassi/config/peripherals/xkeys
+    systemctl --user restart xcape
+    xset r rate 400 25
+}
+
+function reload-settings {
+    systemctl --user restart polybar
+    systemctl --user restart dunst
+    # systemctl --user reload sxhkd
+}
+
+function select-display {
+    if output=$(xrandr | grep "$EXTERNAL_DISPLAY connected"); then
+        xrandr --output $EXTERNAL_DISPLAY --auto
+        xrandr --output $INTERNAL_DISPLAY --off
+    else
+        xrandr --output $INTERNAL_DISPLAY --auto
+    fi
+}
+
+function startup {
+    # https://daniel.perez.sh/blog/2018/user-systemd/
+    /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+    systemctl --user start user-applications.target
+
+    pamixer --set-volume 40
+    pamixer --default-source --set-volume 100
+
+    xsetroot -cursor_name left_ptr  # sets pointer icon
+
+    xinput --disable "Synaptics TM3289-002"
+
+    # bash -c "$SOURCE_ALIASES; select-display" &
+    # select-display
+
+    mons -a -x ~/config/other/mons_daemon_script &
+
+    variety &
+
+    keyboard-settings
+
+    # google-chrome-stable &
+    # spotify &
+    # discord &
+    # alacritty -e pymath &
+}
+
+
+# Settings {{{1
+
+alias fd="fd --ignore-file ~/.ignore"
+alias git-fire="git-fire | head -n -3"
+alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
+alias ll="exa -aFl --group-directories-first --git"
+alias makepkg="makepkg -si"
+alias ncdu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias ps="ps aux"
+alias rg="rg -S"
+alias rsync="rsync -h --progress"
+alias sshfs="sshfs -C -o reconnect"
+alias su="sudo -E su -m"
+alias sudo="sudo "  # expands aliases for sudo commands
+alias uname="uname -a"
+alias w="w -f"
+
+alias cp="cp -iv"
+alias ln="ln -v"
+alias mkdir="mkdir -vp"
+alias mv="mv -iv"
+
+alias df="df -h"
+alias du="du -h"
+
+alias g++="g++ -g -Wall"
+alias gcc="gcc -g -Wall"
+
+alias tree="exa -T"
+alias valgrind="colour-valgrind --leak-check=yes --track-origins=yes"
+alias df=pydf
+alias git=hub
+alias ls=exa
+alias rm="rmtrash -Id"
+alias rmdir=rmdirtrash
+
+function pip {
+    if [[ "$1" == "install" ]]; then
+        command pip "$@" --user
+    else
+        command pip "$@"
+    fi
+}
+
+# running ranger in a subshell of an already running ranger just exists that shell
+function ranger {
+    if [ -n "$RANGER_LEVEL" ]; then
+        exit
+    else
+        command ranger "$@"
+    fi
+}
+
+function yay {
+    if [[ "$1" == "-S" ]]; then
+        command yay "$@" --needed --mflags "--nocheck"
+    elif [[ "$1" == "-R" ]]; then
+        command yay "$@" --recursive
+    else
+        command yay "$@"
+    fi
+}
+
+# alias ll='exa -AhgoF --group-directories-first --color=always'
+# TODO rsync progress1 and 2
+# alias rsync='rsync -h --info=all2'

@@ -28,7 +28,7 @@ rm -rf /mnt
 
 # Update mirrorlist
 curl "https://ww.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4" > mirrorlist
-sed -i '/#Server/s/^# *//' mirrorlist
+sed -i "/#Server/s/^# *//" mirrorlist
 rankmirror mirrorlist > /etc/pacman.d/mirrorlist
 
 # Sync database and update keyring
@@ -79,6 +79,12 @@ pacstrap /mnt                       \
     python-pip                      \
     python-jedi                     \
     python-pylint                   \
+    python-pytest                   \
+    python-rope                     \
+    python-pipenv                   \
+    mypy                            \
+    twine                           \
+    python-wheel                    \
     autopep8                        \
     flake8                          \
 \
@@ -143,9 +149,11 @@ pacstrap /mnt                       \
     pacman-contrib                  \
     pamixer                         \
     parted                          \
+    pasystray                       \
     pavucontrol                     \
     perl-file-mimeinfo              \
     playerctl                       \
+    postgresql                      \
     pydf                            \
     qbittorrent                     \
     qt4                             \
@@ -165,7 +173,9 @@ pacstrap /mnt                       \
     sxiv                            \
     tig                             \
     tk                              \
+    trash-cli                       \
     tree                            \
+    udiskie                         \
     variety                         \
     vlc                             \
     wget                            \
@@ -192,9 +202,8 @@ pacstrap /mnt                       \
 
 # Chroot {{{1
 
-# Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-curl https://raw.githubusercontent.com/cjbassi/config/master/installation/install2.sh > /mnt/install2.sh
+curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install2.sh" > /mnt/install2.sh
 chmod +x /mnt/install2.sh
 arch-chroot /mnt ./install2.sh

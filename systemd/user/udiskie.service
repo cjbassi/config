@@ -1,0 +1,8 @@
+[Unit]
+Description=udiskie
+
+[Service]
+ExecStart=udiskie --no-automount --tray
+
+[Install]
+WantedBy=user-applications.target

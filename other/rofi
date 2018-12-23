@@ -74,9 +74,9 @@ rofi.kb-row-left:
 ! "Go to the next column"
 rofi.kb-row-right:
 ! "Select previous entry"
-rofi.kb-row-up:                     Control+k,Shift+Tab
+rofi.kb-row-up:                     Control+k,Shift+Tab,Up
 ! "Select next entry"
-rofi.kb-row-down:                   Control+j,Tab
+rofi.kb-row-down:                   Control+j,Tab,Down
 ! "Go to next row, if one left, accept it, if no left next mode."
 rofi.kb-row-tab:
 ! "Go to the previous page"

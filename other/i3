@@ -55,4 +55,4 @@ client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 # Startup-scripts {{{1
 
-exec_always --no-startup-id bash -c 'source ~/.aliases; shopt -s expand_aliases; reload-settings'
+exec        --no-startup-id bash -c 'source ~/.config/zsh/.aliases; shopt -s expand_aliases; startup'
