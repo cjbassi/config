@@ -9,9 +9,6 @@ cp -r /mnt/usb/ssh ~/.ssh
 chmod 700 ~/.ssh
 chmod 644 ~/.ssh/id_ed25519.pub
 chmod 600 ~/.ssh/id_ed25519
-# chmod 600 ~/.ssh/config
-
-gpg --import /mnt/usb/gnupg/privkey.asc
 
 sudo umount /mnt/usb
 sudo rmdir /mnt/usb
@@ -27,7 +24,10 @@ done
 # zsh {{{1
 
 source ~/config/zsh/.zshenv
+echo $LOCKPRG > asdfasdf # TODO
 source ~/config/zsh/.zshrc
+echo $POWERLEVEL9K_VIRTUALENV_FOREGROUND > asdfasdfasdfasdf # TODO
+setopt globdots
 
 
 # Directories {{{1
@@ -136,12 +136,20 @@ rustup install nightly
 
 bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
 
-command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" \
+yay -R --noconfirm vi
+
+function yay {
+    # command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" "$@" TODO
+    command yay -S --noconfirm --needed --mflags "--nocheck" "$@"
+}
+
+yay \
     neovim-symlinks \
     pandoc-bin \
     rofi-dmenu \
-    sccache-bin \
-    \
+    sccache-bin
+
+yay \
     cht.sh \
     copyq \
     discord \
@@ -177,7 +185,8 @@ command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" \
 
 # zgen {{{2
 
-# zgen reset # TODO
+source /usr/share/zsh/share/zgen.zsh
+source ~/config/zsh/.zshrc
 
 
 # ranger_devicons {{{2
@@ -274,11 +283,7 @@ sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
 
 
-# delete config files {{{1
-
-rm .bash_logout .bash_profile .bashrc
-
 
 # Cleanup {{{1
 
-rm -f install3.sh
+rm .bash_logout .bash_profile .bashrc install3.sh .zshrc
