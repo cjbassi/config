@@ -5,7 +5,7 @@
 sudo mkdir /mnt/usb
 sudo mount -L KEYS /mnt/usb
 
-cp /mnt/usb/ssh/* ~/.ssh/
+cp -r /mnt/usb/ssh ~/.ssh
 chmod 700 ~/.ssh
 chmod 644 ~/.ssh/id_ed25519.pub
 chmod 600 ~/.ssh/id_ed25519
