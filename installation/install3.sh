@@ -9,7 +9,7 @@ cp -r /mnt/usb/ssh ~/.ssh
 chmod 700 ~/.ssh
 chmod 644 ~/.ssh/id_ed25519.pub
 chmod 600 ~/.ssh/id_ed25519
-chmod 600 ~/.ssh/config
+# chmod 600 ~/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
 
