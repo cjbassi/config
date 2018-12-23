@@ -222,10 +222,3 @@ export POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND=125
 
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 # source ~/Dropbox/projects/powerlevel9k/powerlevel9k.zsh-theme
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /home/cjbassi/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh

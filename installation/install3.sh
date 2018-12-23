@@ -24,30 +24,29 @@ while [[ ! -d "config" ]]; do
 done
 
 
-# env variables {{{1
+# zsh {{{1
 
 source ~/config/zsh/.zshenv
+source ~/config/zsh/.zshrc
 
 
 # Directories {{{1
 
-mkdir -p ~/Documents
-mkdir -p ~/Downloads
-mkdir -p ~/Pictures
-mkdir -p ~/Drive
-mkdir -p ~/.ssh
-mkdir -p $XDG_CONFIG_HOME
-mkdir -p $XDG_CONFIG_HOME/nvim/{backup,undo,swap}
-mkdir -p ~/playground
-mkdir -p $GOPATH/{bin,pkg,src}
-mkdir -p $XDG_CONFIG_HOME/systemd/user
+mkdir -p \
+    ~/Downloads \
+    ~/Drive \
+    $XDG_CONFIG_HOME \
+    $XDG_CONFIG_HOME/nvim/{backup,undo,swap} \
+    ~/playground \
+    $GOPATH/{bin,pkg,src} \
+    $XDG_DATA_HOME/zsh
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/Trash
 
 
-# symlinks {{{1
+# config files {{{1
 
-# root symlinks {{{2
+# root {{{2
 
 sudo ln -sf ~/config/systemd/root/* /etc/systemd/system/
 
@@ -58,13 +57,14 @@ sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
 
 sudo cp ~/config/root/blueman_policykit /etc/polkit-1/rules.d/90-blueman.rules
 
-# user symlinks {{{2
+# regular {{{2
 
+mkdir -p $XDG_CONFIG_HOME/systemd/user
 ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 
 ln -sf ~/config/dotfiles/* ~/
 
-ln -sf ~/config/other/mimeapps.list $XDG_CONFIG_HOME
+cp -f ~/config/other/mimeapps.list $XDG_CONFIG_HOME
 
 mkdir -p $XDG_CONFIG_HOME/alacritty
 ln -sf ~/config/other/alacritty.yml $XDG_CONFIG_HOME/alacritty/
@@ -124,68 +124,6 @@ mkdir -p $XDG_CONFIG_HOME/zsh
 ln -sf ~/config/zsh/* $XDG_CONFIG_HOME/zsh/
 
 
-# AUR {{{1
-
-bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
-
-function yay {
-    command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" "$@"
-}
-
-yay neovim-symlinks
-yay pandoc-bin
-yay rofi-dmenu
-yay sccache-bin
-
-yay cht.sh
-yay copyq
-yay discord
-yay git-extras-git
-yay git-fire-git
-yay google-chrome
-yay gotop-bin
-yay i3lock-fancy-git
-yay imgurbash2-git
-yay insync
-yay light
-yay loop
-yay mons-git
-yay ncurses5-compat-libs        # vscode C/C++ formatting
-yay nerd-fonts-complete
-yay networkmanager-dmenu
-yay nvimpager-git
-yay polybar-git
-yay rmtrash
-yay spotify
-yay sway-git
-yay teiler-git
-yay texlive-latexindent-meta    # vscode latex formatting
-yay tmpreaper
-yay udiskie-dmenu-git
-yay unclutter-xfixes-git
-yay vimclip-git
-yay visual-studio-code-bin
-yay zgen-git
-
-
-# one time settings {{{1 # TODO
-
-light -S 50
-pamixer -t
-
-
-# zgen update
-
-# zgen reset TODO
-
-
-# ranger_devicons {{{1
-
-git clone https://github.com/alexanderjeurissen/ranger_devicons
-(cd ranger_devicons; make install)
-rm -rf ranger_devicons
-
-
 # rust {{{1
 
 rustup install stable
@@ -194,12 +132,62 @@ rustup default stable
 rustup install nightly
 
 
-# yarn {{{1
+# AUR {{{1
 
-yarn global add serverless
+bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
+
+command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" \
+    neovim-symlinks \
+    pandoc-bin \
+    rofi-dmenu \
+    sccache-bin \
+    \
+    cht.sh \
+    copyq \
+    discord \
+    git-extras-git \
+    git-fire-git \
+    google-chrome \
+    gotop-bin \
+    i3lock-fancy-git \
+    imgurbash2-git \
+    insync \
+    light \
+    loop \
+    mons-git \
+    ncurses5-compat-libs \
+    nerd-fonts-complete \
+    networkmanager-dmenu \
+    nvimpager-git \
+    polybar-git \
+    rmtrash \
+    spotify \
+    sway-git \
+    teiler-git \
+    texlive-latexindent-meta \
+    tmpreaper \
+    udiskie-dmenu-git \
+    unclutter-xfixes-git \
+    vimclip-git \
+    visual-studio-code-bin \
+    zgen-git
 
 
-# Neovim {{{1
+# program setup {{{1
+
+# zgen {{{2
+
+# zgen reset # TODO
+
+
+# ranger_devicons {{{2
+
+git clone https://github.com/alexanderjeurissen/ranger_devicons
+(cd ranger_devicons; make install)
+rm -rf ranger_devicons
+
+
+# Neovim {{{2
 
 # vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -208,74 +196,74 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 nvim +PlugInstall +xall
 
 
-# nvimpager {{{1
+# nvimpager {{{2
 
 ln -sfn $XDG_CONFIG_HOME/{nvim,nvimpager}
 ln -sfn $XDG_DATA_HOME/{nvim,nvimpager}
 
 
-# sway {{{1
+# sway {{{2
 
 ln -s $XDG_CONFIG_HOME/{i3,sway}
 
 
-# vscode {{{1
-
-echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
-
-
-# pip {{{1
-
-pip install --user colour-valgrind
-pip install --user grip
-pip install --user wpm
-pip install --user xtermcolor
-
-pip install --user git+https://github.com/cjbassi/pymath
-pip install --user git+https://github.com/cjbassi/random
-pip install --user git+https://github.com/cjbassi/rofi-power
-pip install --user git+https://github.com/cjbassi/rofi-copyq
-pip install --user git+https://github.com/cjbassi/rofi-files
+# vscode
+echo "fs.inotify.max_user_watches=524288" \
+    | sudo tee /etc/sysctl.d/40-max-user-watches.conf \
+    && sudo sysctl --system
 
 
-# go {{{1
+# pl package managers {{{1
+
+pip install --user \
+    colour-valgrind \
+    grip \
+    wpm \
+    xtermcolor \
+    git+https://github.com/cjbassi/{pymath,random,rofi-{power,copyq,files}}
+
+yarn global add \
+    serverless \
+    typesync \
+    create-react-app
 
 # go get github.com/nishanths/license
-go get github.com/cjbassi/license
-go get github.com/goreleaser/goreleaser
+go get \
+    github.com/cjbassi/license \
+    github.com/goreleaser/goreleaser
 
-
-# cargo {{{1
-
-cargo install cargo-edit
-cargo install cargo-update
-cargo install i3-workspace-groups
+# cargo install \
+#     cargo-edit \
+#     cargo-update \
+#     i3-workspace-groups
 
 
 # systemd {{{1
 
-systemctl --user enable dunst
-systemctl --user enable redshift-gtk
+# mons
+# variety
+systemctl --user enable \
+    dunst \
+    redshift-gtk \
+    \
+    blueman-applet \
+    copyq \
+    insync \
+    nm-applet \
+    pasystray \
+    polybar \
+    sxhkd \
+    udiskie \
+    unclutter \
+    xcape
 
-systemctl --user enable blueman-applet
-systemctl --user enable copyq
-systemctl --user enable insync
-# systemctl --user enable mons
-systemctl --user enable nm-applet
-systemctl --user enable pasystray
-systemctl --user enable polybar
-systemctl --user enable sxhkd
-systemctl --user enable udiskie
-systemctl --user enable unclutter
-# systemctl --user enable variety
-systemctl --user enable xcape
-
-sudo systemctl enable i3lock@$USER
-sudo systemctl enable kill-sshfs-suspend
-
-sudo systemctl enable NetworkManager
-sudo systemctl enable bluetooth
-sudo systemctl enable docker
+sudo systemctl enable \
+    i3lock@$USER \
+    kill-sshfs-suspend \
+    \
+    NetworkManager \
+    bluetooth \
+    docker
 
 sudo systemctl mask tmp.mount  # disables tmpfs
 
@@ -284,6 +272,11 @@ sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
+
+
+# delete config files {{{1
+
+rm .bash_logout .bash_profile .bashrc
 
 
 # Cleanup {{{1

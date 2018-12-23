@@ -54,7 +54,7 @@ default arch
 editor  0" \
 > /boot/loader/loader.conf
 
-UUID=$(blkid /dev/sda2 | awk '{print $3}' | sed 's/.*"\(.*\)"/\1/')
+UUID=$(blkid /dev/sda2 | awk '{print $2}' | sed 's/.*"\(.*\)"/\1/')
 
 echo "\
 title   Arch Linux

@@ -17,9 +17,8 @@ alias scur="systemctl --user daemon-reload"
 alias m=make
 alias mr="make run"
 
-alias cra="npx create-react-app"
-function crat { npx create-react-app "$@" --typescript; }
-alias typesync="npx typesync"
+alias cra=create-react-app
+function crat { create-react-app "$@" --typescript; }
 
 alias cargo="rustup run nightly cargo"
 alias cb="cargo build"
