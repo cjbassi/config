@@ -90,10 +90,12 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 # Add users {{{2
 
-useradd -m -G wheel -s $(which zsh) cjbassi
-echo "cjbassi:$password" | chpasswd
+user=cjbassi
 
-usermod -a -G docker cjbassi # can run docker commands
+useradd -m -G wheel -s $(which zsh) $user
+echo "$user:$password" | chpasswd
+
+usermod -a -G docker $user # can run docker commands
 
 
 # Enable members of 'wheel' group to use root {{{2
@@ -145,14 +147,14 @@ mkdir -p /etc/systemd/system/getty@tty1.service.d
 echo "\
 [Service]
 ExecStart=
-ExecStart=-/usr/bin/agetty --autologin cjbassi --noclear %I \$TERM" \
+ExecStart=-/usr/bin/agetty --autologin $user --noclear %I \$TERM" \
 > /etc/systemd/system/getty@tty1.service.d/override.conf
 
 # }}}
 
 # Change to regular user {{{1
 
-cd /home/cjbassi
+cd /home/$user
 touch .zshrc
 curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh" > install3.sh
-su cjbassi ./install3.sh
+su $user ./install3.sh

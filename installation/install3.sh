@@ -9,11 +9,11 @@ rm -f install3.sh
 
 sudo mount -L KEYS /mnt/usb
 
-cp /mnt/usb/ssh/* /home/cjbassi/.ssh/
-chmod 700 /home/cjbassi/.ssh
-chmod 644 /home/cjbassi/.ssh/id_ed25519.pub
-chmod 600 /home/cjbassi/.ssh/id_ed25519
-chmod 600 /home/cjbassi/.ssh/config
+cp /mnt/usb/ssh/* ~/.ssh/
+chmod 700 ~/.ssh
+chmod 644 ~/.ssh/id_ed25519.pub
+chmod 600 ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
 
@@ -66,8 +66,6 @@ ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 ln -sf ~/config/dotfiles/* ~/
 
 ln -sf ~/config/other/mimeapps.list $XDG_CONFIG_HOME
-
-ln -sf ~/config/desktop_files/* $XDG_DATA_HOME/applications/
 
 mkdir -p $XDG_CONFIG_HOME/alacritty
 ln -sf ~/config/other/alacritty.yml $XDG_CONFIG_HOME/alacritty/
@@ -271,7 +269,7 @@ systemctl --user enable unclutter
 # systemctl --user enable variety
 systemctl --user enable xcape
 
-sudo systemctl enable i3lock@cjbassi
+sudo systemctl enable i3lock@$USER
 sudo systemctl enable kill-sshfs-suspend
 
 sudo systemctl enable NetworkManager
