@@ -7,6 +7,7 @@ rm -f install3.sh
 
 # ssh/gpg {{{1
 
+sudo mkdir /mnt/usb
 sudo mount -L KEYS /mnt/usb
 
 cp /mnt/usb/ssh/* ~/.ssh/
@@ -16,6 +17,9 @@ chmod 600 ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/config
 
 gpg --import /mnt/usb/gnupg/privkey.asc
+
+sudo umount /mnt/usb
+sudo rmdir /mnt/usb
 
 
 # clone repo {{{1
