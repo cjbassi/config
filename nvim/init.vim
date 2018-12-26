@@ -101,9 +101,6 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'chr4/nginx.vim'
 
-Plug 'kovetskiy/sxhkd-vim'
-" Plug 'baskerville/vim-sxhkdrc'
-
 Plug 'rhysd/vim-gfm-syntax'  " GitHub markdown
 
 " Plug 'PotatoesMaster/i3-vim-syntax'
@@ -330,7 +327,6 @@ nnoremap <silent> <leader>egc :edit ~/config/other/gitconfig<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>ekb :edit ~/config/other/sxhkdrc<CR>
 nnoremap <silent> <leader>err :edit ~/config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>etr :edit ~/config/other/alacritty.yml<CR>
 nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>

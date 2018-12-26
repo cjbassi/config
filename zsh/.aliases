@@ -126,7 +126,6 @@ function keyboard-settings {
 function reload-settings {
     systemctl --user restart polybar
     systemctl --user restart dunst
-    # systemctl --user reload sxhkd
 }
 
 function select-display {
@@ -169,7 +168,6 @@ function startup {
 # Settings {{{1
 
 alias fd="fd --ignore-file ~/.ignore"
-alias git-fire="git-fire | head -n -3"
 alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
 alias ll="exa -aFl --group-directories-first --git"
 alias makepkg="makepkg -si"
@@ -201,14 +199,6 @@ alias git=hub
 alias ls=exa
 alias rm="rmtrash -Id"
 alias rmdir=rmdirtrash
-
-function pip {
-    if [[ "$1" == "install" ]]; then
-        command pip "$@" --user
-    else
-        command pip "$@"
-    fi
-}
 
 # running ranger in a subshell of an already running ranger just exists that shell
 function ranger {

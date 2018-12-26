@@ -26,6 +26,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 export EDITOR=nvim
+export editor=nvim
 export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
 
@@ -56,7 +57,7 @@ export WINIT_HIDPI_FACTOR=1.0 # alacritty
 export INTERNAL_DISPLAY=eDP-1
 export EXTERNAL_DISPLAY=HDMI-1
 
-export ZGEN_DIR=$XDG_CACHE_HOME/zgen
+export ZGEN_DIR=$XDG_DATA_HOME/zgen
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache

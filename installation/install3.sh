@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# ssh/gpg {{{1
+# keys {{{1
 
 sudo mkdir /mnt/usb
 sudo mount -L KEYS /mnt/usb
@@ -24,9 +24,6 @@ done
 # zsh {{{1
 
 source ~/config/zsh/.zshenv
-echo $LOCKPRG > asdfasdf # TODO
-source ~/config/zsh/.zshrc
-echo $POWERLEVEL9K_VIRTUALENV_FOREGROUND > asdfasdfasdfasdf # TODO
 setopt globdots
 
 
@@ -93,6 +90,9 @@ ln -sf ~/config/other/npmrc $XDG_CONFIG_HOME/npm/
 mkdir -p $XDG_CONFIG_HOME/nvim
 ln -sf ~/config/nvim/* $XDG_CONFIG_HOME/nvim/
 
+mkdir -p $XDG_CONFIG_HOME/opensnitch
+ln -sf ~/config/other/opensnitch.json $XDG_CONFIG_HOME/opensnitch/ui-config.json
+
 mkdir -p $XDG_CONFIG_HOME/polybar
 ln -sf ~/config/polybar/config $XDG_CONFIG_HOME/polybar/config
 
@@ -104,9 +104,6 @@ ln -sf ~/config/other/inputrc $XDG_CONFIG_HOME/readline/
 
 mkdir -p $XDG_CONFIG_HOME/rofi
 ln -sf ~/config/other/rofi $XDG_CONFIG_HOME/rofi/config
-
-mkdir -p $XDG_CONFIG_HOME/sxhkd
-ln -sf ~/config/other/sxhkdrc $XDG_CONFIG_HOME/sxhkd/
 
 mkdir -p $XDG_CONFIG_HOME/tig
 ln -sf ~/config/other/tigrc $XDG_CONFIG_HOME/tig/
@@ -139,7 +136,6 @@ bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/y
 yay -R --noconfirm vi
 
 function yay {
-    # command yay -S --noconfirm --needed --mflags "--nocheck --skippgpcheck" "$@" TODO
     command yay -S --noconfirm --needed --mflags "--nocheck" "$@"
 }
 
@@ -154,7 +150,6 @@ yay \
     copyq \
     discord \
     git-extras-git \
-    git-fire-git \
     google-chrome \
     gotop-bin \
     i3lock-fancy-git \
@@ -181,29 +176,7 @@ yay \
     zgen-git
 
 
-# program setup {{{1
-
-# zgen {{{2
-
-source /usr/share/zsh/share/zgen.zsh
-source ~/config/zsh/.zshrc
-
-
-# ranger_devicons {{{2
-
-git clone https://github.com/alexanderjeurissen/ranger_devicons
-(cd ranger_devicons; make install)
-rm -rf ranger_devicons
-
-
-# Neovim {{{2
-
-# vim plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-nvim +PlugInstall +xall
-
+# application configuration {{{1
 
 # nvimpager {{{2
 
@@ -211,35 +184,49 @@ ln -sfn $XDG_CONFIG_HOME/{nvim,nvimpager}
 ln -sfn $XDG_DATA_HOME/{nvim,nvimpager}
 
 
-# sway {{{2
+# vscode {{{2
 
-ln -s $XDG_CONFIG_HOME/{i3,sway}
-
-
-# vscode
 echo "fs.inotify.max_user_watches=524288" \
     | sudo tee /etc/sysctl.d/40-max-user-watches.conf \
     && sudo sysctl --system
 
 
-# pl package managers {{{1
+# sway {{{2
+
+ln -s $XDG_CONFIG_HOME/{i3,sway}
+
+
+# downloads {{{1
+
+ranger-plug install \
+    alexanderjeurissen/ranger_devicons \
+    cjbassi/ranger-fzf
+
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +xall
+
 
 pip install --user \
     colour-valgrind \
     grip \
     wpm \
     xtermcolor \
-    git+https://github.com/cjbassi/{pymath,random,rofi-{power,copyq,files}}
+    git+https://github.com/cjbassi/{pymath,random,ranger-plug,rofi-{power,copyq,files}}
+
 
 yarn global add \
     serverless \
     typesync \
     create-react-app
 
+
 # go get github.com/nishanths/license
 go get \
     github.com/cjbassi/license \
     github.com/goreleaser/goreleaser
+
 
 # cargo install \
 #     cargo-edit \
@@ -261,10 +248,10 @@ systemctl --user enable \
     nm-applet \
     pasystray \
     polybar \
-    sxhkd \
     udiskie \
     unclutter \
-    xcape
+    xcape \
+    opensnitch-ui
 
 sudo systemctl enable \
     i3lock@$USER \
@@ -272,7 +259,8 @@ sudo systemctl enable \
     \
     NetworkManager \
     bluetooth \
-    docker
+    docker \
+    opensnitchd
 
 sudo systemctl mask tmp.mount  # disables tmpfs
 
@@ -286,4 +274,4 @@ sudo systemctl mask system-rfkill.socket
 
 # Cleanup {{{1
 
-rm .bash_logout .bash_profile .bashrc install3.sh .zshrc
+rm -f .bash_logout .bash_profile .bashrc install3.sh .zshrc

@@ -1,0 +1,8 @@
+[Unit]
+Description=opensnitch-ui
+
+[Service]
+ExecStart=opensnitch-ui --config ~/.config/opensnitch/ui-config.json
+
+[Install]
+WantedBy=user-applications.target

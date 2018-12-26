@@ -27,9 +27,10 @@ rm -rf /mnt
 # Packages {{{1
 
 # Update mirrorlist
-curl "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4" > mirrorlist
-sed -i "/#Server/s/^# *//" mirrorlist
-rankmirrors mirrorlist > /etc/pacman.d/mirrorlist
+curl "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4" |
+    sed -e "/#Server/s/^# *//" |
+    rankmirrors - \
+    > /etc/pacman.d/mirrorlist
 
 # Sync database and update keyring
 # performs a partial upgrade on the live image
@@ -169,7 +170,6 @@ pacstrap /mnt                       \
     rsync                           \
     sshfs                           \
     strace                          \
-    sxhkd                           \
     sxiv                            \
     tig                             \
     tk                              \
