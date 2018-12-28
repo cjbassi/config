@@ -330,7 +330,7 @@ nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
 nnoremap <silent> <leader>err :edit ~/config/ranger/rc.conf<CR>
 nnoremap <silent> <leader>etr :edit ~/config/other/alacritty.yml<CR>
 nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>
-nnoremap <silent> <leader>ewm :edit ~/config/other/i3<CR>
+nnoremap <silent> <leader>ewm :edit ~/config/other/sway<CR>
 nnoremap <silent> <leader>ezr :edit ~/config/zsh/.zshrc<CR>
 
 nnoremap <silent> <leader>eM :edit Makefile<CR>

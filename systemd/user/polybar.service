@@ -1,8 +1,0 @@
-[Unit]
-Description=polybar
-
-[Service]
-ExecStart=bash -c "MONITOR=$(polybar -m|tail -1|sed -e 's/:.*$//g') polybar main"
-
-[Install]
-WantedBy=user-applications.target

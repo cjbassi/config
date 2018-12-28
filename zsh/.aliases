@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# vim: ft=sh
 
 # Abbreviations {{{1
 
@@ -12,7 +12,9 @@ alias r=ranger
 
 alias scu="systemctl --user"
 alias jcu="journalctl --user"
-alias scur="systemctl --user daemon-reload"
+alias scudr="systemctl --user daemon-reload"
+alias ssc="sudo systemctl"
+alias sscdr="sudo systemctl daemon-reload"
 
 alias m=make
 alias mr="make run"
@@ -51,7 +53,7 @@ function fork-term {
     fork $TERMINAL --working-directory .
 }
 
-alias install-history="grep -i installed /var/log/pacman.log"
+alias grep-install-history="grep -i installed /var/log/pacman.log"
 
 function mkcd {
     mkdir "$@"; cd "$@"
@@ -69,7 +71,12 @@ function new-git-project {
 function new-wallpaper {
     folder_path=$HOME/Drive/images/desktop_wallpapers/other
     image_path=$(fd --full-path --type f $folder_path | shuf -n 1)
-    feh --bg-scale $image_path
+
+    displays=($(swaymsg -t get_outputs | grep name | awk '{print $2}' | tr --delete ,\"))
+    for display in "${displays[@]}"
+    do
+        swaymsg output $display bg "$image_path" fill
+    done
 }
 
 function pkill-wait {
@@ -117,46 +124,37 @@ function upgrade-yay {
 
 # Runtime configuration {{{1
 
-function keyboard-settings {
-    xmodmap /home/cjbassi/config/peripherals/xkeys
-    systemctl --user restart xcape
-    xset r rate 400 25
+function laptop-enable {
+    swaymsg output eDP-1 enable
+}
+
+function laptop-disable {
+    swaymsg output eDP-1 disable
 }
 
 function reload-settings {
-    systemctl --user restart polybar
-    systemctl --user restart dunst
-}
+    systemctl --user restart mako
+    systemctl --user restart waybar
 
-function select-display {
-    if output=$(xrandr | grep "$EXTERNAL_DISPLAY connected"); then
-        xrandr --output $EXTERNAL_DISPLAY --auto
-        xrandr --output $INTERNAL_DISPLAY --off
-    else
-        xrandr --output $INTERNAL_DISPLAY --auto
+    if swaymsg -t get_outputs | grep "HDMI-A-1" ; then
+        laptop-disable
+        swaymsg workspace 1
     fi
 }
 
 function startup {
     # https://daniel.perez.sh/blog/2018/user-systemd/
     /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+    systemctl --user import-environment SWAYSOCK
+    systemctl --user import-environment XDG_CURRENT_DESKTOP
     systemctl --user start user-applications.target
+
+    new-wallpaper
 
     pamixer --set-volume 40
     pamixer --default-source --set-volume 100
 
-    xsetroot -cursor_name left_ptr  # sets pointer icon
-
-    xinput --disable "Synaptics TM3289-002"
-
-    # bash -c "$SOURCE_ALIASES; select-display" &
-    # select-display
-
-    mons -a -x ~/config/other/mons_daemon_script &
-
-    variety &
-
-    keyboard-settings
+    # variety &
 
     # google-chrome-stable &
     # spotify &

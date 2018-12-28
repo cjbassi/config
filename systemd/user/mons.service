@@ -1,8 +1,0 @@
-[Unit]
-Description=mons
-
-[Service]
-ExecStart=mons -a -x /home/cjbassi/config/other/mons_daemon_script
-
-[Install]
-WantedBy=user-applications.target

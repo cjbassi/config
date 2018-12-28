@@ -6,7 +6,7 @@ set $mod Mod1
 set $terminal alacritty
 set $browser google-chrome-stable
 
-floating_modifier $mod
+floating_modifier $mod normal
 bindsym $mod+Shift+space floating toggle
 
 
@@ -14,8 +14,8 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioRaiseVolume exec pamixer -i 5 --allow-boost
-bindsym XF86AudioMute exec -t
-bindsym XF86AudioMicMute exec --default-source -t
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioMicMute exec pamixer --default-source -t
 
 bindsym XF86MonBrightnessDown exec light -U 5%
 bindsym XF86MonBrightnessUp exec light -A 5%
@@ -59,8 +59,8 @@ bindsym $mod+Control+Shift+j shrink height 5px or 5ppt
 bindsym $mod+Control+Shift+k grow height 5px or 5ppt
 bindsym $mod+Control+Shift+l shrink width 5px or 5ppt
 
-bindsym $mod+s split v
-bindsym $mod+v split h
+bindsym $mod+s splitv
+bindsym $mod+v splith
 
 bindsym $mod+f fullscreen toggle
 
@@ -71,7 +71,7 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 bindsym $mod+w kill
-bindsym $mod+Shift+w exec xdo kill
+# bindsym $mod+Shift+w exec xdo kill
 
 bindsym $mod+space focus mode_toggle
 
@@ -116,16 +116,16 @@ bindsym $mod+Control+8 workspace number 8
 bindsym $mod+Control+9 workspace number 9
 bindsym $mod+Control+0 workspace number 10
 
-bindsym $mod+Shift+Control+1 move to workspace number 1
-bindsym $mod+Shift+Control+2 move to workspace number 2
-bindsym $mod+Shift+Control+3 move to workspace number 3
-bindsym $mod+Shift+Control+4 move to workspace number 4
-bindsym $mod+Shift+Control+5 move to workspace number 5
-bindsym $mod+Shift+Control+6 move to workspace number 6
-bindsym $mod+Shift+Control+7 move to workspace number 7
-bindsym $mod+Shift+Control+8 move to workspace number 8
-bindsym $mod+Shift+Control+9 move to workspace number 9
-bindsym $mod+Shift+Control+0 move to workspace number 10
+bindsym $mod+Shift+Control+1 move container to workspace number 1
+bindsym $mod+Shift+Control+2 move container to workspace number 2
+bindsym $mod+Shift+Control+3 move container to workspace number 3
+bindsym $mod+Shift+Control+4 move container to workspace number 4
+bindsym $mod+Shift+Control+5 move container to workspace number 5
+bindsym $mod+Shift+Control+6 move container to workspace number 6
+bindsym $mod+Shift+Control+7 move container to workspace number 7
+bindsym $mod+Shift+Control+8 move container to workspace number 8
+bindsym $mod+Shift+Control+9 move container to workspace number 9
+bindsym $mod+Shift+Control+0 move container to workspace number 10
 
 bindsym $mod+g exec i3-workspace-groups focus-group
 bindsym $mod+Shift+g exec i3-workspace-groups move-container-to-group
@@ -133,6 +133,11 @@ bindsym $mod+Shift+Control+g exec i3-workspace-groups rename-group
 
 
 # Settings {{{1
+
+font pango:Hack 12px
+# hide_cursor 1
+
+# window {{{2
 
 new_window pixel 3
 new_float pixel 3
@@ -144,7 +149,33 @@ focus_follows_mouse yes
 smart_borders on
 smart_gaps on
 
-font pango:Hack 12px
+
+# devices {{{2
+
+input 1739:0:Synaptics_TM3289-002 {
+    events disabled
+}
+
+input 1:1:AT_Translated_Set_2_keyboard {
+    repeat_delay 400
+    repeat_rate 25
+    xkb_options ctrl:nocaps
+}
+input 9494:17:CM_Storm_Quickfire_TKL_6keys {
+    repeat_delay 400
+    repeat_rate 25
+    xkb_options caps:escape
+}
+
+input 2:10:TPPS/2_ALPS_TrackPoint {
+    accel_profile flat
+}
+input 6899:1:Kingsis_Peripherals_ZOWIE_Gaming_mouse {
+    accel_profile flat
+}
+
+# xkb_options caps:escape
+# xkb_options caps:none
 
 
 # Colors {{{1
@@ -179,5 +210,5 @@ client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 # Startup-scripts {{{1
 
-# exec        --no-startup-id bash -c 'source ~/.config/zsh/.aliases; shopt -s expand_aliases; startup'
-# exec_always --no-startup-id bash -c 'source ~/.config/zsh/.aliases; shopt -s expand_aliases; reload-settings'
+exec        --no-startup-id bash -c 'source ~/.config/zsh/.aliases; shopt -s expand_aliases; startup'
+exec_always --no-startup-id bash -c 'source ~/.config/zsh/.aliases; shopt -s expand_aliases; reload-settings'

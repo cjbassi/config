@@ -1,8 +1,8 @@
 [Unit]
-Description=unclutter
+Description=mako
 
 [Service]
-ExecStart=unclutter --timeout 1
+ExecStart=mako
 
 [Install]
 WantedBy=user-applications.target

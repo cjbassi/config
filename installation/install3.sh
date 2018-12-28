@@ -49,9 +49,6 @@ sudo ln -sf ~/config/systemd/root/* /etc/systemd/system/
 
 sudo ln -sf ~/config/root/tmp.conf /etc/tmpfiles.d/
 
-sudo ln -sf ~/config/peripherals/50-mouse.conf /etc/X11/xorg.conf.d/
-sudo ln -sf ~/config/peripherals/50-wacom.conf /etc/X11/xorg.conf.d/
-
 sudo cp ~/config/root/blueman_policykit /etc/polkit-1/rules.d/90-blueman.rules
 
 # regular {{{2
@@ -69,9 +66,6 @@ ln -sf ~/config/other/alacritty.yml $XDG_CONFIG_HOME/alacritty/
 mkdir -p $XDG_CONFIG_HOME/Code/User
 ln -sfn ~/config/vscode/snippets/ $XDG_CONFIG_HOME/Code/User/snippets
 
-mkdir -p $XDG_CONFIG_HOME/dunst
-ln -sf ~/config/other/dunstrc $XDG_CONFIG_HOME/dunst/
-
 mkdir -p $XDG_CONFIG_HOME/git
 ln -sf ~/config/other/gitconfig $XDG_CONFIG_HOME/git/config
 
@@ -81,8 +75,8 @@ ln -sf ~/config/other/gtkrc-2.0 $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 mkdir -p $XDG_CONFIG_HOME/gtk-3.0
 ln -sf ~/config/other/gtkrc-3.0 $XDG_CONFIG_HOME/gtk-3.0/settings.ini
 
-mkdir -p $XDG_CONFIG_HOME/i3
-ln -sf ~/config/other/i3 $XDG_CONFIG_HOME/i3/config
+mkdir -p $XDG_CONFIG_HOME/sway
+ln -sf ~/config/other/sway $XDG_CONFIG_HOME/sway/config
 
 mkdir -p $XDG_CONFIG_HOME/npm
 ln -sf ~/config/other/npmrc $XDG_CONFIG_HOME/npm/
@@ -92,9 +86,6 @@ ln -sf ~/config/nvim/* $XDG_CONFIG_HOME/nvim/
 
 mkdir -p $XDG_CONFIG_HOME/opensnitch
 ln -sf ~/config/other/opensnitch.json $XDG_CONFIG_HOME/opensnitch/ui-config.json
-
-mkdir -p $XDG_CONFIG_HOME/polybar
-ln -sf ~/config/polybar/config $XDG_CONFIG_HOME/polybar/config
 
 mkdir -p $XDG_CONFIG_HOME/ranger
 ln -sf ~/config/ranger/* $XDG_CONFIG_HOME/ranger/
@@ -111,8 +102,8 @@ ln -sf ~/config/other/tigrc $XDG_CONFIG_HOME/tig/
 mkdir -p $XDG_CONFIG_HOME/variety
 ln -sf ~/config/other/variety.conf $XDG_CONFIG_HOME/variety/
 
-mkdir -p $XDG_CONFIG_HOME/X11
-ln -sf ~/config/X11/* $XDG_CONFIG_HOME/X11
+mkdir -p $XDG_CONFIG_HOME/waybar
+ln -sf ~/config/waybar/* $XDG_CONFIG_HOME/waybar/
 
 mkdir -p $XDG_CONFIG_HOME/zathura
 ln -sf ~/config/other/zathurarc $XDG_CONFIG_HOME/zathura/
@@ -143,7 +134,8 @@ yay \
     neovim-symlinks \
     pandoc-bin \
     rofi-dmenu \
-    sccache-bin
+    sccache-bin \
+    sway-git
 
 yay \
     cht.sh \
@@ -152,27 +144,25 @@ yay \
     git-extras-git \
     google-chrome \
     gotop-bin \
-    i3lock-fancy-git \
     imgurbash2-git \
     insync \
     light \
     loop \
-    mons-git \
     ncurses5-compat-libs \
     nerd-fonts-complete \
     networkmanager-dmenu \
     nvimpager-git \
-    polybar-git \
     rmtrash \
+    slurp-git \
     spotify \
-    sway-git \
+    swaylock-blur-git \
     teiler-git \
     texlive-latexindent-meta \
     tmpreaper \
     udiskie-dmenu-git \
-    unclutter-xfixes-git \
     vimclip-git \
     visual-studio-code-bin \
+    waybar-git \
     zgen-git
 
 
@@ -191,16 +181,11 @@ echo "fs.inotify.max_user_watches=524288" \
     && sudo sysctl --system
 
 
-# sway {{{2
-
-ln -s $XDG_CONFIG_HOME/{i3,sway}
-
-
 # downloads {{{1
 
-ranger-plug install \
-    alexanderjeurissen/ranger_devicons \
-    cjbassi/ranger-fzf
+# ranger-plug install \
+#     alexanderjeurissen/ranger_devicons \
+#     cjbassi/ranger-fzf
 
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -213,7 +198,7 @@ pip install --user \
     grip \
     wpm \
     xtermcolor \
-    git+https://github.com/cjbassi/{pymath,random,ranger-plug,rofi-{power,copyq,files}}
+    git+https://github.com/cjbassi/{pymath,random,rofi-{power,copyq,files}}
 
 
 yarn global add \
@@ -236,7 +221,6 @@ go get \
 
 # systemd {{{1
 
-# mons
 # variety
 systemctl --user enable \
     dunst \
@@ -245,16 +229,15 @@ systemctl --user enable \
     blueman-applet \
     copyq \
     insync \
+    mako \
     nm-applet \
     pasystray \
-    polybar \
     udiskie \
-    unclutter \
-    xcape \
-    opensnitch-ui
+    opensnitch-ui \
+    waybar
 
 sudo systemctl enable \
-    i3lock@$USER \
+    lockscreen@$USER \
     kill-sshfs-suspend \
     \
     NetworkManager \
@@ -269,7 +252,6 @@ sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 sudo systemctl mask system-rfkill
 sudo systemctl mask system-rfkill.socket
-
 
 
 # Cleanup {{{1

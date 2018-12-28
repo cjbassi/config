@@ -1,0 +1,45 @@
+* {
+    font-size: 20px;
+}
+
+window#waybar {
+    background: #292b2e;
+    color: #fdf6e3;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    color: #fdf6e3;
+}
+#workspaces button.focused {
+    color: #268bd2;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+#workspaces, #clock.1, #clock.3, #pulseaudio, #memory, #temp, #tray {
+    background: #1a1a1a;
+}
+
+#pulseaudio {
+    color: #268bd2;
+}
+#memory {
+    color: #2aa198;
+}
+#cpu {
+    color: #6c71c4;
+}
+#battery {
+    color: #859900;
+}
+
+#clock, #pulseaudio, #backlight, #memory, #cpu, #temp, #battery {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#tray {
+    padding-right: 10px;
+}

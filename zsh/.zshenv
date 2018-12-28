@@ -25,6 +25,11 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+# export XDG_CURRENT_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=Unity
+export XDG_SESSION_TYPE=wayland
+export TERM=xterm-256color
+
 export EDITOR=nvim
 export editor=nvim
 export VISUAL=$EDITOR
@@ -37,25 +42,20 @@ alias zless=$PAGER
 alias less=$PAGER
 
 export TERMINAL=alacritty
-
 export BROWSER=google-chrome-stable
 
-export TERM=xterm-256color
+export LOCKPRG="swaylock-blur"
+export EXITPRG="swaymsg exit"
 
-export XDG_CURRENT_DESKTOP=i3-gaps
+export INTERNAL_DISPLAY=eDP-1
+export EXTERNAL_DISPLAY=HDMI-1
+
+export WINIT_HIDPI_FACTOR=1.0 # alacritty
 
 export PIPENV_VENV_IN_PROJECT=1
 
 export RUSTC_WRAPPER=sccache
 export RUST_BACKTRACE=1
-
-export LOCKPRG="i3lock-fancy -- maim"
-export EXITPRG="i3-msg exit"
-
-export WINIT_HIDPI_FACTOR=1.0 # alacritty
-
-export INTERNAL_DISPLAY=eDP-1
-export EXTERNAL_DISPLAY=HDMI-1
 
 export ZGEN_DIR=$XDG_DATA_HOME/zgen
 export CARGO_HOME=$XDG_DATA_HOME/cargo

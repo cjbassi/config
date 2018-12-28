@@ -122,25 +122,22 @@ pacstrap /mnt                       \
     calibre                         \
     ccache                          \
     docker                          \
-    dunst                           \
     exa                             \
     fd                              \
-    feh                             \
     fuse                            \
     fzf                             \
     gimp                            \
     git                             \
     gnupg                           \
+    grim                            \
     httpie                          \
     hub                             \
-    i3-gaps                         \
-        perl-anyevent-i3            \
     inotify-tools                   \
     jq                              \
     krita                           \
     libreoffice                     \
     lsof                            \
-    maim                            \
+    mako                            \
     moreutils                       \
     ncdu                            \
     neofetch                        \
@@ -180,10 +177,7 @@ pacstrap /mnt                       \
     vlc                             \
     wget                            \
     whois                           \
-    xcape                           \
     xclip                           \
-    xdo                             \
-    xdotool                         \
     xf86-input-wacom                \
     xsel                            \
     xterm                           \

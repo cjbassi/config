@@ -1,8 +1,8 @@
 [Unit]
-Description=xcape
+Description=waybar
 
 [Service]
-ExecStart=xcape -d
+ExecStart=waybar
 
 [Install]
 WantedBy=user-applications.target

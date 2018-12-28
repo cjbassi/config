@@ -1,0 +1,62 @@
+{
+    "layer": "top",
+    "position": "bottom",
+
+    "modules-left": ["sway/workspaces", "right-arrow"],
+    "modules-center": ["clock#1", "clock#2", "clock#3"],
+    "modules-right": ["pulseaudio", "backlight", "memory", "cpu", "temp", "battery", "tray"],
+
+    "right-arrow": {
+        "format": ""
+    },
+    "left-arrow": {
+        "format": ""
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "format": "{name}"
+    },
+
+    "clock#1": {
+        "format": "{:%a}"
+    },
+    "clock#2": {
+        "format": "{:%H:%M}"
+    },
+    "clock#3": {
+        "format": "{:%m-%d}"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "memory": {
+        "interval": 5,
+        "format": "{}% MEM"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "{usage}% CPU"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "tray": {
+        "icon-size": 20
+    }
+}
