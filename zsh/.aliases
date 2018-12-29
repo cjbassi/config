@@ -70,13 +70,8 @@ function new-git-project {
 
 function new-wallpaper {
     folder_path=$HOME/Drive/images/desktop_wallpapers/other
-    image_path=$(fd --full-path --type f $folder_path | shuf -n 1)
-
-    displays=($(swaymsg -t get_outputs | grep name | awk '{print $2}' | tr --delete ,\"))
-    for display in "${displays[@]}"
-    do
-        swaymsg output $display bg "$image_path" fill
-    done
+    image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
+    swaymsg output "*" bg "$image_path" fill
 }
 
 function pkill-wait {
@@ -138,7 +133,6 @@ function reload-settings {
 
     if swaymsg -t get_outputs | grep "HDMI-A-1" ; then
         laptop-disable
-        swaymsg workspace 1
     fi
 }
 

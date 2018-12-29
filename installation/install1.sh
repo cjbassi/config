@@ -157,10 +157,6 @@ pacstrap /mnt                       \
     qt4                             \
     ranger                          \
         w3m                         \
-    redshift                        \
-        python-gobject              \
-        python-xdg                  \
-        librsvg                     \
     reflector                       \
     ripgrep                         \
     rofi                            \
@@ -192,6 +188,11 @@ pacstrap /mnt                       \
 # ttf-twemoji-color
 # adobe-source-han-sans-jp-fonts
 # ttf-sazanami
+
+    # redshift                        \
+    #     python-gobject              \
+    #     python-xdg                  \
+    #     librsvg                     \
 
 
 # Chroot {{{1

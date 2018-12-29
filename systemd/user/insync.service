@@ -5,11 +5,10 @@ Description=Insync
 After=local-fs.target network.target
 
 [Service]
-Environment=DISPLAY=:0
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/insync start --synchronous-full
 ExecStop=/usr/bin/insync quit
 
 [Install]
-WantedBy=default.target
+WantedBy=user-applications.target

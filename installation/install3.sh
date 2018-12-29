@@ -141,6 +141,7 @@ yay \
     cht.sh \
     copyq \
     discord \
+    evscript-git \
     git-extras-git \
     google-chrome \
     gotop-bin \
@@ -152,6 +153,7 @@ yay \
     nerd-fonts-complete \
     networkmanager-dmenu \
     nvimpager-git \
+    redshift-wayland-git \
     rmtrash \
     slurp-git \
     spotify \
@@ -221,19 +223,18 @@ go get \
 
 # systemd {{{1
 
-# variety
 systemctl --user enable \
-    dunst \
-    redshift-gtk \
-    \
     blueman-applet \
     copyq \
+    evscript \
     insync \
     mako \
     nm-applet \
     pasystray \
     udiskie \
     opensnitch-ui \
+    redshift-gtk \
+    variety \
     waybar
 
 sudo systemctl enable \

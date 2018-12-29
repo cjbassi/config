@@ -1,5 +1,6 @@
 * {
     font-size: 20px;
+    font-family: monospace;
 }
 
 window#waybar {
@@ -18,16 +19,35 @@ window#waybar {
     box-shadow: inherit;
     text-shadow: inherit;
 }
+#workspaces button:hover {
+    background: #1a1a1a;
+    border: #1a1a1a;
+    padding: 0 3px;
+}
 
 #workspaces, #clock.1, #clock.3, #pulseaudio, #memory, #temp, #tray {
+    background: #1a1a1a;
+}
+
+#custom-right-arrow-dark, #custom-left-arrow-dark {
+    color: #1a1a1a;
+}
+#custom-right-arrow-light, #custom-left-arrow-light {
+    color: #292b2e;
     background: #1a1a1a;
 }
 
 #pulseaudio {
     color: #268bd2;
 }
+#backlight {
+    color: #b58900
+}
 #memory {
     color: #2aa198;
+}
+#temperature {
+    color: #b58900
 }
 #cpu {
     color: #6c71c4;
@@ -37,8 +57,7 @@ window#waybar {
 }
 
 #clock, #pulseaudio, #backlight, #memory, #cpu, #temp, #battery {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
 }
 #tray {
     padding-right: 10px;

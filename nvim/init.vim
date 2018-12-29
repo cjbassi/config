@@ -318,7 +318,7 @@ nnoremap <silent> <leader>l :Lines<CR>
 " files {{{3
 
 nnoremap <silent> <leader>eal :edit ~/config/zsh/.aliases<CR>
-nnoremap <silent> <leader>ebr :edit ~/config/polybar/config<CR>
+nnoremap <silent> <leader>ebr :edit ~/config/waybar/config<CR> :edit ~/config/waybar/style.css<CR>
 nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>een :edit ~/config/zsh/.zshenv<CR>

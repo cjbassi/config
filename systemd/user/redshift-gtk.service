@@ -1,0 +1,8 @@
+[Unit]
+Description=redshift-gtk
+
+[Service]
+ExecStart=redshift-gtk -m wayland
+
+[Install]
+WantedBy=user-applications.target

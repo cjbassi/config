@@ -1,15 +1,23 @@
+// vim:ft=json
+
 {
     "layer": "top",
     "position": "bottom",
 
-    "modules-left": ["sway/workspaces", "right-arrow"],
-    "modules-center": ["clock#1", "clock#2", "clock#3"],
-    "modules-right": ["pulseaudio", "backlight", "memory", "cpu", "temp", "battery", "tray"],
+    "modules-left": ["sway/workspaces", "custom/right-arrow-dark"],
+    "modules-center": ["custom/left-arrow-dark", "clock#1", "custom/left-arrow-light", "clock#2", "custom/right-arrow-light", "clock#3", "custom/right-arrow-dark"],
+    "modules-right": ["custom/left-arrow-dark", "pulseaudio", "custom/left-arrow-light", "backlight", "custom/left-arrow-dark", "memory", "custom/left-arrow-light", "cpu", "custom/left-arrow-dark", "temperature", "custom/left-arrow-light", "battery"],
 
-    "right-arrow": {
+    "custom/right-arrow-dark": {
         "format": ""
     },
-    "left-arrow": {
+    "custom/left-arrow-dark": {
+        "format": ""
+    },
+    "custom/right-arrow-light": {
+        "format": ""
+    },
+    "custom/left-arrow-light": {
         "format": ""
     },
 
@@ -44,7 +52,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "{usage}% CPU"
+        "format": "{usage:2}% CPU"
     },
     "battery": {
         "states": {

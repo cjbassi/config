@@ -25,8 +25,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-# export XDG_CURRENT_DESKTOP=sway
-export XDG_CURRENT_DESKTOP=Unity
+export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 export TERM=xterm-256color
 

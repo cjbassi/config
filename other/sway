@@ -164,7 +164,7 @@ input 1:1:AT_Translated_Set_2_keyboard {
 input 9494:17:CM_Storm_Quickfire_TKL_6keys {
     repeat_delay 400
     repeat_rate 25
-    xkb_options caps:escape
+    xkb_options ctrl:nocaps
 }
 
 input 2:10:TPPS/2_ALPS_TrackPoint {

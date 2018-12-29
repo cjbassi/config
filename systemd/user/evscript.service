@@ -1,0 +1,12 @@
+[Unit]
+Description=evscript
+
+[Service]
+ExecStart=sudo evscript \
+            -f /home/cjbassi/config/other/evscript.dyon \
+            -d /dev/input/by-path/pci-0000:00:14.0-usb-0:2.2:1.0-event-kbd
+
+ExecStop=sudo pkill evscript
+
+[Install]
+WantedBy=user-applications.target
