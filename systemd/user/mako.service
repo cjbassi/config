@@ -2,7 +2,7 @@
 Description=mako
 
 [Service]
-ExecStart=mako
+ExecStart=mako --default-timeout 7500
 
 [Install]
 WantedBy=user-applications.target

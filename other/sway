@@ -161,7 +161,7 @@ input 1:1:AT_Translated_Set_2_keyboard {
     repeat_rate 25
     xkb_options ctrl:nocaps
 }
-input 9494:17:CM_Storm_Quickfire_TKL_6keys {
+input 10730:258:Kinesis_Freestyle_Edge_Keyboard {
     repeat_delay 400
     repeat_rate 25
     xkb_options ctrl:nocaps

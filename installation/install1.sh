@@ -174,7 +174,7 @@ pacstrap /mnt                       \
     wget                            \
     whois                           \
     xclip                           \
-    xf86-input-wacom                \
+    xorg-xeyes                      \
     xsel                            \
     xterm                           \
     zathura-pdf-mupdf               \

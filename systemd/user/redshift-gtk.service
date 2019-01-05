@@ -2,7 +2,7 @@
 Description=redshift-gtk
 
 [Service]
-ExecStart=redshift-gtk -m wayland
+ExecStart=redshift -m wayland
 
 [Install]
 WantedBy=user-applications.target

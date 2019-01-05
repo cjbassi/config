@@ -1,70 +1,109 @@
 // vim:ft=json
 
 {
-    "layer": "top",
-    "position": "bottom",
+  "layer": "top",
+  "position": "bottom",
 
-    "modules-left": ["sway/workspaces", "custom/right-arrow-dark"],
-    "modules-center": ["custom/left-arrow-dark", "clock#1", "custom/left-arrow-light", "clock#2", "custom/right-arrow-light", "clock#3", "custom/right-arrow-dark"],
-    "modules-right": ["custom/left-arrow-dark", "pulseaudio", "custom/left-arrow-light", "backlight", "custom/left-arrow-dark", "memory", "custom/left-arrow-light", "cpu", "custom/left-arrow-dark", "temperature", "custom/left-arrow-light", "battery"],
+  "modules-left": [
+    "sway/workspaces",
+    "custom/right-arrow-dark"
+  ],
+  "modules-center": [
+    "custom/left-arrow-dark",
+    "clock#1",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "clock#2",
+    "custom/right-arrow-dark",
+    "custom/right-arrow-light",
+    "clock#3",
+    "custom/right-arrow-dark"
+  ],
+  "modules-right": [
+    "custom/left-arrow-dark",
+    "pulseaudio",
+    "custom/left-arrow-light",
+    "backlight",
+    "custom/left-arrow-dark",
+    "memory",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "cpu",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "temperature",
+    "battery",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark"
+  ],
+//  "tray"
 
-    "custom/right-arrow-dark": {
-        "format": ""
-    },
-    "custom/left-arrow-dark": {
-        "format": ""
-    },
-    "custom/right-arrow-light": {
-        "format": ""
-    },
-    "custom/left-arrow-light": {
-        "format": ""
-    },
+  "custom/left-arrow-dark": {
+    "format": ""
+  },
+  "custom/left-arrow-light": {
+    "format": ""
+  },
+  "custom/right-arrow-dark": {
+    "format": ""
+  },
+  "custom/right-arrow-light": {
+    "format": ""
+  },
 
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "format": "{name}"
-    },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "format": "{name}"
+  },
 
-    "clock#1": {
-        "format": "{:%a}"
-    },
-    "clock#2": {
-        "format": "{:%H:%M}"
-    },
-    "clock#3": {
-        "format": "{:%m-%d}"
-    },
+  "clock#1": {
+    "format": "{:%a}"
+  },
+  "clock#2": {
+    "format": "{:%H:%M}"
+  },
+  "clock#3": {
+    "format": "{:%m-%d}"
+  },
 
-    "pulseaudio": {
-        "scroll-step": 5,
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon}  {volume}%",
-        "format-icons": {
-            "headphones": "",
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "default": [
+        "",
+        ""
+      ]
     },
-    "memory": {
-        "interval": 5,
-        "format": "{}% MEM"
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "memory": {
+    "interval": 5,
+    "format": " {}%"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "{usage:2}%"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-    "cpu": {
-        "interval": 5,
-        "format": "{usage:2}% CPU"
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
-    },
-
-    "tray": {
-        "icon-size": 20
-    }
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "tray": {
+    "icon-size": 20
+  }
 }
