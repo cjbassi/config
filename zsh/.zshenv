@@ -1,22 +1,22 @@
 # vim: ft=sh
 
-# aliases {{{1
+# commands {{{1
 
-source $ZDOTDIR/.aliases
+source $ZDOTDIR/.commands
 
-export SOURCE_ALIASES="source $ZDOTDIR/.aliases; shopt -s expand_aliases"
+export SOURCE_COMMANDS="source $ZDOTDIR/.commands; shopt -s expand_aliases"
 
 
 # Locales {{{1
 
 LANG="en_US.UTF-8"
-LC_COLLATE="en_US.UTF-8"
-LC_CTYPE="en_US.UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-LC_MONETARY="en_US.UTF-8"
-LC_NUMERIC="en_US.UTF-8"
-LC_TIME="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
+LC_COLLATE=$LANG
+LC_CTYPE=$LANG
+LC_MESSAGES=$LANG
+LC_MONETARY=$LANG
+LC_NUMERIC=$LANG
+LC_TIME=$LANG
+LC_ALL=$LANG
 
 
 # env variables {{{1
@@ -24,6 +24,7 @@ LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
 
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
@@ -65,7 +66,7 @@ export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
-export HISTFILE=$XDG_DATA_HOME/zsh/history
+export HISTFILE=$XDG_STATE_HOME/zsh/history
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 export XSERVERRC=$XDG_CONFIG_HOME/X11/xserverrc
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc

@@ -283,7 +283,7 @@ nnoremap <leader>bM :Move<Space>
 
 " write/quit {{{3
 
-nnoremap <silent> <C-s> :silent w<CR>
+noremap <silent> <C-s> :silent w<CR>
 nnoremap <silent> <leader>q :qa<CR>
 nnoremap <silent> <leader>C :cq<CR>
 nnoremap <silent> <leader>x :silent w<CR>:qa<CR>
@@ -317,8 +317,7 @@ nnoremap <silent> <leader>l :Lines<CR>
 
 " files {{{3
 
-nnoremap <silent> <leader>eal :edit ~/config/zsh/.aliases<CR>
-nnoremap <silent> <leader>ebr :edit ~/config/waybar/config<CR> :edit ~/config/waybar/style.css<CR>
+nnoremap <silent> <leader>ebr :edit ~/config/waybar/style.css<CR> :edit ~/config/waybar/config<CR>
 nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
 nnoremap <silent> <leader>een :edit ~/config/zsh/.zshenv<CR>
@@ -328,6 +327,7 @@ nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
 nnoremap <silent> <leader>err :edit ~/config/ranger/rc.conf<CR>
+nnoremap <silent> <leader>esc :edit ~/config/zsh/.commands<CR>
 nnoremap <silent> <leader>etr :edit ~/config/other/alacritty.yml<CR>
 nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ewm :edit ~/config/other/sway<CR>

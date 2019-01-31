@@ -32,11 +32,12 @@ setopt globdots
 mkdir -p \
     ~/Downloads \
     ~/Drive \
+    ~/playground \
     $XDG_CONFIG_HOME \
     $XDG_CONFIG_HOME/nvim/{backup,undo,swap} \
-    ~/playground \
     $GOPATH/{bin,pkg,src} \
-    $XDG_DATA_HOME/zsh
+    $XDG_STATE_HOME/zsh \
+    $XDG_DATA_HOME/tig
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/Trash
 
@@ -75,8 +76,8 @@ ln -sf ~/config/other/gtkrc-2.0 $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 mkdir -p $XDG_CONFIG_HOME/gtk-3.0
 ln -sf ~/config/other/gtkrc-3.0 $XDG_CONFIG_HOME/gtk-3.0/settings.ini
 
-mkdir -p $XDG_CONFIG_HOME/sway
-ln -sf ~/config/other/sway $XDG_CONFIG_HOME/sway/config
+mkdir -p $XDG_CONFIG_HOME/joshuto
+ln -sf ~/config/other/keymap.toml $XDG_CONFIG_HOME/joshuto/
 
 mkdir -p $XDG_CONFIG_HOME/npm
 ln -sf ~/config/other/npmrc $XDG_CONFIG_HOME/npm/
@@ -95,6 +96,12 @@ ln -sf ~/config/other/inputrc $XDG_CONFIG_HOME/readline/
 
 mkdir -p $XDG_CONFIG_HOME/rofi
 ln -sf ~/config/other/rofi $XDG_CONFIG_HOME/rofi/config
+
+mkdir -p $XDG_CONFIG_HOME/sway
+ln -sf ~/config/other/sway $XDG_CONFIG_HOME/sway/config
+
+mkdir -p $XDG_CONFIG_HOME/swaylock
+ln -sf ~/config/other/swaylock $XDG_CONFIG_HOME/swaylock/config
 
 mkdir -p $XDG_CONFIG_HOME/tig
 ln -sf ~/config/other/tigrc $XDG_CONFIG_HOME/tig/
@@ -122,7 +129,7 @@ rustup install nightly
 
 # AUR {{{1
 
-bash -c "$(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer.sh)"
+bash <(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer) git
 
 yay -R --noconfirm vi
 
@@ -139,7 +146,6 @@ yay \
 
 yay \
     cht.sh \
-    copyq \
     discord \
     evscript-git \
     git-extras-git \
@@ -147,7 +153,6 @@ yay \
     gotop-bin \
     imgurbash2-git \
     insync \
-    light \
     loop \
     ncurses5-compat-libs \
     nerd-fonts-complete \
@@ -155,7 +160,6 @@ yay \
     nvimpager-git \
     redshift-wayland-git \
     rmtrash \
-    slurp-git \
     spotify \
     swaylock-blur-git \
     teiler-git \
@@ -183,24 +187,14 @@ echo "fs.inotify.max_user_watches=524288" \
     && sudo sysctl --system
 
 
-# downloads {{{1
-
-# ranger-plug install \
-#     alexanderjeurissen/ranger_devicons \
-#     cjbassi/ranger-fzf
-
-
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +xall
-
+# language package managers {{{1
 
 pip install --user \
     colour-valgrind \
     grip \
     wpm \
     xtermcolor \
-    git+https://github.com/cjbassi/{pymath,random,rofi-{power,copyq,files}}
+    git+https://github.com/cjbassi/{pymath,random,ranger-plug,rofi-{power,copyq,files}}
 
 
 yarn global add \
@@ -220,6 +214,22 @@ go get \
 #     cargo-update \
 #     i3-workspace-groups
 
+# cargo install --git https://github.com/cjbassi/recover-youtube-videos
+# cargo install --git https://github.com/azu/license-generator
+
+
+# plugins {{{1
+
+# alexanderjeurissen/ranger_devicons
+ranger-plug install \
+    cjbassi/ranger_devicons \
+    cjbassi/ranger-fzf
+
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +xall
+
 
 # systemd {{{1
 
@@ -233,13 +243,15 @@ systemctl --user enable \
     pasystray \
     udiskie \
     opensnitch-ui \
+    recover-youtube-videos.timer \
     redshift-gtk \
     variety \
     waybar
 
 sudo systemctl enable \
-    lockscreen@$USER \
-    kill-sshfs-suspend \
+    lockscreen-on-suspend@$USER \
+    reload-settings-on-wake@$USER \
+    kill-sshfs-on-suspend \
     \
     NetworkManager \
     bluetooth \

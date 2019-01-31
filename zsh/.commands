@@ -8,6 +8,7 @@ alias g=hub
 alias l=ll
 alias nw=new-wallpaper
 alias open="fork xdg-open"
+alias pg="ping google.com"
 alias r=ranger
 
 alias scu="systemctl --user"
@@ -53,7 +54,7 @@ function fork-term {
     fork $TERMINAL --working-directory .
 }
 
-alias grep-install-history="grep -i installed /var/log/pacman.log"
+alias install-history="grep -i installed /var/log/pacman.log"
 
 function mkcd {
     mkdir "$@"; cd "$@"
@@ -64,7 +65,7 @@ function new-git-project {
     hub init
     hub add .
     hub commit -m "Initial commit"
-    hub create
+    hub create "$@"
     hub push -u origin master
 }
 
@@ -72,6 +73,7 @@ function new-wallpaper {
     folder_path=$HOME/Drive/images/desktop_wallpapers/other
     image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
     swaymsg output "*" bg "$image_path" fill
+    echo $image_path > ~/.wallpaper
 }
 
 function pkill-wait {
@@ -113,27 +115,26 @@ function upgrade-pip {
 }
 
 function upgrade-yay {
-    yay -Syu --noconfirm --needed --mflags "--nocheck"
+    yay -Syu --noconfirm --needed --devel --mflags "--nocheck"
 }
 
 
 # Runtime configuration {{{1
 
-function laptop-enable {
-    swaymsg output eDP-1 enable
-}
-
-function laptop-disable {
-    swaymsg output eDP-1 disable
+function laptop-screen {
+    swaymsg output eDP-1 "$@"
 }
 
 function reload-settings {
+    if swaymsg -t get_outputs | grep -q "HDMI-A-1" ; then
+        laptop-screen disable
+    else
+        laptop-screen enable
+    fi
+
     systemctl --user restart mako
     systemctl --user restart waybar
-
-    if swaymsg -t get_outputs | grep "HDMI-A-1" ; then
-        laptop-disable
-    fi
+    systemctl --user restart evscript
 }
 
 function startup {

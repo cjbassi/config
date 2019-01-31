@@ -3,7 +3,5 @@ Description=Run recover-youtube-videos
 
 [Service]
 Type=oneshot
-ExecStart=/home/cjbassi/.local/share/go/bin/recover-youtube-videos /home/cjbassi/playground/recover-youtube-videos/test/
-
-[Install]
-WantedBy=timers.target
+ExecStartPre=sleep 30
+ExecStart=/home/cjbassi/.local/share/go/bin/recover-youtube-videos /home/cjbassi/Drive/other/recover-youtube-videos/

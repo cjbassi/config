@@ -1,0 +1,159 @@
+[[mapcommand]]
+keys = [ "q" ]
+command = "quit"
+
+[[mapcommand]]
+keys = [ "R" ]
+command = "reload_dir_list"
+
+
+[[mapcommand]]
+keys = [ "k" ]
+command = "cursor_move"
+args = [ "-1" ]
+
+[[mapcommand]]
+keys = [ "j" ]
+command = "cursor_move"
+args = [ "1" ]
+
+[[mapcommand]]
+keys = [ "h" ]
+command = "parent_directory"
+
+[[mapcommand]]
+keys = [ "l" ]
+command = "open_file"
+
+
+[[mapcommand]]
+keys = [ "g", "g" ]
+command = "cursor_move_home"
+
+[[mapcommand]]
+keys = [ "G" ]
+command = "cursor_move_end"
+
+
+[[mapcommand]]
+keys = [ "PageUp" ]
+command = "cursor_move_page_up"
+
+[[mapcommand]]
+keys = [ "PageDown" ]
+command = "cursor_move_page_down"
+
+
+[[mapcommand]]
+keys = [ "r" ]
+command = "open_file_with"
+
+
+[[mapcommand]]
+keys = [ "z", "h" ]
+command = "toggle_hidden"
+
+
+[[mapcommand]]
+keys = [ "d", "d" ]
+command = "cut_files"
+
+[[mapcommand]]
+keys = [ "y", "y" ]
+command = "copy_files"
+
+[[mapcommand]]
+keys = [ "p", "p" ]
+command = "paste_files"
+
+[[mapcommand]]
+keys = [ "p", "o" ]
+command = "paste_files"
+args = [ "overwrite=true" ]
+
+[[mapcommand]]
+keys = [ "a" ]
+command = "rename_file"
+args = [ "append" ]
+
+[[mapcommand]]
+keys = [ "A" ]
+command = "rename_file"
+args = [ "prepend" ]
+
+[[mapcommand]]
+keys = [ "c", "w" ]
+command = "rename_file"
+args = [ "overwrite" ]
+
+[[mapcommand]]
+keys = [ "d", "D" ]
+command = "delete_files"
+
+
+[[mapcommand]]
+keys = [ "Space" ]
+command = "select_files"
+args = [ "toggle=true" ]
+
+[[mapcommand]]
+keys = [ "m", "k" ]
+command = "mkdir"
+
+[[mapcommand]]
+keys = [ ";", "m", "k" ]
+command = "mkdir"
+
+
+[[mapcommand]]
+keys = [ "g", "r" ]
+command = "cd"
+args = [ "/" ]
+
+[[mapcommand]]
+keys = [ "g", "e" ]
+command = "cd"
+args = [ "/etc" ]
+
+[[mapcommand]]
+keys = [ "g", "h" ]
+command = "cd"
+args = [ "~/" ]
+
+[[mapcommand]]
+keys = [ "g", "d" ]
+command = "cd"
+args = [ "~/Downloads" ]
+
+[[mapcommand]]
+keys = [ "/" ]
+command = "search"
+
+
+[[mapcommand]]
+keys = [ "T" ]
+command = "new_tab"
+
+[[mapcommand]]
+keys = [ "W" ]
+command = "close_tab"
+
+[[mapcommand]]
+keys = [ "[" ]
+command = "tab_switch"
+args = [ "-1" ]
+
+[[mapcommand]]
+keys = [ "Tab" ]
+command = "tab_switch"
+args = [ "1" ]
+
+[[mapcommand]]
+keys = [ "=" ]
+command = "set_mode"
+
+## Features not yet implemented
+
+[[mapcommand]]
+keys = [ "b", "b" ]
+command = "bulk_rename"

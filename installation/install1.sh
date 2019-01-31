@@ -65,7 +65,6 @@ pacstrap /mnt                       \
     php                             \
 \
     go                              \
-    dep                             \
     go-tools                        \
 \
     gdb                             \
@@ -112,6 +111,7 @@ pacstrap /mnt                       \
 \
     unzip                           \
     zip                             \
+    p7zip                           \
 \
     gnome-keyring                   \
     libsecret                       \
@@ -121,6 +121,7 @@ pacstrap /mnt                       \
     breeze-gtk                      \
     calibre                         \
     ccache                          \
+    copyq                           \
     docker                          \
     exa                             \
     fd                              \
@@ -136,6 +137,7 @@ pacstrap /mnt                       \
     jq                              \
     krita                           \
     libreoffice                     \
+    light                           \
     lsof                            \
     mako                            \
     moreutils                       \
@@ -161,11 +163,13 @@ pacstrap /mnt                       \
     ripgrep                         \
     rofi                            \
     rsync                           \
+    slurp                           \
     sshfs                           \
     strace                          \
     sxiv                            \
     tig                             \
     tk                              \
+    tokei                           \
     trash-cli                       \
     tree                            \
     udiskie                         \

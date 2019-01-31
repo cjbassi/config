@@ -1,0 +1,11 @@
+[Unit]
+Description=Starts lockscreen on suspend
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+ExecStart=bash -c "export XDG_RUNTIME_DIR=/run/user/$(id -u $USER); export SWAYSOCK=/run/user/$(id -u $USER)/sway-ipc.$(id -u $USER).$(pgrep -x sway).sock; swaylock-blur"
+
+[Install]
+WantedBy=sleep.target
