@@ -30,7 +30,6 @@ bindsym XF86AudioNext exec playerctl next
 
 bindsym $mod+Return exec $terminal
 
-bindsym $mod+r exec $terminal -e ranger
 bindsym $mod+a exec $terminal -e vimclip
 bindsym $mod+o exec $terminal -e gotop
 bindsym $mod+e exec $terminal -e nvim

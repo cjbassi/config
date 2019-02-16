@@ -157,8 +157,6 @@ pacstrap /mnt                       \
     pydf                            \
     qbittorrent                     \
     qt4                             \
-    ranger                          \
-        w3m                         \
     reflector                       \
     ripgrep                         \
     rofi                            \

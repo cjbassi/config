@@ -9,7 +9,6 @@ alias l=ll
 alias nw=new-wallpaper
 alias open="fork xdg-open"
 alias pg="ping google.com"
-alias r=ranger
 
 alias scu="systemctl --user"
 alias jcu="journalctl --user"
@@ -195,15 +194,6 @@ alias df=pydf
 alias git=hub
 alias ls=exa
 alias rm=trash-put
-
-# running ranger in a subshell of an already running ranger just exists that shell
-function ranger {
-    if [ -n "$RANGER_LEVEL" ]; then
-        exit
-    else
-        command ranger "$@"
-    fi
-}
 
 function yay {
     if [[ "$1" == "-S" ]]; then

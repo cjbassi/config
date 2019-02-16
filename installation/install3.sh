@@ -197,7 +197,7 @@ pip install --user \
     grip \
     wpm \
     xtermcolor \
-    git+https://github.com/cjbassi/{pymath,random,ranger-plug,rofi-{power,copyq,files}}
+    git+https://github.com/cjbassi/{pymath,random,rofi-{power,copyq,files}}
 
 
 yarn global add \
@@ -219,12 +219,6 @@ trust-download cjbassi/recover-youtube-videos
 
 
 # plugins {{{1
-
-# alexanderjeurissen/ranger_devicons
-ranger-plug install \
-    cjbassi/ranger_devicons \
-    cjbassi/ranger-fzf
-
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
