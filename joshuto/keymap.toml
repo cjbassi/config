@@ -152,6 +152,78 @@ args = [ "1" ]
 keys = [ "=" ]
 command = "set_mode"
 
+
+[[mapcommand]]
+keys = [ "`", "a" ]
+command = "cd"
+args = [ "~/Drive/Arch" ]
+
+[[mapcommand]]
+keys = [ "`", "c" ]
+command = "cd"
+args = [ "~/config" ]
+
+[[mapcommand]]
+keys = [ "`", "C" ]
+command = "cd"
+args = [ "~/.config" ]
+
+[[mapcommand]]
+keys = [ "`", "d" ]
+command = "cd"
+args = [ "~/Drive" ]
+
+[[mapcommand]]
+keys = [ "`", "D" ]
+command = "cd"
+args = [ "~/Downloads" ]
+
+[[mapcommand]]
+keys = [ "`", "m" ]
+command = "cd"
+args = [ "/mnt" ]
+
+[[mapcommand]]
+keys = [ "`", "n" ]
+command = "cd"
+args = [ "~/Drive/notes" ]
+
+[[mapcommand]]
+keys = [ "`", "p" ]
+command = "cd"
+args = [ "~/playground" ]
+
+[[mapcommand]]
+keys = [ "`", "s" ]
+command = "cd"
+args = [ "~/Drive/school/in-progress" ]
+
+[[mapcommand]]
+keys = [ "`", "S" ]
+command = "cd"
+args = [ "~/.local/share" ]
+
+[[mapcommand]]
+keys = [ "`", "t" ]
+command = "cd"
+args = [ "/tmp" ]
+
+[[mapcommand]]
+keys = [ "`", "T" ]
+command = "cd"
+args = [ "~/Trash" ]
+
+[[mapcommand]]
+keys = [ "`", "v" ]
+command = "cd"
+args = [ "~/.config/nvim" ]
+
+[[mapcommand]]
+keys = [ "`", "w" ]
+command = "cd"
+args = [ "~/Drive/images/desktop_wallpapers" ]
+
+
 ## Features not yet implemented
 
 [[mapcommand]]

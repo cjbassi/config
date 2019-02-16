@@ -57,5 +57,6 @@
     ch = checkout
     m = merge
     r = reset
+    rh = reset --hard
 
     fzf = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)

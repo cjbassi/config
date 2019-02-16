@@ -54,7 +54,7 @@ export WINIT_HIDPI_FACTOR=1.0 # alacritty
 
 export PIPENV_VENV_IN_PROJECT=1
 
-export RUSTC_WRAPPER=sccache
+# export RUSTC_WRAPPER=sccache
 export RUST_BACKTRACE=1
 
 export ZGEN_DIR=$XDG_DATA_HOME/zgen

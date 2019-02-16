@@ -33,13 +33,14 @@ mkdir -p \
     ~/Downloads \
     ~/Drive \
     ~/playground \
+    ~/playground/{forks,packages,personal,school,test} \
     $XDG_CONFIG_HOME \
     $XDG_CONFIG_HOME/nvim/{backup,undo,swap} \
     $GOPATH/{bin,pkg,src} \
     $XDG_STATE_HOME/zsh \
     $XDG_DATA_HOME/tig
 
-ln -sf $XDG_DATA_HOME/Trash/files ~/Trash
+ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
 
 
 # config files {{{1
@@ -77,7 +78,7 @@ mkdir -p $XDG_CONFIG_HOME/gtk-3.0
 ln -sf ~/config/other/gtkrc-3.0 $XDG_CONFIG_HOME/gtk-3.0/settings.ini
 
 mkdir -p $XDG_CONFIG_HOME/joshuto
-ln -sf ~/config/other/keymap.toml $XDG_CONFIG_HOME/joshuto/
+ln -sf ~/config/joshuto/* $XDG_CONFIG_HOME/joshuto/
 
 mkdir -p $XDG_CONFIG_HOME/npm
 ln -sf ~/config/other/npmrc $XDG_CONFIG_HOME/npm/
@@ -126,6 +127,8 @@ rustup default stable
 
 rustup install nightly
 
+rustup component add clippy
+
 
 # AUR {{{1
 
@@ -153,13 +156,11 @@ yay \
     gotop-bin \
     imgurbash2-git \
     insync \
-    loop \
     ncurses5-compat-libs \
     nerd-fonts-complete \
     networkmanager-dmenu \
     nvimpager-git \
     redshift-wayland-git \
-    rmtrash \
     spotify \
     swaylock-blur-git \
     teiler-git \
@@ -170,6 +171,8 @@ yay \
     visual-studio-code-bin \
     waybar-git \
     zgen-git
+
+# loop \
 
 
 # application configuration {{{1
@@ -203,19 +206,16 @@ yarn global add \
     create-react-app
 
 
-# go get github.com/nishanths/license
-go get \
-    github.com/cjbassi/license \
-    github.com/goreleaser/goreleaser
-
+TRUST="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
+function trust-download { bash <(curl ${TRUST}) -f --git "$@" };
+trust-download cjbassi/i3-workspace-groups
+trust-download cjbassi/license-gen
+trust-download cjbassi/recover-youtube-videos
 
 # cargo install \
 #     cargo-edit \
 #     cargo-update \
-#     i3-workspace-groups
-
-# cargo install --git https://github.com/cjbassi/recover-youtube-videos
-# cargo install --git https://github.com/azu/license-generator
+# loop
 
 
 # plugins {{{1

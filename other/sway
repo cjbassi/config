@@ -135,6 +135,7 @@ bindsym $mod+Shift+Control+g exec i3-workspace-groups rename-group
 # Settings {{{1
 
 font pango:Hack 12px
+
 # hide_cursor 1
 
 # window {{{2
