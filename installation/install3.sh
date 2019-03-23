@@ -33,7 +33,7 @@ mkdir -p \
     ~/Downloads \
     ~/Drive \
     ~/playground \
-    ~/playground/{forks,packages,personal,school,test} \
+    ~/playground/{my-projects,other-projects,packages,school,test} \
     $XDG_CONFIG_HOME \
     $XDG_CONFIG_HOME/nvim/{backup,undo,swap} \
     $GOPATH/{bin,pkg,src} \
@@ -132,7 +132,7 @@ rustup component add clippy
 
 # AUR {{{1
 
-bash <(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer) git
+bash <(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer) bin
 
 yay -R --noconfirm vi
 
@@ -158,11 +158,12 @@ yay \
     insync \
     ncurses5-compat-libs \
     nerd-fonts-complete \
+    network-manager-applet-indicator \
     networkmanager-dmenu \
     nvimpager-git \
     redshift-wayland-git \
     spotify \
-    swaylock-blur-git \
+    swaylock-blur-bin \
     teiler-git \
     texlive-latexindent-meta \
     tmpreaper \
@@ -197,7 +198,7 @@ pip install --user \
     grip \
     wpm \
     xtermcolor \
-    git+https://github.com/cjbassi/{pymath,random,rofi-{power,copyq,files}}
+    git+https://github.com/cjbassi/{pymath,rofi-{power,copyq,files}}
 
 
 yarn global add \
@@ -210,6 +211,7 @@ TRUST="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dd
 function trust-download { bash <(curl ${TRUST}) -f --git "$@" };
 trust-download cjbassi/i3-workspace-groups
 trust-download cjbassi/license-gen
+trust-download cjbassi/random
 trust-download cjbassi/recover-youtube-videos
 
 # cargo install \

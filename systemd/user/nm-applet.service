@@ -2,7 +2,7 @@
 Description=nm-applet
 
 [Service]
-ExecStart=nm-applet
+ExecStart=nm-applet --indicator
 
 [Install]
 WantedBy=user-applications.target

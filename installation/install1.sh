@@ -168,8 +168,6 @@ pacstrap /mnt                       \
     tig                             \
     tk                              \
     tokei                           \
-    trash-cli                       \
-    tree                            \
     udiskie                         \
     variety                         \
     vlc                             \

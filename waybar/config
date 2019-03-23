@@ -23,7 +23,9 @@
     "custom/left-arrow-dark",
     "pulseaudio",
     "custom/left-arrow-light",
-    "backlight",
+//    "custom/left-arrow-dark",
+//    "backlight",
+//    "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "memory",
     "custom/left-arrow-light",
@@ -32,6 +34,8 @@
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "temperature",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "battery",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
@@ -82,11 +86,11 @@
   },
   "memory": {
     "interval": 5,
-    "format": " {}%"
+    "format": "Mem {}%"
   },
   "cpu": {
     "interval": 5,
-    "format": "{usage:2}%"
+    "format": "CPU {usage:2}%"
   },
   "battery": {
     "states": {

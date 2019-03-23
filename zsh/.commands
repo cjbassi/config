@@ -3,11 +3,12 @@
 # Abbreviations {{{1
 
 alias blt=bluetoothctl
+alias c=code
 alias chrome=google-chrome-stable
 alias g=hub
 alias l=ll
+alias n=nvim
 alias nw=new-wallpaper
-alias open="fork xdg-open"
 alias pg="ping google.com"
 
 alias scu="systemctl --user"
@@ -46,6 +47,13 @@ alias sshkey="ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)""
 alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash-empty 14"
 
+function batch-rename {
+    temp=$(mktemp)
+    fd -d 1 > $temp
+    nvim $temp && bash $temp
+    rm $temp
+}
+
 function fork {
     nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }
@@ -54,22 +62,10 @@ function fork-term {
     fork $TERMINAL --working-directory .
 }
 
-alias install-history="grep -i installed /var/log/pacman.log"
-
-alias keep-a-changelog="curl https://gist.githubusercontent.com/cjbassi/c46d47273bd3929c3f47b4c5c14311dc/raw/a839d5dc244c79289d7befbe2b16de968cdac8c3/CHANGELOG.md > CHANGELOG.md"
+alias keep-a-changelog="curl https://gist.githubusercontent.com/cjbassi/c46d47273bd3929c3f47b4c5c14311dc/raw/6723ef21f4ddcbd4d348310fcc0914e1dae1cb3a/CHANGELOG.md > CHANGELOG.md"
 
 function mkcd {
     mkdir "$@"; cd "$@"
-}
-
-function new-git-project {
-    license-gen mit > LICENSE
-    keep-a-changelog
-    hub init
-    hub add .
-    hub commit -m "Initial commit"
-    hub create "$@"
-    hub push -u origin master
 }
 
 function new-wallpaper {
@@ -97,7 +93,19 @@ function remove-go-package {
     go clean -i "$@"...
 }
 
-function upgrade {
+function setup-new-project {
+    license-gen mit > LICENSE
+    keep-a-changelog
+    hub init
+    hub add .
+    hub commit -m "Initial commit"
+    hub create "$@"
+    hub push -u origin master
+}
+
+alias show-pacman-history="grep -i installed /var/log/pacman.log"
+
+function upgrade-all {
     upgrade-yay
     antigen update
     rustup update
@@ -149,7 +157,7 @@ function startup {
 
     new-wallpaper
 
-    pamixer --set-volume 40
+    pamixer --set-volume 35
     pamixer --default-source --set-volume 100
 
     # variety &
@@ -163,6 +171,7 @@ function startup {
 
 # Settings {{{1
 
+alias bat="bat -p"
 alias fd="fd --ignore-file ~/.ignore"
 alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
 alias ll="exa -aFl --group-directories-first --git"
@@ -193,7 +202,6 @@ alias valgrind="colour-valgrind --leak-check=yes --track-origins=yes"
 alias df=pydf
 alias git=hub
 alias ls=exa
-alias rm=trash-put
 
 function yay {
     if [[ "$1" == "-S" ]]; then

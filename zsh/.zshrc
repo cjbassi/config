@@ -29,7 +29,7 @@ export SAVEHIST=10000
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-export HISTORY_IGNORE="((cd|rm|rmdir|nvim|code|ls)(| *))"
+export HISTORY_IGNORE="((sudo |)(rm|rmdir)(| *))"
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
