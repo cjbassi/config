@@ -128,7 +128,6 @@ Plug 'kana/vim-textobj-function'
 
 Plug 'farmergreg/vim-lastplace'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mbbill/undotree'
@@ -259,7 +258,6 @@ nnoremap <silent> <leader>tC :ColorToggle<CR>
 nnoremap <silent> <leader>tf :Autoformat<CR>
 nnoremap <leader>th :Help<Space>
 nnoremap <leader>tr :%s/
-nnoremap <silent> <leader>tR :RangerCurrentFile<CR>
 nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
 nnoremap <leader>tU :UltiSnipsEdit<Space>
@@ -317,21 +315,20 @@ nnoremap <silent> <leader>l :Lines<CR>
 
 " files {{{3
 
-nnoremap <silent> <leader>ebr :edit ~/config/waybar/style.css<CR> :edit ~/config/waybar/config<CR>
+nnoremap <silent> <leader>ebr :edit ~/config/.config/waybar/style.css<CR> :edit ~/config/.config/waybar/config<CR>
 nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
-nnoremap <silent> <leader>een :edit ~/config/zsh/.zshenv<CR>
+nnoremap <silent> <leader>een :edit ~/config/.config/zsh/.zshenv<CR>
 nnoremap <silent> <leader>ehf :edit ~/.local/share/zsh/history<CR>
-nnoremap <silent> <leader>egc :edit ~/config/other/gitconfig<CR>
+nnoremap <silent> <leader>egc :edit ~/config/.config/git/config<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>err :edit ~/config/ranger/rc.conf<CR>
-nnoremap <silent> <leader>esc :edit ~/config/zsh/.commands<CR>
-nnoremap <silent> <leader>etr :edit ~/config/other/alacritty.yml<CR>
-nnoremap <silent> <leader>evr :edit ~/config/nvim/init.vim<CR>
-nnoremap <silent> <leader>ewm :edit ~/config/other/sway<CR>
-nnoremap <silent> <leader>ezr :edit ~/config/zsh/.zshrc<CR>
+nnoremap <silent> <leader>esc :edit ~/config/.config/zsh/.commands<CR>
+nnoremap <silent> <leader>etr :edit ~/config/.config/alacritty/alacritty.yml<CR>
+nnoremap <silent> <leader>evr :edit ~/config/.config/nvim/init.vim<CR>
+nnoremap <silent> <leader>ewm :edit ~/config/.config/sway/config<CR>
+nnoremap <silent> <leader>ezr :edit ~/config/.config/zsh/.zshrc<CR>
 
 nnoremap <silent> <leader>eM :edit Makefile<CR>
 
@@ -855,11 +852,6 @@ map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
 " let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
-
-
-" vim-ranger {{{2
-
-let g:ranger_map_keys = 0
 
 
 " vim-signature  {{{2

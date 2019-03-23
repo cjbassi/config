@@ -60,64 +60,25 @@ ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 
 ln -sf ~/config/dotfiles/* ~/
 
-cp -f ~/config/other/mimeapps.list $XDG_CONFIG_HOME
+# create directories in `~/.config` and link files
+python - <<EOF
+from pathlib import Path
 
-mkdir -p $XDG_CONFIG_HOME/alacritty
-ln -sf ~/config/other/alacritty.yml $XDG_CONFIG_HOME/alacritty/
+for path in Path('config/.config').glob('**/*'):
+    if path.is_file():
+        if len(path.parts[1:-1]) > 2:
+            Path('/'.join(path.parts[1:-2])).mkdir(parents=True, exist_ok=True)
+            if Path('/'.join(path.parts[1:-1])).exists():
+                Path('/'.join(path.parts[1:-1])).unlink()
+            Path('/'.join(path.parts[1:-1])).symlink_to(path.parent.resolve())
+        elif len(path.parts[1:-1]) > 1:
+            Path('/'.join(path.parts[1:-1])).mkdir(parents=True, exist_ok=True)
+            if Path('/'.join(path.parts[1:])).exists():
+                Path('/'.join(path.parts[1:])).unlink()
+            Path('/'.join(path.parts[1:])).symlink_to(path.resolve())
+EOF
 
-mkdir -p $XDG_CONFIG_HOME/Code/User
-ln -sfn ~/config/vscode/snippets/ $XDG_CONFIG_HOME/Code/User/snippets
-
-mkdir -p $XDG_CONFIG_HOME/git
-ln -sf ~/config/other/gitconfig $XDG_CONFIG_HOME/git/config
-
-mkdir -p $XDG_CONFIG_HOME/gtk-2.0
-ln -sf ~/config/other/gtkrc-2.0 $XDG_CONFIG_HOME/gtk-2.0/gtkrc
-
-mkdir -p $XDG_CONFIG_HOME/gtk-3.0
-ln -sf ~/config/other/gtkrc-3.0 $XDG_CONFIG_HOME/gtk-3.0/settings.ini
-
-mkdir -p $XDG_CONFIG_HOME/joshuto
-ln -sf ~/config/joshuto/* $XDG_CONFIG_HOME/joshuto/
-
-mkdir -p $XDG_CONFIG_HOME/npm
-ln -sf ~/config/other/npmrc $XDG_CONFIG_HOME/npm/
-
-mkdir -p $XDG_CONFIG_HOME/nvim
-ln -sf ~/config/nvim/* $XDG_CONFIG_HOME/nvim/
-
-mkdir -p $XDG_CONFIG_HOME/opensnitch
-ln -sf ~/config/other/opensnitch.json $XDG_CONFIG_HOME/opensnitch/ui-config.json
-
-mkdir -p $XDG_CONFIG_HOME/ranger
-ln -sf ~/config/ranger/* $XDG_CONFIG_HOME/ranger/
-
-mkdir -p $XDG_CONFIG_HOME/readline
-ln -sf ~/config/other/inputrc $XDG_CONFIG_HOME/readline/
-
-mkdir -p $XDG_CONFIG_HOME/rofi
-ln -sf ~/config/other/rofi $XDG_CONFIG_HOME/rofi/config
-
-mkdir -p $XDG_CONFIG_HOME/sway
-ln -sf ~/config/other/sway $XDG_CONFIG_HOME/sway/config
-
-mkdir -p $XDG_CONFIG_HOME/swaylock
-ln -sf ~/config/other/swaylock $XDG_CONFIG_HOME/swaylock/config
-
-mkdir -p $XDG_CONFIG_HOME/tig
-ln -sf ~/config/other/tigrc $XDG_CONFIG_HOME/tig/
-
-mkdir -p $XDG_CONFIG_HOME/variety
-ln -sf ~/config/other/variety.conf $XDG_CONFIG_HOME/variety/
-
-mkdir -p $XDG_CONFIG_HOME/waybar
-ln -sf ~/config/waybar/* $XDG_CONFIG_HOME/waybar/
-
-mkdir -p $XDG_CONFIG_HOME/zathura
-ln -sf ~/config/other/zathurarc $XDG_CONFIG_HOME/zathura/
-
-mkdir -p $XDG_CONFIG_HOME/zsh
-ln -sf ~/config/zsh/* $XDG_CONFIG_HOME/zsh/
+cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
 
 
 # rust {{{1
