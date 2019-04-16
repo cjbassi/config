@@ -1,0 +1,436 @@
+{
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.iskeyword": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
+    "vim.leader": " ",
+    "vim.showcmd": false,
+    "vim.showmodename": false,
+    "vim.startInInsertMode": false,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x",
+            ]
+        },
+        {
+            "before": [
+                "X"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "X",
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesUpAction"
+                }
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesDownAction"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "w"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.toggleWordWrap"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "S",
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                "z",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "Q"
+            ],
+            "after": [
+                "@",
+                "q"
+            ]
+        },
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "j"
+            ],
+            "after": [
+                "i",
+                "<enter>",
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.joinLines",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "f"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "f"
+            ]
+        },
+        {
+            "before": [
+                "F"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "F"
+            ]
+        },
+        {
+            "before": [
+                "t"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "t"
+            ]
+        },
+        {
+            "before": [
+                "T"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "T"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "after": [
+                "o"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "O"
+            ],
+            "after": [
+                "O"
+            ]
+        },
+        {
+            "before": [
+                "o"
+            ],
+            "after": [
+                "o",
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                "O"
+            ],
+            "after": [
+                "O",
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                {
+                    "command": ":nohl"
+                },
+            ],
+        },
+    ],
+
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesUpAction"
+                }
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesDownAction"
+                }
+            ]
+        },
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.indentLines"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.outdentLines"
+                }
+            ]
+        },
+    ],
+
+    "breadcrumbs.enabled": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.fontFamily": "Hack",
+    "editor.fontLigatures": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.glyphMargin": false,
+    "editor.hideCursorInOverviewRuler": false,
+    "editor.lightbulb.enabled": true,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.overviewRulerBorder": true,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.scrollBeyondLastLine": false,
+    "editor.smoothScrolling": false,
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
+    "editor.wordWrap": "on",
+    "explorer.autoReveal": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "off",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "keyboard.dispatch": "keyCode",
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.integrated.rendererType": "dom",
+    "window.menuBarVisibility": "hidden",
+    "window.openFilesInNewWindow": "default",
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
+    "window.zoomLevel": 1,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editor.showTabs": false,
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.statusBar.visible": true,
+
+    "search.exclude": {
+        "**/.git/": true,
+        "**/node_modules/": true,
+        "**/__pycache__/": true,
+        "**/*.o": true,
+        "**/*.class": true,
+    },
+    "files.exclude": {
+        "**/.git/": true,
+        "**/node_modules/": true,
+        "**/__pycache__/": true,
+        "**/*.o": true,
+        "**/*.class": true,
+    },
+
+    "[json]": {
+        "editor.formatOnSave": false
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": false
+    },
+
+    "C_Cpp.clang_format_fallbackStyle": "WebKit",
+
+    "eslint.packageManager": "yarn",
+
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.statusBar.enabled": false,
+
+    "java.errors.incompleteClasspath.severity": "ignore",
+
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.view.pdf.external.command": {
+        "command": "zathura",
+        "args": [
+            "%PDF%"
+        ]
+    },
+    "latex-workshop.view.pdf.viewer": "external",
+
+    "liveshare.showInStatusBar": "whileCollaborating",
+
+    "npm.enableScriptExplorer": true,
+
+
+    "platformio-ide.activateOnlyOnPlatformIOProject": true,
+
+    "prettier.eslintIntegration": true,
+    "prettier.tslintIntegration": true,
+
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.sortImports.args": [
+        "-rc",
+        "--atomic"
+    ],
+
+    "rust.clippy_preference": "on",
+    "rust.unstable_features": true,
+
+    "sync.askGistName": false,
+    "sync.autoDownload": false,
+    "sync.autoUpload": true,
+    "sync.forceDownload": false,
+    "sync.gist": "50c3015b02f1335ec12a3458ba309654",
+    "sync.quietSync": true,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
+    "update.showReleaseNotes": false
+}

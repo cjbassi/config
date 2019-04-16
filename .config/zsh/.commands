@@ -9,7 +9,7 @@ alias g=hub
 alias l=ll
 alias n=nvim
 alias nw=new-wallpaper
-alias pg="ping google.com"
+alias pg="ping google.com -c 1"
 
 alias scu="systemctl --user"
 alias jcu="journalctl --user"

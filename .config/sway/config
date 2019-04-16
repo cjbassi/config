@@ -35,6 +35,7 @@ bindsym $mod+o exec $terminal -e gotop
 bindsym $mod+e exec $terminal -e nvim
 
 bindsym $mod+b exec $browser
+bindsym $mod+Shift+b exec $browser --incognito
 
 bindsym $mod+grave exec "rofi -show run -modi run,ssh"
 

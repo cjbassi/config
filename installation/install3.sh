@@ -60,25 +60,32 @@ ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 
 ln -sf ~/config/dotfiles/* ~/
 
-# create directories in `~/.config` and link files
-python - <<EOF
-from pathlib import Path
-
-for path in Path('config/.config').glob('**/*'):
-    if path.is_file():
-        if len(path.parts[1:-1]) > 2:
-            Path('/'.join(path.parts[1:-2])).mkdir(parents=True, exist_ok=True)
-            if Path('/'.join(path.parts[1:-1])).exists():
-                Path('/'.join(path.parts[1:-1])).unlink()
-            Path('/'.join(path.parts[1:-1])).symlink_to(path.parent.resolve())
-        elif len(path.parts[1:-1]) > 1:
-            Path('/'.join(path.parts[1:-1])).mkdir(parents=True, exist_ok=True)
-            if Path('/'.join(path.parts[1:])).exists():
-                Path('/'.join(path.parts[1:])).unlink()
-            Path('/'.join(path.parts[1:])).symlink_to(path.resolve())
-EOF
-
 cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
+
+# .config {{{3
+
+function symlink-dot-config {
+    mkdir -p ~/.config/"$@"
+    ln -sf ~/config/.config/"$@"/* ~/.config/"$@"
+}
+
+symlink-dot-config alacritty
+symlink-dot-config Code/User
+symlink-dot-config git
+symlink-dot-config gtk-2.0
+symlink-dot-config gtk-3.0
+symlink-dot-config npm
+symlink-dot-config nvim
+symlink-dot-config opensnitch
+symlink-dot-config readline
+symlink-dot-config rofi
+symlink-dot-config sway
+symlink-dot-config swaylock
+symlink-dot-config tig
+symlink-dot-config variety
+symlink-dot-config waybar
+symlink-dot-config zathura
+symlink-dot-config zsh
 
 
 # rust {{{1
@@ -150,6 +157,8 @@ ln -sfn $XDG_DATA_HOME/{nvim,nvimpager}
 echo "fs.inotify.max_user_watches=524288" \
     | sudo tee /etc/sysctl.d/40-max-user-watches.conf \
     && sudo sysctl --system
+
+~/config/installation/vscode_extensions.sh
 
 
 # language package managers {{{1
