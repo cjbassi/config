@@ -40,8 +40,8 @@ set completion-highlight-bg     "#93a1a1" # base1
 set completion-highlight-fg     "#073642" # base02
 
 # Define the color in index mode
-set index-bg                   "#fdfbe3" # base3
-set index-fg                   "#839496" # base00
+set index-bg                    "#fdfbe3" # base3
+set index-fg                    "#839496" # base00
 set index-active-bg             "#eee8d5" # base2
 set index-active-fg             "#586e75" # base01
 

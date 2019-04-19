@@ -29,6 +29,7 @@ bindsym XF86AudioNext exec playerctl next
 # applications {{{2
 
 bindsym $mod+Return exec $terminal
+bindsym $mod+Shift+Return exec alacritty --working-directory $(~/playground/test/foo alacritty)
 
 bindsym $mod+a exec $terminal -e vimclip
 bindsym $mod+o exec $terminal -e gotop
