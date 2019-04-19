@@ -2,30 +2,10 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" todo {{{2
-
-Plug '~/drive/programming/jumplist-contained.vim'
-
-" Plug 'tpope/vim-sleuth'
-
-" Plug 'Konfekt/FastFold'
-
-Plug 'google/vim-searchindex'
-
-" Plug 'j16180339887/Global.vim'
-
-
 " closers {{{2
 
-Plug 'tpope/vim-endwise'
-Plug 'ozelentok/vim-closer'
-
-
-" completion {{{2
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neco-vim'
-
+" Plug 'tpope/vim-endwise'
+" Plug 'ozelentok/vim-closer'
 
 " editing {{{2
 
@@ -35,45 +15,34 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
 
-
 " folding {{{2
 
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'matze/vim-ini-fold'
-
 Plug 'benknoble/vim-auto-origami'
-
 Plug 'tmhedberg/SimpylFold'
-
 Plug 'digitalrounin/vim-yaml-folds'
-
 Plug 'cjbassi/improved-foldtext.vim'
-
+" Plug 'Konfekt/FastFold'
 
 " formatting/linting {{{2
 
 Plug 'editorconfig/editorconfig-vim'
 
-
 " fzf {{{2
 
-" Plug 'junegunn/fzf.vim'
-
+Plug 'junegunn/fzf.vim'
 
 " Git {{{2
 
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-
+  Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
-
 Plug 'rhysd/github-complete.vim'
-
 
 " Markdown {{{2
 
 Plug 'dkarter/bullets.vim' " for toggling checkboxes
-
 
 " motion {{{2
 
@@ -82,78 +51,61 @@ Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'justinmk/vim-ipmotion'
 
-
 " searching {{{2
 
-" Plug 'haya14busa/incsearch.vim'
 " Plug 'haya14busa/vim-asterisk'
-
+" Plug 'google/vim-searchindex'
 
 " snippets {{{2
 
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
-
 " syntax {{{2
 
 Plug 'plasticboy/vim-markdown'
-
 Plug 'chr4/nginx.vim'
-
 Plug 'rhysd/vim-gfm-syntax'  " GitHub markdown
+Plug 'elzr/vim-json'
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+" Plug 'joeky888/Global.vim'
 
 " Plug 'PotatoesMaster/i3-vim-syntax'
 " Plug 'mboughaba/i3config.vim'
 Plug 'cjbassi/i3-vim-syntax'
 
-Plug 'elzr/vim-json'
-
-Plug 'cespare/vim-toml'  " for TOML files
-
-Plug 'ekalinin/Dockerfile.vim'
-
-
 " textobjects {{{2
 
 Plug 'kana/vim-textobj-user'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'coderifous/textobj-word-column.vim'
-Plug 'kana/vim-textobj-entire'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-function'
-
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'coderifous/textobj-word-column.vim'
+  Plug 'kana/vim-textobj-entire'
+  Plug 'glts/vim-textobj-comment'
+  Plug 'kana/vim-textobj-function'
 
 " utilities {{{2
 
 Plug 'farmergreg/vim-lastplace'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-unimpaired'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-eunuch'  " unix tools
-Plug 'tpope/vim-sleuth'  " for indent size
 Plug 'cjbassi/fullscreen-help.vim'
 Plug 'cjbassi/cursor-stop.vim'
 
-
-" vim-airline {{{2
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ntpeters/vim-airline-colornum'
-
-
 " visuals {{{2
 
-" Plug 'tjdevries/overlength.vim'
-" Plug 'Yggdroot/indentLine'
+" Plug 'whatyouhide/vim-lengthmatters'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'  " shows marks
 Plug 'chriskempson/base16-vim'
 Plug 'kana/vim-operator-user'
-" Plug 'haya14busa/vim-operator-flashy'
-Plug 'cjbassi/vim-operator-flashy'
+  Plug 'haya14busa/vim-operator-flashy'
+Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'ntpeters/vim-airline-colornum'
 
 " }}}
 
@@ -197,6 +149,9 @@ hi javaScript ctermfg=244 guifg=244
 autocmd FileType * syn match Shebang "\%^#!.*$"
 hi Shebang guifg=#cb4b16
 
+" highlight jsonc comments
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 
 " Keybinds {{{1
 
@@ -206,16 +161,8 @@ nnoremap Q @q
 " updates diffs, clears statusline, clears highlights
 nnoremap <silent> , :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
-" switch tabs
-nnoremap H gT
-nnoremap L gt
-
 nnoremap <silent> j gj
 nnoremap <silent> k gk
-
-" backwards deleting in insert mode adds to undo list
-" inoremap <c-u> <c-g>u<c-u>
-" inoremap <c-w> <c-g>u<c-w>
 
 " keep selected text selected when fixing indentation
 vnoremap < <gv
@@ -241,6 +188,7 @@ set ttimeout
 
 " for searching man pages
 nnoremap <leader>/ /\C^\s*
+
 noremap <leader>: :<C-f>i
 
 nnoremap <leader>j i<CR><Esc>k$hl
@@ -251,17 +199,14 @@ nnoremap <silent> <leader>c :q<CR>
 
 nnoremap <silent> <leader>S :SudoEdit<bar>nnoremap <buffer> <silent> <leader>w :SudoWrite<CR>
 
-nnoremap <silent> <leader>T :silent !terminal<CR>
-
 nnoremap <silent> <leader>tc :ToggleCheckbox<CR>
 nnoremap <silent> <leader>tC :ColorToggle<CR>
-nnoremap <silent> <leader>tf :Autoformat<CR>
 nnoremap <leader>th :Help<Space>
 nnoremap <leader>tr :%s/
 nnoremap <silent> <leader>ts :silent ! ws '%' &<CR>
 nnoremap <silent> <leader>tu :UndotreeToggle<CR>
 nnoremap <leader>tU :UltiSnipsEdit<Space>
-nnoremap <silent> <leader>tv :source ~/config/nvim/init.vim<CR>
+nnoremap <silent> <leader>tv :source ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>tx :Chmod +x<CR>
 
@@ -307,7 +252,7 @@ noremap! <C-h> <C-w>
 map <silent> <leader>f <Plug>(easymotion-j)
 map <silent> <leader>F <Plug>(easymotion-k)
 
-nnoremap <silent> ' :Buffers<CR>
+" previous buffer
 nnoremap <silent> <Tab> :b#<CR>
 
 nnoremap <silent> <leader>l :Lines<CR>
@@ -345,9 +290,9 @@ nnoremap <leader>gm :Gmove<Space>
 
 " vim-plug {{{3
 
-nnoremap <silent> <leader>pi :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugInstall<CR>
-nnoremap <silent> <leader>pu :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
-nnoremap <silent> <leader>pc :source ~/config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
+nnoremap <silent> <leader>pi :source ~/.config/nvim/init.vim <bar> :nohlsearch<CR>:PlugInstall<CR>
+nnoremap <silent> <leader>pu :source ~/.config/nvim/init.vim <bar> :nohlsearch<CR>:PlugUpdate<CR>
+nnoremap <silent> <leader>pc :source ~/.config/nvim/init.vim <bar> :nohlsearch<CR>:PlugClean<CR>
 
 
 " }}}
@@ -474,29 +419,21 @@ set nowrap
 set iskeyword-=_
 " set iskeyword="a-z" TODO
 
-autocmd FileType man call ManFileType()
-function! ManFileType()
-  setlocal nonumber
-  setlocal norelativenumber
-endfunction
-
 autocmd FileType PKGBUILD setlocal ft=sh
-
 autocmd BufNewFile,BufRead *.service set filetype=systemd
-
 autocmd FileType plaintex setlocal ft=tex
+autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=javascript.jsx
 
-autocmd FileType mail setlocal spell textwidth=0 wrap
 autocmd FileType markdown setlocal spell
 
 " Disables comments on new lines
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Resizes window splits on vim resize
 autocmd VimResized,TabEnter * wincmd =
 
-autocmd VimResized normal ,
-
-autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=javascript.jsx
+" TODO
+" autocmd VimResized normal ,
 
 
 " diff {{{2
@@ -522,6 +459,7 @@ set foldnestmax=1
 
 set foldminlines=0
 
+" TODO
 " autocmd InsertLeave,WinEnter * let &l:foldmethod=g:oldfoldmethod
 " autocmd InsertEnter,WinLeave * let g:oldfoldmethod=&l:foldmethod | setlocal foldmethod=manual
 
@@ -535,7 +473,7 @@ set foldminlines=0
 nnoremap <silent> z] :<C-u>silent! normal! zc<CR>zjzozz
 nnoremap <silent> z[ :<C-u>silent! normal! zc<CR>zkzo[zzz
 
-
+" TODO
 " autocmd BufRead * normal zv;
 
 " autocmd FileType * normal! zv
@@ -580,9 +518,9 @@ set wildignore+=*.tar.*
 
 " swap, backup, and undo {{{2
 
-set directory=~/.config/nvim/swap//
-set backupdir=~/.config/nvim/backup//
-set undodir=~/.config/nvim/undo//
+set directory=~/.local/state/nvim/swap//
+set backupdir=~/.local/state/nvim/backup//
+set undodir=~/.local/state/nvim/undo//
 set undofile
 
 " }}}
@@ -594,36 +532,9 @@ set undofile
 let g:bullets_set_mappings = 0
 
 
-" Deoplete{{{2
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 0
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
-let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#max_abbr_width = 50
-
-autocmd VimEnter * inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
-endfunction
-
-autocmd CompleteDone * silent! pclose!
-
-if has("patch-7.4.314")
-  set shortmess+=c
-endif
-
-call deoplete#custom#source('around', 'matchers', ['matcher_fuzzy',
-      \ 'matcher_length'])
-
-let g:clang_library_path='/usr/lib'
-let g:deoplete#sources#jedi#show_docstring = 1
-
-set completeopt-=preview
-
-
 " fzf {{{2
+
+let $FZF_DEFAULT_COMMAND = 'fd -H --type f'
 
 imap <C-f> <plug>(fzf-complete-path)
 
@@ -638,7 +549,6 @@ function! s:fzf_statusline()
   highlight fzf2 guifg=normal guibg=#002b36
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
 endfunction
-
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 let g:fzf_colors =
@@ -657,32 +567,6 @@ let g:fzf_colors =
       \ 'header':  ['#268bd2'] }
 
 
-" set rtp+=/usr/bin/fzf
-" set rtp+=~/.fzf
-" let g:fzf_layout = { 'window': '10split enew' }
-
-
-" incsearch.vim{{{2
-
-" autocmd FileType * map / <Plug>(incsearch-stay)
-
-" let g:incsearch#auto_nohlsearch = 1
-
-" map n  <Plug>(incsearch-nohl-n)
-" map N  <Plug>(incsearch-nohl-N)
-
-" map <C-j> <Over>(incsearch-scroll-f)
-" map <C-k> <Over>(incsearch-scroll-b)
-
-
-" indentLine {{{2
-
-autocmd BufRead,BufNewFile *.md,*.txt
-      \ let b:indentLine_enabled = 0 |
-
-let g:indentLine_color_term = 239
-
-
 " overlength.vim {{{2
 
 let overlength#default_overlength = 80
@@ -693,7 +577,7 @@ let g:overlength#default_to_textwidth = 0
 " autocmd FileType text call overlength#toggle()
 
 
-" UltiSnips{{{2
+" UltiSnips {{{2
 
 let g:UltiSnipsExpandTrigger =          "<tab>"
 let g:UltiSnipsJumpForwardTrigger =     "<C-l>"
@@ -715,7 +599,6 @@ autocmd FileType snippets set foldlevel=0
 
 let g:airline_powerline_fonts = 1
 let g:airline_inactive_collapse = 0
-" let g:airline_theme='powerlineish'
 let g:airline_theme='solarized'
 " let g:airline_theme='base16_solarized'
 let g:airline_solarized_bg='dark'
@@ -742,8 +625,8 @@ let g:airline#extensions#default#layout = [
 
 
 " let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
-
 " let g:airline_section_c = airline#section#create(['%{system(\'pwd\')}'])
+
 let g:airline_section_y = airline#section#create([' ', '%02c'])
 let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
 
@@ -774,7 +657,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-" vim-easymotion{{{2
+" vim-easymotion {{{2
 
 map f <Plug>(easymotion-f)
 map F <Plug>(easymotion-F)
@@ -783,7 +666,7 @@ map t <Plug>(easymotion-t)
 map T <Plug>(easymotion-T)
 
 
-" vim-gitgutter{{{2
+" vim-gitgutter {{{2
 
 set updatetime=250
 
@@ -814,7 +697,7 @@ xmap ah <Plug>GitGutterTextObjectOuterVisual
 let g:ip_skipfold=1
 
 
-" vim-json{{{2
+" vim-json {{{2
 
 let g:vim_json_syntax_conceal = 0
 let g:vim_json_warnings=0
@@ -851,7 +734,7 @@ let g:move_key_modifier = 'S'
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
-" let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
+let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
 
 
 " vim-signature  {{{2

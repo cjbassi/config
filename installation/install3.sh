@@ -35,7 +35,7 @@ mkdir -p \
     ~/playground \
     ~/playground/{my-projects,other-projects,packages,school,test} \
     $XDG_CONFIG_HOME \
-    $XDG_CONFIG_HOME/nvim/{backup,undo,swap} \
+    $XDG_STATE_HOME/nvim/{backup,undo,swap} \
     $GOPATH/{bin,pkg,src} \
     $XDG_STATE_HOME/zsh \
     $XDG_DATA_HOME/tig
@@ -190,10 +190,11 @@ trust-download cjbassi/recover-youtube-videos
 # loop
 
 
-# plugins {{{1
+# neovim {{{1
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 nvim +PlugInstall +xall
 
 
