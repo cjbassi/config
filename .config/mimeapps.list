@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=ranger.desktop
+inode/directory=alacritty.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 image/png=sxiv.desktop;
 image/jpeg=sxiv.desktop;
@@ -14,3 +14,4 @@ x-scheme-handler/unknown=google-chrome.desktop
 application/json=nvim.desktop;
 text/x-log=nvim.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+x-scheme-handler/mailto=google-chrome.desktop

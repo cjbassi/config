@@ -1,7 +1,129 @@
 {
+    "breadcrumbs.enabled": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.cursorBlinking": "solid",
     "editor.cursorStyle": "line",
+    "editor.fontFamily": "Hack",
+    "editor.fontLigatures": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.glyphMargin": false,
+    "editor.gotoLocation.multiple": "goto",
+    "editor.hideCursorInOverviewRuler": false,
+    "editor.lightbulb.enabled": true,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.overviewRulerBorder": true,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.scrollBeyondLastLine": false,
+    "editor.smoothScrolling": false,
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
+    "editor.wordWrap": "on",
+    "explorer.autoReveal": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "off",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "keyboard.dispatch": "keyCode",
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.integrated.rendererType": "dom",
+    "window.menuBarVisibility": "hidden",
+    "window.openFilesInNewWindow": "default",
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
+    "window.zoomLevel": 1,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editor.showTabs": false,
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.statusBar.visible": true,
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
+    "update.showReleaseNotes": false,
+
+    "files.exclude": {
+        "**/.git/": true,
+        "**/node_modules/": true,
+        "**/__pycache__/": true,
+        "**/*.o": true,
+        "**/*.class": true,
+    },
+
+    "search.exclude": {
+        "**/.git/": true,
+        "**/node_modules/": true,
+        "**/__pycache__/": true,
+        "**/*.o": true,
+        "**/*.class": true,
+    },
+
+    "[json]": {
+        "editor.formatOnSave": false
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": false
+    },
+
+// extensions
+
+    "C_Cpp.clang_format_fallbackStyle": "WebKit",
+
+    "eslint.packageManager": "yarn",
+
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.statusBar.enabled": false,
+
+    "java.errors.incompleteClasspath.severity": "ignore",
+
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.view.pdf.external.command": {
+        "command": "zathura",
+        "args": [
+            "%PDF%"
+        ]
+    },
+    "latex-workshop.view.pdf.viewer": "external",
+
+    "liveshare.showInStatusBar": "whileCollaborating",
+
+    "npm.enableScriptExplorer": true,
+
+    "platformio-ide.activateOnlyOnPlatformIOProject": true,
+
+    "prettier.eslintIntegration": true,
+    "prettier.tslintIntegration": true,
+
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.sortImports.args": [
+        "-rc",
+        "--atomic"
+    ],
+
+    "rust.clippy_preference": "on",
+    "rust.unstable_features": true,
+
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+
+    "vsicons.dontShowNewVersionMessage": true,
+
+// vim
+
     "vim.easymotion": true,
+    "vim.highlightedyank.enable": true,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.iskeyword": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
@@ -309,128 +431,4 @@
             ]
         },
     ],
-
-    "breadcrumbs.enabled": true,
-    "debug.allowBreakpointsEverywhere": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.fontFamily": "Hack",
-    "editor.fontLigatures": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
-    "editor.glyphMargin": false,
-    "editor.hideCursorInOverviewRuler": false,
-    "editor.lightbulb.enabled": true,
-    "editor.minimap.enabled": false,
-    "editor.occurrencesHighlight": false,
-    "editor.overviewRulerBorder": true,
-    "editor.renderIndentGuides": false,
-    "editor.renderWhitespace": "none",
-    "editor.scrollBeyondLastLine": false,
-    "editor.smoothScrolling": false,
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
-    "editor.wordWrap": "on",
-    "explorer.autoReveal": false,
-    "explorer.confirmDragAndDrop": false,
-    "files.autoSave": "off",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "keyboard.dispatch": "keyCode",
-    "terminal.external.linuxExec": "alacritty",
-    "terminal.integrated.rendererType": "dom",
-    "window.menuBarVisibility": "hidden",
-    "window.openFilesInNewWindow": "default",
-    "window.restoreWindows": "none",
-    "window.titleBarStyle": "native",
-    "window.zoomLevel": 1,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Solarized Dark",
-    "workbench.editor.showTabs": false,
-    "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.feedback.visible": false,
-    "workbench.statusBar.visible": true,
-
-    "search.exclude": {
-        "**/.git/": true,
-        "**/node_modules/": true,
-        "**/__pycache__/": true,
-        "**/*.o": true,
-        "**/*.class": true,
-    },
-    "files.exclude": {
-        "**/.git/": true,
-        "**/node_modules/": true,
-        "**/__pycache__/": true,
-        "**/*.o": true,
-        "**/*.class": true,
-    },
-
-    "[json]": {
-        "editor.formatOnSave": false
-    },
-    "[jsonc]": {
-        "editor.formatOnSave": false
-    },
-
-    "C_Cpp.clang_format_fallbackStyle": "WebKit",
-
-    "eslint.packageManager": "yarn",
-
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.statusBar.enabled": false,
-
-    "java.errors.incompleteClasspath.severity": "ignore",
-
-    "latex-workshop.message.error.show": false,
-    "latex-workshop.view.pdf.external.command": {
-        "command": "zathura",
-        "args": [
-            "%PDF%"
-        ]
-    },
-    "latex-workshop.view.pdf.viewer": "external",
-
-    "liveshare.showInStatusBar": "whileCollaborating",
-
-    "npm.enableScriptExplorer": true,
-
-
-    "platformio-ide.activateOnlyOnPlatformIOProject": true,
-
-    "prettier.eslintIntegration": true,
-    "prettier.tslintIntegration": true,
-
-    "python.formatting.autopep8Args": [
-        "--max-line-length=120"
-    ],
-    "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.sortImports.args": [
-        "-rc",
-        "--atomic"
-    ],
-
-    "rust.clippy_preference": "on",
-    "rust.unstable_features": true,
-
-    "sync.askGistName": false,
-    "sync.autoDownload": false,
-    "sync.autoUpload": true,
-    "sync.forceDownload": false,
-    "sync.gist": "50c3015b02f1335ec12a3458ba309654",
-    "sync.quietSync": true,
-    "sync.removeExtensions": true,
-    "sync.syncExtensions": true,
-
-    "typescript.updateImportsOnFileMove.enabled": "prompt",
-
-    "update.enableWindowsBackgroundUpdates": false,
-    "update.mode": "none",
-    "update.showReleaseNotes": false
 }

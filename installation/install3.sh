@@ -60,9 +60,12 @@ ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 
 ln -sf ~/config/dotfiles/* ~/
 
-cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
+mkdir -p ~/.local/share/applications/
+ln -sf ~/{config/,}.local/share/applications/alacritty.desktop
 
 # .config {{{3
+
+cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
 
 function symlink-dot-config {
     mkdir -p ~/.config/"$@"

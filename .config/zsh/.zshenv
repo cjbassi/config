@@ -93,6 +93,6 @@ export PATH=$PATH:/usr/lib/ccache/bin/
 # fzf {{{1
 
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
-export FZF_DEFAULT_COMMAND="fd -H"
+export FZF_DEFAULT_COMMAND="fd"
 
 source ~/config/other/fzf_solarized.sh

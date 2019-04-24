@@ -172,7 +172,7 @@ function startup {
 # Settings {{{1
 
 alias bat="bat -p"
-alias fd="fd --ignore-file ~/.ignore"
+alias fd="fd -H --ignore-file ~/.ignore"
 alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
 alias ll="exa -aFl --group-directories-first --git"
 alias makepkg="makepkg -si"
