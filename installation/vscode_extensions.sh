@@ -5,7 +5,6 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension EditorConfig.EditorConfig
-code --install-extension eg2.tslint
 code --install-extension eg2.vscode-npm-script
 code --install-extension esbenp.prettier-vscode
 code --install-extension faustinoaq.lex-flex-yacc-bison
@@ -35,5 +34,4 @@ code --install-extension twxs.cmake
 code --install-extension vscjava.vscode-java-debug
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension vscodevim.vim
-code --install-extension xabikos.ReactSnippets
 code --install-extension ybaumes.highlight-trailing-white-spaces

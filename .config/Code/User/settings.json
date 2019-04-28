@@ -431,4 +431,5 @@
             ]
         },
     ],
+    "go.useLanguageServer": true,
 }

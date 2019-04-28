@@ -154,7 +154,7 @@ bindkey -M viins -r '^t'
 bindkey -M vicmd '/' fzf-history-widget
 
 function fzf-local {
-    local path=$(fd | fzf)
+    local path=$(fd | fzf -m)
     LBUFFER+=$path
     zle redisplay
 }
@@ -163,7 +163,7 @@ bindkey -M vicmd '^f' fzf-local
 bindkey -M viins '^f' fzf-local
 
 function fzf-root {
-    local path=$(fd . ~ | fzf)
+    local path=$(fd . ~ | fzf -m)
     LBUFFER+=$path
     zle redisplay
 }

@@ -134,6 +134,7 @@ yay \
     nvimpager-git \
     redshift-wayland-git \
     spotify \
+    swaybg-git \
     swaylock-blur-bin \
     teiler-git \
     texlive-latexindent-meta \
@@ -144,7 +145,7 @@ yay \
     waybar-git \
     zgen-git
 
-# loop \
+# TODO: loop
 
 
 # application configuration {{{1
@@ -182,10 +183,13 @@ yarn global add \
 
 TRUST="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
 function trust-download { bash <(curl ${TRUST}) -f --git "$@" };
+trust-download cjbassi/batch-rename
 trust-download cjbassi/i3-workspace-groups
 trust-download cjbassi/license-gen
 trust-download cjbassi/random
 trust-download cjbassi/recover-youtube-videos
+trust-download cjbassi/sway-utils
+trust-download cjbassi/trash-man
 
 # cargo install \
 #     cargo-edit \

@@ -10,6 +10,7 @@ alias l=ll
 alias n=nvim
 alias nw=new-wallpaper
 alias pg="ping google.com -c 1"
+alias t="tree"
 
 alias scu="systemctl --user"
 alias jcu="journalctl --user"
@@ -47,13 +48,6 @@ alias sshkey="ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)""
 alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash-empty 14"
 
-function batch-rename {
-    temp=$(mktemp)
-    fd -d 1 > $temp
-    nvim $temp && bash $temp
-    rm $temp
-}
-
 function fork {
     nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }
@@ -71,7 +65,7 @@ function mkcd {
 function new-wallpaper {
     folder_path=$HOME/Drive/images/desktop_wallpapers/other
     image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
-    swaymsg output "*" bg "$image_path" fill
+    swaybg --image "$image_path" --mode fill
     echo \"$image_path\" > ~/.wallpaper
 }
 
@@ -155,7 +149,7 @@ function startup {
     systemctl --user import-environment XDG_CURRENT_DESKTOP
     systemctl --user start user-applications.target
 
-    new-wallpaper
+    # new-wallpaper
 
     pamixer --set-volume 35
     pamixer --default-source --set-volume 100

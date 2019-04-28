@@ -29,7 +29,7 @@ bindsym XF86AudioNext exec playerctl next
 # applications {{{2
 
 bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+Return exec alacritty --working-directory $(~/playground/test/foo alacritty)
+bindsym $mod+Shift+Return exec alacritty --working-directory $(sway-utils focused-program-cwd)
 
 bindsym $mod+a exec $terminal -e vimclip
 bindsym $mod+o exec $terminal -e gotop
@@ -72,7 +72,7 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 bindsym $mod+w kill
-# bindsym $mod+Shift+w exec xdo kill
+bindsym $mod+Shift+w exec sway-utils focused-program-kill
 
 bindsym $mod+space focus mode_toggle
 
@@ -141,12 +141,10 @@ font pango:Hack 12px
 
 # window {{{2
 
-new_window pixel 3
-new_float pixel 3
-
 gaps inner 5
 gaps outer 0
 
+default_border pixel 3
 focus_follows_mouse yes
 smart_borders on
 smart_gaps on
