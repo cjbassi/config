@@ -24,15 +24,13 @@ alias mr="make run"
 alias cra=create-react-app
 function crat { create-react-app "$@" --typescript; }
 
-# alias cargo="rustup run nightly cargo"
 alias cb="cargo build"
 alias cf="cargo fmt"
-alias ci="cargo install"
-alias cif="cargo install --path . --force"
+alias ci="cargo install --path . --force"
 alias cr="cargo run --"
 alias ct="cargo test"
+
 alias gr="go run *.go"
-alias pyr="pipenv run python"
 
 alias codediff="code -n -d"
 alias nvimdiff="nvim -d"
@@ -40,13 +38,13 @@ alias se=sudoedit
 alias nvp=nvimpager
 
 alias gpgkey="gpg --full-gen-key"
-alias sshkey="ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)""
+alias sshkey="ssh-keygen -t ed25519 -C \"$(whoami)@$(hostname)-$(date -I)\""
 
 
 # New Commands {{{1
 
 alias clean-tmp="tmpreaper 14d /tmp/"
-alias clean-trash="trash-empty 14"
+alias clean-trash="trash empty 30 --no-confirm"
 
 function fork {
     nohup "$@" </dev/null >/dev/null 2>&1 & disown
@@ -65,7 +63,8 @@ function mkcd {
 function new-wallpaper {
     folder_path=$HOME/Drive/images/desktop_wallpapers/other
     image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
-    swaybg --image "$image_path" --mode fill
+    swaymsg output "*" bg "$image_path" fill
+    # swaybg --image "$image_path" --mode fill
     echo \"$image_path\" > ~/.wallpaper
 }
 
@@ -143,22 +142,15 @@ function reload-settings {
 }
 
 function startup {
-    # https://daniel.perez.sh/blog/2018/user-systemd/
-    /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    systemctl --user import-environment SWAYSOCK
-    systemctl --user import-environment XDG_CURRENT_DESKTOP
-    systemctl --user start user-applications.target
+    systemctl --user import-environment
+    systemctl --user start sway-session.target
 
-    # new-wallpaper
+    new-wallpaper
 
     pamixer --set-volume 35
     pamixer --default-source --set-volume 100
 
-    # variety &
-
-    # google-chrome-stable &
-    # spotify &
-    # discord &
+    # TODO
     # alacritty -e pymath &
 }
 
@@ -166,7 +158,9 @@ function startup {
 # Settings {{{1
 
 alias bat="bat -p"
+alias dmesg="dmesg -T"
 alias fd="fd -H --ignore-file ~/.ignore"
+alias ffmpeg='ffmpeg -loglevel warning'
 alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
 alias ll="exa -aFl --group-directories-first --git"
 alias makepkg="makepkg -si"

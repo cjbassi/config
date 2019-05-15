@@ -1,5 +1,4 @@
 [Unit]
-Description=Starts lockscreen on suspend
 Before=sleep.target
 
 [Service]

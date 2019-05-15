@@ -1,0 +1,11 @@
+[Service]
+Type=oneshot
+ExecStart=yay ... \
+            downloads \
+            trash empty 30 --no-confirm
+
+yay cache
+pacman cache
+downloads
+tmp
+trash

@@ -2,7 +2,8 @@
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=blueman-applet
+ExecStart=discord
+ExecStop=kill $MAINPID
 
 [Install]
 WantedBy=graphical-session.target

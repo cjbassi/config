@@ -21,19 +21,16 @@
   ],
   "modules-right": [
     "custom/left-arrow-dark",
+    "idle_inhibitor",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "pulseaudio",
     "custom/left-arrow-light",
-//    "custom/left-arrow-dark",
-//    "backlight",
-//    "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "memory",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "cpu",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "temperature",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "battery",
@@ -43,16 +40,20 @@
   ],
 
   "custom/left-arrow-dark": {
-    "format": ""
+    "format": "",
+    "tooltip": false
   },
   "custom/left-arrow-light": {
-    "format": ""
+    "format": "",
+    "tooltip": false
   },
   "custom/right-arrow-dark": {
-    "format": ""
+    "format": "",
+    "tooltip": false
   },
   "custom/right-arrow-light": {
-    "format": ""
+    "format": "",
+    "tooltip": false
   },
 
   "sway/workspaces": {
@@ -61,19 +62,32 @@
   },
 
   "clock#1": {
-    "format": "{:%a}"
+    "format": "{:%a}",
+    "tooltip": false
   },
   "clock#2": {
-    "format": "{:%H:%M}"
+    "format": "{:%H:%M}",
+    "tooltip": false
   },
   "clock#3": {
-    "format": "{:%m-%d}"
+    "format": "{:%m-%d}",
+    "tooltip": false
+  },
+
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "",
+          "deactivated": ""
+      },
+      "on-click": "systemctl --user swayidle && systemctl --user stop swayidle || systemctl --user start swayidle",
+      "tooltip": false
   },
 
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-bluetooth": "{icon}  {volume}%",
-    "format-muted": "",
+    "format-muted": "MUTE",
     "format-icons": {
       "headphones": "",
       "default": [
@@ -81,8 +95,9 @@
         ""
       ]
     },
-    "scroll-step": 5,
-    "on-click": "pavucontrol"
+    "scroll-step": 33,
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol"
   },
   "memory": {
     "interval": 5,

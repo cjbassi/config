@@ -108,31 +108,31 @@ fi
 
 # Colors {{{1
 
-alias ls="ls --color=auto"
+alias ls="ls --color=always"
 
-alias dir="dir --color=auto"
-alias vdir="vdir --color=auto"
+alias dir="dir --color=always"
+alias vdir="vdir --color=always"
 
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-alias pcregrep="pcregrep --color=auto"
+alias grep="grep --color=always"
+alias fgrep="fgrep --color=always"
+alias egrep="egrep --color=always"
+alias pcregrep="pcregrep --color=always"
 
 alias watch="watch --color"
 
-alias diff="diff --color=auto"
+alias diff="diff --color=always"
 
 alias ip="ip -c"
 
-alias dmesg="dmesg --color=auto"
+alias dmesg="dmesg --color=always"
 # alias tree='tree -C'
 
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 
-alias fdisk="fdisk --color=auto"
+alias fdisk="fdisk --color=always"
 
 # Arch colors
-alias cower="cower --color=auto"
+alias cower="cower --color=always"
 alias pactree="pactree -c"
 
 export TLDR_COLOR_BLANK=white

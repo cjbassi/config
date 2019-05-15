@@ -29,7 +29,7 @@ bindsym XF86AudioNext exec playerctl next
 # applications {{{2
 
 bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+Return exec alacritty --working-directory $(sway-utils focused-program-cwd)
+bindsym $mod+Shift+Return exec $terminal --working-directory $(sway-utils focused-program-cwd)
 
 bindsym $mod+a exec $terminal -e vimclip
 bindsym $mod+o exec $terminal -e gotop
@@ -137,7 +137,7 @@ bindsym $mod+Shift+Control+g exec i3-workspace-groups rename-group
 
 font pango:Hack 12px
 
-# hide_cursor 1
+seat "*" hide_cursor 5000
 
 # window {{{2
 
@@ -152,33 +152,24 @@ smart_gaps on
 
 # devices {{{2
 
-input 1739:0:Synaptics_TM3289-002 {
+input type:touchpad {
     events disabled
 }
 
-input 1:1:AT_Translated_Set_2_keyboard {
-    repeat_delay 400
-    repeat_rate 25
-    xkb_options ctrl:nocaps
-}
-input 10730:258:Kinesis_Freestyle_Edge_Keyboard {
+input type:keyboard {
     repeat_delay 400
     repeat_rate 25
     xkb_options ctrl:nocaps
 }
 
-input 2:10:TPPS/2_ALPS_TrackPoint {
+input type:pointer {
     accel_profile flat
 }
-input 6899:1:Kingsis_Peripherals_ZOWIE_Gaming_mouse {
-    accel_profile flat
-}
-
-# xkb_options caps:escape
-# xkb_options caps:none
 
 
 # Colors {{{1
+
+# Solarized
 
 set $black      #000000
 set $white      #FFFFFF
@@ -210,5 +201,5 @@ client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 # Startup-scripts {{{1
 
-exec        --no-startup-id bash -c 'source ~/.config/zsh/.commands; shopt -s expand_aliases; startup'
-exec_always --no-startup-id bash -c 'source ~/.config/zsh/.commands; shopt -s expand_aliases; reload-settings'
+exec        bash -c 'source ~/.config/zsh/.commands; shopt -s expand_aliases; startup'
+exec_always bash -c 'source ~/.config/zsh/.commands; shopt -s expand_aliases; reload-settings'

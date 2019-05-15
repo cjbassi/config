@@ -2,7 +2,7 @@
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=blueman-applet
+ExecStart=riot-desktop
 
 [Install]
 WantedBy=graphical-session.target

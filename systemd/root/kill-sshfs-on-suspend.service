@@ -1,7 +1,6 @@
 # https://wiki.archlinux.org/index.php/Power_management
 
 [Unit]
-Description=Kills sshfs on suspend
 Before=sleep.target
 
 [Service]

@@ -1,8 +1,8 @@
 [Unit]
-Description=mako
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=mako --default-timeout 7500
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

@@ -1,4 +1,0 @@
-[Unit]
-Description=User Applications
-Requires=default.target
-After=default.target

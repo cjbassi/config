@@ -1,8 +1,8 @@
 [Unit]
-Description=copyq
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=copyq
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

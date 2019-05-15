@@ -41,7 +41,7 @@ alias pager=$PAGER
 alias zless=$PAGER
 alias less=$PAGER
 
-export TERMINAL=alacritty
+export TERMINAL="alacritty -e"
 export BROWSER=google-chrome-stable
 
 export LOCKPRG="swaylock-blur"

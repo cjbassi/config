@@ -1,8 +1,9 @@
 [Unit]
-Description=nm-applet
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=nm-applet --indicator
+Restart=on-failure
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

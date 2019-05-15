@@ -1,8 +1,8 @@
 [Unit]
-Description=redshift-gtk
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=redshift -m wayland
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

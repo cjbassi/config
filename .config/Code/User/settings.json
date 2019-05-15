@@ -20,7 +20,7 @@
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.scrollBeyondLastLine": false,
-    "editor.smoothScrolling": false,
+    "editor.smoothScrolling": true,
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
     "editor.wordWrap": "on",
     "explorer.autoReveal": false,
@@ -64,10 +64,10 @@
     },
 
     "[json]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
     },
     "[jsonc]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
     },
 
 // extensions
@@ -77,20 +77,20 @@
     "eslint.packageManager": "yarn",
 
     "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
+        "suppressShowKeyBindingsNotice": true,
     },
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
     "gitlens.statusBar.enabled": false,
+
+    "go.useLanguageServer": true,
 
     "java.errors.incompleteClasspath.severity": "ignore",
 
     "latex-workshop.message.error.show": false,
     "latex-workshop.view.pdf.external.command": {
         "command": "zathura",
-        "args": [
-            "%PDF%"
-        ]
+        "args": [ "%PDF%" ],
     },
     "latex-workshop.view.pdf.viewer": "external",
 
@@ -104,13 +104,13 @@
     "prettier.tslintIntegration": true,
 
     "python.formatting.autopep8Args": [
-        "--max-line-length=120"
+        "--max-line-length=120",
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
     "python.sortImports.args": [
         "-rc",
-        "--atomic"
+        "--atomic",
     ],
 
     "rust.clippy_preference": "on",
@@ -135,301 +135,37 @@
     "vim.useSystemClipboard": true,
 
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "x"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "x",
-            ]
-        },
-        {
-            "before": [
-                "X"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "X",
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.moveLinesUpAction"
-                }
-            ]
-        },
-        {
-            "before": [
-                "J"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.moveLinesDownAction"
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "t",
-                "w"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.toggleWordWrap"
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d"
-            ],
-            "after": [
-                "S",
-                "<esc>"
-            ]
-        },
-        {
-            "before": [
-                "Y"
-            ],
-            "after": [
-                "y",
-                "$"
-            ]
-        },
-        {
-            "before": [
-                ";"
-            ],
-            "after": [
-                "z",
-                "z"
-            ]
-        },
-        {
-            "before": [
-                "Q"
-            ],
-            "after": [
-                "@",
-                "q"
-            ]
-        },
-        {
-            "before": [
-                "u"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "undo",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<C-r>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "redo",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "j"
-            ],
-            "after": [
-                "i",
-                "<enter>",
-                "<esc>"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "k"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.joinLines",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "f"
-            ],
-            "after": [
-                "<leader>",
-                "<leader>",
-                "f"
-            ]
-        },
-        {
-            "before": [
-                "F"
-            ],
-            "after": [
-                "<leader>",
-                "<leader>",
-                "F"
-            ]
-        },
-        {
-            "before": [
-                "t"
-            ],
-            "after": [
-                "<leader>",
-                "<leader>",
-                "t"
-            ]
-        },
-        {
-            "before": [
-                "T"
-            ],
-            "after": [
-                "<leader>",
-                "<leader>",
-                "T"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "o"
-            ],
-            "after": [
-                "o"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "O"
-            ],
-            "after": [
-                "O"
-            ]
-        },
-        {
-            "before": [
-                "o"
-            ],
-            "after": [
-                "o",
-                "<esc>"
-            ]
-        },
-        {
-            "before": [
-                "O"
-            ],
-            "after": [
-                "O",
-                "<esc>"
-            ]
-        },
-        {
-            "before": [
-                ","
-            ],
-            "commands": [
-                {
-                    "command": ":nohl"
-                },
-            ],
-        },
+        { "before": [ "x" ], "after": [ "\"", "_", "x", ] },
+        { "before": [ "X" ], "after": [ "\"", "_", "X", ] },
+        { "before": [ "K" ], "commands": [ { "command": "editor.action.moveLinesUpAction" } ] },
+        { "before": [ "J" ], "commands": [ { "command": "editor.action.moveLinesDownAction" } ] },
+        { "before": [ "<leader>", "t", "w" ], "commands": [ { "command": "editor.action.toggleWordWrap" } ] },
+        { "before": [ "<leader>", "d" ], "after": [ "S", "<esc>" ] },
+        { "before": [ "Y" ], "after": [ "y", "$" ] },
+        { "before": [ ";" ], "after": [ "z", "z" ] },
+        { "before": [ "Q" ], "after": [ "@", "q" ] },
+        { "before": [ "u" ], "commands": [ { "command": "undo", } ] },
+        { "before": [ "<C-r>" ], "commands": [ { "command": "redo", } ] },
+        { "before": [ "<leader>", "j" ], "after": [ "i", "<enter>", "<esc>" ] },
+        { "before": [ "<leader>", "k" ], "commands": [ { "command": "editor.action.joinLines" } ] },
+        { "before": [ "j" ], "after": [ "g", "j" ] },
+        { "before": [ "k" ], "after": [ "g", "k" ] },
+        { "before": [ "f" ], "after": [ "<leader>", "<leader>", "f" ] },
+        { "before": [ "F" ], "after": [ "<leader>", "<leader>", "F" ] },
+        { "before": [ "t" ], "after": [ "<leader>", "<leader>", "t" ] },
+        { "before": [ "T" ], "after": [ "<leader>", "<leader>", "T" ] },
+        { "before": [ "<leader>", "o" ], "after": [ "o" ] },
+        { "before": [ "<leader>", "O" ], "after": [ "O" ] },
+        { "before": [ "o" ], "after": [ "o", "<esc>" ] },
+        { "before": [ "O" ], "after": [ "O", "<esc>" ] },
+        { "before": [ "," ], "commands": [ { "command": ":nohl" } ] },
     ],
 
     "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "K"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.moveLinesUpAction"
-                }
-            ]
-        },
-        {
-            "before": [
-                "J"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.moveLinesDownAction"
-                }
-            ]
-        },
-        {
-            "before": [
-                "p",
-            ],
-            "after": [
-                "p",
-                "g",
-                "v",
-                "y"
-            ]
-        },
-        {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.indentLines"
-                }
-            ]
-        },
-        {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.outdentLines"
-                }
-            ]
-        },
+        { "before": [ "K" ], "commands": [ { "command": "editor.action.moveLinesUpAction" } ] },
+        { "before": [ "J" ], "commands": [ { "command": "editor.action.moveLinesDownAction" } ] },
+        { "before": [ "p", ], "after": [ "p", "g", "v", "y" ] },
+        { "before": [ ">" ], "commands": [ { "command": "editor.action.indentLines" } ] },
+        { "before": [ "<" ], "commands": [ { "command": "editor.action.outdentLines" } ] },
     ],
-    "go.useLanguageServer": true,
 }

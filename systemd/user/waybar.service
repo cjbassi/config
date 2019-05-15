@@ -1,8 +1,8 @@
 [Unit]
-Description=waybar
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=waybar
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

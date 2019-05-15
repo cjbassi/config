@@ -1,8 +1,8 @@
 # /usr/lib/systemd/system/insync@.service
 
 [Unit]
-Description=Insync
 After=local-fs.target network.target
+PartOf=graphical-session.target
 
 [Service]
 Type=oneshot
@@ -11,4 +11,4 @@ ExecStart=/usr/bin/insync start --synchronous-full
 ExecStop=/usr/bin/insync quit
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

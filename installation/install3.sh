@@ -210,17 +210,22 @@ nvim +PlugInstall +xall
 systemctl --user enable \
     blueman-applet \
     copyq \
+    discord \
     evscript \
     insync \
     mako \
     nm-applet \
-    pasystray \
-    udiskie \
     opensnitch-ui \
+    pasystray \
     recover-youtube-videos.timer \
     redshift-gtk \
+    riot-desktop \
+    swayidle \
+    udiskie \
     variety \
     waybar
+
+    # system-cleanup.timer \
 
 sudo systemctl enable \
     lockscreen-on-suspend@$USER \

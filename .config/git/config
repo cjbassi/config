@@ -18,8 +18,9 @@
     conflictstyle = diff3
 [mergetool]
     prompt = false
+
 [pull]
-	ff = only
+    rebase = merges
 
 [color]
     ui = auto
@@ -58,5 +59,6 @@
     m = merge
     r = reset
     rh = reset --hard
+    rb = rebase -i --rebase-merges
 
     fzf = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)

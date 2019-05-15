@@ -1,8 +1,8 @@
 [Unit]
-Description=variety
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=variety
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

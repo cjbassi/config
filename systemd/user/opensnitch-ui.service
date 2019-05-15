@@ -1,8 +1,8 @@
 [Unit]
-Description=opensnitch-ui
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=opensnitch-ui --config ~/.config/opensnitch/ui-config.json
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target

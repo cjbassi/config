@@ -158,6 +158,7 @@ pacstrap /mnt                       \
     qbittorrent                     \
     qt4                             \
     reflector                       \
+    riot-desktop                    \
     ripgrep                         \
     rofi                            \
     rsync                           \
@@ -177,6 +178,7 @@ pacstrap /mnt                       \
     xorg-xeyes                      \
     xsel                            \
     xterm                           \
+    youtube-dl                      \
     zathura-pdf-mupdf               \
     zsh                             \
 

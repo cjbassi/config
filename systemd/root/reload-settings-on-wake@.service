@@ -1,5 +1,4 @@
 [Unit]
-Description=Reloads settings on wake
 After=sleep.target
 
 [Service]

@@ -1,8 +1,8 @@
 [Unit]
-Description=udiskie
+PartOf=graphical-session.target
 
 [Service]
 ExecStart=udiskie --no-automount --tray
 
 [Install]
-WantedBy=user-applications.target
+WantedBy=graphical-session.target
