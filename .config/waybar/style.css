@@ -16,7 +16,7 @@ window#waybar {
     background: #1a1a1a;
 }
 
-#workspaces, #clock.1, #clock.2, #clock.3, #idle_inhibitor, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery, #tray {
+#workspaces, #clock.1, #clock.2, #clock.3, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery, #tray {
     background: #1a1a1a;
 }
 
@@ -56,6 +56,6 @@ window#waybar {
     color: #859900;
 }
 
-#clock, #idle_inhibitor, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery {
+#clock, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery {
     padding: 0 10px;
 }

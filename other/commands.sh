@@ -3,6 +3,7 @@
 # Abbreviations {{{1
 
 alias blt=bluetoothctl
+alias br=batch-rename
 alias c=code
 alias chrome=google-chrome-stable
 alias g=hub
@@ -158,6 +159,7 @@ function startup {
 # Settings {{{1
 
 alias bat="bat -p"
+alias batch-rename="batch-rename -v"
 alias dmesg="dmesg -T"
 alias fd="fd -H --ignore-file ~/.ignore"
 alias ffmpeg='ffmpeg -loglevel warning'

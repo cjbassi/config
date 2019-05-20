@@ -182,6 +182,7 @@ pacstrap /mnt                       \
     zathura-pdf-mupdf               \
     zsh                             \
 
+# TODO
 
 # otf-ipafont
 # ttf-hanazono

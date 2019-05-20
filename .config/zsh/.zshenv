@@ -2,7 +2,7 @@
 
 # commands {{{1
 
-source $ZDOTDIR/.commands
+source ~/config/other/commands.sh
 
 export SOURCE_COMMANDS="source $ZDOTDIR/.commands; shopt -s expand_aliases"
 
@@ -95,4 +95,4 @@ export PATH=$PATH:/usr/lib/ccache/bin/
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
 export FZF_DEFAULT_COMMAND="fd"
 
-source ~/config/other/fzf_solarized.sh
+source ~/config/other/fzf-solarized.sh

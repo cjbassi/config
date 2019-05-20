@@ -1,3 +1,4 @@
+code --install-extension alanz.vscode-hie-server
 code --install-extension asabil.meson
 code --install-extension bierner.markdown-preview-github-styles
 code --install-extension bungcip.better-toml
@@ -13,6 +14,7 @@ code --install-extension formulahendry.auto-rename-tag
 code --install-extension James-Yu.latex-workshop
 code --install-extension jithurjacob.nbpreviewer
 code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension justusadam.language-haskell
 code --install-extension lextudio.restructuredtext
 code --install-extension mikestead.dotenv
 code --install-extension mitaki28.vscode-clang
@@ -30,6 +32,7 @@ code --install-extension rust-lang.rust
 code --install-extension serayuzgur.crates
 code --install-extension sidneys1.gitconfig
 code --install-extension sjhuangx.vscode-scheme
+code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension twxs.cmake
 code --install-extension vscjava.vscode-java-debug
 code --install-extension vscode-icons-team.vscode-icons

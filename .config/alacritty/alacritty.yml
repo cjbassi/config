@@ -28,7 +28,6 @@ font:
   italic:
     family: Hack
   size: 13.0
-  # size: 15.0
   offset:
     x: 0
     y: 0

@@ -69,10 +69,23 @@
     "[jsonc]": {
         "editor.formatOnSave": false,
     },
+    "[markdown]": {
+        "editor.formatOnSave": false,
+    },
 
 // extensions
 
     "C_Cpp.clang_format_fallbackStyle": "WebKit",
+
+    "cSpell.enabledLanguageIds": [
+        "markdown",
+        "text",
+    ],
+    "cSpell.showStatus": false,
+    "cSpell.userWords": [
+        "incentivizes",
+        "repo",
+    ],
 
     "eslint.packageManager": "yarn",
 

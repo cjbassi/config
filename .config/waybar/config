@@ -21,9 +21,6 @@
   ],
   "modules-right": [
     "custom/left-arrow-dark",
-    "idle_inhibitor",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
     "pulseaudio",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
@@ -74,16 +71,6 @@
     "tooltip": false
   },
 
-  "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-          "activated": "",
-          "deactivated": ""
-      },
-      "on-click": "systemctl --user swayidle && systemctl --user stop swayidle || systemctl --user start swayidle",
-      "tooltip": false
-  },
-
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-bluetooth": "{icon}  {volume}%",
@@ -95,7 +82,7 @@
         ""
       ]
     },
-    "scroll-step": 33,
+    "scroll-step": 5,
     "on-click": "pamixer -t",
     "on-click-right": "pavucontrol"
   },

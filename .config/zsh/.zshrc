@@ -83,6 +83,7 @@ autoload -Uz compinit
 compinit
 
 zstyle ":completion:*" menu select
+# TODO
 # setopt COMPLETE_ALIASES
 
 
@@ -125,6 +126,7 @@ alias diff="diff --color=always"
 alias ip="ip -c"
 
 alias dmesg="dmesg --color=always"
+# TODO
 # alias tree='tree -C'
 
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
@@ -144,6 +146,7 @@ export TLDR_COLOR_BLANK=white
 
 source /usr/share/fzf/key-bindings.zsh
 
+# TODO
 # zle -N fzf-history-widget
 # zle -N fzf-file-widget
 
@@ -192,6 +195,7 @@ export POWERLEVEL9K_STATUS_HIDE_SIGNAME=false
 export POWERLEVEL9K_VIRTUALENV_FOREGROUND=255
 export POWERLEVEL9K_VIRTUALENV_BACKGROUND=240
 
+# TODO
 # export POWERLEVEL9K_DIR_FOREGROUND=255
 # export POWERLEVEL9K_DIR_BACKGROUND=240
 

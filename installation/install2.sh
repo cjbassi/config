@@ -64,6 +64,7 @@ initrd  /initramfs-linux.img
 options cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot quiet rw" \
 > /boot/loader/entries/arch.conf
 
+# TODO
 # options     root=PARTLABEL=ROOT rw" \
 
 # Swap {{{2

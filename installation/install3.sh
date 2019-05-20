@@ -145,7 +145,9 @@ yay \
     waybar-git \
     zgen-git
 
-# TODO: loop
+# TODO
+# loop
+# opensnitch-git
 
 
 # application configuration {{{1
@@ -191,6 +193,7 @@ trust-download cjbassi/recover-youtube-videos
 trust-download cjbassi/sway-utils
 trust-download cjbassi/trash-man
 
+# TODO
 # cargo install \
 #     cargo-edit \
 #     cargo-update \
@@ -224,8 +227,6 @@ systemctl --user enable \
     udiskie \
     variety \
     waybar
-
-    # system-cleanup.timer \
 
 sudo systemctl enable \
     lockscreen-on-suspend@$USER \

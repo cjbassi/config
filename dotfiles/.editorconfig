@@ -10,7 +10,7 @@ indent_size = 4
 
 trim_trailing_whitespace = true
 
-[*.{js,jsx,ts,tsx,html,php,vim,toml,yml,md}]
+[*.{js,jsx,ts,tsx,html,php,vim,toml,yml}]
 indent_size = 2
 
 [*.md]
