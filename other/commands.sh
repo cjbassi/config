@@ -8,6 +8,7 @@ alias c=code
 alias chrome=google-chrome-stable
 alias g=hub
 alias l=ll
+alias lst="laptop-screen toggle"
 alias n=nvim
 alias nw=new-wallpaper
 alias pg="ping google.com -c 1"
@@ -148,7 +149,7 @@ function startup {
 
     new-wallpaper
 
-    pamixer --set-volume 35
+    pamixer --set-volume 30
     pamixer --default-source --set-volume 100
 
     # TODO

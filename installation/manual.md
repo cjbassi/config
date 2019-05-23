@@ -1,7 +1,7 @@
 # Before reinstall:
   * bookmark Chrome tabs
   * close applications
-  * `code --list-extensions | xargs -L 1 echo code --install-extension > ~/config/installation/vscode_extensions.sh`
+  * `code --list-extensions | xargs -L 1 echo code --install-extension > ~/config/installation/vscode-extensions.sh`
   * make sure projects in `~/playground` are synced up to GitHub
   * check home directory for files or data that needs to be backed up
   * `cp -f $XDG_DATA_HOME/zsh/history ~/Drive/linux/history`
@@ -47,5 +47,5 @@
       * `pair 04:52:C7:5C:3B:CF`
       * `connect 04:52:C7:5C:3B:CF`
       * `pactl set-card-profile bluez_card.04_52_C7_5C_3B_CF a2dp_sink`
-  * `~/config/installation/after_reinstall.sh`
+  * `~/config/installation/after-reinstall.sh`
   * remove old GitHub token on GitHub

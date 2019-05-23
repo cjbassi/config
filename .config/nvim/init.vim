@@ -269,7 +269,7 @@ nnoremap <silent> <leader>egc :edit ~/config/.config/git/config<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>esc :edit ~/config/.config/zsh/.commands<CR>
+nnoremap <silent> <leader>esc :edit ~/config/other/commands.sh<CR>
 nnoremap <silent> <leader>etr :edit ~/config/.config/alacritty/alacritty.yml<CR>
 nnoremap <silent> <leader>evr :edit ~/config/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ewm :edit ~/config/.config/sway/config<CR>

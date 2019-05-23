@@ -49,6 +49,17 @@
         "command": "workbench.action.openPreviousRecentlyUsedEditorInGroup"
     },
 
+// splitting window
+
+    {
+        "key": "ctrl+shift+\\",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "workbench.action.splitEditorOrthogonal"
+    },
+
 // navigation
 // https://www.reddit.com/r/vscode/comments/8p2cob/did_anyone_here_switch_from_vim_to_vscode/
 
