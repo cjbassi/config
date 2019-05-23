@@ -1,3 +1,7 @@
+<div align='center'>
+    <img src='./images/screenshot.png' />
+</div>
+
 ### Info
 
 - OS: Arch Linux
@@ -9,6 +13,10 @@
 - Resource Monitor: Gotop
 - Browser: Chrome
 - Statusbar: Waybar
+- PDF viewer: Zathura
+- Image viewer: sxiv
+- Zsh prompt: Powerlevel9k
+- Color theme: Solarized
 
 ### Folders
 
