@@ -1,5 +1,7 @@
+# https://github.com/nicodebo/base16-fzf
+
 # Base16 Solarized Dark
-# Author: Ethan Schoonover (http://ethanschoonover.com/solarized)
+# Author: Ethan Schoonover (modified by aramisgithub)
 
 _gen_fzf_default_opts() {
 

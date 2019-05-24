@@ -2,8 +2,6 @@
 //! keys = ['ESC', 'LEFTSHIFT', '9', '0']
 fn main() ~ evdevs, uinput {
     should_esc := false
-    should_lshift := false
-    should_rshift := false
     loop {
         evts := next_events(evdevs)
         for i len(evts) {

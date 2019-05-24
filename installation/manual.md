@@ -47,5 +47,5 @@
       * `pair 04:52:C7:5C:3B:CF`
       * `connect 04:52:C7:5C:3B:CF`
       * `pactl set-card-profile bluez_card.04_52_C7_5C_3B_CF a2dp_sink`
-  * `~/config/installation/after-reinstall.sh`
+  * `~/config/installation/post-install.sh`
   * remove old GitHub token on GitHub
