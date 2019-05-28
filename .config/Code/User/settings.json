@@ -132,7 +132,6 @@
 
     "typescript.updateImportsOnFileMove.enabled": "prompt",
 
-    "vsicons.dontShowNewVersionMessage": true,
 
 // vim
 
@@ -181,5 +180,5 @@
         { "before": [ "p", ], "after": [ "p", "g", "v", "y" ] },
         { "before": [ ">" ], "commands": [ { "command": "editor.action.indentLines" } ] },
         { "before": [ "<" ], "commands": [ { "command": "editor.action.outdentLines" } ] },
-    ],
+    ]
 }

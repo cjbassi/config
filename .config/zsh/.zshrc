@@ -156,19 +156,31 @@ bindkey -M viins -r '^t'
 
 bindkey -M vicmd '/' fzf-history-widget
 
-function fzf-local {
-    local path=$(fd | fzf -m)
-    LBUFFER+=$path
+function fzf-helper {
+    if [[ -n ${1// } ]]; then
+        local count=0
+        while read -r line; do
+            if [ $count != 0 ]; then
+                LBUFFER+=" "
+            fi
+            LBUFFER+=\"$line\"
+            count=$((count+1))
+        done <<< "$1"
+    fi
     zle redisplay
+}
+
+function fzf-local {
+    local fzf_paths=$(fd | fzf -m)
+    fzf-helper ${fzf_paths}
 }
 zle -N fzf-local
 bindkey -M vicmd '^f' fzf-local
 bindkey -M viins '^f' fzf-local
 
 function fzf-root {
-    local path=$(fd . ~ | fzf -m)
-    LBUFFER+=$path
-    zle redisplay
+    local fzf_paths=$(fd . ~ | fzf -m)
+    fzf-helper ${fzf_paths}
 }
 zle -N fzf-root
 bindkey -M vicmd '^r' fzf-root

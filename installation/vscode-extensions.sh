@@ -3,6 +3,7 @@ code --install-extension asabil.meson
 code --install-extension bierner.markdown-preview-github-styles
 code --install-extension bungcip.better-toml
 code --install-extension christian-kohler.path-intellisense
+code --install-extension darkriszty.markdown-table-prettify
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension EditorConfig.EditorConfig
@@ -38,3 +39,4 @@ code --install-extension vscjava.vscode-java-debug
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension vscodevim.vim
 code --install-extension ybaumes.highlight-trailing-white-spaces
+code --install-extension yzhang.markdown-all-in-one

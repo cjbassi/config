@@ -13,6 +13,7 @@ alias n=nvim
 alias nw=new-wallpaper
 alias pg="ping google.com -c 1"
 alias t="tree"
+alias tp="trash put -v"
 
 alias scu="systemctl --user"
 alias jcu="journalctl --user"
@@ -58,8 +59,10 @@ function fork-term {
 
 alias keep-a-changelog="curl https://gist.githubusercontent.com/cjbassi/c46d47273bd3929c3f47b4c5c14311dc/raw/6723ef21f4ddcbd4d348310fcc0914e1dae1cb3a/CHANGELOG.md > CHANGELOG.md"
 
+# https://onethingwell.org/post/586977440/mkcd-improved
 function mkcd {
-    mkdir "$@"; cd "$@"
+    mkdir -p "$*"
+    cd "$*"
 }
 
 function new-wallpaper {
