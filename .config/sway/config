@@ -201,5 +201,5 @@ client.unfocused        $base00 #222222 #888888 #292d2e #222222
 
 # Startup-scripts {{{1
 
-exec        bash -c 'source ~/.config/zsh/.commands; shopt -s expand_aliases; startup'
-exec_always bash -c 'source ~/.config/zsh/.commands; shopt -s expand_aliases; reload-settings'
+exec        fish -c 'source ~/config/other/shell/commands.fish; startup'
+exec_always fish -c 'source ~/config/other/shell/commands.fish; reload-settings'

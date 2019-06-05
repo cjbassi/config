@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+setopt globdots
+
 # keys {{{1
 
 sudo mkdir /mnt/usb
@@ -20,12 +22,7 @@ while [[ ! -d "config" ]]; do
    hub clone cjbassi/config
 done
 
-
-# zsh {{{1
-
-source ~/config/zsh/.zshenv
-setopt globdots
-
+source ~/config/other/shell/env.sh
 
 # Directories {{{1
 
@@ -37,7 +34,7 @@ mkdir -p \
     $XDG_CONFIG_HOME \
     $XDG_STATE_HOME/nvim/{backup,undo,swap} \
     $GOPATH/{bin,pkg,src} \
-    $XDG_STATE_HOME/zsh \
+    $XDG_DATA_HOME/fish
     $XDG_DATA_HOME/tig
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
@@ -74,6 +71,7 @@ function symlink-dot-config {
 
 symlink-dot-config alacritty
 symlink-dot-config Code/User
+symlink-dot-config fish
 symlink-dot-config git
 symlink-dot-config gtk-2.0
 symlink-dot-config gtk-3.0
@@ -88,7 +86,6 @@ symlink-dot-config tig
 symlink-dot-config variety
 symlink-dot-config waybar
 symlink-dot-config zathura
-symlink-dot-config zsh
 
 
 # rust {{{1
@@ -122,6 +119,7 @@ yay \
     cht.sh \
     discord \
     evscript-git \
+    fisher \
     git-extras-git \
     google-chrome \
     gotop-bin \
@@ -142,8 +140,7 @@ yay \
     udiskie-dmenu-git \
     vimclip-git \
     visual-studio-code-bin \
-    waybar-git \
-    zgen-git
+    waybar-git
 
 # TODO
 # loop
@@ -198,6 +195,7 @@ trust-download cjbassi/trash-man
 #     cargo-edit \
 #     cargo-update \
 # loop
+# cargo-release
 
 
 # neovim {{{1
@@ -250,4 +248,4 @@ sudo systemctl mask system-rfkill.socket
 
 # Cleanup {{{1
 
-rm -f .bash_logout .bash_profile .bashrc install3.sh .zshrc
+rm -f .bash_logout .bash_profile .bashrc install3.sh

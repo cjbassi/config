@@ -43,11 +43,11 @@ alias nvp=nvimpager
 alias gpgkey="gpg --full-gen-key"
 alias sshkey="ssh-keygen -t ed25519 -C \"$(whoami)@$(hostname)-$(date -I)\""
 
-
-# New Commands {{{1
-
 alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash empty 30 --no-confirm"
+
+
+# New Commands {{{1
 
 function fork {
     nohup "$@" </dev/null >/dev/null 2>&1 & disown
@@ -57,20 +57,10 @@ function fork-term {
     fork $TERMINAL --working-directory .
 }
 
-alias keep-a-changelog="curl https://gist.githubusercontent.com/cjbassi/c46d47273bd3929c3f47b4c5c14311dc/raw/6723ef21f4ddcbd4d348310fcc0914e1dae1cb3a/CHANGELOG.md > CHANGELOG.md"
-
 # https://onethingwell.org/post/586977440/mkcd-improved
 function mkcd {
     mkdir -p "$*"
     cd "$*"
-}
-
-function new-wallpaper {
-    folder_path=$HOME/Drive/images/desktop_wallpapers/other
-    image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
-    swaymsg output "*" bg "$image_path" fill
-    # swaybg --image "$image_path" --mode fill
-    echo \"$image_path\" > ~/.wallpaper
 }
 
 function pkill-wait {
@@ -105,7 +95,7 @@ alias show-pacman-history="grep -i installed /var/log/pacman.log"
 
 function upgrade-all {
     upgrade-yay
-    antigen update
+    # TODO: antigen update
     rustup update
     cargo install-update -a
     # go get -u all
@@ -132,6 +122,14 @@ function upgrade-system {
 
 function laptop-screen {
     swaymsg output eDP-1 "$@"
+}
+
+function new-wallpaper {
+    folder_path=$HOME/Drive/images/desktop_wallpapers/other
+    image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
+    swaymsg output "*" bg "$image_path" fill
+    # swaybg --image "$image_path" --mode fill
+    echo \"$image_path\" > ~/.wallpaper
 }
 
 function reload-settings {
@@ -172,7 +170,7 @@ alias ll="exa -aFl --group-directories-first --git"
 alias makepkg="makepkg -si"
 alias ncdu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias ps="ps aux"
-alias rg="rg -S"
+alias rg="rg -S --hidden"
 alias rsync="rsync -h --progress"
 alias sshfs="sshfs -C -o reconnect"
 alias su="sudo -E su -m"
@@ -196,6 +194,25 @@ alias valgrind="colour-valgrind --leak-check=yes --track-origins=yes"
 alias df=pydf
 alias git=hub
 alias ls=exa
+
+alias pager=$PAGER
+alias zless=$PAGER
+alias less=$PAGER
+
+alias ls="ls --color=always"
+alias dir="dir --color=always"
+alias vdir="vdir --color=always"
+alias grep="grep --color=always"
+alias fgrep="fgrep --color=always"
+alias egrep="egrep --color=always"
+alias pcregrep="pcregrep --color=always"
+alias watch="watch --color"
+alias diff="diff --color=always"
+alias ip="ip -c"
+alias dmesg="dmesg --color=always"
+alias fdisk="fdisk --color=always"
+alias cower="cower --color=always"
+alias pactree="pactree -c"
 
 function yay {
     if [[ "$1" == "-S" ]]; then

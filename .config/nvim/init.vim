@@ -261,19 +261,17 @@ nnoremap <silent> <leader>l :Lines<CR>
 " files {{{3
 
 nnoremap <silent> <leader>ebr :edit ~/config/.config/waybar/style.css<CR> :edit ~/config/.config/waybar/config<CR>
-nnoremap <silent> <leader>edi :edit ~/drive/notes/other/dictionary.md<CR>
 nnoremap <silent> <leader>eec :edit ~/config/dotfiles/.editorconfig<CR>
-nnoremap <silent> <leader>een :edit ~/config/.config/zsh/.zshenv<CR>
-nnoremap <silent> <leader>ehf :edit ~/.local/share/zsh/history<CR>
+nnoremap <silent> <leader>eer :edit ~/config/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>egc :edit ~/config/.config/git/config<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>esc :edit ~/config/other/commands.sh<CR>
+nnoremap <silent> <leader>esc :edit ~/config/other/shell/commands.sh<CR>
+nnoremap <silent> <leader>ese :edit ~/config/other/shell/env.sh<CR>
+nnoremap <silent> <leader>esr :edit ~/config/.config/fish/config.fish<CR>
 nnoremap <silent> <leader>etr :edit ~/config/.config/alacritty/alacritty.yml<CR>
-nnoremap <silent> <leader>evr :edit ~/config/.config/nvim/init.vim<CR>
-nnoremap <silent> <leader>ewm :edit ~/config/.config/sway/config<CR>
-nnoremap <silent> <leader>ezr :edit ~/config/.config/zsh/.zshrc<CR>
+nnoremap <silent> <leader>ewr :edit ~/config/.config/sway/config<CR>
 
 nnoremap <silent> <leader>eM :edit Makefile<CR>
 

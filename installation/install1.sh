@@ -125,6 +125,7 @@ pacstrap /mnt                       \
     docker                          \
     exa                             \
     fd                              \
+    fish                            \
     fuse                            \
     fzf                             \
     gimp                            \
@@ -179,8 +180,7 @@ pacstrap /mnt                       \
     xsel                            \
     xterm                           \
     youtube-dl                      \
-    zathura-pdf-mupdf               \
-    zsh                             \
+    zathura-pdf-mupdf
 
 # TODO
 

@@ -107,26 +107,6 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
 fi
 
 
-# Colors {{{1
-
-alias ls="ls --color=always"
-alias dir="dir --color=always"
-alias vdir="vdir --color=always"
-alias grep="grep --color=always"
-alias fgrep="fgrep --color=always"
-alias egrep="egrep --color=always"
-alias pcregrep="pcregrep --color=always"
-alias watch="watch --color"
-alias diff="diff --color=always"
-alias ip="ip -c"
-alias dmesg="dmesg --color=always"
-alias fdisk="fdisk --color=always"
-alias cower="cower --color=always"
-alias pactree="pactree -c"
-export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
-export TLDR_COLOR_BLANK=white
-
-
 # Other Programs {{{1
 
 # fzf {{{2

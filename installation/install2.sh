@@ -90,7 +90,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 user=cjbassi
 
-useradd -m -G wheel -s $(which zsh) $user
+useradd -m -G wheel -s $(which fish) $user
 echo "$user:$password" | chpasswd
 
 usermod -a -G docker $user # can run docker commands
@@ -155,7 +155,6 @@ ExecStart=-/usr/bin/agetty --autologin $user --noclear %I \$TERM" \
 # Change to regular user {{{1
 
 cd /home/$user
-touch .zshrc
 curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh" > install3.sh
 su $user ./install3.sh
 

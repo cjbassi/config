@@ -16,9 +16,12 @@
 [merge]
     tool = code
     conflictstyle = diff3
+	ff = false
 [mergetool]
     prompt = false
 
+[push]
+	followTags = true
 [pull]
     rebase = merges
 

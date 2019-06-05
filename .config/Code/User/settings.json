@@ -152,6 +152,7 @@
         { "before": [ "X" ], "after": [ "\"", "_", "X", ] },
         { "before": [ "K" ], "commands": [ { "command": "editor.action.moveLinesUpAction" } ] },
         { "before": [ "J" ], "commands": [ { "command": "editor.action.moveLinesDownAction" } ] },
+        { "before": [ "<leader>", "w" ], "commands": [ { "command": "workbench.action.files.save" } ] },
         { "before": [ "<leader>", "t", "w" ], "commands": [ { "command": "editor.action.toggleWordWrap" } ] },
         { "before": [ "<leader>", "d" ], "after": [ "S", "<esc>" ] },
         { "before": [ "Y" ], "after": [ "y", "$" ] },
