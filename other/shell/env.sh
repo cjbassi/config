@@ -94,4 +94,4 @@ export PIPENV_VENV_IN_PROJECT=1
 
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
 export FZF_DEFAULT_COMMAND="fd"
-source ~/config/other/fzf-solarized.sh
+source ~/config/other/shell/fzf-solarized.sh

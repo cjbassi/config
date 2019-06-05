@@ -1,5 +1,3 @@
-# vim: ft=sh
-
 # Abbreviations {{{1
 
 alias blt=bluetoothctl
@@ -25,7 +23,9 @@ alias m=make
 alias mr="make run"
 
 alias cra=create-react-app
-function crat { create-react-app "$@" --typescript; }
+function crat
+    create-react-app $argv --typescript
+end
 
 alias cb="cargo build"
 alias cf="cargo fmt"
@@ -41,7 +41,7 @@ alias se=sudoedit
 alias nvp=nvimpager
 
 alias gpgkey="gpg --full-gen-key"
-alias sshkey="ssh-keygen -t ed25519 -C \"$(whoami)@$(hostname)-$(date -I)\""
+alias sshkey="ssh-keygen -t ed25519 -C \"(whoami)@(hostname)-(date -I)\""
 
 alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash empty 30 --no-confirm"
@@ -49,51 +49,53 @@ alias clean-trash="trash empty 30 --no-confirm"
 
 # New Commands {{{1
 
-function fork {
-    nohup "$@" </dev/null >/dev/null 2>&1 & disown
-}
+function fork
+    nohup $argv </dev/null >/dev/null 2>&1 & disown
+end
 
-function fork-term {
+function fork-term
     fork $TERMINAL --working-directory .
-}
+end
 
-# https://onethingwell.org/post/586977440/mkcd-improved
-function mkcd {
-    mkdir -p "$*"
-    cd "$*"
-}
+function mkcd
+    mkdir -p $argv
+    cd $argv
+end
 
-function pkill-wait {
-    while pgrep -u $UID -x $1 >/dev/null; do sleep 1; done
-}
+# TODO $UID
+function pkill-wait
+    while pgrep -u $UID -x $argv[1] >/dev/null
+        sleep 1
+    end
+end
 
-function prepend {
-    cat - "$@" | sponge "$@"
-}
+function prepend
+    cat - $argv | sponge $argv
+end
 
-function reload-process {
-    killall -q "$@"
-    pkill-wait "$@"
-    fork "$@"
-}
+function reload-process
+    killall -q $argv
+    pkill-wait $argv
+    fork $argv
+end
 
-function remove-go-package {
-    go clean -i "$@"...
-}
+function remove-go-package
+    go clean -i $argv...
+end
 
-function setup-new-project {
+function setup-new-project
     license-gen mit > LICENSE
     keep-a-changelog
     hub init
     hub add .
     hub commit -m "Initial commit"
-    hub create "$@"
+    hub create $argv
     hub push -u origin master
-}
+end
 
 alias show-pacman-history="grep -i installed /var/log/pacman.log"
 
-function upgrade-all {
+function upgrade-all
     upgrade-yay
     # TODO: antigen update
     rustup update
@@ -103,48 +105,48 @@ function upgrade-all {
     yarn global upgrade
     npm update -g
     upgrade-pip --user
-}
+end
 
-function upgrade-pip {
-    if [[ $1 == "--user" ]]; then
+function upgrade-pip
+    if $argv[1] == "--user"
         pip list --outdated --format=freeze --user | grep -v "^\-e" | cut -d = -f 1 | xargs -n1 pip install -U --user
     else
         pip list --outdated --format=freeze | grep -v "^\-e" | cut -d = -f 1 | xargs -n1 pip install -U
-    fi
-}
+    end
+end
 
-function upgrade-system {
+function upgrade-system
     yay -Syu --noconfirm --needed --devel --mflags "--nocheck"
-}
+end
 
 
 # Runtime configuration {{{1
 
-function laptop-screen {
-    swaymsg output eDP-1 "$@"
-}
+function laptop-screen
+    swaymsg output eDP-1 $argv
+end
 
-function new-wallpaper {
-    folder_path=$HOME/Drive/images/desktop_wallpapers/other
-    image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
+function new-wallpaper
+    set folder_path $HOME/Drive/images/desktop_wallpapers/other
+    set image_path (fd . --full-path --type f $folder_path | shuf -n 1)
     swaymsg output "*" bg "$image_path" fill
     # swaybg --image "$image_path" --mode fill
     echo \"$image_path\" > ~/.wallpaper
-}
+end
 
-function reload-settings {
-    if swaymsg -t get_outputs | grep -q "HDMI-A-1" ; then
+function reload-settings
+    if swaymsg -t get_outputs | grep -q "HDMI-A-1"
         laptop-screen disable
     else
         laptop-screen enable
-    fi
+    end
 
     systemctl --user restart mako
     systemctl --user restart waybar
     systemctl --user restart evscript
-}
+end
 
-function startup {
+function startup
     systemctl --user import-environment
     systemctl --user start sway-session.target
 
@@ -155,7 +157,7 @@ function startup {
 
     # TODO
     # alacritty -e pymath &
-}
+end
 
 
 # Settings {{{1
@@ -214,15 +216,16 @@ alias fdisk="fdisk --color=always"
 alias cower="cower --color=always"
 alias pactree="pactree -c"
 
-function yay {
-    if [[ "$1" == "-S" ]]; then
-        command yay "$@" --needed --mflags "--nocheck"
-    elif [[ "$1" == "-R" ]]; then
-        command yay "$@" --recursive
-    else
-        command yay "$@"
-    fi
-}
+function yay
+    switch $argv[1]
+        case "-S"
+            command yay $argv --needed --mflags "--nocheck"
+        case "-R"
+            command yay $argv --recursive
+        case '*'
+            command yay $argv
+    end
+end
 
 # alias ll='exa -AhgoF --group-directories-first --color=always'
 # TODO rsync progress1 and 2

@@ -267,7 +267,7 @@ nnoremap <silent> <leader>egc :edit ~/config/.config/git/config<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
 nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
-nnoremap <silent> <leader>esc :edit ~/config/other/shell/commands.sh<CR>
+nnoremap <silent> <leader>esc :edit ~/config/other/shell/commands.fish<CR>
 nnoremap <silent> <leader>ese :edit ~/config/other/shell/env.sh<CR>
 nnoremap <silent> <leader>esr :edit ~/config/.config/fish/config.fish<CR>
 nnoremap <silent> <leader>etr :edit ~/config/.config/alacritty/alacritty.yml<CR>

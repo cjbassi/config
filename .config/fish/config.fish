@@ -1,3 +1,8 @@
+# source {{{1
+
+bash ~/config/other/shell/env.sh
+source ~/config/other/shell/commands.fish
+
 # Settings {{{1
 
 fish_vi_key_bindings
@@ -8,7 +13,7 @@ bind yy fish_clipboard_copy
 bind Y fish_clipboard_copy
 bind p fish_clipboard_paste
 
-## Prompt {{{2
+## Prompt {{{1
 
 set -g theme_color_scheme solarized-dark
 
