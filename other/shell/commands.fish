@@ -62,7 +62,6 @@ function mkcd
     cd $argv
 end
 
-# TODO $UID
 function pkill-wait
     while pgrep -u $UID -x $argv[1] >/dev/null
         sleep 1
