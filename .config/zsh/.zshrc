@@ -110,33 +110,20 @@ fi
 # Colors {{{1
 
 alias ls="ls --color=always"
-
 alias dir="dir --color=always"
 alias vdir="vdir --color=always"
-
 alias grep="grep --color=always"
 alias fgrep="fgrep --color=always"
 alias egrep="egrep --color=always"
 alias pcregrep="pcregrep --color=always"
-
 alias watch="watch --color"
-
 alias diff="diff --color=always"
-
 alias ip="ip -c"
-
 alias dmesg="dmesg --color=always"
-# TODO
-# alias tree='tree -C'
-
-export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
-
 alias fdisk="fdisk --color=always"
-
-# Arch colors
 alias cower="cower --color=always"
 alias pactree="pactree -c"
-
+export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export TLDR_COLOR_BLANK=white
 
 
@@ -145,47 +132,24 @@ export TLDR_COLOR_BLANK=white
 # fzf {{{2
 
 source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
-# TODO
-# zle -N fzf-history-widget
-# zle -N fzf-file-widget
-
-# remove bindings
-bindkey -r '^[c'
-bindkey -M viins -r '^t'
+# remove keybindings
+bindkey -M vicmd -r '^r'  # <Ctrl-r>
+bindkey -M viins -r '^r'  # <Ctrl-r>
+bindkey -M viins -r '^t'  # <Ctrl-t>
 
 bindkey -M vicmd '/' fzf-history-widget
 
-function fzf-helper {
-    if [[ -n ${1// } ]]; then
-        local count=0
-        while read -r line; do
-            if [ $count != 0 ]; then
-                LBUFFER+=" "
-            fi
-            LBUFFER+=\"$line\"
-            count=$((count+1))
-        done <<< "$1"
-    fi
-    zle redisplay
+export FZF_COMPLETION_TRIGGER='**'
+
+_fzf_compgen_path() {
+  fd . "$1"
 }
 
-function fzf-local {
-    local fzf_paths=$(fd | fzf -m)
-    fzf-helper ${fzf_paths}
+_fzf_compgen_dir() {
+  fd --type d . "$1"
 }
-zle -N fzf-local
-bindkey -M vicmd '^f' fzf-local
-bindkey -M viins '^f' fzf-local
-
-function fzf-root {
-    local fzf_paths=$(fd . ~ | fzf -m)
-    fzf-helper ${fzf_paths}
-}
-zle -N fzf-root
-bindkey -M vicmd '^r' fzf-root
-bindkey -M viins '^r' fzf-root
-
 
 # Powerlevel9k {{{2
 
