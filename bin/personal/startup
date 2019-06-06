@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function main {
+    systemctl --user import-environment
+    systemctl --user start sway-session.target
+
+    new-wallpaper
+
+    pamixer --set-volume 30
+    pamixer --default-source --set-volume 100
+
+    # TODO
+    # alacritty -e pymath &
+}
+
+main

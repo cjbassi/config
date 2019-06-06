@@ -40,7 +40,7 @@ Font              | [Hack](https://github.com/source-foundry/Hack)
 
 Category          | Implementation
 ------------------|---------------------------------
-Shell package manager | [Fisher](https://github.com/jorgebucaran/fisher)
+Shell package manager | [fundle](https://github.com/danhper/fundle)
 Resource monitor  | [gotop](https://github.com/cjbassi/gotop)
 Wallpaper manager | [Variety](https://github.com/varietywalls/variety)
 Clipboard manager | [CopyQ](https://github.com/hluk/CopyQ)
@@ -62,4 +62,5 @@ Folder         | Description
 `installation` | scripts to automatically install Arch Linux and setup configurations
 `languages`    | per language lints and compilation settings
 `root`         | global configuration files
+`shell`        | generic shell configurations
 `systemd`      | root and user systemd service files

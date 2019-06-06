@@ -161,13 +161,12 @@ echo "fs.inotify.max_user_watches=524288" \
     | sudo tee /etc/sysctl.d/40-max-user-watches.conf \
     && sudo sysctl --system
 
-~/config/installation/vscode_extensions.sh
+~/config/installation/vscode-extensions.sh
 
 
 # package managers {{{1
 
-fisher  # installs fish shell plugins
-
+fundle install
 
 pip install --user \
     colour-valgrind \
@@ -176,16 +175,14 @@ pip install --user \
     xtermcolor \
     git+https://github.com/cjbassi/{pymath,rofi-{power,copyq,files}}
 
-
 yarn global add \
     serverless \
     typesync \
     create-react-app
 
-
-TRUST="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
+set -l trust_install_url "https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
 function trust-download
-    bash <(curl {$TRUST}) -f --git $args
+    bash <(curl $trust_install_url) -f --git $args
 end
 trust-download cjbassi/batch-rename
 trust-download cjbassi/i3-workspace-groups

@@ -1,13 +1,13 @@
 # Source {{{1
 
 source ~/config/shell/env.fish
-source ~/config/shell/commands.fish
+source ~/config/shell/aliases.fish
 
 
-# plugin manager {{{1
+# Plugin manager {{{1
 
-fundle plugin 'oh-my-fish/theme-bobthefish'
 fundle plugin 'jethrokuan/fzf'
+fundle plugin 'oh-my-fish/theme-bobthefish'
 
 fundle init
 
@@ -16,7 +16,8 @@ fundle init
 
 fish_vi_key_bindings
 
-function fish_greeting; end  # disable fish greeting
+# disable fish greeting
+function fish_greeting; end
 
 # integrate clipboard with vim
 bind yy fish_clipboard_copy
@@ -36,6 +37,9 @@ set -gx UID (id -u)
 
 bind -M insert \t accept-autosuggestion
 bind -M insert \ct __fzf_complete
+
+# TODO
+bind -e -M insert \cj
 
 
 # Plugins {{{1

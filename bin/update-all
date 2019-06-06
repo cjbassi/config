@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function main {
+    yay-update --noconfirm
+    fundle update
+    rustup update
+    cargo install-update -a
+    # go get -u all
+    nvim +PlugUpgrade +PlugUpdate +xall
+    yarn global upgrade
+    npm update -g
+    pip-update --user
+}
+
+main

@@ -49,49 +49,49 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 
-set -gx CARGO_HOME $XDG_DATA_HOME/cargo
-set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
-set -gx CCACHE_DIR $XDG_CACHE_HOME/ccache
-set -gx PYLINTHOME $XDG_CACHE_HOME/pylint
-set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
 set -gx AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
+set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+set -gx CCACHE_DIR $XDG_CACHE_HOME/ccache
 set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+set -gx fundle_plugins_dir $XDG_DATA_HOME/fundle
+set -gx GOPATH $XDG_DATA_HOME/go
 set -gx GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
+set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
+set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+set -gx PSQL_HISTORY $XDG_CACHE_HOME/pg/psql_history
+set -gx PYLINTHOME $XDG_CACHE_HOME/pylint
+set -gx PYTHONUSERBASE $XDG_DATA_HOME/pip
+set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -gx TIGRC_USER $XDG_CONFIG_HOME/tig/tigrc
 set -gx XINITRC $XDG_CONFIG_HOME/X11/xinitrc
 set -gx XSERVERRC $XDG_CONFIG_HOME/X11/xserverrc
-set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
-set -gx TIGRC_USER $XDG_CONFIG_HOME/tig/tigrc
-set -gx PSQL_HISTORY $XDG_CACHE_HOME/pg/psql_history
-set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
-set -gx PYTHONUSERBASE $XDG_DATA_HOME/pip
-set -gx GOPATH $XDG_DATA_HOME/go
+
 set -gx GOBIN $GOPATH/bin
 
 
 # path {{{1
 
-set -gx PATH $PATH $PYTHONUSERBASE/bin
-set -gx PATH $PATH $GOBIN
-set -gx PATH $PATH $XDG_DATA_HOME/npm/bin
-set -gx PATH $PATH $CARGO_HOME/bin
+set -a PATH $PYTHONUSERBASE/bin
+set -a PATH $GOBIN
+set -a PATH $XDG_DATA_HOME/npm/bin
+set -a PATH $CARGO_HOME/bin
 
-set -gx PATH $PATH /usr/bin/vendor_perl # mimeopen/mimetype etc
+set -a PATH /usr/bin/vendor_perl  # mimeopen/mimetype etc
+set -a PATH /usr/lib/ccache/bin/
 
-set -gx PATH $PATH /usr/lib/ccache/bin/
+set -a PATH ~/config/bin/{,personal}
 
 
 # config {{{1
 
 set -gx GCC_COLORS "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
-
-set -gx TLDR_COLOR_BLANK white
-
-# TODO: export RUSTC_WRAPPER=sccache
-set -gx RUST_BACKTRACE 1
-
-set -gx WINIT_HIDPI_FACTOR 1.0 # alacritty
-
 set -gx PIPENV_VENV_IN_PROJECT 1
+set -gx TLDR_COLOR_BLANK white
+set -gx WINIT_HIDPI_FACTOR 1.0  # alacritty
+
+# TODO: set -gx RUSTC_WRAPPER sccache
+set -gx RUST_BACKTRACE 1
 
 set -gx FZF_DEFAULT_OPTS "--height 40% --reverse --border"
 set -gx FZF_FIND_FILE_COMMAND fd

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function main {
+    yay -Syu --needed --devel --mflags "--nocheck" "$@"
+}
+
+main
