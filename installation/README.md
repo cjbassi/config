@@ -13,6 +13,7 @@ File                   | Description
 `pre-install.sh`       | manual commands that initiate the installation process
 `install1.sh`          | installation commands run in the live image
 `install2.sh`          | installation commands run as root after `chroot`ing
-`install3.sh`          | installation commands run as non-root user
+`install3.fish`        | installation commands run as non-root user
+`install.fish`         | commands to run to install/setup fish shell
 `post-install.sh`      | some commands to run after booting into the new installation
 `vscode-extensions.sh` | script that installs all vscode extensions

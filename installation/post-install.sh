@@ -4,6 +4,6 @@ light -S 50
 
 ln -s ~/config ~/Drive/linux/config
 
-cp -f ~/Drive/linux/history $XDG_DATA_HOME/fish/fish_history
+cp -f ~/Drive/linux/history $HISTFILE
 
 ln -sf ~/Drive/linux/.ssh/config ~/.ssh/

@@ -95,8 +95,8 @@ end
 alias show-pacman-history="grep -i installed /var/log/pacman.log"
 
 function upgrade-all
-    upgrade-yay
-    # TODO: antigen update
+    upgrade-system
+    fisher
     rustup update
     cargo install-update -a
     # go get -u all
@@ -115,7 +115,11 @@ function upgrade-pip
 end
 
 function upgrade-system
-    yay -Syu --noconfirm --needed --devel --mflags "--nocheck"
+    upgrade-system-interactive --noconfirm
+end
+
+function upgrade-system-interactive
+    yay -Syu --needed --devel --mflags "--nocheck"
 end
 
 
@@ -168,6 +172,7 @@ alias fd="fd -H --ignore-file ~/.ignore"
 alias ffmpeg='ffmpeg -loglevel warning'
 alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
 alias ll="exa -aFl --group-directories-first --git"
+alias ls="exa"
 alias makepkg="makepkg -si"
 alias ncdu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias ps="ps aux"

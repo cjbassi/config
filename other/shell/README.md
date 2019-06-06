@@ -2,5 +2,6 @@
 
 File               | Description
 -------------------|----------------------------------------------------------------------------------------
-`shell`            | misc shell files
-`evscript.dyon`    | an [evscript](https://github.com/myfreeweb/evscript) script that remaps Capslock to Esc
+`commands.fish`    | aliases and functions
+`env.fish`         | environmental variables
+`fzf-solarized.fish` | solarized theme for fzf

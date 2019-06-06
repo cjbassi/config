@@ -63,6 +63,7 @@ Plug 'honza/vim-snippets'
 
 " syntax {{{2
 
+Plug 'dag/vim-fish'
 Plug 'plasticboy/vim-markdown'
 Plug 'chr4/nginx.vim'
 Plug 'rhysd/vim-gfm-syntax'  " GitHub markdown

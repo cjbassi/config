@@ -21,16 +21,15 @@ function __command_on_cd --on-variable PWD --description 'Run command when direc
     ll
 end
 
-bind \cd 'exit'
+# TODO
+# bind \cd 'exit'
 
 
 # Prompt {{{1
 
 set -gx theme_color_scheme solarized-dark
-
 set -gx theme_date_format "+%H:%M:%S"
 set -gx theme_display_date no
-
 set -gx theme_display_git_ahead_verbose yes
 set -gx theme_display_git_dirty_verbose yes
 set -gx theme_display_git_stashed_verbose yes
@@ -38,12 +37,14 @@ set -gx theme_display_git_stashed_verbose yes
 
 # Variables {{{1
 
-# set -gx UID (id -u)
+set -gx UID (id -u)
 
 set -gx FZF_COMPLETE 0
+set -gx FZF_LEGACY_KEYBINDINGS 0
 
+set -gx HISTFILE $XDG_DATA_HOME/fish/fish_history
 
 # Keybinds {{{1
 
-# bind / '__fzf_reverse_isearch && commandline -f repaint'
-bind -M insert \cf __fzf_find_file
+bind -M insert \t accept-autosuggestion
+bind -M insert \ct __fzf_complete

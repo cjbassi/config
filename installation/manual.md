@@ -4,7 +4,7 @@
   * `code --list-extensions | xargs -L 1 echo code --install-extension > ~/config/installation/vscode-extensions.sh`
   * make sure projects in `~/playground` are synced up to GitHub
   * check home directory for files or data that needs to be backed up
-  * `cp -f $XDG_DATA_HOME/fish/fish_history ~/Drive/linux/history`
+  * `cp -f $HISTFILE ~/Drive/linux/history`
   * push local changes in `~/config`
   * `rm -rf ~/Drive/linux/config`
   * wait for Insync to finish syncing

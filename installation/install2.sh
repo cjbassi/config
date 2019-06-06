@@ -155,8 +155,8 @@ ExecStart=-/usr/bin/agetty --autologin $user --noclear %I \$TERM" \
 # Change to regular user {{{1
 
 cd /home/$user
-curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh" > install3.sh
-su $user ./install3.sh
+curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.fish" > install3.fish
+su $user ./install3.fish
 
 
 # Cleanup {{{1

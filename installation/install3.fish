@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
 setopt globdots
 
@@ -18,11 +18,11 @@ sudo rmdir /mnt/usb
 
 # clone repo {{{1
 
-while [[ ! -d "config" ]]; do
+while ! test -d ~/config
    hub clone cjbassi/config
-done
+end
 
-source ~/config/other/shell/env.sh
+source ~/config/other/shell/env.fish
 
 # Directories {{{1
 
@@ -34,7 +34,7 @@ mkdir -p \
     $XDG_CONFIG_HOME \
     $XDG_STATE_HOME/nvim/{backup,undo,swap} \
     $GOPATH/{bin,pkg,src} \
-    $XDG_DATA_HOME/fish
+    $XDG_DATA_HOME/fish \
     $XDG_DATA_HOME/tig
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
@@ -64,10 +64,10 @@ ln -sf ~/{config/,}.local/share/applications/alacritty.desktop
 
 cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
 
-function symlink-dot-config {
-    mkdir -p ~/.config/"$@"
-    ln -sf ~/config/.config/"$@"/* ~/.config/"$@"
-}
+function symlink-dot-config
+    mkdir -p ~/.config/$args
+    ln -sf ~/config/.config/$args/* ~/.config/$args
+end
 
 symlink-dot-config alacritty
 symlink-dot-config Code/User
@@ -104,9 +104,9 @@ bash <(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-i
 
 yay -R --noconfirm vi
 
-function yay {
-    command yay -S --noconfirm --needed --mflags "--nocheck" "$@"
-}
+function yay
+    command yay -S --noconfirm --needed --mflags "--nocheck" $args
+end
 
 yay \
     neovim-symlinks \
@@ -181,7 +181,9 @@ yarn global add \
 
 
 TRUST="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
-function trust-download { bash <(curl ${TRUST}) -f --git "$@" };
+function trust-download
+    bash <(curl {$TRUST}) -f --git $args
+end
 trust-download cjbassi/batch-rename
 trust-download cjbassi/i3-workspace-groups
 trust-download cjbassi/license-gen
@@ -248,4 +250,4 @@ sudo systemctl mask system-rfkill.socket
 
 # Cleanup {{{1
 
-rm -f .bash_logout .bash_profile .bashrc install3.sh
+rm -f .bash_logout .bash_profile .bashrc install3.fish
