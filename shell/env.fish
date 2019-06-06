@@ -15,6 +15,9 @@ set -gx LC_ALL $LANG
 set -gx INTERNAL_DISPLAY eDP-1
 set -gx EXTERNAL_DISPLAY HDMI-1
 
+set -gx HISTFILE $XDG_DATA_HOME/fish/fish_history
+
+
 # default programs {{{1
 
 set -gx EDITOR nvim
@@ -92,4 +95,4 @@ set -gx PIPENV_VENV_IN_PROJECT 1
 
 set -gx FZF_DEFAULT_OPTS "--height 40% --reverse --border"
 set -gx FZF_FIND_FILE_COMMAND fd
-source ~/config/other/shell/fzf-solarized.fish
+source ~/config/shell/fzf-solarized.fish

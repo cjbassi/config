@@ -165,6 +165,21 @@ end
 
 # Settings {{{1
 
+alias ls="ls --color=always"
+alias dir="dir --color=always"
+alias vdir="vdir --color=always"
+alias grep="grep --color=always"
+alias fgrep="fgrep --color=always"
+alias egrep="egrep --color=always"
+alias pcregrep="pcregrep --color=always"
+alias watch="watch --color"
+alias diff="diff --color=always"
+alias ip="ip -c"
+alias dmesg="dmesg --color=always"
+alias fdisk="fdisk --color=always"
+alias cower="cower --color=always"
+alias pactree="pactree -c"
+
 alias bat="bat -p"
 alias batch-rename="batch-rename -v"
 alias dmesg="dmesg -T"
@@ -204,21 +219,6 @@ alias ls=exa
 alias pager=$PAGER
 alias zless=$PAGER
 alias less=$PAGER
-
-alias ls="ls --color=always"
-alias dir="dir --color=always"
-alias vdir="vdir --color=always"
-alias grep="grep --color=always"
-alias fgrep="fgrep --color=always"
-alias egrep="egrep --color=always"
-alias pcregrep="pcregrep --color=always"
-alias watch="watch --color"
-alias diff="diff --color=always"
-alias ip="ip -c"
-alias dmesg="dmesg --color=always"
-alias fdisk="fdisk --color=always"
-alias cower="cower --color=always"
-alias pactree="pactree -c"
 
 function yay
     switch $argv[1]

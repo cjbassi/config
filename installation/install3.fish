@@ -119,7 +119,7 @@ yay \
     cht.sh \
     discord \
     evscript-git \
-    fisher \
+    fundle-git \
     git-extras-git \
     google-chrome \
     gotop-bin \
@@ -164,7 +164,10 @@ echo "fs.inotify.max_user_watches=524288" \
 ~/config/installation/vscode_extensions.sh
 
 
-# language package managers {{{1
+# package managers {{{1
+
+fisher  # installs fish shell plugins
+
 
 pip install --user \
     colour-valgrind \

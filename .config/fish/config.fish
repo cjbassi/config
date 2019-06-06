@@ -1,7 +1,15 @@
-# source {{{1
+# Source {{{1
 
-source ~/config/other/shell/env.fish
-source ~/config/other/shell/commands.fish
+source ~/config/shell/env.fish
+source ~/config/shell/commands.fish
+
+
+# plugin manager {{{1
+
+fundle plugin 'oh-my-fish/theme-bobthefish'
+fundle plugin 'jethrokuan/fzf'
+
+fundle init
 
 
 # Settings {{{1
@@ -21,11 +29,18 @@ function __command_on_cd --on-variable PWD --description 'Run command when direc
     ll
 end
 
-# TODO
-# bind \cd 'exit'
+set -gx UID (id -u)
 
 
-# Prompt {{{1
+# Keybinds {{{1
+
+bind -M insert \t accept-autosuggestion
+bind -M insert \ct __fzf_complete
+
+
+# Plugins {{{1
+
+# bobthefish {{{2
 
 set -gx theme_color_scheme solarized-dark
 set -gx theme_date_format "+%H:%M:%S"
@@ -34,17 +49,7 @@ set -gx theme_display_git_ahead_verbose yes
 set -gx theme_display_git_dirty_verbose yes
 set -gx theme_display_git_stashed_verbose yes
 
-
-# Variables {{{1
-
-set -gx UID (id -u)
+# fzf {{{2
 
 set -gx FZF_COMPLETE 0
 set -gx FZF_LEGACY_KEYBINDINGS 0
-
-set -gx HISTFILE $XDG_DATA_HOME/fish/fish_history
-
-# Keybinds {{{1
-
-bind -M insert \t accept-autosuggestion
-bind -M insert \ct __fzf_complete
