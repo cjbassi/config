@@ -18,7 +18,7 @@ sudo rmdir /mnt/usb
 
 # clone repo {{{1
 
-while ! test -d ~/config
+while not test -d ~/config
    hub clone cjbassi/config
 end
 
