@@ -22,7 +22,7 @@ while not test -d ~/config
    hub clone cjbassi/config
 end
 
-source ~/config/other/shell/env.fish
+source ~/config/shell/env.fish
 
 # Directories {{{1
 
