@@ -147,7 +147,7 @@ alias zless=$PAGER
 alias df=pydf
 alias git=hub
 alias ls=exa
-alias tree="exa -T"
+alias tree="exa --tree --ignore-glob .git"
 alias valgrind=colour-valgrind
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main {
-    folder_path=$HOME/Drive/images/desktop_wallpapers/other
+    folder_path=$HOME/Drive/images/desktop-wallpapers/other
     image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
     swaymsg output "*" bg "$image_path" fill
     # swaybg --image "$image_path" --mode fill

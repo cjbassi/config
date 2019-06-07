@@ -63,5 +63,3 @@
     r = reset
     rh = reset --hard
     rb = rebase -i --rebase-merges
-
-    fzf = !git add $(git ls-files --modified --others --exclude-standard | fzf -m)
