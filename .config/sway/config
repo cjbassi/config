@@ -10,7 +10,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+space floating toggle
 
 
-# meta_keys {{{2
+# meta keys {{{2
 
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioRaiseVolume exec pamixer -i 5 --allow-boost
@@ -138,6 +138,8 @@ bindsym $mod+Shift+Control+g exec i3-workspace-groups rename-group
 font pango:Hack 12px
 
 seat "*" hide_cursor 5000
+
+# TODO: inhibit_idle fullscreen
 
 # window {{{2
 

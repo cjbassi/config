@@ -10,4 +10,4 @@ function main {
     $pip_list_command | grep -v "^\-e" | cut -d = -f 1 | $pip_install_command
 }
 
-main
+main "$@"

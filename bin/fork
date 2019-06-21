@@ -4,4 +4,4 @@ function main {
     nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }
 
-main
+main "$@"

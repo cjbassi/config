@@ -168,6 +168,7 @@ pacstrap /mnt                       \
     strace                          \
     sxiv                            \
     tig                             \
+    time                            \
     tk                              \
     tokei                           \
     udiskie                         \

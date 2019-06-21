@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 function main {
-    if swaymsg -t get_outputs | grep -q "HDMI-A-1"
-        laptop-screen disable
+    if swaymsg -t get_outputs | grep -q $EXTERNAL_DISPLAY; then
+        swaymsg output $INTERNAL_DISPLAY disable
     else
-        laptop-screen enable
+        swaymsg output $INTERNAL_DISPLAY enable
     fi
 
     systemctl --user restart mako
@@ -12,4 +12,4 @@ function main {
     systemctl --user restart evscript
 }
 
-main
+main "$@"

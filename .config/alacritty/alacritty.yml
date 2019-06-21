@@ -36,7 +36,8 @@ font:
     y: 0
   use_thin_strokes: true
 
-render_timer: false
+debug:
+  render_timer: false
 
 colors:
   # Base16 Solarized Dark 256 - alacritty color config

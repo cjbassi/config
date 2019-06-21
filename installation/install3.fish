@@ -116,6 +116,7 @@ yay \
     sway-git
 
 yay \
+    bash-pipes \
     cht.sh \
     discord \
     evscript-git \
@@ -137,7 +138,9 @@ yay \
     teiler-git \
     texlive-latexindent-meta \
     tmpreaper \
+    tty-clock \
     udiskie-dmenu-git \
+    unimatrix-git \
     vimclip-git \
     visual-studio-code-bin \
     waybar-git
@@ -198,6 +201,7 @@ trust-download cjbassi/trash-man
 #     cargo-update \
 # loop
 # cargo-release
+# dua
 
 
 # neovim {{{1

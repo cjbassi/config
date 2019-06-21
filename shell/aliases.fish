@@ -49,9 +49,14 @@ alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash empty 30 --no-confirm"
 
 alias fork-term="fork alacritty --working-directory ."
-alias laptop-screen="swaymsg output eDP-1"
+alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
 alias pg="ping google.com -c 1"
 alias show-pacman-history="grep -i installed /var/log/pacman.log"
+
+function mkcd
+    mkdir -p $argv
+    cd $argv
+end
 
 
 # Settings {{{1
@@ -80,6 +85,7 @@ alias batch-rename="batch-rename -v"
 alias ln="ln -v"
 alias mkdir="mkdir -v"
 alias mv="mv -v"
+alias rm="rm -v"
 
 function trash
     if count $argv > 0 && test $argv[1] = "put"
@@ -125,6 +131,9 @@ alias ncdu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias rg="rg -S"
 alias rsync="rsync --progress"
 alias sshfs="sshfs -C -o reconnect"
+alias time="time -p"
+alias tty-clock="tty-clock -c"
+alias unimatrix="unimatrix -s 94"
 
 function yay
     switch $argv[1]

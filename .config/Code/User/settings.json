@@ -82,7 +82,6 @@
         "markdown",
         "text",
     ],
-    "cSpell.showStatus": false,
     "cSpell.userWords": [
         "incentivizes",
         "repo",
@@ -181,5 +180,6 @@
         { "before": [ "p", ], "after": [ "p", "g", "v", "y" ] },
         { "before": [ ">" ], "commands": [ { "command": "editor.action.indentLines" } ] },
         { "before": [ "<" ], "commands": [ { "command": "editor.action.outdentLines" } ] },
-    ]
+    ],
+    "cSpell.showStatus": false
 }

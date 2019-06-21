@@ -4,4 +4,4 @@ function main {
     go clean -i "$@"...
 }
 
-main
+main "$@"

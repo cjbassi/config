@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-function main {
-    mkdir -p "$@"
-    cd "$@"
-}
-
-main

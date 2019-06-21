@@ -13,7 +13,7 @@ set -gx LC_ALL $LANG
 # custom {{{1
 
 set -gx INTERNAL_DISPLAY eDP-1
-set -gx EXTERNAL_DISPLAY HDMI-1
+set -gx EXTERNAL_DISPLAY HDMI-A-1
 
 set -gx HISTFILE $XDG_DATA_HOME/fish/fish_history
 
@@ -90,7 +90,7 @@ set -gx PIPENV_VENV_IN_PROJECT 1
 set -gx TLDR_COLOR_BLANK white
 set -gx WINIT_HIDPI_FACTOR 1.0  # alacritty
 
-# TODO: set -gx RUSTC_WRAPPER sccache
+set -gx RUSTC_WRAPPER sccache
 set -gx RUST_BACKTRACE 1
 
 set -gx FZF_DEFAULT_OPTS "--height 40% --reverse --border"
