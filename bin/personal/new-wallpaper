@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 function main {
-    folder_path=$HOME/Drive/images/desktop-wallpapers/other
-    image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
-    swaymsg output "*" bg "$image_path" fill
-    # swaybg --image "$image_path" --mode fill
-    echo \"$image_path\" > ~/.wallpaper
+	folder_path=$HOME/Drive/images/desktop-wallpapers/other
+	image_path=$(fd . --full-path --type f $folder_path | shuf -n 1)
+	swaymsg output "*" bg "$image_path" fill
+	# swaybg --image "$image_path" --mode fill
+	echo \"$image_path\" > ~/.wallpaper
 }
 
 main "$@"

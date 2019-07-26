@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 function main {
-    killall -q "$@"
-    pkill-and-wait "$@"
-    fork "$@"
+	killall -q "$@"
+	pkill-and-wait "$@"
+	fork "$@"
 }
 
 main "$@"

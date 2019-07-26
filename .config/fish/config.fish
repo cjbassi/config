@@ -26,8 +26,8 @@ bind p fish_clipboard_paste
 
 # https://github.com/fish-shell/fish-shell/issues/583
 function __command_on_cd --on-variable PWD --description 'Run command when directory changes'
-    status --is-command-substitution; and return
-    ll
+	status --is-command-substitution; and return
+	ll
 end
 
 set -gx UID (id -u)

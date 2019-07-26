@@ -1,7 +1,7 @@
 <div align='center'>
-    <a href='https://raw.githubusercontent.com/cjbassi/config/master/screenshot1.png'>
-        <img src='./screenshot.png' />
-    </a>
+	<a href='https://raw.githubusercontent.com/cjbassi/config/master/screenshot1.png'>
+		<img src='./screenshot.png' />
+	</a>
 </div>
 
 ## Folders

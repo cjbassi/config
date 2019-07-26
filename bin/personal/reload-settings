@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 function main {
-    if swaymsg -t get_outputs | grep -q $EXTERNAL_DISPLAY; then
-        swaymsg output $INTERNAL_DISPLAY disable
-    else
-        swaymsg output $INTERNAL_DISPLAY enable
-    fi
+	if swaymsg -t get_outputs | grep -q $EXTERNAL_DISPLAY; then
+		swaymsg output $INTERNAL_DISPLAY disable
+	else
+		swaymsg output $INTERNAL_DISPLAY enable
+	fi
 
-    systemctl --user restart mako
-    systemctl --user restart waybar
-    systemctl --user restart evscript
+	systemctl --user restart mako
+	systemctl --user restart waybar
+	systemctl --user restart evscript
 }
 
 main "$@"

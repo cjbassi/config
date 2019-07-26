@@ -2,7 +2,7 @@
 
 
 function main {
-    cat - "$@" | sponge "$@"
+	cat - "$@" | sponge "$@"
 }
 
 main "$@"

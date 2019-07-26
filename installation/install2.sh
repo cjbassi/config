@@ -34,10 +34,10 @@ echo "arch" > /etc/hostname
 # Passwords {{{2
 
 while : ; do
-    read -p "Please give password: " password
-    read -p "Please repeat password: " password2
-    [[ $password != $password2 ]] || break
-    echo "Passwords do not match"
+	read -p "Please give password: " password
+	read -p "Please repeat password: " password2
+	[[ $password != $password2 ]] || break
+	echo "Passwords do not match"
 done
 
 # Root password

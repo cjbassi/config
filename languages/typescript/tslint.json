@@ -1,24 +1,24 @@
 {
-    "extends": [
-        "tslint:recommended",
-        "tslint-react",
-        "tslint-config-prettier"
-    ],
-    "linterOptions": {
-        "exclude": [
-            "config/**/*.js",
-            "node_modules/**/*.ts"
-        ]
-    },
-    "rules": {
-        "arrow-parens": true,
-        "jsx-no-lambda": false,
-        "member-ordering": false,
-        "no-console": false,
-        "object-literal-sort-keys": false,
-        "only-arrow-functions": [true, "allow-declarations"],
-        "quotemark": [true, "single"],
-        "semicolon": [true, "always"],
-        "trailing-comma": [true, {"multiline": "always", "singleline": "never"}]
-    }
+	"extends": [
+		"tslint:recommended",
+		"tslint-react",
+		"tslint-config-prettier"
+	],
+	"linterOptions": {
+		"exclude": [
+			"config/**/*.js",
+			"node_modules/**/*.ts"
+		]
+	},
+	"rules": {
+		"arrow-parens": true,
+		"jsx-no-lambda": false,
+		"member-ordering": false,
+		"no-console": false,
+		"object-literal-sort-keys": false,
+		"only-arrow-functions": [true, "allow-declarations"],
+		"quotemark": [true, "single"],
+		"semicolon": [true, "always"],
+		"trailing-comma": [true, {"multiline": "always", "singleline": "never"}]
+	}
 }

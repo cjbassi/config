@@ -27,15 +27,15 @@ source ~/config/shell/env.fish
 # Directories {{{1
 
 mkdir -p \
-    ~/Downloads \
-    ~/Drive \
-    ~/playground \
-    ~/playground/{my-projects,other-projects,packages,school,test} \
-    $XDG_CONFIG_HOME \
-    $XDG_STATE_HOME/nvim/{backup,undo,swap} \
-    $GOPATH/{bin,pkg,src} \
-    $XDG_DATA_HOME/fish \
-    $XDG_DATA_HOME/tig
+	~/Downloads \
+	~/Drive \
+	~/playground \
+	~/playground/{my-projects,other-projects,packages,school,test} \
+	$XDG_CONFIG_HOME \
+	$XDG_STATE_HOME/nvim/{backup,undo,swap} \
+	$GOPATH/{bin,pkg,src} \
+	$XDG_DATA_HOME/fish \
+	$XDG_DATA_HOME/tig
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
 
@@ -65,8 +65,8 @@ ln -sf ~/{config/,}.local/share/applications/alacritty.desktop
 cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
 
 function symlink-dot-config
-    mkdir -p ~/.config/$args
-    ln -sf ~/config/.config/$args/* ~/.config/$args
+	mkdir -p ~/.config/$args
+	ln -sf ~/config/.config/$args/* ~/.config/$args
 end
 
 symlink-dot-config alacritty
@@ -105,43 +105,43 @@ bash <(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-i
 yay -R --noconfirm vi
 
 function yay
-    command yay -S --noconfirm --needed --mflags "--nocheck" $args
+	command yay -S --noconfirm --needed --mflags "--nocheck" $args
 end
 
 yay \
-    neovim-symlinks \
-    pandoc-bin \
-    rofi-dmenu \
-    sccache-bin
+	neovim-symlinks \
+	pandoc-bin \
+	rofi-dmenu \
+	sccache-bin
 
 yay \
-    bash-pipes \
-    cht.sh \
-    discord \
-    evscript-git \
-    fundle-git \
-    git-extras-git \
-    google-chrome \
-    gotop-bin \
-    imgurbash2-git \
-    insync \
-    ncurses5-compat-libs \
-    nerd-fonts-complete \
-    network-manager-applet-indicator \
-    networkmanager-dmenu \
-    nvimpager-git \
-    raven-reader-bin \
-    redshift-wayland-git \
-    spotify \
-    swaylock-blur-bin \
-    teiler-git \
-    texlive-latexindent-meta \
-    tmpreaper \
-    tty-clock \
-    udiskie-dmenu-git \
-    unimatrix-git \
-    vimclip-git \
-    visual-studio-code-bin
+	bash-pipes \
+	cht.sh \
+	discord \
+	evscript-git \
+	fundle-git \
+	git-extras-git \
+	google-chrome \
+	gotop-bin \
+	imgurbash2-git \
+	insync \
+	ncurses5-compat-libs \
+	nerd-fonts-complete \
+	network-manager-applet-indicator \
+	networkmanager-dmenu \
+	nvimpager-git \
+	raven-reader-bin \
+	redshift-wayland-git \
+	spotify \
+	swaylock-blur-bin \
+	teiler-git \
+	texlive-latexindent-meta \
+	tmpreaper \
+	tty-clock \
+	udiskie-dmenu-git \
+	unimatrix-git \
+	vimclip-git \
+	visual-studio-code-bin
 
 # TODO
 # loop
@@ -159,8 +159,8 @@ ln -sfn $XDG_DATA_HOME/{nvim,nvimpager}
 # vscode {{{2
 
 echo "fs.inotify.max_user_watches=524288" \
-    | sudo tee /etc/sysctl.d/40-max-user-watches.conf \
-    && sudo sysctl --system
+	| sudo tee /etc/sysctl.d/40-max-user-watches.conf \
+	&& sudo sysctl --system
 
 ~/config/installation/vscode-extensions.sh
 
@@ -170,20 +170,20 @@ echo "fs.inotify.max_user_watches=524288" \
 fundle install
 
 pip install --user \
-    colour-valgrind \
-    grip \
-    wpm \
-    xtermcolor \
-    git+https://github.com/cjbassi/{pymath,rofi-{power,copyq,files}}
+	colour-valgrind \
+	grip \
+	wpm \
+	xtermcolor \
+	git+https://github.com/cjbassi/{pymath,rofi-{power,copyq,files}}
 
 yarn global add \
-    serverless \
-    typesync \
-    create-react-app
+	serverless \
+	typesync \
+	create-react-app
 
 set -l trust_install_url "https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
 function trust-download
-    bash <(curl $trust_install_url) -f --git $args
+	bash <(curl $trust_install_url) -f --git $args
 end
 trust-download cjbassi/batch-rename
 trust-download cjbassi/i3-workspace-groups
@@ -205,7 +205,7 @@ trust-download cjbassi/trash-man
 # neovim {{{1
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 nvim +PlugInstall +xall
 
@@ -213,34 +213,34 @@ nvim +PlugInstall +xall
 # systemd {{{1
 
 systemctl --user enable \
-    blueman-applet \
-    copyq \
-    discord \
-    evscript \
-    insync \
+	blueman-applet \
+	copyq \
+	discord \
+	evscript \
+	insync \
 	kdeconnect-indicator \
-    mako \
-    nm-applet \
-    opensnitch-ui \
-    pasystray \
-    recover-youtube-videos.timer \
-    redshift-gtk \
-    riot-desktop \
-    swayidle \
-    udiskie \
-    variety \
-    waybar
+	mako \
+	nm-applet \
+	opensnitch-ui \
+	pasystray \
+	recover-youtube-videos.timer \
+	redshift-gtk \
+	riot-desktop \
+	swayidle \
+	udiskie \
+	variety \
+	waybar
 
 sudo systemctl enable \
-    kill-sshfs-on-suspend \
-    lockscreen-on-suspend@$USER \
-    reload-settings-on-wake@$USER \
-    \
-    bluetooth \
-    docker \
-    NetworkManager \
-    opensnitchd \
-    systemd-timesyncd
+	kill-sshfs-on-suspend \
+	lockscreen-on-suspend@$USER \
+	reload-settings-on-wake@$USER \
+	\
+	bluetooth \
+	docker \
+	NetworkManager \
+	opensnitchd \
+	systemd-timesyncd
 
 sudo systemctl mask tmp.mount  # disables tmpfs
 

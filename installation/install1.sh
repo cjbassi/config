@@ -28,9 +28,9 @@ rm -rf /mnt
 
 # Update mirrorlist
 curl "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4" |
-    sed -e "/#Server/s/^# *//" |
-    rankmirrors - \
-    > /etc/pacman.d/mirrorlist
+	sed -e "/#Server/s/^# *//" |
+	rankmirrors - \
+	> /etc/pacman.d/mirrorlist
 
 # Sync database and update keyring
 # performs a partial upgrade on the live image
@@ -38,155 +38,155 @@ pacman -Sy archlinux-keyring --noconfirm
 
 # Install packages
 pacstrap /mnt                       \
-    base                            \
-    base-devel                      \
+	base                            \
+	base-devel                      \
 \
-    xorg                            \
+	xorg                            \
 \
-    pulseaudio                      \
-    pulseaudio-alsa                 \
-    alsa-utils                      \
+	pulseaudio                      \
+	pulseaudio-alsa                 \
+	alsa-utils                      \
 \
-    blueman                         \
-    pulseaudio-bluetooth            \
-    bluez                           \
-    bluez-libs                      \
-    bluez-utils                     \
+	blueman                         \
+	pulseaudio-bluetooth            \
+	bluez                           \
+	bluez-libs                      \
+	bluez-utils                     \
 \
-    tlp                             \
-    x86_energy_perf_policy          \
-    acpi_call                       \
-    tp_smapi                        \
-\
-\
-    mono                            \
-    jdk8-openjdk                    \
-    php                             \
-\
-    go                              \
-    go-tools                        \
-\
-    gdb                             \
-    valgrind                        \
-    clang                           \
-\
-    nodejs                          \
-    yarn                            \
-    npm                             \
-\
-    python                          \
-    python-pip                      \
-    python-jedi                     \
-    python-pylint                   \
-    python-pytest                   \
-    python-rope                     \
-    python-pipenv                   \
-    mypy                            \
-    twine                           \
-    python-wheel                    \
-    autopep8                        \
-    flake8                          \
-\
-    rustup                          \
-    cargo                           \
-    rust-racer                      \
-\
-    astyle                          \
-    cmake                           \
-    tidy                            \
+	tlp                             \
+	x86_energy_perf_policy          \
+	acpi_call                       \
+	tp_smapi                        \
 \
 \
-    ttf-dejavu                      \
-    ttf-hack                        \
-    noto-fonts-emoji                \
-    awesome-terminal-fonts          \
-    ttf-freefont                    \
-    ttf-arphic-uming                \
-    ttf-indic-otf                   \
-    adobe-source-han-sans-otc-fonts \
+	mono                            \
+	jdk8-openjdk                    \
+	php                             \
 \
-    networkmanager                  \
-    network-manager-applet          \
+	go                              \
+	go-tools                        \
 \
-    unzip                           \
-    zip                             \
-    p7zip                           \
+	gdb                             \
+	valgrind                        \
+	clang                           \
 \
-    gnome-keyring                   \
-    libsecret                       \
+	nodejs                          \
+	yarn                            \
+	npm                             \
 \
-    alacritty                       \
-    bat                             \
-    breeze-gtk                      \
-    calibre                         \
-    ccache                          \
-    copyq                           \
-    docker                          \
-    exa                             \
-    fd                              \
-    fish                            \
-    fuse                            \
-    fzf                             \
-    gimp                            \
-    git                             \
-    gnupg                           \
-    grim                            \
-    httpie                          \
-    hub                             \
-    inotify-tools                   \
-    jq                              \
+	python                          \
+	python-pip                      \
+	python-jedi                     \
+	python-pylint                   \
+	python-pytest                   \
+	python-rope                     \
+	python-pipenv                   \
+	mypy                            \
+	twine                           \
+	python-wheel                    \
+	autopep8                        \
+	flake8                          \
+\
+	rustup                          \
+	cargo                           \
+	rust-racer                      \
+\
+	astyle                          \
+	cmake                           \
+	tidy                            \
+\
+\
+	ttf-dejavu                      \
+	ttf-hack                        \
+	noto-fonts-emoji                \
+	awesome-terminal-fonts          \
+	ttf-freefont                    \
+	ttf-arphic-uming                \
+	ttf-indic-otf                   \
+	adobe-source-han-sans-otc-fonts \
+\
+	networkmanager                  \
+	network-manager-applet          \
+\
+	unzip                           \
+	zip                             \
+	p7zip                           \
+\
+	gnome-keyring                   \
+	libsecret                       \
+\
+	alacritty                       \
+	bat                             \
+	breeze-gtk                      \
+	calibre                         \
+	ccache                          \
+	copyq                           \
+	docker                          \
+	exa                             \
+	fd                              \
+	fish                            \
+	fuse                            \
+	fzf                             \
+	gimp                            \
+	git                             \
+	gnupg                           \
+	grim                            \
+	httpie                          \
+	hub                             \
+	inotify-tools                   \
+	jq                              \
 	kdeconnect						\
-    krita                           \
-    libreoffice                     \
-    light                           \
-    lsof                            \
-    mako                            \
-    moreutils                       \
-    ncdu                            \
-    neofetch                        \
-    neovim                          \
-        python-neovim               \
-    openssh                         \
-    pacman-contrib                  \
-    pamixer                         \
-    parted                          \
-    pasystray                       \
-    pavucontrol                     \
-    perl-file-mimeinfo              \
-    playerctl                       \
-    postgresql                      \
-    pydf                            \
-    qbittorrent                     \
-    reflector                       \
-    riot-desktop                    \
-    ripgrep                         \
-    rofi                            \
-    rsync                           \
+	krita                           \
+	libreoffice                     \
+	light                           \
+	lsof                            \
+	mako                            \
+	moreutils                       \
+	ncdu                            \
+	neofetch                        \
+	neovim                          \
+		python-neovim               \
+	openssh                         \
+	pacman-contrib                  \
+	pamixer                         \
+	parted                          \
+	pasystray                       \
+	pavucontrol                     \
+	perl-file-mimeinfo              \
+	playerctl                       \
+	postgresql                      \
+	pydf                            \
+	qbittorrent                     \
+	reflector                       \
+	riot-desktop                    \
+	ripgrep                         \
+	rofi                            \
+	rsync                           \
 	skim							\
-    slurp                           \
-    sshfs                           \
-    strace                          \
+	slurp                           \
+	sshfs                           \
+	strace                          \
 	sway							\
 	swaybg							\
 	swayidle						\
 	swaylock						\
-    sxiv                            \
-    tig                             \
-    time                            \
-    tk                              \
-    tokei                           \
-    udiskie                         \
-    variety                         \
-    vlc                             \
+	sxiv                            \
+	tig                             \
+	time                            \
+	tk                              \
+	tokei                           \
+	udiskie                         \
+	variety                         \
+	vlc                             \
 	waybar							\
-    wget                            \
-    whois                           \
-    xclip                           \
-    xorg-xeyes                      \
-    xsel                            \
-    xterm                           \
-    youtube-dl                      \
-    zathura-pdf-mupdf
+	wget                            \
+	whois                           \
+	xclip                           \
+	xorg-xeyes                      \
+	xsel                            \
+	xterm                           \
+	youtube-dl                      \
+	zathura-pdf-mupdf
 
 # TODO
 
@@ -198,10 +198,10 @@ pacstrap /mnt                       \
 # adobe-source-han-sans-jp-fonts
 # ttf-sazanami
 
-    # redshift                        \
-    #     python-gobject              \
-    #     python-xdg                  \
-    #     librsvg                     \
+	# redshift                        \
+	#     python-gobject              \
+	#     python-xdg                  \
+	#     librsvg                     \
 
 
 # Chroot {{{1

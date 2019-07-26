@@ -25,7 +25,7 @@ alias mr="make run"
 
 alias cra=create-react-app
 function crat
-    create-react-app $argv --typescript
+	create-react-app $argv --typescript
 end
 
 alias cb="cargo build"
@@ -54,8 +54,8 @@ alias pg="ping google.com -c 1"
 alias show-pacman-history="grep -i installed /var/log/pacman.log"
 
 function mkcd
-    mkdir -p $argv
-    cd $argv
+	mkdir -p $argv
+	cd $argv
 end
 
 
@@ -88,11 +88,11 @@ alias mv="mv -v"
 alias rm="rm -v"
 
 function trash
-    if count $argv > 0 && test $argv[1] = "put"
-        command trash put -v $argv[2..-1]
-    else
-        command trash $argv
-    end
+	if count $argv > 0 && test $argv[1] = "put"
+		command trash put -v $argv[2..-1]
+	else
+		command trash $argv
+	end
 end
 
 # Human readable {{{2
@@ -136,14 +136,14 @@ alias tty-clock="tty-clock -c"
 alias unimatrix="unimatrix -s 94"
 
 function yay
-    switch $argv[1]
-        case "-S"
-            command yay $argv --needed --mflags "--nocheck"
-        case "-R"
-            command yay $argv --recursive
-        case '*'
-            command yay $argv
-    end
+	switch $argv[1]
+		case "-S"
+			command yay $argv --needed --mflags "--nocheck"
+		case "-R"
+			command yay $argv --recursive
+		case '*'
+			command yay $argv
+	end
 end
 
 

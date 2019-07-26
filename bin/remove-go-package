@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main {
-    go clean -i "$@"...
+	go clean -i "$@"...
 }
 
 main "$@"

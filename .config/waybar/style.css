@@ -1,61 +1,61 @@
 * {
-    font-size: 20px;
-    font-family: monospace;
+	font-size: 20px;
+	font-family: monospace;
 }
 
 window#waybar {
-    background: #292b2e;
-    color: #fdf6e3;
+	background: #292b2e;
+	color: #fdf6e3;
 }
 
 #custom-right-arrow-dark, #custom-left-arrow-dark {
-    color: #1a1a1a;
+	color: #1a1a1a;
 }
 #custom-right-arrow-light, #custom-left-arrow-light {
-    color: #292b2e;
-    background: #1a1a1a;
+	color: #292b2e;
+	background: #1a1a1a;
 }
 
 #workspaces, #clock.1, #clock.2, #clock.3, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery, #tray {
-    background: #1a1a1a;
+	background: #1a1a1a;
 }
 
 #workspaces button {
-    padding: 0 2px;
-    color: #fdf6e3;
+	padding: 0 2px;
+	color: #fdf6e3;
 }
 #workspaces button.focused {
-    color: #268bd2;
+	color: #268bd2;
 }
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
+	box-shadow: inherit;
+	text-shadow: inherit;
 }
 #workspaces button:hover {
-    background: #1a1a1a;
-    border: #1a1a1a;
-    padding: 0 3px;
+	background: #1a1a1a;
+	border: #1a1a1a;
+	padding: 0 3px;
 }
 
 #pulseaudio {
-    color: #268bd2;
+	color: #268bd2;
 }
 #backlight {
-    color: #b58900
+	color: #b58900
 }
 #memory {
-    color: #2aa198;
+	color: #2aa198;
 }
 #temperature {
-    color: #b58900
+	color: #b58900
 }
 #cpu {
-    color: #6c71c4;
+	color: #6c71c4;
 }
 #battery {
-    color: #859900;
+	color: #859900;
 }
 
 #clock, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery {
-    padding: 0 10px;
+	padding: 0 10px;
 }

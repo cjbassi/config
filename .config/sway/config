@@ -157,17 +157,17 @@ smart_gaps on
 # devices {{{2
 
 input type:touchpad {
-    events disabled
+	events disabled
 }
 
 input type:keyboard {
-    repeat_delay 400
-    repeat_rate 25
-    xkb_options ctrl:nocaps
+	repeat_delay 400
+	repeat_rate 25
+	xkb_options ctrl:nocaps
 }
 
 input type:pointer {
-    accel_profile flat
+	accel_profile flat
 }
 
 

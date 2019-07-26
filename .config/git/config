@@ -1,65 +1,65 @@
 # vim:ft=gitconfig
 
 [user]
-    name = Caleb Bassi
-    email = calebjbassi@gmail.com
+	name = Caleb Bassi
+	email = calebjbassi@gmail.com
 
 [core]
-    editor = nvim
-    pager = nvimpager
+	editor = nvim
+	pager = nvimpager
 
 [diff]
-    tool = code
+	tool = code
 [difftool]
-    prompt = false
+	prompt = false
 
 [merge]
-    tool = code
-    conflictstyle = diff3
+	tool = code
+	conflictstyle = diff3
 	ff = false
 [mergetool]
-    prompt = false
+	prompt = false
 
 [push]
 	followTags = true
 [pull]
-    rebase = merges
+	rebase = merges
 
 [color]
-    ui = auto
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
-    pager = false
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	pager = false
 [color "branch"]
-    current = yellow bold
-    local = green bold
-    remote = cyan bold
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
 [color "diff"]
-    meta = yellow bold
-    frag = cyan bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+	meta = yellow bold
+	frag = cyan bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [color "status"]
-    added = green bold
-    changed = yellow bold
-    untracked = red bold
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
 
 [alias]
-    a = add
-    c = commit
-    cm = commit -m
-    ca = commit --amend
-    cah = commit --amend -C HEAD
-    s = status
-    d = diff
-    ps = push
-    pl = pull
-    cl = clone
-    ch = checkout
-    m = merge
-    r = reset
-    rh = reset --hard
-    rb = rebase -i --rebase-merges
+	a = add
+	c = commit
+	cm = commit -m
+	ca = commit --amend
+	cah = commit --amend -C HEAD
+	s = status
+	d = diff
+	ps = push
+	pl = pull
+	cl = clone
+	ch = checkout
+	m = merge
+	r = reset
+	rh = reset --hard
+	rb = rebase -i --rebase-merges

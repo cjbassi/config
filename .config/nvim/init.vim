@@ -36,7 +36,7 @@ Plug 'junegunn/fzf.vim'
 " Git {{{2
 
 Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rhubarb'
+	Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/github-complete.vim'
 
@@ -79,11 +79,11 @@ Plug 'cjbassi/i3-vim-syntax'
 " textobjects {{{2
 
 Plug 'kana/vim-textobj-user'
-  Plug 'michaeljsmith/vim-indent-object'
-  Plug 'coderifous/textobj-word-column.vim'
-  Plug 'kana/vim-textobj-entire'
-  Plug 'glts/vim-textobj-comment'
-  Plug 'kana/vim-textobj-function'
+	Plug 'michaeljsmith/vim-indent-object'
+	Plug 'coderifous/textobj-word-column.vim'
+	Plug 'kana/vim-textobj-entire'
+	Plug 'glts/vim-textobj-comment'
+	Plug 'kana/vim-textobj-function'
 
 " utilities {{{2
 
@@ -103,10 +103,10 @@ Plug 'chrisbra/Colorizer'
 Plug 'kshenoy/vim-signature'  " shows marks
 Plug 'chriskempson/base16-vim'
 Plug 'kana/vim-operator-user'
-  Plug 'haya14busa/vim-operator-flashy'
+	Plug 'haya14busa/vim-operator-flashy'
 Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'ntpeters/vim-airline-colornum'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'ntpeters/vim-airline-colornum'
 
 " }}}
 
@@ -333,9 +333,9 @@ nnoremap <silent> o o<Esc>
 
 nnoremap <silent> O :<C-u>exe "normal! " . v:count . "O" \| :call O_fixer(v:count)<CR>
 function! O_fixer(count)
-  if a:count > 0
-    :exe "normal! " . (a:count - 1) . "k"
-  endif
+	if a:count > 0
+		:exe "normal! " . (a:count - 1) . "k"
+	endif
 endfunction
 
 
@@ -438,7 +438,7 @@ autocmd VimResized,TabEnter * wincmd =
 " diff {{{2
 
 if &diff
-  highlight! link DiffText MatchParen
+	highlight! link DiffText MatchParen
 endif
 
 set diffopt+=vertical
@@ -539,31 +539,31 @@ imap <C-f> <plug>(fzf-complete-path)
 
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit' }
+			\ 'ctrl-t': 'tab split',
+			\ 'ctrl-s': 'split',
+			\ 'ctrl-v': 'vsplit' }
 
 function! s:fzf_statusline()
-  highlight fzf1 guifg=normal guibg=#002b36
-  highlight fzf2 guifg=normal guibg=#002b36
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
+	highlight fzf1 guifg=normal guibg=#002b36
+	highlight fzf2 guifg=normal guibg=#002b36
+	setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
 endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 let g:fzf_colors =
-      \ { 'fg':      ['#839496'],
-      \ 'bg':      ['#002b36'],
-      \ 'hl':      ['#268bd2'],
-      \ 'fg+':     ['#eee8d5'],
-      \ 'bg+':     ['#073642'],
-      \ 'hl+':     ['#268bd2'],
-      \ 'info':    ['#b58900'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['#b58900'],
-      \ 'pointer': ['#2aa198'],
-      \ 'marker':  ['#2aa198'],
-      \ 'spinner': ['#2aa198'],
-      \ 'header':  ['#268bd2'] }
+			\ { 'fg':      ['#839496'],
+			\ 'bg':      ['#002b36'],
+			\ 'hl':      ['#268bd2'],
+			\ 'fg+':     ['#eee8d5'],
+			\ 'bg+':     ['#073642'],
+			\ 'hl+':     ['#268bd2'],
+			\ 'info':    ['#b58900'],
+			\ 'border':  ['fg', 'Ignore'],
+			\ 'prompt':  ['#b58900'],
+			\ 'pointer': ['#2aa198'],
+			\ 'marker':  ['#2aa198'],
+			\ 'spinner': ['#2aa198'],
+			\ 'header':  ['#268bd2'] }
 
 
 " overlength.vim {{{2
@@ -588,8 +588,8 @@ let g:snips_author = "cjbassi"
 let g:ultisnips_python_style = "google"
 
 let g:ultisnips_javascript = {
-      \ 'semi': 'never',
-      \ }
+			\ 'semi': 'never',
+			\ }
 
 autocmd FileType snippets set foldlevel=0
 
@@ -618,9 +618,9 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#fnamecollapse = 1
 
 let g:airline#extensions#default#layout = [
-      \ [ 'a', 'b', 'c' ],
-      \ [ 'x', 'y', 'z', 'error', 'warning' ]
-      \ ]
+			\ [ 'a', 'b', 'c' ],
+			\ [ 'x', 'y', 'z', 'error', 'warning' ]
+			\ ]
 
 
 " let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
@@ -642,8 +642,8 @@ let g:airline#extensions#promptline#enabled = 1
 " vim-auto-origami {{{2
 
 augroup autofoldcolumn
-  au!
-  au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+	au!
+	au FileWritePost,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
 augroup END
 
 
@@ -739,28 +739,28 @@ let g:operator#flashy#group = get(g:, 'operator#flashy#group', 'TermCursor')
 " vim-signature  {{{2
 
 let g:SignatureMap = {
-      \ 'Leader'             :  "m",
-      \ 'PlaceNextMark'      :  "m,",
-      \ 'ToggleMarkAtLine'   :  "m.",
-      \ 'PurgeMarksAtLine'   :  "m-",
-      \ 'DeleteMark'         :  "dm",
-      \ 'PurgeMarks'         :  "m<Space>",
-      \ 'PurgeMarkers'       :  "m<BS>",
-      \ 'GotoNextLineAlpha'  :  "",
-      \ 'GotoPrevLineAlpha'  :  "",
-      \ 'GotoNextSpotAlpha'  :  "`]",
-      \ 'GotoPrevSpotAlpha'  :  "`[",
-      \ 'GotoNextLineByPos'  :  "]'",
-      \ 'GotoPrevLineByPos'  :  "['",
-      \ 'GotoNextSpotByPos'  :  "]`",
-      \ 'GotoPrevSpotByPos'  :  "[`",
-      \ 'GotoNextMarker'     :  "]-",
-      \ 'GotoPrevMarker'     :  "[-",
-      \ 'GotoNextMarkerAny'  :  "]=",
-      \ 'GotoPrevMarkerAny'  :  "[=",
-      \ 'ListBufferMarks'    :  "m/",
-      \ 'ListBufferMarkers'  :  "m?"
-      \ }
+			\ 'Leader'             :  "m",
+			\ 'PlaceNextMark'      :  "m,",
+			\ 'ToggleMarkAtLine'   :  "m.",
+			\ 'PurgeMarksAtLine'   :  "m-",
+			\ 'DeleteMark'         :  "dm",
+			\ 'PurgeMarks'         :  "m<Space>",
+			\ 'PurgeMarkers'       :  "m<BS>",
+			\ 'GotoNextLineAlpha'  :  "",
+			\ 'GotoPrevLineAlpha'  :  "",
+			\ 'GotoNextSpotAlpha'  :  "`]",
+			\ 'GotoPrevSpotAlpha'  :  "`[",
+			\ 'GotoNextLineByPos'  :  "]'",
+			\ 'GotoPrevLineByPos'  :  "['",
+			\ 'GotoNextSpotByPos'  :  "]`",
+			\ 'GotoPrevSpotByPos'  :  "[`",
+			\ 'GotoNextMarker'     :  "]-",
+			\ 'GotoPrevMarker'     :  "[-",
+			\ 'GotoNextMarkerAny'  :  "]=",
+			\ 'GotoPrevMarkerAny'  :  "[=",
+			\ 'ListBufferMarks'    :  "m/",
+			\ 'ListBufferMarkers'  :  "m?"
+			\ }
 
 
 " vim-smooth-scroll {{{2

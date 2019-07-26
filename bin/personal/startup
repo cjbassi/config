@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 function main {
-    systemctl --user import-environment
-    systemctl --user start sway-session.target
+	systemctl --user import-environment
+	systemctl --user start sway-session.target
 
-    new-wallpaper
+	new-wallpaper
 
-    pamixer --set-volume 35
-    pamixer --default-source --set-volume 100
+	pamixer --set-volume 35
+	pamixer --default-source --set-volume 100
 
-    # TODO
-    # alacritty -e pymath &
+	# TODO
+	# alacritty -e pymath &
 }
 
 main "$@"

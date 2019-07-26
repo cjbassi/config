@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main {
-    nohup "$@" </dev/null >/dev/null 2>&1 & disown
+	nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }
 
 main "$@"
