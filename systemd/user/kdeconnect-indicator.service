@@ -2,8 +2,7 @@
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=discord
-ExecStop=kill $MAINPID
+ExecStart=kdeconnect-indicator
 
 [Install]
 WantedBy=graphical-session.target

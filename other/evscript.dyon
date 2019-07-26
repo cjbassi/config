@@ -1,12 +1,12 @@
 //! [events]
-//! keys = ['ESC', 'LEFTSHIFT', '9', '0']
+//! keys = ['ESC', 'LEFTSHIFT', '9', '0', 'SPACE']
 fn main() ~ evdevs, uinput {
     should_esc := false
     loop {
         events := next_events(evdevs)
         for i len(events) {
             event := events[i]
-            xcape(mut should_esc, event, KEY_LEFTCTRL(), [KEY_ESC()])
+            xcape(mut should_esc, event, KEY_LEFTALT(), [KEY_ESC()])
         }
     }
 }

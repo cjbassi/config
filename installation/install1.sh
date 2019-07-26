@@ -42,7 +42,6 @@ pacstrap /mnt                       \
     base-devel                      \
 \
     xorg                            \
-    xorg-xinit                      \
 \
     pulseaudio                      \
     pulseaudio-alsa                 \
@@ -136,6 +135,7 @@ pacstrap /mnt                       \
     hub                             \
     inotify-tools                   \
     jq                              \
+	kdeconnect						\
     krita                           \
     libreoffice                     \
     light                           \
@@ -157,15 +157,19 @@ pacstrap /mnt                       \
     postgresql                      \
     pydf                            \
     qbittorrent                     \
-    qt4                             \
     reflector                       \
     riot-desktop                    \
     ripgrep                         \
     rofi                            \
     rsync                           \
+	skim							\
     slurp                           \
     sshfs                           \
     strace                          \
+	sway							\
+	swaybg							\
+	swayidle						\
+	swaylock						\
     sxiv                            \
     tig                             \
     time                            \
@@ -174,6 +178,7 @@ pacstrap /mnt                       \
     udiskie                         \
     variety                         \
     vlc                             \
+	waybar							\
     wget                            \
     whois                           \
     xclip                           \

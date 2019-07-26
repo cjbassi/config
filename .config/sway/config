@@ -38,7 +38,9 @@ bindsym $mod+e exec $terminal -e nvim
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $browser --incognito
 
-bindsym $mod+grave exec "rofi -show run -modi run,ssh"
+bindsym $mod+grave exec rofi -show run -modi run,ssh
+bindsym $mod+d exec sleep 1h && notify-send -t 0 'Break time'
+bindsym $mod+y exec makoctl dismiss
 
 
 # wm {{{2

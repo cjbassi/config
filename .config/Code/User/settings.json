@@ -181,5 +181,12 @@
         { "before": [ ">" ], "commands": [ { "command": "editor.action.indentLines" } ] },
         { "before": [ "<" ], "commands": [ { "command": "editor.action.outdentLines" } ] },
     ],
-    "cSpell.showStatus": false
+    "cSpell.showStatus": false,
+    "prettier.useTabs": true,
+    "prettier.jsxSingleQuote": true,
+    "editor.insertSpaces": false,
+    "vetur.format.options.useTabs": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

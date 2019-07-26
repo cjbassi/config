@@ -112,8 +112,7 @@ yay \
     neovim-symlinks \
     pandoc-bin \
     rofi-dmenu \
-    sccache-bin \
-    sway-git
+    sccache-bin
 
 yay \
     bash-pipes \
@@ -131,9 +130,9 @@ yay \
     network-manager-applet-indicator \
     networkmanager-dmenu \
     nvimpager-git \
+    raven-reader-bin \
     redshift-wayland-git \
     spotify \
-    swaybg-git \
     swaylock-blur-bin \
     teiler-git \
     texlive-latexindent-meta \
@@ -142,8 +141,7 @@ yay \
     udiskie-dmenu-git \
     unimatrix-git \
     vimclip-git \
-    visual-studio-code-bin \
-    waybar-git
+    visual-studio-code-bin
 
 # TODO
 # loop
@@ -220,6 +218,7 @@ systemctl --user enable \
     discord \
     evscript \
     insync \
+	kdeconnect-indicator \
     mako \
     nm-applet \
     opensnitch-ui \

@@ -4,20 +4,18 @@ root = true
 end_of_line = lf
 charset = utf-8
 insert_final_newline = true
-
-indent_style = space
+indent_style = tab
 indent_size = 4
-
 trim_trailing_whitespace = true
 
 [*.{js,jsx,ts,tsx,html,php,vim,toml,yml}]
 indent_size = 2
 
+[*.rs]
+indent_style = spaces
+
+[Makefile,*.go]
+indent_style = tab
+
 [*.md]
 trim_trailing_whitespace = false
-
-[Makefile]
-indent_style = tab
-
-[*.go]
-indent_style = tab
