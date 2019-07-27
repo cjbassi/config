@@ -8,15 +8,27 @@ window#waybar {
 	color: #fdf6e3;
 }
 
-#custom-right-arrow-dark, #custom-left-arrow-dark {
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
 	color: #1a1a1a;
 }
-#custom-right-arrow-light, #custom-left-arrow-light {
+#custom-right-arrow-light,
+#custom-left-arrow-light {
 	color: #292b2e;
 	background: #1a1a1a;
 }
 
-#workspaces, #clock.1, #clock.2, #clock.3, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery, #tray {
+#workspaces,
+#clock.1,
+#clock.2,
+#clock.3,
+#pulseaudio,
+#backlight,
+#memory,
+#cpu,
+#temperature,
+#battery,
+#tray {
 	background: #1a1a1a;
 }
 
@@ -41,13 +53,13 @@ window#waybar {
 	color: #268bd2;
 }
 #backlight {
-	color: #b58900
+	color: #b58900;
 }
 #memory {
 	color: #2aa198;
 }
 #temperature {
-	color: #b58900
+	color: #b58900;
 }
 #cpu {
 	color: #6c71c4;
@@ -56,6 +68,12 @@ window#waybar {
 	color: #859900;
 }
 
-#clock, #pulseaudio, #backlight, #memory, #cpu, #temperature, #battery {
+#clock,
+#pulseaudio,
+#backlight,
+#memory,
+#cpu,
+#temperature,
+#battery {
 	padding: 0 10px;
 }

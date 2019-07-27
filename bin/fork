@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Starts a process that is completely independant from the original parent process
+
 function main {
 	nohup "$@" </dev/null >/dev/null 2>&1 & disown
 }

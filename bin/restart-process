@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Requires pkill-and-wait
+
 function main {
 	killall -q "$@"
 	pkill-and-wait "$@"

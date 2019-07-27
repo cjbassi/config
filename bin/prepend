@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Prepends text to a file
+# Requires moreutils
+
 function main {
 	cat - "$@" | sponge "$@"
 }
