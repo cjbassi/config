@@ -11,8 +11,8 @@ trim_trailing_whitespace = true
 [*.{js,jsx,ts,tsx,html,php,vim,toml,yml,json}]
 indent_size = 2
 
-[*.rs,alacritty.yml]
-indent_style = spaces
+[*.{rs,yml}]
+indent_style = space
 
 [Makefile,*.go]
 indent_style = tab

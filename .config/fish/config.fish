@@ -57,10 +57,3 @@ set -gx theme_display_git_stashed_verbose yes
 
 set -gx FZF_COMPLETE 0
 set -gx FZF_LEGACY_KEYBINDINGS 0
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/cjbassi/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish ]; and . /home/cjbassi/.local/share/yarn/global/node_modules/tabtab/.completions/serverless.fish
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /home/cjbassi/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish ]; and . /home/cjbassi/.local/share/yarn/global/node_modules/tabtab/.completions/sls.fish

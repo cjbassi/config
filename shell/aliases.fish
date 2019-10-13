@@ -51,7 +51,7 @@ alias clean-trash="trash empty 30 --no-confirm"
 alias fork-term="fork alacritty --working-directory ."
 alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
 alias pg="ping google.com -c 1"
-alias show-pacman-history="grep -i installed /var/log/pacman.log"
+alias show-install-history="grep -i installed /var/log/pacman.log"
 
 function mkcd
 	mkdir -p $argv

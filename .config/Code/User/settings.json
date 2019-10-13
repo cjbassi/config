@@ -12,14 +12,14 @@
 	"editor.formatOnPaste": true,
 	"editor.glyphMargin": false,
 	"editor.gotoLocation.multiple": "goto",
-	"editor.hideCursorInOverviewRuler": false,
 	"editor.insertSpaces": false,
 	"editor.lightbulb.enabled": true,
-	"editor.minimap.enabled": false,
-	"editor.occurrencesHighlight": false,
+	"editor.minimap.showSlider": "always",
 	"editor.overviewRulerBorder": true,
 	"editor.renderIndentGuides": false,
 	"editor.renderWhitespace": "boundary",
+	// "editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.vertical": "hidden",
 	"editor.scrollBeyondLastLine": false,
 	"editor.smoothScrolling": true,
 	"editor.tabCompletion": "off",
@@ -72,6 +72,9 @@
 	"[markdown]": {
 		"editor.formatOnSave": false,
 	},
+	"[yaml]": {
+		"editor.formatOnSave": false,
+	},
 
 // extensions
 
@@ -119,7 +122,7 @@
 	"prettier.useTabs": true,
 
 	"python.formatting.autopep8Args": [
-		"--max-line-length=120",
+		"--max-line-length=100"
 	],
 	"python.linting.flake8Enabled": true,
 	"python.linting.mypyEnabled": true,
@@ -184,4 +187,6 @@
 		{ "before": [ ">" ], "commands": [ { "command": "editor.action.indentLines" } ] },
 		{ "before": [ "<" ], "commands": [ { "command": "editor.action.outdentLines" } ] },
 	],
+	"editor.occurrencesHighlight": false,
+	"python.formatting.provider": "none",
 }

@@ -9,6 +9,10 @@ set $browser google-chrome-stable
 floating_modifier $mod normal
 bindsym $mod+Shift+space floating toggle
 
+# Mouse {{{2
+
+# bindsym --whole-window BTN_SIDE seat seat0 cursor press BTN_MIDDLE; seat seat0 cursor release BTN_MIDDLE
+
 
 # meta keys {{{2
 
@@ -161,9 +165,10 @@ input type:touchpad {
 }
 
 input type:keyboard {
+	xkb_options ctrl:nocaps
+
 	repeat_delay 400
 	repeat_rate 25
-	xkb_options ctrl:nocaps
 }
 
 input type:pointer {

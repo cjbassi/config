@@ -141,7 +141,8 @@ yay \
 	udiskie-dmenu-git \
 	unimatrix-git \
 	vimclip-git \
-	visual-studio-code-bin
+	visual-studio-code-bin \
+	zoom
 
 # TODO
 # loop
@@ -199,7 +200,7 @@ trust-download cjbassi/trash-man
 #     cargo-update \
 # loop
 # cargo-release
-# dua
+# dua-cli
 
 
 # neovim {{{1

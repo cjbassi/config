@@ -104,9 +104,9 @@ Plug 'kshenoy/vim-signature'  " shows marks
 Plug 'chriskempson/base16-vim'
 Plug 'kana/vim-operator-user'
 	Plug 'haya14busa/vim-operator-flashy'
-Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'ntpeters/vim-airline-colornum'
+" Plug 'vim-airline/vim-airline'
+" 	Plug 'vim-airline/vim-airline-themes'
+" 	Plug 'ntpeters/vim-airline-colornum'
 
 " }}}
 
@@ -119,25 +119,25 @@ syntax enable
 set background=dark
 set termguicolors
 
-colorscheme base16-solarized-dark
-
-" changes some default colors for base16-solarized
-call g:Base16hi("String",         "2aa198", "", "", "", "", "")
-call g:Base16hi("Identifier",     "268bd2", "", "", "", "", "")
-call g:Base16hi("Statement",      "b58900", "", "", "", "NONE", "") " bolded
-call g:Base16hi("Type",           "268bd2", "", "", "", "", "")
-call g:Base16hi("Special",        "dc322f", "", "", "", "", "")
-call g:Base16hi("Delimiter",      "dc322f", "", "", "", "", "")
-call g:Base16hi("Conditional",    "859900", "", "", "", "", "")
-call g:Base16hi("Keyword",        "859900", "", "", "", "", "")
-call g:Base16hi("Todo",           "d33682", "NONE", "", "", "Bold", "")
-
-call g:Base16hi("Error",          "dc322f", "", "", "", "", "")
-
-call g:Base16hi("pythonOperator", "859900", "", "", "", "", "")
-call g:Base16hi("pythonRepeat",   "859900", "", "", "", "", "")
-call g:Base16hi("pythonInclude",  "859900", "", "", "", "", "")
-call g:Base16hi("pythonStatement","859900", "", "", "", "", "")
+" colorscheme base16-solarized-dark
+"
+" " changes some default colors for base16-solarized
+" call g:Base16hi("String",         "2aa198", "", "", "", "", "")
+" call g:Base16hi("Identifier",     "268bd2", "", "", "", "", "")
+" call g:Base16hi("Statement",      "b58900", "", "", "", "NONE", "") " bolded
+" call g:Base16hi("Type",           "268bd2", "", "", "", "", "")
+" call g:Base16hi("Special",        "dc322f", "", "", "", "", "")
+" call g:Base16hi("Delimiter",      "dc322f", "", "", "", "", "")
+" call g:Base16hi("Conditional",    "859900", "", "", "", "", "")
+" call g:Base16hi("Keyword",        "859900", "", "", "", "", "")
+" call g:Base16hi("Todo",           "d33682", "NONE", "", "", "Bold", "")
+"
+" call g:Base16hi("Error",          "dc322f", "", "", "", "", "")
+"
+" call g:Base16hi("pythonOperator", "859900", "", "", "", "", "")
+" call g:Base16hi("pythonRepeat",   "859900", "", "", "", "", "")
+" call g:Base16hi("pythonInclude",  "859900", "", "", "", "", "")
+" call g:Base16hi("pythonStatement","859900", "", "", "", "", "")
 
 set cursorline
 
@@ -596,41 +596,41 @@ autocmd FileType snippets set foldlevel=0
 
 " vim-airline {{{2
 
-let g:airline_powerline_fonts = 1
-let g:airline_inactive_collapse = 0
-let g:airline_theme='solarized'
+" let g:airline_powerline_fonts = 1
+" let g:airline_inactive_collapse = 0
+" let g:airline_theme='solarized'
 " let g:airline_theme='base16_solarized'
-let g:airline_solarized_bg='dark'
+" let g:airline_solarized_bg='dark'
 " let g:solarized_base16=1
 
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline#extensions#whitespace#enabled = 0
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_splits = 1
-let g:airline#extensions#tabline#show_tab_nr = 1
-
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#fnamecollapse = 1
-
-let g:airline#extensions#default#layout = [
-			\ [ 'a', 'b', 'c' ],
-			\ [ 'x', 'y', 'z', 'error', 'warning' ]
-			\ ]
-
-
-" let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
-" let g:airline_section_c = airline#section#create(['%{system(\'pwd\')}'])
-
-let g:airline_section_y = airline#section#create([' ', '%02c'])
-let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
-
-let airline#extensions#promptline#snapshot_file = "~/.promptline.sh"
-let g:airline#extensions#promptline#enabled = 1
+" let g:airline#extensions#wordcount#enabled = 0
+" let g:airline#extensions#whitespace#enabled = 0
+"
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 0
+" let g:airline#extensions#tabline#tab_min_count = 2
+" let g:airline#extensions#tabline#show_close_button = 0
+" let g:airline#extensions#tabline#show_tab_type = 0
+" let g:airline#extensions#tabline#show_splits = 1
+" let g:airline#extensions#tabline#show_tab_nr = 1
+"
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#fnamecollapse = 1
+"
+" let g:airline#extensions#default#layout = [
+" 			\ [ 'a', 'b', 'c' ],
+" 			\ [ 'x', 'y', 'z', 'error', 'warning' ]
+" 			\ ]
+"
+"
+" " let g:airline_section_c = airline#section#create(['%{expand ("%:~")}'])
+" " let g:airline_section_c = airline#section#create(['%{system(\'pwd\')}'])
+"
+" let g:airline_section_y = airline#section#create([' ', '%02c'])
+" let g:airline_section_z = airline#section#create(['☰  ', "%{printf('%03d/%03d', line('.'),  line('$'))}"])
+"
+" let airline#extensions#promptline#snapshot_file = "~/.promptline.sh"
+" let g:airline#extensions#promptline#enabled = 1
 
 
 " vim-asterisk{{{2

@@ -80,7 +80,7 @@ pacstrap /mnt \
 	python-pylint \
 	python-pytest \
 	python-rope \
-	python-pipenv \
+	poetry \
 	mypy \
 	twine \
 	python-wheel \
