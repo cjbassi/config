@@ -125,7 +125,6 @@ pacstrap /mnt \
 	docker \
 	exa \
 	fd \
-	fish \
 	fuse \
 	fzf \
 	gimp \
@@ -183,6 +182,8 @@ pacstrap /mnt \
 	wget \
 	whois \
 	xclip \
+	xonsh \
+		python-prompt_toolkit \
 	xorg-xeyes \
 	xsel \
 	xterm \

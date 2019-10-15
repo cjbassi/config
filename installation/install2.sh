@@ -90,7 +90,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 user=cjbassi
 
-useradd -m -G wheel -s $(which fish) $user
+useradd -m -G wheel -s $(which xonsh) $user
 echo "$user:$password" | chpasswd
 
 usermod -a -G docker $user # can run docker commands
@@ -155,8 +155,8 @@ ExecStart=-/usr/bin/agetty --autologin $user --noclear %I \$TERM" \
 # Change to regular user {{{1
 
 cd /home/$user
-curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.fish" > install3.fish
-su $user ./install3.fish
+curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.xsh" > install3.xsh
+su $user ./install3.xsh
 
 
 # Cleanup {{{1

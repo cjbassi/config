@@ -1,7 +1,7 @@
 ### Files
 
-File               | Description
--------------------|----------------------------------------------------------------------------------------
-`aliases.fish`     | shell aliases
-`env.fish`          | environmental variables
-`fzf-solarized.fish` | solarized theme for fzf
+File                | Description
+--------------------|------------------------
+`aliases.xsh`       | shell aliases
+`env.xsh`           | environmental variables
+`fzf-solarized.xsh` | solarized theme for fzf
