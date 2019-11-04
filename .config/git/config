@@ -6,7 +6,7 @@
 
 [core]
 	editor = nvim
-	pager = diff-so-fancy | nvimpager
+	pager = ~/delta --dark
 
 [diff]
 	tool = code
@@ -61,6 +61,7 @@
 	cah = commit --amend -C HEAD
 	s = status
 	d = diff
+	f = fetch
 	ps = push
 	pl = pull
 	cl = clone

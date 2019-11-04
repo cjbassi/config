@@ -1,6 +1,6 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
-setopt globdots
+shopt -s dotglob
 
 # keys {{{1
 
@@ -18,11 +18,10 @@ sudo rmdir /mnt/usb
 
 # clone repo {{{1
 
-while not test -d ~/config
-   hub clone cjbassi/config
-end
+while [[ ! -d "~/config" ]]; do
+	hub clone cjbassi/config
+done
 
-source ~/config/shell/env.fish
 
 # Directories {{{1
 
@@ -64,10 +63,10 @@ ln -sf ~/{config/,}.local/share/applications/alacritty.desktop
 
 cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
 
-function symlink-dot-config
-	mkdir -p ~/.config/$args
-	ln -sf ~/config/.config/$args/* ~/.config/$args
-end
+function symlink-dot-config {
+	mkdir -p ~/.config/"$@"
+	ln -sf ~/config/.config/"$@"/* ~/.config/"$@"
+}
 
 symlink-dot-config alacritty
 symlink-dot-config Code/User
@@ -75,6 +74,7 @@ symlink-dot-config fish
 symlink-dot-config git
 symlink-dot-config gtk-2.0
 symlink-dot-config gtk-3.0
+symlink-dot-config mako
 symlink-dot-config npm
 symlink-dot-config nvim
 symlink-dot-config opensnitch
@@ -90,23 +90,21 @@ symlink-dot-config zathura
 
 # rust {{{1
 
-rustup install stable
+rustup set profile complete
+rustup install stable nightly
 rustup default stable
-
-rustup install nightly
-
-rustup component add clippy
 
 
 # AUR {{{1
 
-bash <(curl https://raw.githubusercontent.com/cjbassi/yay-installer/master/yay-installer) bin
+# install yay-bin
+bash <(curl https://raw.githubusercontent.com/cjbassi/aur-installer/master/aur-installer) yay-bin
 
 yay -R --noconfirm vi
 
-function yay
-	command yay -S --noconfirm --needed --mflags "--nocheck" $args
-end
+function yay {
+	command yay -S --noconfirm --needed --mflags "--nocheck" "$@"
+}
 
 yay \
 	neovim-symlinks \
@@ -118,6 +116,7 @@ yay \
 	bash-pipes \
 	cht.sh \
 	discord \
+	earlyoom \
 	evscript-git \
 	fundle-git \
 	git-extras-git \
@@ -159,10 +158,12 @@ ln -sfn $XDG_DATA_HOME/{nvim,nvimpager}
 
 # vscode {{{2
 
+# https://github.com/flathub/com.visualstudio.code/issues/29
 echo "fs.inotify.max_user_watches=524288" \
 	| sudo tee /etc/sysctl.d/40-max-user-watches.conf \
 	&& sudo sysctl --system
 
+# install vscode extensions
 ~/config/installation/vscode-extensions.sh
 
 
@@ -182,29 +183,30 @@ yarn global add \
 	typesync \
 	create-react-app
 
-set -l trust_install_url "https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
-function trust-download
-	bash <(curl $trust_install_url) -f --git $args
-end
+trust_install_url="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
+function trust-download {
+	bash <(curl $trust_install_url) -f --git "$@"
+}
 trust-download cjbassi/batch-rename
 trust-download cjbassi/i3-workspace-groups
 trust-download cjbassi/license-gen
 trust-download cjbassi/random
 trust-download cjbassi/recover-youtube-videos
 trust-download cjbassi/sway-utils
-trust-download cjbassi/trash-man
+trust-download cjbassi/trash-cli
 
 # TODO
-# cargo install \
-#     cargo-edit \
-#     cargo-update \
+# cargo-edit
+# cargo-update
 # loop
 # cargo-release
 # dua-cli
+# delta
 
 
 # neovim {{{1
 
+# install vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -217,6 +219,7 @@ systemctl --user enable \
 	blueman-applet \
 	copyq \
 	discord \
+	earlyoom \
 	evscript \
 	insync \
 	kdeconnect-indicator \
@@ -243,7 +246,8 @@ sudo systemctl enable \
 	opensnitchd \
 	systemd-timesyncd
 
-sudo systemctl mask tmp.mount  # disables tmpfs
+# disables tmpfs
+sudo systemctl mask tmp.mount
 
 # tlp (battery improvements)
 sudo systemctl enable tlp

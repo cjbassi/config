@@ -93,7 +93,8 @@ user=cjbassi
 useradd -m -G wheel -s $(which fish) $user
 echo "$user:$password" | chpasswd
 
-usermod -a -G docker $user # can run docker commands
+# can run docker commands
+usermod -a -G docker $user
 
 
 # Enable members of 'wheel' group to use root {{{2
@@ -155,8 +156,8 @@ ExecStart=-/usr/bin/agetty --autologin $user --noclear %I \$TERM" \
 # Change to regular user {{{1
 
 cd /home/$user
-curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.fish" > install3.fish
-su $user ./install3.fish
+curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install3.sh" > install3.sh
+su $user ./install3.sh
 
 
 # Cleanup {{{1

@@ -2,7 +2,7 @@
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=udiskie --no-automount --tray
+ExecStart=udiskie --no-automount --tray --appindicator
 
 [Install]
 WantedBy=graphical-session.target

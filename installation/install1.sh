@@ -88,7 +88,6 @@ pacstrap /mnt \
 	flake8 \
 \
 	rustup \
-	cargo \
 	rust-racer \
 \
 	astyle \
@@ -135,6 +134,7 @@ pacstrap /mnt \
 	httpie \
 	hub \
 	inotify-tools \
+	iotop \
 	jq \
 	kdeconnect	\
 	krita \

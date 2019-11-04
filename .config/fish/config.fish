@@ -30,12 +30,15 @@ function __command_on_cd --on-variable PWD --description 'Run command when direc
 	ll
 end
 
+# $UID isn't set by default in fish
 set -gx UID (id -u)
 
 
 # Keybinds {{{1
 
+# tab
 bind -M insert \t accept-autosuggestion
+# <C-t>
 bind -M insert \ct __fzf_complete
 
 # TODO

@@ -11,7 +11,7 @@ trim_trailing_whitespace = true
 [*.{js,jsx,ts,tsx,html,php,vim,toml,yml,json}]
 indent_size = 2
 
-[*.{rs,yml}]
+[*.{rs,yml,py}]
 indent_style = space
 
 [Makefile,*.go]

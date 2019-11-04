@@ -9,10 +9,10 @@ encryption  | LUKS on a partition unlocked with a keyphrase
 
 File                   | Description
 -----------------------|------------------------------------------------------------------------
-`manual.md`            | manual instructions to perform before reinstalling and after installing
-`pre-install.sh`       | manual commands that initiate the installation process
-`install1.sh`          | installation commands run in the live image
-`install2.sh`          | installation commands run as root after `chroot`ing
-`install3.fish`        | installation commands run as non-root user
-`post-install.sh`      | some commands to run after booting into the new installation
+`manual.md`            | manual instructions to perform either before reinstalling or after reinstalling
+`pre-install.sh`       | manual commands that initiate the installation process from the live image
+`install1.sh`          | installation script to run from the live image
+`install2.sh`          | installation script to run as root after `chroot`ing
+`install3.sh`          | installation script to run as non-root user
+`post-install.sh`      | script to run after booting into the new installation
 `vscode-extensions.sh` | script that installs all vscode extensions

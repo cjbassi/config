@@ -2,7 +2,7 @@
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=mako
+ExecStart=discord
 
 [Install]
 WantedBy=graphical-session.target

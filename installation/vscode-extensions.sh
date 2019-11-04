@@ -13,12 +13,14 @@ code --install-extension faustinoaq.lex-flex-yacc-bison
 code --install-extension felixfbecker.php-intellisense
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension James-Yu.latex-workshop
+code --install-extension JamesBirtles.svelte-vscode
 code --install-extension jithurjacob.nbpreviewer
 code --install-extension jpoissonnier.vscode-styled-components
 code --install-extension justusadam.language-haskell
 code --install-extension lextudio.restructuredtext
 code --install-extension mikestead.dotenv
 code --install-extension mitaki28.vscode-clang
+code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.python
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.csharp
@@ -26,7 +28,6 @@ code --install-extension ms-vscode.Go
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension msjsdiag.debugger-for-chrome
 code --install-extension octref.vetur
-code --install-extension PeterJausovec.vscode-docker
 code --install-extension platformio.platformio-ide
 code --install-extension redhat.java
 code --install-extension rust-lang.rust

@@ -267,7 +267,7 @@ nnoremap <silent> <leader>eer :edit ~/config/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>egc :edit ~/config/.config/git/config<CR>
 nnoremap <silent> <leader>ei1 :edit ~/config/installation/install1.sh<CR>
 nnoremap <silent> <leader>ei2 :edit ~/config/installation/install2.sh<CR>
-nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.fish<CR>
+nnoremap <silent> <leader>ei3 :edit ~/config/installation/install3.sh<CR>
 nnoremap <silent> <leader>esa :edit ~/config/shell/aliases.fish<CR>
 nnoremap <silent> <leader>ese :edit ~/config/shell/env.fish<CR>
 nnoremap <silent> <leader>esr :edit ~/config/.config/fish/config.fish<CR>
