@@ -155,6 +155,7 @@ pacstrap /mnt \
 	pavucontrol \
 	perl-file-mimeinfo \
 	playerctl \
+	portaudio \
 	postgresql \
 	pydf \
 	qbittorrent \

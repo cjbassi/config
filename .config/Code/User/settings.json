@@ -122,9 +122,6 @@
 	"prettier.tslintIntegration": true,
 	"prettier.useTabs": true,
 
-	"python.formatting.autopep8Args": [
-		"--max-line-length=100"
-	],
 	"python.linting.flake8Enabled": true,
 	"python.linting.mypyEnabled": true,
 	"python.sortImports.args": [
