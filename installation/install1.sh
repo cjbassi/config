@@ -75,7 +75,6 @@ pacstrap /mnt \
 	npm \
 \
 	python \
-	python-pip \
 	python-jedi \
 	python-pylint \
 	python-pytest \

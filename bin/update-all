@@ -8,7 +8,7 @@ function main {
 	nvim +PlugUpgrade +PlugUpdate +xall
 	yarn global upgrade
 	npm update -g
-	pip-update --user
+	pipx upgrade-all
 }
 
 main "$@"

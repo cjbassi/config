@@ -129,6 +129,7 @@ yay \
 	network-manager-applet-indicator \
 	networkmanager-dmenu \
 	nvimpager-git \
+	python-pipx \
 	raven-reader-bin \
 	redshift-wayland-git \
 	spotify \
@@ -171,12 +172,15 @@ echo "fs.inotify.max_user_watches=524288" \
 
 fundle install
 
-pip install --user \
-	colour-valgrind \
-	grip \
-	wpm \
-	xtermcolor \
-	git+https://github.com/cjbassi/{pymath,rofi-{power,copyq,files}}
+pipx install colour-valgrind
+pipx install grip
+pipx install wpm
+pipx install xtermcolor
+# TODO
+# pipx install --spec git+https://github.com/cjbassi/pymath pymath
+pipx install --spec git+https://github.com/cjbassi/rofi-power rofi-power
+pipx install --spec git+https://github.com/cjbassi/rofi-copyq rofi-copyq
+pipx install --spec git+https://github.com/cjbassi/rofi-files rofi-files
 
 yarn global add \
 	serverless \

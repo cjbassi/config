@@ -61,18 +61,19 @@ set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -gx PSQL_HISTORY $XDG_CACHE_HOME/pg/psql_history
 set -gx PYLINTHOME $XDG_CACHE_HOME/pylint
-set -gx PYTHONUSERBASE $XDG_DATA_HOME/pip
+set -gx PIPX_HOME $XDG_DATA_HOME/pipx
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -gx TIGRC_USER $XDG_CONFIG_HOME/tig/tigrc
 set -gx XINITRC $XDG_CONFIG_HOME/X11/xinitrc
 set -gx XSERVERRC $XDG_CONFIG_HOME/X11/xserverrc
 
 set -gx GOBIN $GOPATH/bin
+set -gx PIPX_BIN_DIR $PIPX_HOME/bin
 
 
 # path {{{1
 
-set -a PATH $PYTHONUSERBASE/bin
+set -a PATH $PIPX_BIN_DIR
 set -a PATH $GOBIN
 set -a PATH $XDG_DATA_HOME/npm/bin
 set -a PATH $CARGO_HOME/bin
