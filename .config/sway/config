@@ -87,56 +87,27 @@ bindsym $mod+Shift+minus move scratchpad
 
 bindsym $mod+Tab workspace back_and_forth
 
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
-## i3-workspace-groups {{{3
-
-bindsym $mod+1 exec i3-workspace-groups focus-workspace 1
-bindsym $mod+2 exec i3-workspace-groups focus-workspace 2
-bindsym $mod+3 exec i3-workspace-groups focus-workspace 3
-bindsym $mod+4 exec i3-workspace-groups focus-workspace 4
-bindsym $mod+5 exec i3-workspace-groups focus-workspace 5
-bindsym $mod+6 exec i3-workspace-groups focus-workspace 6
-bindsym $mod+7 exec i3-workspace-groups focus-workspace 7
-bindsym $mod+8 exec i3-workspace-groups focus-workspace 8
-bindsym $mod+9 exec i3-workspace-groups focus-workspace 9
-bindsym $mod+0 exec i3-workspace-groups focus-workspace 10
-
-bindsym $mod+Shift+1 exec i3-workspace-groups move-container-to-workspace 1
-bindsym $mod+Shift+2 exec i3-workspace-groups move-container-to-workspace 2
-bindsym $mod+Shift+3 exec i3-workspace-groups move-container-to-workspace 3
-bindsym $mod+Shift+4 exec i3-workspace-groups move-container-to-workspace 4
-bindsym $mod+Shift+5 exec i3-workspace-groups move-container-to-workspace 5
-bindsym $mod+Shift+6 exec i3-workspace-groups move-container-to-workspace 6
-bindsym $mod+Shift+7 exec i3-workspace-groups move-container-to-workspace 7
-bindsym $mod+Shift+8 exec i3-workspace-groups move-container-to-workspace 8
-bindsym $mod+Shift+9 exec i3-workspace-groups move-container-to-workspace 9
-bindsym $mod+Shift+0 exec i3-workspace-groups move-container-to-workspace 10
-
-bindsym $mod+Control+1 workspace number 1
-bindsym $mod+Control+2 workspace number 2
-bindsym $mod+Control+3 workspace number 3
-bindsym $mod+Control+4 workspace number 4
-bindsym $mod+Control+5 workspace number 5
-bindsym $mod+Control+6 workspace number 6
-bindsym $mod+Control+7 workspace number 7
-bindsym $mod+Control+8 workspace number 8
-bindsym $mod+Control+9 workspace number 9
-bindsym $mod+Control+0 workspace number 10
-
-bindsym $mod+Shift+Control+1 move container to workspace number 1
-bindsym $mod+Shift+Control+2 move container to workspace number 2
-bindsym $mod+Shift+Control+3 move container to workspace number 3
-bindsym $mod+Shift+Control+4 move container to workspace number 4
-bindsym $mod+Shift+Control+5 move container to workspace number 5
-bindsym $mod+Shift+Control+6 move container to workspace number 6
-bindsym $mod+Shift+Control+7 move container to workspace number 7
-bindsym $mod+Shift+Control+8 move container to workspace number 8
-bindsym $mod+Shift+Control+9 move container to workspace number 9
-bindsym $mod+Shift+Control+0 move container to workspace number 10
-
-bindsym $mod+g exec i3-workspace-groups focus-group
-bindsym $mod+Shift+g exec i3-workspace-groups move-container-to-group
-bindsym $mod+Shift+Control+g exec i3-workspace-groups rename-group
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 
 # Settings {{{1

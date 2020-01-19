@@ -190,7 +190,6 @@ function trust-download {
 	bash <(curl $trust_install_url) -f --git "$@"
 }
 trust-download cjbassi/batch-rename
-trust-download cjbassi/i3-workspace-groups
 trust-download cjbassi/license-gen
 trust-download cjbassi/random
 trust-download cjbassi/recover-youtube-videos
