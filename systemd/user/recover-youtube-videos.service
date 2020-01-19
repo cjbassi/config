@@ -1,4 +1,0 @@
-[Service]
-Type=oneshot
-ExecStartPre=sleep 30
-ExecStart=/home/cjbassi/.local/share/cargo/bin/recover-youtube-videos /home/cjbassi/Drive/other/recover-youtube-videos/

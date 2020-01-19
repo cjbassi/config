@@ -192,7 +192,6 @@ function trust-download {
 trust-download cjbassi/batch-rename
 trust-download cjbassi/license-gen
 trust-download cjbassi/random
-trust-download cjbassi/recover-youtube-videos
 trust-download cjbassi/sway-utils
 trust-download cjbassi/trash-cli
 
