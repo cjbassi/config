@@ -37,7 +37,7 @@ Category     | Implementation
 PDF viewer   | Zathura
 Image viewer | [sxiv](https://github.com/muennich/sxiv)
 ePUB viewer  | Calibre
-Video player | TODO
+Video player | VLC
 Office suite | Google Drive and LibreOffice
 
 ### Theme

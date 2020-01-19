@@ -23,11 +23,10 @@ window#waybar {
 #clock.2,
 #clock.3,
 #pulseaudio,
-#backlight,
 #memory,
 #cpu,
-#temperature,
 #battery,
+#disk,
 #tray {
 	background: #1a1a1a;
 }
@@ -52,14 +51,8 @@ window#waybar {
 #pulseaudio {
 	color: #268bd2;
 }
-#backlight {
-	color: #b58900;
-}
 #memory {
 	color: #2aa198;
-}
-#temperature {
-	color: #b58900;
 }
 #cpu {
 	color: #6c71c4;
@@ -67,13 +60,15 @@ window#waybar {
 #battery {
 	color: #859900;
 }
+#disk {
+	color: #b58900;
+}
 
 #clock,
 #pulseaudio,
-#backlight,
 #memory,
 #cpu,
-#temperature,
-#battery {
+#battery,
+#disk {
 	padding: 0 10px;
 }

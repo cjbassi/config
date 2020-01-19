@@ -59,9 +59,12 @@ pacstrap /mnt \
 	tp_smapi \
 \
 \
-	mono \
 	jdk8-openjdk \
 	php \
+\
+	dotnet-sdk
+	dotnet-runtime
+	dotnet-host
 \
 	go \
 	go-tools \
@@ -79,7 +82,7 @@ pacstrap /mnt \
 	python-pylint \
 	python-pytest \
 	python-rope \
-	poetry \
+	python-poetry \
 	mypy \
 	twine \
 	python-wheel \

@@ -6,11 +6,8 @@ function main {
 
 	new-wallpaper
 
-	pamixer --set-volume 35
-	pamixer --default-source --set-volume 100
-
-	# TODO
-	# alacritty -e pymath &
+	pamixer --set-volume 30
+	pamixer --default-source --allow-boost --set-volume 153
 }
 
 main "$@"

@@ -34,10 +34,14 @@ alias ci="cargo install --path . --force"
 alias cr="cargo run --"
 alias ct="cargo test"
 
-alias gr="go run *.go"
-
 
 # New commands {{{1
+
+alias fork-term="fork alacritty --working-directory ."
+alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
+alias pg="ping google.com -c 1"
+alias show-install-history="grep -i installed /var/log/pacman.log"
+alias srcinfo="makepkg --printsrcinfo > .SRCINFO"
 
 alias codediff="code -n -d"
 alias nvimdiff="nvim -d"
@@ -47,11 +51,6 @@ alias sshkey="ssh-keygen -t ed25519 -C \"(whoami)@(hostname)-(date -I)\""
 
 alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash empty 30 --no-confirm"
-
-alias fork-term="fork alacritty --working-directory ."
-alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
-alias pg="ping google.com -c 1"
-alias show-install-history="grep -i installed /var/log/pacman.log"
 
 function mkcd
 	mkdir -p $argv
@@ -77,6 +76,7 @@ alias dmesg="dmesg --color=always"
 alias fdisk="fdisk --color=always"
 alias cower="cower --color=always"
 alias pactree="pactree -c"
+alias ncdu="ncdu --color dark"
 
 # Verbose {{{2
 
@@ -127,7 +127,6 @@ alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --
 alias ll="exa -Fl --group-directories-first --git --icons"
 alias makepkg="makepkg -si"
 alias mkdir="mkdir -p"
-alias ncdu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias rg="rg -S"
 alias rsync="rsync --progress"
 alias sshfs="sshfs -C -o reconnect"

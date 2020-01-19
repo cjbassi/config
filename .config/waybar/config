@@ -33,6 +33,9 @@
 		"battery",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
+		"disk",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
 		"tray"
 	],
 
@@ -108,6 +111,11 @@
 			"",
 			""
 		]
+	},
+	"disk": {
+		"interval": 5,
+		"format": "Disk {percentage_used:2}%",
+		"path": "/"
 	},
 	"tray": {
 		"icon-size": 20

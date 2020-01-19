@@ -123,12 +123,13 @@ yay \
 	google-chrome \
 	gotop-bin \
 	imgurbash2-git \
-	insync \
+	insync1 \
 	ncurses5-compat-libs \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
 	networkmanager-dmenu \
 	nvimpager-git \
+	pkghist-bin \
 	python-pipx \
 	raven-reader-bin \
 	redshift-wayland-git \
@@ -176,14 +177,11 @@ pipx install colour-valgrind
 pipx install grip
 pipx install wpm
 pipx install xtermcolor
-# TODO
-# pipx install --spec git+https://github.com/cjbassi/pymath pymath
 pipx install --spec git+https://github.com/cjbassi/rofi-power rofi-power
 pipx install --spec git+https://github.com/cjbassi/rofi-copyq rofi-copyq
 pipx install --spec git+https://github.com/cjbassi/rofi-files rofi-files
 
 yarn global add \
-	serverless \
 	typesync \
 	create-react-app
 
