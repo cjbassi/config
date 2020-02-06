@@ -32,7 +32,6 @@ mkdir -p \
 	~/playground/{my-projects,other-projects,packages,school,test} \
 	$XDG_CONFIG_HOME \
 	$XDG_STATE_HOME/nvim/{backup,undo,swap} \
-	$GOPATH/{bin,pkg,src} \
 	$XDG_DATA_HOME/fish \
 	$XDG_DATA_HOME/tig
 
@@ -91,7 +90,7 @@ symlink-dot-config zathura
 # rust {{{1
 
 rustup set profile complete
-rustup install stable nightly
+rustup install stable
 rustup default stable
 
 
@@ -121,7 +120,6 @@ yay \
 	fundle-git \
 	git-extras-git \
 	google-chrome \
-	gotop-bin \
 	imgurbash2-git \
 	insync1 \
 	ncurses5-compat-libs \
@@ -143,6 +141,7 @@ yay \
 	unimatrix-git \
 	vimclip-git \
 	visual-studio-code-bin \
+	ytop-bin \
 	zoom
 
 # TODO
@@ -191,7 +190,6 @@ function trust-download {
 }
 trust-download cjbassi/batch-rename
 trust-download cjbassi/license-gen
-trust-download cjbassi/random
 trust-download cjbassi/sway-utils
 trust-download cjbassi/trash-cli
 
@@ -199,9 +197,9 @@ trust-download cjbassi/trash-cli
 # cargo-edit
 # cargo-update
 # loop
-# cargo-release
 # dua-cli
 # delta
+# cargo-tree
 
 
 # neovim {{{1

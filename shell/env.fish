@@ -55,7 +55,6 @@ set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 set -gx CCACHE_DIR $XDG_CACHE_HOME/ccache
 set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -gx fundle_plugins_dir $XDG_DATA_HOME/fundle
-set -gx GOPATH $XDG_DATA_HOME/go
 set -gx GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
@@ -67,14 +66,12 @@ set -gx TIGRC_USER $XDG_CONFIG_HOME/tig/tigrc
 set -gx XINITRC $XDG_CONFIG_HOME/X11/xinitrc
 set -gx XSERVERRC $XDG_CONFIG_HOME/X11/xserverrc
 
-set -gx GOBIN $GOPATH/bin
 set -gx PIPX_BIN_DIR $PIPX_HOME/bin
 
 
 # path {{{1
 
 set -a PATH $PIPX_BIN_DIR
-set -a PATH $GOBIN
 set -a PATH $XDG_DATA_HOME/npm/bin
 set -a PATH $CARGO_HOME/bin
 

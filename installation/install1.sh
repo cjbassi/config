@@ -59,16 +59,6 @@ pacstrap /mnt \
 	tp_smapi \
 \
 \
-	jdk8-openjdk \
-	php \
-\
-	dotnet-sdk
-	dotnet-runtime
-	dotnet-host
-\
-	go \
-	go-tools \
-\
 	gdb \
 	valgrind \
 	clang \
