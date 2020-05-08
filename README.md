@@ -60,7 +60,7 @@ Clipboard manager     | [CopyQ](https://github.com/hluk/CopyQ)
 Fuzzy finder          | [fzf](https://github.com/junegunn/fzf)
 Lockscreen            | [Swaylock](https://github.com/swaywm/swaylock)
 Backup                | Google Drive with Insync
-Git interface         | [Tig](https://github.com/jonas/tig)
+Git interface         | [lazygit](https://github.com/jesseduffield/lazygit)
 Music                 | Spotify desktop client
 Email                 | Gmail web client
 Calendar              | Google Calendar web client

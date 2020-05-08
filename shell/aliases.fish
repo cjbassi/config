@@ -6,6 +6,7 @@ alias c=code
 alias chrome=google-chrome-stable
 alias g=git
 alias l=ll
+alias lg=lazygit
 alias lst="laptop-screen toggle"
 alias n=nvim
 alias nvp=nvimpager

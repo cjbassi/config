@@ -81,7 +81,6 @@ symlink-dot-config readline
 symlink-dot-config rofi
 symlink-dot-config sway
 symlink-dot-config swaylock
-symlink-dot-config tig
 symlink-dot-config variety
 symlink-dot-config waybar
 symlink-dot-config zathura
@@ -122,6 +121,7 @@ yay \
 	google-chrome \
 	imgurbash2-git \
 	insync1 \
+	lazygit \
 	ncurses5-compat-libs \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \

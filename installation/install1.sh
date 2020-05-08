@@ -166,7 +166,6 @@ pacstrap /mnt \
 	swayidle \
 	swaylock \
 	sxiv \
-	tig \
 	time \
 	tk \
 	tokei \
