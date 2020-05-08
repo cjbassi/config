@@ -16,6 +16,7 @@ code --install-extension JamesBirtles.svelte-vscode
 code --install-extension jithurjacob.nbpreviewer
 code --install-extension jpoissonnier.vscode-styled-components
 code --install-extension justusadam.language-haskell
+code --install-extension matklad.rust-analyzer
 code --install-extension mikestead.dotenv
 code --install-extension mitaki28.vscode-clang
 code --install-extension ms-azuretools.vscode-docker
@@ -23,7 +24,6 @@ code --install-extension ms-python.python
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension msjsdiag.debugger-for-chrome
-code --install-extension rust-lang.rust
 code --install-extension serayuzgur.crates
 code --install-extension sidneys1.gitconfig
 code --install-extension sjhuangx.vscode-scheme

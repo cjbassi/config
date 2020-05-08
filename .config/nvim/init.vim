@@ -413,7 +413,7 @@ set sessionoptions-=options
 set complete-=i
 set nrformats-=octal
 
-set nowrap
+set wrap
 
 set iskeyword-=_
 " set iskeyword="a-z" TODO

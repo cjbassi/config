@@ -141,8 +141,7 @@ yay \
 	unimatrix-git \
 	vimclip-git \
 	visual-studio-code-bin \
-	ytop-bin \
-	zoom
+	ytop-bin
 
 # TODO
 # loop

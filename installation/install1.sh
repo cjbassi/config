@@ -114,6 +114,7 @@ pacstrap /mnt \
 	copyq \
 	diff-so-fancy \
 	docker \
+	docker-compose \
 	exa \
 	fd \
 	fish \
@@ -172,7 +173,7 @@ pacstrap /mnt \
 	udiskie \
 	variety \
 	vlc \
-	waybar	\
+	waybar \
 	wget \
 	whois \
 	xclip \

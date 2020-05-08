@@ -30,7 +30,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 
-# applications {{{2
+# regular keys {{{2
 
 bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+Return exec $terminal --working-directory $(sway-utils focused-program-cwd)
@@ -42,9 +42,13 @@ bindsym $mod+e exec $terminal -e nvim
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $browser --incognito
 
+bindsym $mod+m exec pamixer -t
+bindsym $mod+Shift+m exec pamixer --default-source -t
+
 bindsym $mod+grave exec rofi -show run -modi run,ssh
-bindsym $mod+d exec sleep 1h && notify-send -t 0 'Break time'
-bindsym $mod+y exec makoctl dismiss
+bindsym $mod+d exec makoctl dismiss
+bindsym $mod+g exec osprey
+bindsym $mod+i exec rofi-power
 
 
 # wm {{{2

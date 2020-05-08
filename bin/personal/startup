@@ -6,7 +6,7 @@ function main {
 
 	new-wallpaper
 
-	pamixer --set-volume 30
+	pamixer --set-volume 25
 	pamixer --default-source --allow-boost --set-volume 153
 }
 
