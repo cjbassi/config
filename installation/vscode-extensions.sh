@@ -1,4 +1,3 @@
-code --install-extension alanz.vscode-hie-server
 code --install-extension asabil.meson
 code --install-extension bierner.markdown-preview-github-styles
 code --install-extension bungcip.better-toml
@@ -11,6 +10,7 @@ code --install-extension eg2.vscode-npm-script
 code --install-extension esbenp.prettier-vscode
 code --install-extension faustinoaq.lex-flex-yacc-bison
 code --install-extension formulahendry.auto-rename-tag
+code --install-extension GitHub.vscode-pull-request-github
 code --install-extension James-Yu.latex-workshop
 code --install-extension JamesBirtles.svelte-vscode
 code --install-extension jithurjacob.nbpreviewer
