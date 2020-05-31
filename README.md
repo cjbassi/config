@@ -53,7 +53,7 @@ Font         | [Hack](https://github.com/source-foundry/Hack)
 
 Category              | Implementation
 ----------------------|---------------------------------------------------
-Resource monitor      | [ytop](https://github.com/cjbassi/ytop)
+System monitor        | [ytop](https://github.com/cjbassi/ytop)
 Shell package manager | [fundle](https://github.com/danhper/fundle)
 Wallpaper manager     | [Variety](https://github.com/varietywalls/variety)
 Clipboard manager     | [CopyQ](https://github.com/hluk/CopyQ)
