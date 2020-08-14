@@ -3,7 +3,6 @@
 # Keybinds {{{1
 
 set $mod Mod1
-set $terminal alacritty
 set $browser google-chrome-stable
 
 floating_modifier $mod normal
@@ -31,11 +30,6 @@ bindsym XF86AudioNext exec playerctl next
 
 
 # regular keys {{{2
-
-bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+Return exec $terminal --working-directory $(sway-utils focused-program-cwd)
-
-bindsym $mod+o exec $terminal -e ytop
 
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $browser --incognito

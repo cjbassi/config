@@ -55,7 +55,6 @@ ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 ln -sf ~/config/dotfiles/* ~/
 
 mkdir -p ~/.local/share/applications/
-ln -sf ~/{config/,}.local/share/applications/alacritty.desktop
 
 # .config {{{3
 
@@ -66,7 +65,6 @@ function symlink-dot-config {
 	ln -sf ~/config/.config/"$@"/* ~/.config/"$@"
 }
 
-symlink-dot-config alacritty
 symlink-dot-config fish
 symlink-dot-config git
 symlink-dot-config gtk-2.0

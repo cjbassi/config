@@ -85,7 +85,6 @@ set -a PATH ~/config/bin/{,personal}
 
 set -gx GCC_COLORS "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 set -gx TLDR_COLOR_BLANK white
-set -gx WINIT_HIDPI_FACTOR 1.0  # alacritty
 
 set -gx RUSTC_WRAPPER sccache
 set -gx RUST_BACKTRACE 1
