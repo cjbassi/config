@@ -31,8 +31,7 @@ mkdir -p \
 	~/playground \
 	~/playground/{my-projects,other-projects,packages,school,test} \
 	$XDG_CONFIG_HOME \
-	$XDG_DATA_HOME/fish \
-	$XDG_DATA_HOME/tig
+	$XDG_DATA_HOME/fish
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
 
