@@ -35,8 +35,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+Return exec $terminal --working-directory $(sway-utils focused-program-cwd)
 
-bindsym $mod+a exec $terminal -e vimclip
-bindsym $mod+e exec $terminal -e nvim
 bindsym $mod+o exec $terminal -e ytop
 
 bindsym $mod+b exec $browser

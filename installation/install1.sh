@@ -138,8 +138,6 @@ pacstrap /mnt \
 	moreutils \
 	ncdu \
 	neofetch \
-	neovim \
-		python-neovim \
 	openssh \
 	pacman-contrib \
 	pamixer \

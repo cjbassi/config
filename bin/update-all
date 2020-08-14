@@ -4,7 +4,6 @@ function main {
 	yay-update --noconfirm
 	fundle update
 	rustup update
-	nvim +PlugUpgrade +PlugUpdate +xall
 	yarn global upgrade
 	npm update -g
 	pipx upgrade-all

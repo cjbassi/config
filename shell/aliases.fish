@@ -8,8 +8,6 @@ alias g=git
 alias l=ll
 alias lg=lazygit
 alias lst="laptop-screen toggle"
-alias n=nvim
-alias nvp=nvimpager
 alias nw=new-wallpaper
 alias se=sudoedit
 alias t=tree
@@ -45,7 +43,6 @@ alias show-install-history="grep -i installed /var/log/pacman.log"
 alias srcinfo="makepkg --printsrcinfo > .SRCINFO"
 
 alias codediff="code -n -d"
-alias nvimdiff="nvim -d"
 
 alias gpgkey="gpg --full-gen-key"
 alias sshkey="ssh-keygen -t ed25519 -C \"(whoami)@(hostname)-(date -I)\""

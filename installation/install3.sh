@@ -31,7 +31,6 @@ mkdir -p \
 	~/playground \
 	~/playground/{my-projects,other-projects,packages,school,test} \
 	$XDG_CONFIG_HOME \
-	$XDG_STATE_HOME/nvim/{backup,undo,swap} \
 	$XDG_DATA_HOME/fish \
 	$XDG_DATA_HOME/tig
 
@@ -75,7 +74,6 @@ symlink-dot-config gtk-2.0
 symlink-dot-config gtk-3.0
 symlink-dot-config mako
 symlink-dot-config npm
-symlink-dot-config nvim
 symlink-dot-config opensnitch
 symlink-dot-config readline
 symlink-dot-config rofi
@@ -105,7 +103,6 @@ function yay {
 }
 
 yay \
-	neovim-symlinks \
 	pandoc-bin \
 	rofi-dmenu \
 	sccache-bin
@@ -126,7 +123,6 @@ yay \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
 	networkmanager-dmenu \
-	nvimpager-git \
 	pkghist-bin \
 	python-pipx \
 	raven-reader-bin \
@@ -139,7 +135,6 @@ yay \
 	tty-clock \
 	udiskie-dmenu-git \
 	unimatrix-git \
-	vimclip-git \
 	visual-studio-code-bin \
 	ytop-bin
 
@@ -149,12 +144,6 @@ yay \
 
 
 # application configuration {{{1
-
-# nvimpager {{{2
-
-ln -sfn $XDG_CONFIG_HOME/{nvim,nvimpager}
-ln -sfn $XDG_DATA_HOME/{nvim,nvimpager}
-
 
 # vscode {{{2
 
@@ -199,15 +188,6 @@ trust-download cjbassi/trash-cli
 # dua-cli
 # delta
 # cargo-tree
-
-
-# neovim {{{1
-
-# install vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-nvim +PlugInstall +xall
 
 
 # systemd {{{1
