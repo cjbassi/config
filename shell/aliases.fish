@@ -5,7 +5,6 @@ alias br=batch-rename
 alias chrome=google-chrome-stable
 alias g=git
 alias l=ll
-alias lg=lazygit
 alias lst="laptop-screen toggle"
 alias nw=new-wallpaper
 alias se=sudoedit

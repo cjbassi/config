@@ -115,7 +115,6 @@ yay \
 	google-chrome \
 	imgurbash2-git \
 	insync1 \
-	lazygit \
 	ncurses5-compat-libs \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
