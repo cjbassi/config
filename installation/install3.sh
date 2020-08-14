@@ -67,7 +67,6 @@ function symlink-dot-config {
 }
 
 symlink-dot-config alacritty
-symlink-dot-config Code/User
 symlink-dot-config fish
 symlink-dot-config git
 symlink-dot-config gtk-2.0
@@ -135,7 +134,6 @@ yay \
 	tty-clock \
 	udiskie-dmenu-git \
 	unimatrix-git \
-	visual-studio-code-bin \
 	ytop-bin
 
 # TODO
@@ -144,17 +142,6 @@ yay \
 
 
 # application configuration {{{1
-
-# vscode {{{2
-
-# https://github.com/flathub/com.visualstudio.code/issues/29
-echo "fs.inotify.max_user_watches=524288" \
-	| sudo tee /etc/sysctl.d/40-max-user-watches.conf \
-	&& sudo sysctl --system
-
-# install vscode extensions
-~/config/installation/vscode-extensions.sh
-
 
 # package managers {{{1
 

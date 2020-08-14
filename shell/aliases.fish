@@ -2,7 +2,6 @@
 
 alias blt=bluetoothctl
 alias br=batch-rename
-alias c=code
 alias chrome=google-chrome-stable
 alias g=git
 alias l=ll
@@ -41,8 +40,6 @@ alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
 alias pg="ping google.com -c 1"
 alias show-install-history="grep -i installed /var/log/pacman.log"
 alias srcinfo="makepkg --printsrcinfo > .SRCINFO"
-
-alias codediff="code -n -d"
 
 alias gpgkey="gpg --full-gen-key"
 alias sshkey="ssh-keygen -t ed25519 -C \"(whoami)@(hostname)-(date -I)\""
