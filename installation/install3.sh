@@ -137,6 +137,10 @@ yay \
 
 # application configuration {{{1
 
+# spacemacs {{{1
+
+git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
 # package managers {{{1
 
 fundle install

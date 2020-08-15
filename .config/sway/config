@@ -39,6 +39,7 @@ bindsym $mod+Shift+m exec pamixer --default-source -t
 
 bindsym $mod+grave exec rofi -show run -modi run,ssh
 bindsym $mod+d exec makoctl dismiss
+bindsym $mod+e exec emacs
 bindsym $mod+i exec rofi-power
 
 

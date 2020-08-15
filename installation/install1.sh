@@ -114,6 +114,7 @@ pacstrap /mnt \
 	diff-so-fancy \
 	docker \
 	docker-compose \
+	emacs \
 	exa \
 	fd \
 	fish \
