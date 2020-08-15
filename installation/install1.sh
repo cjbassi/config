@@ -176,8 +176,7 @@ pacstrap /mnt \
 	xorg-xeyes \
 	xsel \
 	xterm \
-	youtube-dl \
-	zathura-pdf-mupdf
+	youtube-dl
 
 # TODO
 

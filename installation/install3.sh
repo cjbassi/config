@@ -77,7 +77,6 @@ symlink-dot-config sway
 symlink-dot-config swaylock
 symlink-dot-config variety
 symlink-dot-config waybar
-symlink-dot-config zathura
 
 
 # rust {{{1
