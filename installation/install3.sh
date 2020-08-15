@@ -106,7 +106,6 @@ yay \
 yay \
 	bash-pipes \
 	cht.sh \
-	discord \
 	earlyoom \
 	evscript-git \
 	fundle-git \
@@ -178,7 +177,6 @@ trust-download cjbassi/trash-cli
 systemctl --user enable \
 	blueman-applet \
 	copyq \
-	discord \
 	earlyoom \
 	evscript \
 	insync \
