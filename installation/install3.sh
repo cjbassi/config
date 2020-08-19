@@ -190,7 +190,7 @@ systemctl --user enable \
 	pasystray \
 	recover-youtube-videos.timer \
 	redshift-gtk \
-	riot-desktop \
+	element-desktop \
 	swayidle \
 	udiskie \
 	variety \

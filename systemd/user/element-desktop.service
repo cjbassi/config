@@ -2,7 +2,7 @@
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=riot-desktop
+ExecStart=element-desktop
 
 [Install]
 WantedBy=graphical-session.target

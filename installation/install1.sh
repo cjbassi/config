@@ -151,7 +151,7 @@ pacstrap /mnt \
 	pydf \
 	qbittorrent \
 	reflector \
-	riot-desktop \
+	element-desktop \
 	ripgrep \
 	rofi \
 	rsync \
