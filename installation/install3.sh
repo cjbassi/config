@@ -28,8 +28,8 @@ done
 mkdir -p \
 	~/Downloads \
 	~/Drive \
-	~/playground \
-	~/playground/{my-projects,other-projects,packages,school,test} \
+	~/projects \
+	~/projects/{mine,other} \
 	$XDG_CONFIG_HOME \
 	$XDG_DATA_HOME/fish
 
