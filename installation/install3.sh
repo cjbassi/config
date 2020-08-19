@@ -103,7 +103,6 @@ yay \
 	sccache-bin
 
 yay \
-	bash-pipes \
 	cht.sh \
 	earlyoom \
 	evscript-git \
@@ -125,9 +124,7 @@ yay \
 	teiler-git \
 	texlive-latexindent-meta \
 	tmpreaper \
-	tty-clock \
 	udiskie-dmenu-git \
-	unimatrix-git \
 	ytop-bin
 
 # TODO
