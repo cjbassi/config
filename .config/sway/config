@@ -29,7 +29,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 
-# regular keys {{{2
+# programs/commands {{{2
 
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $browser --incognito
