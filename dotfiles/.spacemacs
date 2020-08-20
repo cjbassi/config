@@ -33,28 +33,28 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-	 git
-     helm
-     lsp
-     multiple-cursors
-	 (shell :variables
-		shell-default-position 'full
-		shell-default-shell 'vterm)
-     spell-checking
-	 treemacs
-	 (version-control :variables
-		version-control-diff-side 'left)
+      git
+      helm
+      lsp
+      multiple-cursors
+      (shell :variables
+        shell-default-position 'full
+        shell-default-shell 'vterm)
+      spell-checking
+      treemacs
+      (version-control :variables
+        version-control-diff-side 'left)
 
-	emacs-lisp
-	javascript
-	markdown
-	nixos
-	org
-	python
-	rust
-	shell-scripts
-	systemd
-	yaml
+      emacs-lisp
+      javascript
+      markdown
+      nixos
+      org
+      python
+      rust
+      shell-scripts
+      systemd
+      yaml
    )
 
 
@@ -502,20 +502,20 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-	(setq
-		;; https://stackoverflow.com/questions/18970977/user-super-key-for-meta-commands-in-emacs
-		;; swap meta and super key
-		x-meta-keysym 'super
-		x-super-keysym 'meta
+  (setq
+    ;; https://stackoverflow.com/questions/18970977/user-super-key-for-meta-commands-in-emacs
+    ;; swap meta and super key
+    x-meta-keysym 'super
+    x-super-keysym 'meta
 
-		org-want-todo-bindings t
+    org-want-todo-bindings t
 
-		vc-follow-symlinks t
+    vc-follow-symlinks t
 
-		;; https://stackoverflow.com/questions/2985050/is-there-any-way-to-have-emacs-save-your-undo-history-between-sessions
-		;; persistent undo
-		undo-tree-auto-save-history t
-		undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
+    ;; https://stackoverflow.com/questions/2985050/is-there-any-way-to-have-emacs-save-your-undo-history-between-sessions
+    ;; persistent undo
+    undo-tree-auto-save-history t
+    undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
     )
   )
 
