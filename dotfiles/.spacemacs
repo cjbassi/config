@@ -43,6 +43,8 @@ This function should only modify configuration layer settings."
 	 shell-scripts
 	 systemd
 	 treemacs
+	 (version-control :variables
+		version-control-diff-side 'left)
 	 ;; auto-completion
 	 ;; better-defaults
      ;; (shell :variables
@@ -50,7 +52,6 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     ;; version-control
    )
 
 
@@ -370,7 +371,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
