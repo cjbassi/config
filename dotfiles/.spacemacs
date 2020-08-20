@@ -33,10 +33,6 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-	 systemd
-	 shell-scripts
-     ;; auto-completion
-     ;; better-defaults
      emacs-lisp
      git
      helm
@@ -44,13 +40,18 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      org
+	 shell-scripts
+	 systemd
+	 treemacs
+	 ;; auto-completion
+	 ;; better-defaults
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
-     treemacs)
+   )
 
 
    ;; List of additional packages that will be installed without being
