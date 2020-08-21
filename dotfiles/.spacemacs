@@ -34,22 +34,28 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(
       git
+      github
       helm
       lsp
       multiple-cursors
       (shell :variables
         shell-default-position 'full
         shell-default-shell 'vterm)
-      spell-checking
+      ;; spell-checking
       treemacs
       (version-control :variables
         version-control-diff-side 'left)
+      (ranger :variables
+        ranger-show-preview t
+        ranger-show-hidden t
+        ranger-ignored-extensions '("mkv" "flv" "iso" "mp4"))
 
       emacs-lisp
       javascript
       markdown
       nixos
-      org
+      (org :variables
+        org-want-todo-bindings t)
       python
       rust
       shell-scripts
@@ -517,6 +523,14 @@ before packages are loaded."
     undo-tree-auto-save-history t
     undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
     )
+
+  (spacemacs/declare-prefix "of" "Open custom files")
+  (spacemacs/set-leader-keys "oft" '(lambda () "Open ~/Drive/org/todos.org" (interactive) (find-file "~/Drive/org/todos.org")))
+  (spacemacs/set-leader-keys "ofn" '(lambda () "Open ~/Drive/org/notes.org" (interactive) (find-file "~/Drive/org/notes.org")))
+  (spacemacs/set-leader-keys "ofs" '(lambda () "Open ~/Drive/org/scratch.org" (interactive) (find-file "~/Drive/org/scratch.org")))
+
+  (spacemacs/set-leader-keys "ot" 'projectile-run-vterm)
+  (spacemacs/set-leader-keys "oh" 'spacemacs/vcs-revert-hunk)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -533,7 +547,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
 	'(package-selected-packages
 		 (quote
-			 (web-beautify tide typescript-mode tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd add-node-modules-path yaml-mode toml-mode ron-mode racer flycheck-rust dap-mode posframe bui cargo rust-mode systemd insert-shebang helm-gtags ggtags flycheck-bashate fish-mode counsel-gtags counsel swiper ivy company-shell treemacs-magit smeargle magit-svn magit-section magit-gitflow magit-popup helm-gitignore helm-git-grep gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))))
+			 (ranger web-beautify tide typescript-mode tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd add-node-modules-path yaml-mode toml-mode ron-mode racer flycheck-rust dap-mode posframe bui cargo rust-mode systemd insert-shebang helm-gtags ggtags flycheck-bashate fish-mode counsel-gtags counsel swiper ivy company-shell treemacs-magit smeargle magit-svn magit-section magit-gitflow magit-popup helm-gitignore helm-git-grep gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
