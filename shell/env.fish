@@ -20,7 +20,7 @@ set -gx HISTFILE $XDG_DATA_HOME/fish/fish_history
 
 # default programs {{{1
 
-set -gx EDITOR nvim
+set -gx EDITOR emacsclient
 set -gx editor $EDITOR
 set -gx VISUAL $EDITOR
 set -gx USE_EDITOR $EDITOR
