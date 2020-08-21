@@ -38,6 +38,10 @@ This function should only modify configuration layer settings."
       helm
       lsp
       multiple-cursors
+      (ranger :variables
+        ranger-show-preview t
+        ranger-show-hidden t
+        ranger-override-dired-mode t)
       (shell :variables
         shell-default-position 'full
         shell-default-shell 'vterm)
@@ -45,10 +49,6 @@ This function should only modify configuration layer settings."
       treemacs
       (version-control :variables
         version-control-diff-side 'left)
-      (ranger :variables
-        ranger-show-preview t
-        ranger-show-hidden t
-        ranger-ignored-extensions '("mkv" "flv" "iso" "mp4"))
 
       emacs-lisp
       javascript
@@ -514,8 +514,6 @@ before packages are loaded."
     x-meta-keysym 'super
     x-super-keysym 'meta
 
-    org-want-todo-bindings t
-
     vc-follow-symlinks t
 
     ;; https://stackoverflow.com/questions/2985050/is-there-any-way-to-have-emacs-save-your-undo-history-between-sessions
@@ -524,13 +522,19 @@ before packages are loaded."
     undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
     )
 
-  (spacemacs/declare-prefix "of" "Open custom files")
-  (spacemacs/set-leader-keys "oft" '(lambda () "Open ~/Drive/org/todos.org" (interactive) (find-file "~/Drive/org/todos.org")))
-  (spacemacs/set-leader-keys "ofn" '(lambda () "Open ~/Drive/org/notes.org" (interactive) (find-file "~/Drive/org/notes.org")))
-  (spacemacs/set-leader-keys "ofs" '(lambda () "Open ~/Drive/org/scratch.org" (interactive) (find-file "~/Drive/org/scratch.org")))
+  (spacemacs/declare-prefix "of" "open custom files")
+  (spacemacs/set-leader-keys "oft" '(lambda () "open ~/Drive/org/todos.org" (interactive) (find-file "~/Drive/org/todos.org")))
+  (spacemacs/set-leader-keys "ofn" '(lambda () "open ~/Drive/org/notes.org" (interactive) (find-file "~/Drive/org/notes.org")))
+  (spacemacs/set-leader-keys "ofs" '(lambda () "open ~/Drive/org/scratch.org" (interactive) (find-file "~/Drive/org/scratch.org")))
 
-  (spacemacs/set-leader-keys "ot" 'projectile-run-vterm)
-  (spacemacs/set-leader-keys "oh" 'spacemacs/vcs-revert-hunk)
+  (spacemacs/declare-prefix "oa" "applications")
+  (spacemacs/set-leader-keys "oat" 'vterm)
+
+  (spacemacs/declare-prefix "op" "project")
+  (spacemacs/set-leader-keys "opt" 'projectile-run-vterm)
+
+  (spacemacs/declare-prefix "og" "git/version-control")
+  (spacemacs/set-leader-keys "ogh" 'spacemacs/vcs-revert-hunk)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
