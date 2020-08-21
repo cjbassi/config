@@ -44,8 +44,7 @@ This function should only modify configuration layer settings."
         ranger-show-hidden t
         ranger-override-dired-mode t)
       (shell :variables
-        shell-default-position 'full
-        shell-default-shell 'vterm)
+        shell-default-shell 'terminal-here)
       ;; spell-checking
       (version-control :variables
         version-control-diff-side 'left)
@@ -520,18 +519,14 @@ before packages are loaded."
     ;; persistent undo
     undo-tree-auto-save-history t
     undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
+
+    terminal-here-terminal-command (list "alacritty")
     )
 
   (spacemacs/declare-prefix "of" "open custom files")
   (spacemacs/set-leader-keys "oft" '(lambda () "open ~/Drive/org/todos.org" (interactive) (find-file "~/Drive/org/todos.org")))
   (spacemacs/set-leader-keys "ofn" '(lambda () "open ~/Drive/org/notes.org" (interactive) (find-file "~/Drive/org/notes.org")))
   (spacemacs/set-leader-keys "ofs" '(lambda () "open ~/Drive/org/scratch.org" (interactive) (find-file "~/Drive/org/scratch.org")))
-
-  (spacemacs/declare-prefix "oa" "applications")
-  (spacemacs/set-leader-keys "oat" 'vterm)
-
-  (spacemacs/declare-prefix "op" "project")
-  (spacemacs/set-leader-keys "opt" 'projectile-run-vterm)
 
   (spacemacs/declare-prefix "og" "git/version-control")
   (spacemacs/set-leader-keys "ogh" 'spacemacs/vcs-revert-hunk)
