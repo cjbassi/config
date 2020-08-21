@@ -3,6 +3,8 @@
 [user]
 	name = Caleb Bassi
 	email = calebjbassi@gmail.com
+[github]
+	user = cjbassi
 
 [core]
 	editor = nvim
