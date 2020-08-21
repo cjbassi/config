@@ -34,6 +34,7 @@ alias ct="cargo test"
 
 # New commands {{{1
 
+alias fork-term="fork alacritty --working-directory ."
 alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
 alias pg="ping google.com -c 1"
 alias show-install-history="grep -i installed /var/log/pacman.log"

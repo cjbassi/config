@@ -106,6 +106,7 @@ pacstrap /mnt \
 	gnome-keyring \
 	libsecret \
 \
+	alacritty \
 	bat \
 	breeze-gtk \
 	calibre \
