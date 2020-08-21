@@ -530,6 +530,8 @@ before packages are loaded."
 
   (spacemacs/declare-prefix "og" "git/version-control")
   (spacemacs/set-leader-keys "ogh" 'spacemacs/vcs-revert-hunk)
+
+  (define-key evil-normal-state-map "Q" "@q")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
