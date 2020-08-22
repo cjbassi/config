@@ -176,7 +176,6 @@ pacstrap /mnt \
 	xonsh \
 	xorg-xeyes \
 	xsel \
-	xterm \
 	youtube-dl
 
 # TODO
