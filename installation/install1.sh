@@ -139,7 +139,6 @@ pacstrap /mnt \
 	ncdu \
 	neofetch \
 	openssh \
-	pacman-contrib \
 	pamixer \
 	parted \
 	pasystray \
@@ -150,7 +149,6 @@ pacstrap /mnt \
 	postgresql \
 	pydf \
 	qbittorrent \
-	reflector \
 	element-desktop \
 	ripgrep \
 	rofi \

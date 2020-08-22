@@ -120,7 +120,6 @@ yay \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
 	networkmanager-dmenu \
-	pkghist-bin \
 	python-pipx \
 	raven-reader-bin \
 	redshift-wayland-git \

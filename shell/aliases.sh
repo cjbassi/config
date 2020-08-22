@@ -37,8 +37,6 @@ alias ct="cargo test"
 alias fork-term="fork alacritty --working-directory ."
 alias laptop-screen="swaymsg output $INTERNAL_DISPLAY"
 alias pg="ping google.com -c 1"
-alias show-install-history="grep -i installed /var/log/pacman.log"
-alias srcinfo="makepkg --printsrcinfo > .SRCINFO"
 
 alias gpgkey="gpg --full-gen-key"
 alias sshkey="ssh-keygen -t ed25519 -C \"(whoami)@(hostname)-(date -I)\""
@@ -119,26 +117,11 @@ alias fd="fd --ignore-file ~/.ignore"
 alias ffmpeg="ffmpeg -loglevel warning"
 alias google-chrome-stable="google-chrome-stable --remote-debugging-port=9222 --new-window --force-device-scale-factor=1.0"
 alias ll="exa -Fl --group-directories-first --git --icons"
-alias makepkg="makepkg -si"
 alias mkdir="mkdir -p"
 alias rg="rg -S"
 alias rsync="rsync --progress"
 alias sshfs="sshfs -C -o reconnect"
 # alias time="time -p"
-
-function yay {
-	case "$1" in
-		"-S")
-			command yay "$@" --needed --mflags "--nocheck"
-			;;
-		"-R")
-			command yay "$@" --recursive
-			;;
-		*)
-			command yay "$@"
-			;;
-	esac
-}
 
 
 # Alternatives {{{1
