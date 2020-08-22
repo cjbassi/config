@@ -136,7 +136,7 @@ function yay {
 		"-R")
 			command yay "$@" --recursive
 			;;
-		'*')
+		*)
 			command yay "$@"
 			;;
 	esac
