@@ -125,8 +125,6 @@ alias rg="rg -S"
 alias rsync="rsync --progress"
 alias sshfs="sshfs -C -o reconnect"
 # alias time="time -p"
-alias tty-clock="tty-clock -c"
-alias unimatrix="unimatrix -s 94"
 
 function yay {
 	case "$1" in
