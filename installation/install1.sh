@@ -118,7 +118,6 @@ pacstrap /mnt \
 	emacs \
 	exa \
 	fd \
-	fish \
 	fuse \
 	fzf \
 	gimp \
@@ -174,6 +173,7 @@ pacstrap /mnt \
 	wget \
 	whois \
 	xclip \
+	xonsh \
 	xorg-xeyes \
 	xsel \
 	xterm \

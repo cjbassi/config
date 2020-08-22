@@ -23,6 +23,11 @@ while [[ ! -d "~/config" ]]; do
 done
 
 
+# source env {{{1
+
+source ~/config/shell/env.sh
+
+
 # Directories {{{1
 
 mkdir -p \
@@ -30,8 +35,7 @@ mkdir -p \
 	~/Drive \
 	~/projects \
 	~/projects/{mine,other} \
-	$XDG_CONFIG_HOME \
-	$XDG_DATA_HOME/fish
+	$XDG_CONFIG_HOME
 
 ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
 
@@ -66,7 +70,6 @@ function symlink-dot-config {
 }
 
 symlink-dot-config alacritty
-symlink-dot-config fish
 symlink-dot-config git
 symlink-dot-config gtk-2.0
 symlink-dot-config gtk-3.0
@@ -79,6 +82,7 @@ symlink-dot-config sway
 symlink-dot-config swaylock
 symlink-dot-config variety
 symlink-dot-config waybar
+symlink-dot-config xonsh
 
 
 # rust {{{1
@@ -108,7 +112,6 @@ yay \
 	cht.sh \
 	earlyoom \
 	evscript-git \
-	fundle-git \
 	git-extras-git \
 	google-chrome \
 	imgurbash2-git \
@@ -218,4 +221,4 @@ sudo systemctl mask system-rfkill.socket
 
 # Cleanup {{{1
 
-rm -f .bash_logout .bash_profile .bashrc install3.fish
+rm -f .bash_logout .bash_profile .bashrc install3.sh

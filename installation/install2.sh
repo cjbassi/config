@@ -90,7 +90,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 user=cjbassi
 
-useradd -m -G wheel -s $(which fish) $user
+useradd -m -G wheel -s $(which xonsh) $user
 echo "$user:$password" | chpasswd
 
 # can run docker commands

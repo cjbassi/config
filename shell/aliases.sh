@@ -21,9 +21,9 @@ alias m=make
 alias mr="make run"
 
 alias cra=create-react-app
-function crat
-	create-react-app $argv --typescript
-end
+function crat {
+	create-react-app "$@" --typescript
+}
 
 alias cb="cargo build"
 alias cf="cargo fmt"
@@ -46,10 +46,10 @@ alias sshkey="ssh-keygen -t ed25519 -C \"(whoami)@(hostname)-(date -I)\""
 alias clean-tmp="tmpreaper 14d /tmp/"
 alias clean-trash="trash empty 30 --no-confirm"
 
-function mkcd
-	mkdir -p $argv
-	cd $argv
-end
+function mkcd {
+	mkdir -p "$@"
+	cd "$@"
+}
 
 
 # Settings {{{1
@@ -81,13 +81,13 @@ alias mkdir="mkdir -v"
 alias mv="mv -v"
 alias rm="rm -v"
 
-function trash
-	if count $argv > 0 && test $argv[1] = "put"
-		command trash put -v $argv[2..-1]
+function trash {
+	if [[ "$1" == "put" ]]; then
+		command trash put -v "${@:2}"
 	else
-		command trash $argv
-	end
-end
+		command trash "$@"
+	fi
+}
 
 # Human readable {{{2
 
@@ -128,16 +128,19 @@ alias sshfs="sshfs -C -o reconnect"
 alias tty-clock="tty-clock -c"
 alias unimatrix="unimatrix -s 94"
 
-function yay
-	switch $argv[1]
-		case "-S"
-			command yay $argv --needed --mflags "--nocheck"
-		case "-R"
-			command yay $argv --recursive
-		case '*'
-			command yay $argv
-	end
-end
+function yay {
+	case "$1" in
+		"-S")
+			command yay "$@" --needed --mflags "--nocheck"
+			;;
+		"-R")
+			command yay "$@" --recursive
+			;;
+		'*')
+			command yay "$@"
+			;;
+	esac
+}
 
 
 # Alternatives {{{1
