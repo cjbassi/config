@@ -74,6 +74,7 @@ symlink-dot-config git
 symlink-dot-config gtk-2.0
 symlink-dot-config gtk-3.0
 symlink-dot-config mako
+symlink-dot-config nixpkgs
 symlink-dot-config npm
 symlink-dot-config opensnitch
 symlink-dot-config readline
