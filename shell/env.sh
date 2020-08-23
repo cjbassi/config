@@ -23,7 +23,7 @@ export editor=$EDITOR
 export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
 
-export PAGER=nvimpager
+export PAGER=less
 export MANPAGER=$PAGER
 
 export TERMINAL="alacritty -e"
