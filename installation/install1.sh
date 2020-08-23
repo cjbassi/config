@@ -2,9 +2,6 @@
 
 # Pre-installation {{{1
 
-# Update the system clock
-timedatectl set-ntp true
-
 # Partition
 # gdisk /dev/sda
 # create new partition table
@@ -26,17 +23,6 @@ rm -rf /mnt
 
 # Packages {{{1
 
-# Update mirrorlist
-curl "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4" |
-	sed -e "/#Server/s/^# *//" |
-	rankmirrors - \
-	> /etc/pacman.d/mirrorlist
-
-# Sync database and update keyring
-# performs a partial upgrade on the live image
-pacman -Sy archlinux-keyring --noconfirm
-
-# Install packages
 pacstrap /mnt \
 	base \
 	base-devel \
@@ -80,8 +66,6 @@ pacstrap /mnt \
 \
 	gnome-keyring \
 
-# TODO
-
 # otf-ipafont
 # ttf-hanazono
 # ttf-symbola
@@ -89,17 +73,3 @@ pacstrap /mnt \
 # ttf-twemoji-color
 # adobe-source-han-sans-jp-fonts
 # ttf-sazanami
-
-	# redshift                        \
-	#     python-gobject              \
-	#     python-xdg                  \
-	#     librsvg                     \
-
-
-# Chroot {{{1
-
-genfstab -U /mnt >> /mnt/etc/fstab
-
-curl "https://raw.githubusercontent.com/cjbassi/config/master/installation/install2.sh" > /mnt/install2.sh
-chmod +x /mnt/install2.sh
-arch-chroot /mnt ./install2.sh

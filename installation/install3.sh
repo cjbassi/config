@@ -94,15 +94,6 @@ rustup default stable
 
 # AUR {{{1
 
-# install yay-bin
-bash <(curl https://raw.githubusercontent.com/cjbassi/aur-installer/master/aur-installer) yay-bin
-
-yay -R --noconfirm vi
-
-function yay {
-	command yay -S --noconfirm --needed --mflags "--nocheck" "$@"
-}
-
 yay \
 	rofi-dmenu \
 
