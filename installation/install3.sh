@@ -176,11 +176,7 @@ sudo systemctl enable \
 	lockscreen-on-suspend@$USER \
 	reload-settings-on-wake@$USER \
 	\
-	bluetooth \
-	docker \
-	NetworkManager \
-	opensnitchd \
-	systemd-timesyncd
+	opensnitchd
 
 # disables tmpfs
 sudo systemctl mask tmp.mount

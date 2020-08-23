@@ -50,34 +50,6 @@ echo "\
 
 # Post-installation {{{1
 
-# disables computer beep
-echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-
-# Add users {{{2
-
-user=cjbassi
-
-useradd -m -G wheel -s $(which xonsh) $user
-echo "$user:$password" | chpasswd
-
-# can run docker commands
-usermod -a -G docker $user
-
-
-# Enable members of 'wheel' group to use root {{{2
-
-SEARCH="# %wheel ALL=\(ALL\) NOPASSWD: ALL"
-REPLACE="%wheel ALL=\(ALL\) NOPASSWD: ALL"
-perl -i -pe "s/$SEARCH/$REPLACE/g" /etc/sudoers
-
-
-# Bluetooth {{{2
-
-echo "
-# automatically switch to newly-connected devices
-load-module module-switch-on-connect" >> /etc/pulse/default.pa
-
-
 # Auto login {{{2
 
 mkdir -p /etc/systemd/system/getty@tty1.service.d
