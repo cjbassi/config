@@ -104,35 +104,23 @@ function yay {
 }
 
 yay \
-	pandoc-bin \
 	rofi-dmenu \
-	sccache-bin
 
 yay \
-	cht.sh \
-	earlyoom \
 	evscript-git \
-	git-extras-git \
-	google-chrome \
-	imgurbash2-git \
 	insync1 \
 	ncurses5-compat-libs \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
-	networkmanager-dmenu \
 	python-pipx \
 	raven-reader-bin \
-	redshift-wayland-git \
-	spotify \
 	swaylock-blur-bin \
 	teiler-git \
 	texlive-latexindent-meta \
 	tmpreaper \
 	udiskie-dmenu-git \
-	ytop-bin
 
 # TODO
-# loop
 # opensnitch-git
 
 
@@ -147,7 +135,6 @@ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 fundle install
 
 pipx install colour-valgrind
-pipx install grip
 pipx install wpm
 pipx install xtermcolor
 pipx install --spec git+https://github.com/cjbassi/rofi-power rofi-power
@@ -168,11 +155,6 @@ trust-download cjbassi/sway-utils
 trust-download cjbassi/trash-cli
 
 # TODO
-# cargo-edit
-# cargo-update
-# loop
-# dua-cli
-# delta
 # cargo-tree
 
 

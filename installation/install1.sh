@@ -43,11 +43,6 @@ pacstrap /mnt \
 \
 	xorg \
 \
-	pulseaudio \
-	pulseaudio-alsa \
-	alsa-utils \
-\
-	blueman \
 	pulseaudio-bluetooth \
 	bluez \
 	bluez-libs \
@@ -59,21 +54,11 @@ pacstrap /mnt \
 	tp_smapi \
 \
 \
-	gdb \
-	valgrind \
-	clang \
-\
-	nodejs \
-	yarn \
-	npm \
-\
-	python \
 	python-jedi \
 	python-pylint \
 	python-pytest \
 	python-rope \
 	python-poetry \
-	mypy \
 	twine \
 	python-wheel \
 	autopep8 \
@@ -82,13 +67,10 @@ pacstrap /mnt \
 	rustup \
 	rust-racer \
 \
-	astyle \
-	cmake \
 	tidy \
 \
 \
 	ttf-dejavu \
-	ttf-hack \
 	noto-fonts-emoji \
 	awesome-terminal-fonts \
 	ttf-freefont \
@@ -96,85 +78,7 @@ pacstrap /mnt \
 	ttf-indic-otf \
 	adobe-source-han-sans-otc-fonts \
 \
-	networkmanager \
-	network-manager-applet \
-\
-	unzip \
-	zip \
-	p7zip \
-\
 	gnome-keyring \
-	libsecret \
-\
-	alacritty \
-	bat \
-	breeze-gtk \
-	calibre \
-	ccache \
-	copyq \
-	diff-so-fancy \
-	docker \
-	docker-compose \
-	emacs \
-	exa \
-	fd \
-	fuse \
-	fzf \
-	gimp \
-	git \
-	gnupg \
-	grim \
-	httpie \
-	hub \
-	inotify-tools \
-	iotop \
-	jq \
-	kdeconnect	\
-	krita \
-	libreoffice \
-	light \
-	lsof \
-	mako \
-	moreutils \
-	ncdu \
-	neofetch \
-	openssh \
-	pamixer \
-	parted \
-	pasystray \
-	pavucontrol \
-	perl-file-mimeinfo \
-	playerctl \
-	portaudio \
-	postgresql \
-	pydf \
-	qbittorrent \
-	element-desktop \
-	ripgrep \
-	rofi \
-	rsync \
-	skim \
-	slurp \
-	sshfs \
-	strace \
-	sway \
-	swaybg	\
-	swayidle \
-	swaylock \
-	time \
-	tk \
-	tokei \
-	udiskie \
-	variety \
-	vlc \
-	waybar \
-	wget \
-	whois \
-	xclip \
-	xonsh \
-	xorg-xeyes \
-	xsel \
-	youtube-dl
 
 # TODO
 

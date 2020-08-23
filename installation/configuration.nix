@@ -24,7 +24,116 @@
   time.timeZone = "America/Los_Angeles";
 
   environment.systemPackages = with pkgs; [
+	  alacritty
+	  alsaUtils
+	  apulse
+	  astyle
+	  bat
+	  blueman
+	  breeze-gtk
+	  calibre
+	  cargo-edit
+	  cargo-update
+	  ccache
+	  cht-sh
+	  clang
+	  cmake
+	  copyq
+	  docker
+	  docker-compose
+	  dua
+	  earlyoom
+	  element-desktop
+	  emacs
+	  exa
+	  fd
+	  fuse
+	  fzf
+	  gdb
+	  gimp
+	  git
+	  gnupg
+	  google-chrome
+	  grim
 	  hack-font
+	  httpie
+	  imgurbash2
+	  inotify-tools
+	  iotop
+	  jq
+	  kdeconnect
+	  krita
+	  libreoffice
+	  libsecret
+	  light
+	  loop
+	  lsof
+	  mako
+	  moreutils
+	  mypy
+	  ncdu
+	  neofetch
+	  networkmanager
+	  networkmanager_dmenu
+	  networkmanagerapplet
+	  nodejs
+	  openssh
+	  p7zip
+	  pamixer
+	  pandoc
+	  parted
+	  pasystray
+	  pavucontrol
+	  playerctl
+	  portaudio
+	  postgresql
+	  pulseaudio
+	  pydf
+	  python
+	  qbittorrent
+	  redshift-wlr
+	  ripgrep
+	  rofi
+	  rsync
+	  sccache
+	  skim
+	  slurp
+	  spotify
+	  sshfs
+	  strace
+	  sway
+	  swaybg
+	  swayidle
+	  swaylock
+	  time
+	  tk
+	  tokei
+	  udiskie
+	  unzip
+	  valgrind
+	  variety
+	  vlc
+	  waybar
+	  wget
+	  whois
+	  xclip
+	  xonsh
+	  xsel
+	  yarn
+	  youtube-dl
+	  ytop
+	  zip
+
+	  gitAndTools.delta
+	  gitAndTools.diff-so-fancy
+	  gitAndTools.git-extras
+	  gitAndTools.hub
+
+	  perlPackages.FileMimeInfo
+
+	  python38Packages.grip
+
+	  xorg.xeyes
   ];
 
   sound.enable = true;
@@ -36,4 +145,6 @@
   };
 
   system.stateVersion = "20.09";
+
+  nixpkgs.config.allowUnfree = true;
 }
