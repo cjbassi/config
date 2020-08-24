@@ -6,6 +6,8 @@
       ./hardware-configuration.nix
     ];
 
+# Settings {{{1
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -22,6 +24,47 @@
   console.font = "Hack";
 
   time.timeZone = "America/Los_Angeles";
+
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+
+  system.stateVersion = "20.09";
+
+  nixpkgs.config.allowUnfree = true;
+
+  # disables laptop beeping
+  boot.extraModprobeConfig = ''
+    blacklist pcspkr
+  '';
+
+  # enable members of 'wheel' group to use sudo without password
+  security.sudo.extraConfig = ''
+    %wheel ALL=\(ALL\) NOPASSWD: ALL
+  '';
+
+  # automatically switch to newly connected devices
+  hardware.pulseaudio.extraConfig = ''
+    load-module module-switch-on-connect
+  '';
+
+# Users {{{1
+
+  users.users.cjbassi = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "docker"  # can run docker commands without sudo
+    ];
+    shell = pkgs.xonsh;
+  };
+
+# Services {{{1
+
+  virtualisation.docker.enable = true;
+  networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
+
+# Packages {{{1
 
   environment.systemPackages = with pkgs; [
     alacritty
@@ -135,39 +178,4 @@
 
     xorg.xeyes
   ];
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  users.users.cjbassi = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "docker"  # can run docker commands without sudo
-    ];
-    shell = pkgs.xonsh;
-  };
-
-  system.stateVersion = "20.09";
-
-  nixpkgs.config.allowUnfree = true;
-
-  # disables laptop beeping
-  boot.extraModprobeConfig = ''
-    blacklist pcspkr
-  '';
-
-  # enable members of 'wheel' group to use sudo without password
-  security.sudo.extraConfig = ''
-    %wheel ALL=\(ALL\) NOPASSWD: ALL
-  '';
-
-  # automatically switch to newly connected devices
-  hardware.pulseaudio.extraConfig = ''
-    load-module module-switch-on-connect
-  '';
-
-  virtualisation.docker.enable = true;
-  networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
 }
