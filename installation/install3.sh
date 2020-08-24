@@ -124,8 +124,6 @@ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # package managers {{{1
 
-fundle install
-
 pipx install colour-valgrind
 pipx install wpm
 pipx install xtermcolor
