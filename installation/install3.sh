@@ -176,9 +176,6 @@ sudo systemctl enable \
 	\
 	opensnitchd
 
-# disables tmpfs
-sudo systemctl mask tmp.mount
-
 # tlp (battery improvements)
 sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
