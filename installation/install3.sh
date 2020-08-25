@@ -46,8 +46,6 @@ ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
 
 sudo ln -sf ~/config/systemd/root/* /etc/systemd/system/
 
-sudo ln -sf ~/config/root/tmp.conf /etc/tmpfiles.d/
-
 sudo cp ~/config/root/blueman_policykit /etc/polkit-1/rules.d/90-blueman.rules
 
 # regular {{{2
