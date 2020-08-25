@@ -176,13 +176,6 @@ sudo systemctl enable \
 	\
 	opensnitchd
 
-# tlp (battery improvements)
-sudo systemctl enable tlp
-sudo systemctl enable tlp-sleep
-sudo systemctl mask system-rfkill
-sudo systemctl mask system-rfkill.socket
-
-
 # Cleanup {{{1
 
 rm -f .bash_logout .bash_profile .bashrc install3.sh

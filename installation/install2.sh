@@ -13,7 +13,6 @@ mkinitcpio -p linux
 
 # Boot loader {{{2
 
-pacman -S --noconfirm intel-ucode
 bootctl --path=/boot install
 
 echo "\

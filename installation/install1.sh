@@ -27,17 +27,6 @@ pacstrap /mnt \
 	base \
 	base-devel \
 \
-	pulseaudio-bluetooth \
-	bluez \
-	bluez-libs \
-	bluez-utils \
-\
-	tlp \
-	x86_energy_perf_policy \
-	acpi_call \
-	tp_smapi \
-\
-\
 	python-jedi \
 	python-pylint \
 	python-pytest \
@@ -53,21 +42,4 @@ pacstrap /mnt \
 \
 	tidy \
 \
-\
-	ttf-dejavu \
-	noto-fonts-emoji \
-	awesome-terminal-fonts \
-	ttf-freefont \
-	ttf-arphic-uming \
-	ttf-indic-otf \
-	adobe-source-han-sans-otc-fonts \
-\
 	gnome-keyring \
-
-# otf-ipafont
-# ttf-hanazono
-# ttf-symbola
-# ttf-emojione-color
-# ttf-twemoji-color
-# adobe-source-han-sans-jp-fonts
-# ttf-sazanami

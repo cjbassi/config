@@ -27,6 +27,13 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.bluetooth.enable = true;
+  # support for bluetooth headsets
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  # automatically switch to newly connected devices
+  hardware.pulseaudio.extraConfig = ''
+    load-module module-switch-on-connect
+  '';
 
   system.stateVersion = "20.09";
 
@@ -40,11 +47,6 @@
   # enable members of 'wheel' group to use sudo without password
   security.sudo.extraConfig = ''
     %wheel ALL=\(ALL\) NOPASSWD: ALL
-  '';
-
-  # automatically switch to newly connected devices
-  hardware.pulseaudio.extraConfig = ''
-    load-module module-switch-on-connect
   '';
 
   fonts.enableDefaultFonts = true;
@@ -61,22 +63,26 @@
 
   boot.cleanTmpDir = true;
 
+  # improved battery usage
+  services.tlp.enable = true;
+
+  networking.networkmanager.enable = true;
+
+  virtualisation.docker.enable = true;
+
+  hardware.cpu.intel.updateMicrocode = true;
+
 # Users {{{1
 
   users.users.cjbassi = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "docker"  # can run docker commands without sudo
+      # can run docker commands without sudo
+      "docker"
     ];
     shell = pkgs.xonsh;
   };
-
-# Services {{{1
-
-  virtualisation.docker.enable = true;
-  networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
 
 # Packages {{{1
 
