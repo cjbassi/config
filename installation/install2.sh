@@ -34,19 +34,6 @@ options cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot quiet rw" 
 # TODO
 # options     root=PARTLABEL=ROOT rw" \
 
-# Swap {{{2
-
-fallocate -l 4G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-
-echo "\
-/swapfile none swap defaults 0 0" \
->> /etc/fstab
-
-# }}}
-
 
 # Post-installation {{{1
 
