@@ -162,7 +162,6 @@
     skim
     slurp
     spotify
-    sshfs
     strace
     sway
     swaybg

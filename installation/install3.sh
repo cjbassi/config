@@ -170,7 +170,6 @@ systemctl --user enable \
 	waybar
 
 sudo systemctl enable \
-	kill-sshfs-on-suspend \
 	lockscreen-on-suspend@$USER \
 	reload-settings-on-wake@$USER \
 	\
