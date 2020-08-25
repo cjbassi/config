@@ -162,6 +162,7 @@
     xclip
     xonsh
     xsel
+    xwayland
     yarn
     youtube-dl
     ytop
