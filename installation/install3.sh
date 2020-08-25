@@ -46,8 +46,6 @@ ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
 
 sudo ln -sf ~/config/systemd/root/* /etc/systemd/system/
 
-sudo cp ~/config/root/blueman_policykit /etc/polkit-1/rules.d/90-blueman.rules
-
 # regular {{{2
 
 mkdir -p $XDG_CONFIG_HOME/systemd/user
