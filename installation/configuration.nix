@@ -47,6 +47,20 @@
     load-module module-switch-on-connect
   '';
 
+  fonts.enableDefaultFonts = true;
+
+  users.mutableUsers = false;
+
+  virtualisation.docker.autoPrune.enable = true;
+
+  # fonts.fontconfig.defaultFonts.monospace
+  # fonts.fontconfig.defaultFonts.sansSerif
+  # fonts.fontconfig.defaultFonts.serif
+
+  programs.xonsh.enable = true;
+
+  boot.cleanTmpDir = true;
+
 # Users {{{1
 
   users.users.cjbassi = {
