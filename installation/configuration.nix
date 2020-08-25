@@ -90,6 +90,8 @@
     alacritty
     alsaUtils
     apulse
+    aspell
+    aspellDicts.en
     astyle
     bat
     blueman
@@ -122,6 +124,7 @@
     httpie
     imgurbash2
     inotify-tools
+    insync
     iotop
     jq
     kdeconnect

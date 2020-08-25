@@ -96,7 +96,6 @@ yay \
 
 yay \
 	evscript-git \
-	insync1 \
 	ncurses5-compat-libs \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
