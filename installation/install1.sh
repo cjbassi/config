@@ -27,8 +27,6 @@ pacstrap /mnt \
 	base \
 	base-devel \
 \
-	xorg \
-\
 	pulseaudio-bluetooth \
 	bluez \
 	bluez-libs \
