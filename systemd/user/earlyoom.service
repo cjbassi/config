@@ -1,8 +1,0 @@
-[Unit]
-PartOf=graphical-session.target
-
-[Service]
-ExecStart=earlyoom
-
-[Install]
-WantedBy=graphical-session.target

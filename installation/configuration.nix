@@ -107,7 +107,6 @@
     docker
     docker-compose
     dua
-    earlyoom
     element-desktop
     emacs
     exa

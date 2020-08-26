@@ -148,7 +148,6 @@ trust-download cjbassi/trash-cli
 systemctl --user enable \
 	blueman-applet \
 	copyq \
-	earlyoom \
 	evscript \
 	insync \
 	kdeconnect-indicator \
