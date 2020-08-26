@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-function main {
-	yay -Syu --needed --devel --mflags "--nocheck" "$@"
-	yay -Sc --noconfirm
-	yay -c --noconfirm
-}
-
-main "$@"
