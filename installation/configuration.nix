@@ -82,6 +82,13 @@ in
 
   system.autoUpgrade.enable = true;
 
+  # https://github.com/nix-community/NUR
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
 # Users {{{1
 
   users.users.cjbassi = {
@@ -211,11 +218,22 @@ in
     python38Packages.grip
 
     xorg.xeyes
+
+    nur.repos.crazazy.js.CRA
+    nur.repos.onny.opensnitchd
+    nur.repos.onny.opensnitchui
   ];
 
 # home-manager {{{1
 
   home-manager.users.cjbassi = {
+
+    home.file.".emacs.d".source = pkgs.fetchFromGitHub {
+      owner = "syl20bnr";
+      repo = "spacemacs";
+      rev = "39df5e2";
+      sha256 = "1x0s5xlwhajgnlnb9mk0mnabhvhsf97xk05x79rdcxwmf041h3fd";
+    };
 
 # files and folders {{{2
 
@@ -267,6 +285,12 @@ in
     systemd.user.services.element-desktop = {
       Unit.PartOf = [ "graphical-session.target" ];
       Service.ExecStart = "${pkgs.element-desktop}/bin/element-desktop";
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    systemd.user.services.opensnitch-ui = {
+      Unit.PartOf = [ "graphical-session.target" ];
+      Service.ExecStart = "${pkgs.nur.repos.onny.opensnitchui}/bin/ExecStart=opensnitch-ui --config ~/.config/opensnitch/ui-config.json";
       Install.WantedBy = [ "graphical-session.target" ];
     };
   };

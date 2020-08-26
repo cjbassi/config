@@ -38,13 +38,6 @@ mkdir -p \
 	$XDG_CONFIG_HOME
 
 
-# config files {{{1
-
-# regular {{{2
-
-mkdir -p $XDG_CONFIG_HOME/systemd/user
-ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
-
 # AUR {{{1
 
 yay \
@@ -62,9 +55,6 @@ yay \
 	tmpreaper \
 	udiskie-dmenu-git \
 
-# TODO
-# opensnitch-git
-
 
 # application configuration {{{1
 
@@ -80,8 +70,7 @@ pipx install --spec git+https://github.com/cjbassi/rofi-copyq rofi-copyq
 pipx install --spec git+https://github.com/cjbassi/rofi-files rofi-files
 
 yarn global add \
-	typesync \
-	create-react-app
+	typesync
 
 trust_install_url="https://raw.githubusercontent.com/japaric/trust/c268696ab9f054e1092f195dddeead2420c04261/install.sh"
 function trust-download {
@@ -101,7 +90,6 @@ trust-download cjbassi/trash-cli
 systemctl --user enable \
 	evscript \
 	insync \
-	opensnitch-ui \
 	swayidle \
 	variety
 
