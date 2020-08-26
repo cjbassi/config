@@ -76,8 +76,6 @@ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # package managers {{{1
 
 pipx install colour-valgrind
-pipx install wpm
-pipx install xtermcolor
 pipx install --spec git+https://github.com/cjbassi/rofi-power rofi-power
 pipx install --spec git+https://github.com/cjbassi/rofi-copyq rofi-copyq
 pipx install --spec git+https://github.com/cjbassi/rofi-files rofi-files
