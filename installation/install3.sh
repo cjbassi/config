@@ -55,7 +55,6 @@ yay \
 	ncurses5-compat-libs \
 	nerd-fonts-complete \
 	network-manager-applet-indicator \
-	python-pipx \
 	raven-reader-bin \
 	swaylock-blur-bin \
 	teiler-git \

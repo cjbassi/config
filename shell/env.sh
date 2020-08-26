@@ -57,16 +57,12 @@ export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PSQL_HISTORY=$XDG_CACHE_HOME/pg/psql_history
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
-export PIPX_HOME=$XDG_DATA_HOME/pipx
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 export XSERVERRC=$XDG_CONFIG_HOME/X11/xserverrc
-
-export PIPX_BIN_DIR=$PIPX_HOME/bin
 
 
 # path {{{1
 
-export PATH=$PATH:$PIPX_BIN_DIR
 export PATH=$PATH:$XDG_DATA_HOME/npm/bin
 export PATH=$PATH:$CARGO_HOME/bin
 
