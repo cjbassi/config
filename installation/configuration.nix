@@ -128,6 +128,7 @@ in
     git
     gnupg
     google-chrome
+    gparted
     grim
     hack-font
     httpie
@@ -151,12 +152,12 @@ in
     networkmanager
     networkmanager_dmenu
     networkmanagerapplet
+    nixfmt
     nodejs
     openssh
     p7zip
     pamixer
     pandoc
-    parted
     pasystray
     pavucontrol
     playerctl
