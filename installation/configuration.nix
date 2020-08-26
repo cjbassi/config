@@ -107,6 +107,7 @@ in
     blueman
     breeze-gtk
     calibre
+    cargo
     cargo-edit
     cargo-update
     ccache

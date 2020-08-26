@@ -45,13 +45,6 @@ mkdir -p \
 mkdir -p $XDG_CONFIG_HOME/systemd/user
 ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
 
-# rust {{{1
-
-rustup set profile complete
-rustup install stable
-rustup default stable
-
-
 # AUR {{{1
 
 yay \

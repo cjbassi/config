@@ -37,7 +37,6 @@ pacstrap /mnt \
 	autopep8 \
 	flake8 \
 \
-	rustup \
 	rust-racer \
 \
 	tidy \
