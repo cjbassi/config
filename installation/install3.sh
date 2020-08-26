@@ -33,7 +33,6 @@ source ~/config/shell/env.sh
 mkdir -p \
 	~/Downloads \
 	~/Drive \
-	~/projects \
 	~/projects/{mine,other} \
 	$XDG_CONFIG_HOME
 
@@ -55,12 +54,6 @@ yay \
 	tmpreaper \
 	udiskie-dmenu-git \
 
-
-# application configuration {{{1
-
-# spacemacs {{{1
-
-git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # package managers {{{1
 
