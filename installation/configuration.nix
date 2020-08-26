@@ -1,9 +1,16 @@
 { config, pkgs, ... }:
 
+let
+
+  my-config-dir = "/home/cjbassi/config";
+
+in
+
 {
   imports =
     [
       ./hardware-configuration.nix
+      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
 # Settings {{{1
@@ -44,14 +51,11 @@
     blacklist pcspkr
   '';
 
-  # enable members of 'wheel' group to use sudo without password
-  security.sudo.extraConfig = ''
-    %wheel ALL=\(ALL\) NOPASSWD: ALL
-  '';
+  security.sudo.wheelNeedsPassword = false;
 
   fonts.enableDefaultFonts = true;
 
-  users.mutableUsers = false;
+  # users.mutableUsers = false;
 
   virtualisation.docker.autoPrune.enable = true;
 
@@ -71,6 +75,12 @@
   virtualisation.docker.enable = true;
 
   hardware.cpu.intel.updateMicrocode = true;
+
+  services.blueman.enable = true;
+
+  nix.gc.automatic = true;
+
+  system.autoUpgrade.enable = true;
 
 # Users {{{1
 
@@ -200,4 +210,62 @@
 
     xorg.xeyes
   ];
+
+# home-manager {{{1
+
+  home-manager.users.cjbassi = {
+
+# files and folders {{{2
+
+    xdg.configFile = {
+      source = "${my-config-dir}/.config";
+      recursive = true;
+    };
+
+    xdg.dataFile = {
+      source = "${my-config-dir}/.local/share";
+      recursive = true;
+    };
+
+    home.file = {
+      source = "${my-config-dir}/dotfiles";
+      recursive = true;
+    };
+
+    home.file."Trash".source = config.users.user.cjbassi.xdg.dataFile."Trash/files";
+
+# services {{{2
+
+    programs.mako.enable = true;
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
+
+    services.blueman-applet.enable = true;
+    services.kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+    services.network-manager-applet.enable = true;
+    services.pasystray.enable = true;
+    services.redshift = {
+      enable = true;
+      package = pkgs.redshift-wlr;
+      provider = "geoclue2";
+    };
+    services.udiskie.enable = true;
+
+    systemd.user.services.copyq = {
+      Unit.PartOf = [ "graphical-session.target" ];
+      Service.ExecStart = "${pkgs.copyq}/bin/copyq";
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    systemd.user.services.element-desktop = {
+      Unit.PartOf = [ "graphical-session.target" ];
+      Service.ExecStart = "${pkgs.element-desktop}/bin/element-desktop";
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+  };
 }

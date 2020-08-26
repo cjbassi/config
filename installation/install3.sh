@@ -37,50 +37,13 @@ mkdir -p \
 	~/projects/{mine,other} \
 	$XDG_CONFIG_HOME
 
-ln -sf $XDG_DATA_HOME/Trash/files ~/.Trash
-
 
 # config files {{{1
-
-# root {{{2
-
-sudo ln -sf ~/config/systemd/root/* /etc/systemd/system/
 
 # regular {{{2
 
 mkdir -p $XDG_CONFIG_HOME/systemd/user
 ln -sf ~/config/systemd/user/* $XDG_CONFIG_HOME/systemd/user/
-
-ln -sf ~/config/dotfiles/* ~/
-
-mkdir -p ~/.local/share/applications/
-ln -sf ~/{config/,}.local/share/applications/alacritty.desktop
-
-# .config {{{3
-
-cp -f ~/config/.config/mimeapps.list $XDG_CONFIG_HOME
-
-function symlink-dot-config {
-	mkdir -p ~/.config/"$@"
-	ln -sf ~/config/.config/"$@"/* ~/.config/"$@"
-}
-
-symlink-dot-config alacritty
-symlink-dot-config git
-symlink-dot-config gtk-2.0
-symlink-dot-config gtk-3.0
-symlink-dot-config mako
-symlink-dot-config nixpkgs
-symlink-dot-config npm
-symlink-dot-config opensnitch
-symlink-dot-config readline
-symlink-dot-config rofi
-symlink-dot-config sway
-symlink-dot-config swaylock
-symlink-dot-config variety
-symlink-dot-config waybar
-symlink-dot-config xonsh
-
 
 # rust {{{1
 
@@ -146,22 +109,11 @@ trust-download cjbassi/trash-cli
 # systemd {{{1
 
 systemctl --user enable \
-	blueman-applet \
-	copyq \
 	evscript \
 	insync \
-	kdeconnect-indicator \
-	mako \
-	nm-applet \
 	opensnitch-ui \
-	pasystray \
-	recover-youtube-videos.timer \
-	redshift-gtk \
-	element-desktop \
 	swayidle \
-	udiskie \
-	variety \
-	waybar
+	variety
 
 sudo systemctl enable \
 	lockscreen-on-suspend@$USER \
