@@ -1,9 +1,0 @@
-[Unit]
-After=sleep.target
-
-[Service]
-User=%I
-ExecStart=bash -c "export XDG_RUNTIME_DIR=/run/user/$(id -u $USER); export SWAYSOCK=/run/user/$(id -u $USER)/sway-ipc.$(id -u $USER).$(pgrep -x sway).sock; reload-settings"
-
-[Install]
-WantedBy=sleep.target

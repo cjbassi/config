@@ -1,9 +1,0 @@
-[Unit]
-PartOf=graphical-session.target
-
-[Service]
-ExecStart=bash -c "fd '^.*kbd$' /dev/input/by-path | xargs sudo evscript -f /home/cjbassi/config/other/evscript.dyon -d"
-ExecStop=sudo pkill evscript
-
-[Install]
-WantedBy=graphical-session.target
