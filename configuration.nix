@@ -97,6 +97,33 @@ in
 
   services.blueman.enable = true;
 
+# Services {{{1
+
+  systemd.services.lockscreen-on-suspend = {
+    wantedBy = [ "sleep.target" ];
+    before = [ "sleep.target" ];
+    script = ''
+      export XDG_RUNTIME_DIR=/run/user/$(id -u $USER)
+      export SWAYSOCK=/run/user/$(id -u $USER)/sway-ipc.$(id -u $USER).$(pgrep -x sway).sock
+      swaylock-blur
+    '';
+    serviceConfig = {
+      Type = "forking";
+      User = "cjbassi";
+    };
+  };
+
+  systemd.services.reload-settings-on-wake = {
+    wantedBy = [ "sleep.target" ];
+    after = [ "sleep.target" ];
+    script = ''
+      export XDG_RUNTIME_DIR=/run/user/$(id -u $USER)
+      export SWAYSOCK=/run/user/$(id -u $USER)/sway-ipc.$(id -u $USER).$(pgrep -x sway).sock
+      reload-settings
+    '';
+    serviceConfig.User = "cjbassi";
+  };
+
 # Users {{{1
 
   users.users.cjbassi = {
