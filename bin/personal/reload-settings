@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
 function main {
+	# disables or enables laptop screen depending on if the external monitor is plugged in
 	if swaymsg -t get_outputs | grep -q $EXTERNAL_DISPLAY; then
 		swaymsg output $INTERNAL_DISPLAY disable
 	else
 		swaymsg output $INTERNAL_DISPLAY enable
 	fi
 
+	# TODO double check that this comment is correct
+	# reload these services if their configuration has changed
 	systemctl --user restart mako
 	systemctl --user restart waybar
+
+	# reload evscript when we change its configuration or plug in or unplug the external keyboard
 	systemctl --user restart evscript
 }
 
