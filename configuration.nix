@@ -314,6 +314,7 @@ in
       enable = true;
       indicator = true;
     };
+
     services.network-manager-applet.enable = true;
 
     services.pasystray.enable = true;
@@ -323,6 +324,7 @@ in
       package = pkgs.redshift-wlr;
       provider = "geoclue2";
     };
+
     services.udiskie.enable = true;
 
     systemd.user.services.copyq = {
