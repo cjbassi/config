@@ -1,8 +1,0 @@
-{
-	"compilerOptions": {
-		"experimentalDecorators": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true
-	},
-}
