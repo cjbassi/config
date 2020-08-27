@@ -35,8 +35,6 @@ in
 
   users.mutableUsers = false;
 
-  programs.xonsh.enable = true;
-
   boot.cleanTmpDir = true;
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -58,6 +56,15 @@ in
   virtualisation.docker = {
     enable = true;
     autoPrune.enable = true;
+  };
+
+# Programs {{{2
+
+  programs.xonsh.enable = true;
+
+  programs.sway = {
+    enable = true;
+    extraPackages = [];
   };
 
 # Fonts {{{2
