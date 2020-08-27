@@ -20,8 +20,6 @@ in
     efi.canTouchEfiVariables = true;
   };
 
-  console.font = "Hack";
-
   time.timeZone = "America/Los_Angeles";
 
   system.stateVersion = "20.09";
@@ -34,8 +32,6 @@ in
   '';
 
   security.sudo.wheelNeedsPassword = false;
-
-  fonts.enableDefaultFonts = true;
 
   users.mutableUsers = false;
 
@@ -63,6 +59,12 @@ in
     enable = true;
     autoPrune.enable = true;
   };
+
+# Fonts {{{2
+
+  console.font = "Hack";
+
+  fonts.enableDefaultFonts = true;
 
 # Networking {{{2
 
