@@ -13,6 +13,7 @@ $SHELL_TYPE = 'prompt_toolkit'
 $SUGGEST_COMMANDS = False
 $VI_MODE = True
 $XONSH_AUTOPAIR = True
+$XONSH_HISTORY_BACKEND = 'sqlite'
 $XONSH_HISTORY_MATCH_ANYWHERE = True
 
 
