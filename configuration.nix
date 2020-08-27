@@ -257,7 +257,7 @@ in
 
     nur.repos.crazazy.js.CRA
     # nur.repos.onny.opensnitchd
-    # nur.repos.onny.opensnitch-ui
+    nur.repos.onny.opensnitch-ui
   ];
 
 # home-manager {{{1
