@@ -10,6 +10,7 @@ in
   imports =
     [
       ./hardware-configuration.nix
+      # https://github.com/nix-community/NUR
       (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
@@ -112,6 +113,14 @@ in
       User = "cjbassi";
     };
   };
+
+  # https://github.com/gustavo-iniguez-goya/opensnitch/blob/main/daemon/opensnitchd.service
+  # systemd.services.opensnitchd = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   wants = [ "network.target" ];
+  #   after = [ "network.target" ];
+  #   serviceConfig.ExecStart = "${pkgs.nur.repos.onny.opensnitchd}/bin/opensnitchd";
+  # };
 
   systemd.services.reload-settings-on-wake = {
     wantedBy = [ "sleep.target" ];
@@ -339,9 +348,52 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
+    # systemd.user.services.evscript = {
+    #   Unit.PartOf = [ "graphical-session.target" ];
+    #   Service = {
+    #     ExecStart = "${pkgs.fd}/bin/fd '^.*kbd$' /dev/input/by-path | xargs sudo ${pkgs.nur.repos.cjbassi.evscript}/bin/evscript -f ~/config/evscript.dyon -d";
+    #     SerExecStop="sudo pkill evscript";
+    #   };
+    #   Install.WantedBy = [ "graphical-session.target" ];
+    # };
+
+    systemd.user.services.insync = {
+      Unit = {
+        After = [
+          "local-fs.target"
+          "network.target"
+        ];
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        ExecStart = "${pkgs.insync}/bin/insync start --synchronous-full";
+        ExecStop = "${pkgs.insync}/bin/insync quit";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
     systemd.user.services.opensnitch-ui = {
       Unit.PartOf = [ "graphical-session.target" ];
       Service.ExecStart = "${pkgs.nur.repos.onny.opensnitch-ui}/bin/opensnitch-ui --config ~/.config/opensnitch/ui-config.json";
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    systemd.user.services.swayidle = {
+      Unit.PartOf = [ "graphical-session.target" ];
+      Service.ExecStart = ''
+        {pkgs.swayidle}/bin/swayidle -w \
+          timeout 300 'swaylock-blur' \
+          timeout 600 'swaymsg "output * dpms off"' \
+          resume 'swaymsg "output * dpms on"'
+      '';
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    systemd.user.services.variety = {
+      Unit.PartOf = [ "graphical-session.target" ];
+      Service.ExecStart = "${pkgs.variety}/bin/variety";
       Install.WantedBy = [ "graphical-session.target" ];
     };
   };
