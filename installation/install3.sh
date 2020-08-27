@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-shopt -s dotglob
-
 # keys {{{1
 
 sudo mkdir /mnt/usb
@@ -21,11 +19,6 @@ sudo rmdir /mnt/usb
 while [[ ! -d "~/config" ]]; do
 	hub clone cjbassi/config
 done
-
-
-# source env {{{1
-
-source ~/config/shell/env.sh
 
 
 # Directories {{{1
