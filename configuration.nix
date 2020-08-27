@@ -266,6 +266,14 @@ in
 
 # Services {{{2
 
+    systemd.user.targets.sway-session = {
+      Unit = {
+        BindsTo = [ "graphical-session.target" ];
+        Wants = [ "graphical-session-pre.target" ];
+        After = [ "graphical-session-pre.target" ];
+      };
+    };
+
     programs.mako.enable = true;
 
     programs.waybar = {
