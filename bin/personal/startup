@@ -7,7 +7,7 @@ function main {
 	new-wallpaper
 
 	pamixer --set-volume 25
-	pamixer --default-source --allow-boost --set-volume 153
+	pamixer --default-source --allow-boost --set-volume 100
 }
 
 main "$@"
