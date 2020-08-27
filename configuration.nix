@@ -339,10 +339,10 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    # systemd.user.services.opensnitch-ui = {
-    #   Unit.PartOf = [ "graphical-session.target" ];
-    #   Service.ExecStart = "${pkgs.nur.repos.onny.opensnitch-ui}/bin/ExecStart=opensnitch-ui --config ~/.config/opensnitch/ui-config.json";
-    #   Install.WantedBy = [ "graphical-session.target" ];
-    # };
+    systemd.user.services.opensnitch-ui = {
+      Unit.PartOf = [ "graphical-session.target" ];
+      Service.ExecStart = "${pkgs.nur.repos.onny.opensnitch-ui}/bin/opensnitch-ui --config ~/.config/opensnitch/ui-config.json";
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
   };
 }
