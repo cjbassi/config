@@ -521,7 +521,7 @@ before packages are loaded."
     ;; https://stackoverflow.com/questions/2985050/is-there-any-way-to-have-emacs-save-your-undo-history-between-sessions
     ;; persistent undo
     undo-tree-auto-save-history t
-    undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
+    undo-tree-history-directory-alist '(("." . "~/.local/state/emacs/undo"))
 
     terminal-here-terminal-command (list "alacritty")
     )
