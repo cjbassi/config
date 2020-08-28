@@ -4,14 +4,17 @@ let
 
   my-config-dir = "/home/cjbassi/config";
 
+  home-manager-repo = builtins.fetchTarball "https://github.com/rycee/home-manager/archive/master.tar.gz";
+  nur-repo = builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz";
+  spacemacs-repo = pkgs.fetchTarball "https://github.com/syl20bnr/spacemacs/archive/develop.tar.gz";
+
 in
 
 {
   imports =
     [
       ./hardware-configuration.nix
-      # https://github.com/nix-community/NUR
-      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+      (import "${home-manager-repo}/nixos")
     ];
 
 # Settings {{{1
@@ -46,7 +49,7 @@ in
 
   # https://github.com/nix-community/NUR
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    nur = import nur-repo {
       inherit pkgs;
     };
   };
@@ -65,6 +68,7 @@ in
 
   programs.sway = {
     enable = true;
+    # prevents installing uneeded packages
     extraPackages = [];
   };
 
@@ -275,12 +279,7 @@ in
 
     xsession.preferStatusNotifierItems = true;
 
-    home.file.".emacs.d".source = pkgs.fetchFromGitHub {
-      owner = "syl20bnr";
-      repo = "spacemacs";
-      rev = "39df5e2";
-      sha256 = "12anvs9yc6jk0gm1qcs8wz5fmxdjndszq68603cfksav6p9fsv1d";
-    };
+    home.file.".emacs.d".source = spacemacs-repo;
 
 # Files and folders {{{2
 
