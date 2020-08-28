@@ -6,7 +6,7 @@ let
 
   home-manager-repo = builtins.fetchTarball "https://github.com/rycee/home-manager/archive/master.tar.gz";
   nur-repo = builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz";
-  spacemacs-repo = pkgs.fetchTarball "https://github.com/syl20bnr/spacemacs/archive/develop.tar.gz";
+  spacemacs-repo = builtins.fetchTarball "https://github.com/syl20bnr/spacemacs/archive/develop.tar.gz";
 
 in
 
