@@ -10,12 +10,6 @@ export LC_TIME=$LANG
 export LC_ALL=$LANG
 
 
-# custom {{{1
-
-export INTERNAL_DISPLAY=eDP-1
-export EXTERNAL_DISPLAY=HDMI-A-1
-
-
 # default programs {{{1
 
 export EDITOR=emacsclient
@@ -84,3 +78,9 @@ export RUST_BACKTRACE=1
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
 export FZF_FIND_FILE_COMMAND=fd
 source ~/config/shell/fzf-solarized.sh
+
+
+# custom {{{1
+
+export INTERNAL_DISPLAY=eDP-1
+export EXTERNAL_DISPLAY=HDMI-A-1
