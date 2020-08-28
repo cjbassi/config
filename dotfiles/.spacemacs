@@ -535,6 +535,8 @@ before packages are loaded."
   (spacemacs/set-leader-keys "ogh" 'spacemacs/vcs-revert-hunk)
 
   (define-key evil-normal-state-map "Q" "@q")
+
+  (evil-goggles-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
