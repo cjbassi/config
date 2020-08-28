@@ -84,3 +84,5 @@ source ~/config/shell/fzf-solarized.sh
 
 export INTERNAL_DISPLAY=eDP-1
 export EXTERNAL_DISPLAY=HDMI-A-1
+
+export HISTFILE=$XDG_DATA_HOME/xonsh/xonsh-history.sqlite
