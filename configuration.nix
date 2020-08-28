@@ -273,6 +273,8 @@ in
 
   home-manager.users.cjbassi = {
 
+    xsession.preferStatusNotifierItems = true;
+
     home.file.".emacs.d".source = pkgs.fetchFromGitHub {
       owner = "syl20bnr";
       repo = "spacemacs";
@@ -334,7 +336,10 @@ in
       provider = "geoclue2";
     };
 
-    services.udiskie.enable = true;
+    services.udiskie = {
+      enable = true;
+      tray = "always";
+    };
 
     systemd.user.services.copyq = {
       Unit.PartOf = [ "graphical-session.target" ];
