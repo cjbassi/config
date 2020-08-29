@@ -254,7 +254,6 @@ in
     xwayland
     yarn
     youtube-dl
-    ytop
     zip
 
     gitAndTools.delta
