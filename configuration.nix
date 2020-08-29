@@ -110,7 +110,7 @@ in
     script = ''
       export XDG_RUNTIME_DIR=/run/user/$(id -u $USER)
       export SWAYSOCK=/run/user/$(id -u $USER)/sway-ipc.$(id -u $USER).$(pgrep -x sway).sock
-      swaylock-blur
+      swaylock
     '';
     serviceConfig = {
       Type = "forking";
@@ -235,7 +235,7 @@ in
     sway
     swaybg
     swayidle
-    swaylock
+    swaylock-effects
     time
     tk
     tokei
@@ -387,7 +387,7 @@ in
       Unit.PartOf = [ "graphical-session.target" ];
       Service.ExecStart = ''
         {pkgs.swayidle}/bin/swayidle -w \
-          timeout 300 'swaylock-blur' \
+          timeout 300 'swaylock' \
           timeout 600 'swaymsg "output * dpms off"' \
           resume 'swaymsg "output * dpms on"'
       '';
