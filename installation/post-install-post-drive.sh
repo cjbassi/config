@@ -3,6 +3,12 @@
 # link config folder to Drive
 ln -s ~/config ~/Drive/linux/config
 
+# link .authinfo from Drive
+ln -s ~/Drive/linux/.authinfo ~/.authinfo
+
+# link .config/hub from Drive
+ln -s ~/Drive/linux/hub ~/.config/hub
+
 # link history file from Drive
 mkdir -p $(dirname "$HISTFILE")
 ln -sf ~/Drive/linux/history $HISTFILE
