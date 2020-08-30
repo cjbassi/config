@@ -33,6 +33,9 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+      (auto-completion :variables
+        auto-completion-return-key-behavior 'nil
+        auto-completion-tab-key-behavior 'complete)
       git
       github
       helm
