@@ -39,7 +39,8 @@ This function should only modify configuration layer settings."
       git
       github
       helm
-      lsp
+      (lsp :variables
+        lsp-ui-doc-enable 'nil)
       multiple-cursors
       neotree
       (ranger :variables
