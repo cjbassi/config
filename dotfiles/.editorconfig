@@ -8,10 +8,10 @@ indent_style = tab
 indent_size = 4
 trim_trailing_whitespace = true
 
-[*.{js,jsx,ts,tsx,html,php,vim,toml,yml,json,spacemacs,nix}]
+[*.{js,jsx,ts,tsx,html,php,vim,toml,yml,json,el,nix}]
 indent_size = 2
 
-[*.{rs,yml,py,spacemacs,nix}]
+[*.{rs,yml,py,el,nix}]
 indent_style = space
 
 [Makefile,*.go]
