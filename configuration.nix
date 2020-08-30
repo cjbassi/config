@@ -227,6 +227,7 @@ in
     ripgrep
     rofi
     rsync
+    rust-analyzer
     sccache
     skim
     slurp
