@@ -4,3 +4,5 @@ line-uses-ring
 indicator-radius=100
 indicator-thickness=15
 inside-color=00000033
+screenshots
+effect-blur=5x3
