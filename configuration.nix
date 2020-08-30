@@ -214,6 +214,7 @@ in
     p7zip
     pamixer
     pandoc
+    parted
     pasystray
     pavucontrol
     playerctl
