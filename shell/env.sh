@@ -51,6 +51,7 @@ export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PSQL_HISTORY=$XDG_CACHE_HOME/pg/psql_history
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
+export SPACEMACSDIR=$XDG_CONFIG_HOME/spacemacs
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 export XSERVERRC=$XDG_CONFIG_HOME/X11/xserverrc
 
