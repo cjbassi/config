@@ -278,7 +278,7 @@ in
 
     xsession.preferStatusNotifierItems = true;
 
-    home.file.".emacs.d".source = spacemacs-repo;
+    xdg.configFile."emacs".source = spacemacs-repo;
 
 # Files and folders {{{2
 
