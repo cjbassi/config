@@ -24,6 +24,5 @@ mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 
 # Installing
-ln -s /tmp/config/configuration.nix /mnt/etc/nixos/configuration.nix
-nixos-generate-config --root /mnt
-nixos-install
+nixos-generate-config --root /tmp/config
+nixos-install --channel https://nixos.org/channels/nixos-unstable -I nixos-config=/tmp/config/configuration.nix
