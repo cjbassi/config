@@ -20,6 +20,9 @@ cryptsetup luksOpen /dev/disk/by-label/nixos crypted
 mkfs.ext4 /dev/mapper/crypted
 mkfs.fat -F 32 -n boot /dev/sda2
 
+git clone https://github.com/cjbassi/config /tmp
+ln -s /tmp/config/configuration.nix /mnt/etc/nixos/configuration.nix
+
 # Installing
 mount /dev/disk/by-label/nixos /mnt
 mkdir -p /mnt/boot
