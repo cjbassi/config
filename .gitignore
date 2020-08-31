@@ -1,3 +1,4 @@
 node_modules/
 __pycache__/
 .mypy_cache/
+hardware-configuration.nix
