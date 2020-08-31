@@ -541,6 +541,9 @@ before packages are loaded."
   (define-key evil-normal-state-map "Q" "@q")
 
   (evil-goggles-mode)
+
+  (add-hook 'before-save-hook (lambda () (when (eq 'rust-mode major-mode)
+                                           (lsp-format-buffer))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
