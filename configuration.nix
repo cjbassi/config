@@ -242,6 +242,7 @@ in
     tk
     tokei
     udiskie
+    udisks
     unzip
     valgrind
     variety
