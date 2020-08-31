@@ -11,8 +11,8 @@ parted /dev/sda -- set 2 boot on
 # parted /dev/sda -- name 2 boot
 
 # Encryption
-cryptsetup luksFormat /dev/disk/by-label/nixos
-cryptsetup luksOpen /dev/disk/by-label/nixos crypted
+cryptsetup -y -v luksFormat /dev/disk/by-label/nixos
+cryptsetup open /dev/disk/by-label/nixos crypted
 
 # Formatting
 mkfs.ext4 /dev/mapper/crypted
