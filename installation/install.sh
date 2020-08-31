@@ -19,7 +19,7 @@ mkfs.ext4 /dev/mapper/crypted
 mkfs.fat -F 32 -n boot /dev/sda2
 
 # Mounting
-mount /dev/disk/by-label/nixos /mnt
+mount /dev/mapper/crypted /mnt
 mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 
