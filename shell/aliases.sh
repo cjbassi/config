@@ -78,14 +78,7 @@ alias ln="ln -v"
 alias mkdir="mkdir -v"
 alias mv="mv -v"
 alias rm="rm -v"
-
-function trash {
-	if [[ "$1" == "put" ]]; then
-		command trash put -v "${@:2}"
-	else
-		command trash "$@"
-	fi
-}
+alias trash="trash -v"
 
 # Human readable {{{2
 
