@@ -49,7 +49,7 @@ This function should only modify configuration layer settings."
         ranger-override-dired-mode t)
       (shell :variables
         shell-default-shell 'terminal-here)
-      ;; spell-checking
+      spell-checking
       (version-control :variables
         version-control-diff-side 'left)
 
