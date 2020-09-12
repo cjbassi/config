@@ -163,6 +163,7 @@ in
     breeze-gtk
     calibre
     cargo
+    cargo-bloat
     cargo-edit
     cargo-update
     ccache
