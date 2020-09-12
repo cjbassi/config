@@ -165,6 +165,7 @@ in
     cargo
     cargo-bloat
     cargo-edit
+    cargo-udeps
     ccache
     cht-sh
     clang
