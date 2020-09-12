@@ -165,6 +165,7 @@ in
     cargo
     cargo-bloat
     cargo-edit
+    cargo-outdated
     cargo-udeps
     ccache
     cht-sh
