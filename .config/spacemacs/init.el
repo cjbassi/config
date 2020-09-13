@@ -543,7 +543,8 @@ before packages are loaded."
   (spacemacs/set-leader-keys "ofs" '(lambda () "open ~/Drive/org/scratch.org" (interactive) (find-file "~/Drive/org/scratch.org")))
 
   (spacemacs/declare-prefix "og" "git/version-control")
-  (spacemacs/set-leader-keys "ogh" 'spacemacs/vcs-revert-hunk)
+  (spacemacs/set-leader-keys "ogr" 'spacemacs/vcs-revert-hunk)
+  (spacemacs/set-leader-keys "ogs" 'spacemacs/vcs-stage-hunk)
 
   (define-key evil-normal-state-map "Q" "@q")
 
