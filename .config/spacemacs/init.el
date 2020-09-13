@@ -532,6 +532,11 @@ before packages are loaded."
     undo-tree-history-directory-alist '(("." . "~/.local/state/emacs/undo"))
 
     terminal-here-terminal-command (list "alacritty")
+
+    magit-repository-directories
+      '(("~/projects" . 2)
+        ("~/config" . 0)
+        (user-emacs-directory . 0))
     )
 
   (spacemacs/declare-prefix "oa" "applications")
