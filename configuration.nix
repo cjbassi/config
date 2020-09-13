@@ -163,8 +163,11 @@ in
     breeze-gtk
     calibre
     cargo
+    cargo-audit
     cargo-bloat
     cargo-edit
+    cargo-geiger
+    cargo-license
     cargo-outdated
     cargo-udeps
     ccache
