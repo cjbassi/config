@@ -171,7 +171,6 @@ in
     cargo-outdated
     cargo-udeps
     ccache
-    cht-sh
     clang
     cmake
     copyq
