@@ -192,6 +192,7 @@ in
     gparted
     grim
     hack-font
+    htop
     httpie
     imgurbash2
     inotify-tools
