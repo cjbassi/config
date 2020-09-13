@@ -537,6 +537,8 @@ before packages are loaded."
       '(("~/projects" . 2)
         ("~/config" . 0)
         (user-emacs-directory . 0))
+
+    delete-by-moving-to-trash t
     )
 
   (spacemacs/declare-prefix "oa" "applications")
