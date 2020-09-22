@@ -113,7 +113,7 @@ alias ll="exa -Fl --group-directories-first --git --icons"
 alias mkdir="mkdir -p"
 alias rg="rg -S"
 alias rsync="rsync --progress"
-# alias time="time -p"
+alias time="time -p"
 
 
 # Alternatives {{{1
