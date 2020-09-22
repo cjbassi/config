@@ -1,5 +1,3 @@
-# vim:ft=gitconfig
-
 [user]
 	name = Caleb Bassi
 	email = calebjbassi@gmail.com
