@@ -6,69 +6,10 @@
 [github]
 	user = cjbassi
 
-[core]
-	editor = nvim
-	pager = ~/delta --dark
-
-[diff]
-	tool = code
-[difftool]
-	prompt = false
-
 [merge]
-	tool = code
 	conflictstyle = diff3
 	ff = false
-[mergetool]
-	prompt = false
-
 [push]
 	followTags = true
 [pull]
 	rebase = merges
-
-[color]
-	ui = true
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	pager = false
-[color "branch"]
-	current = yellow bold
-	local = green bold
-	remote = cyan bold
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-	commit = yellow bold
-[color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = red bold
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-
-[alias]
-	a = add
-	c = commit
-	cm = commit -m
-	ca = commit --amend
-	cah = commit --amend -C HEAD
-	s = status
-	d = diff
-	f = fetch
-	ps = push
-	pl = pull
-	cl = clone
-	ch = checkout
-	m = merge
-	r = reset
-	rh = reset --hard
-	rb = rebase -i --rebase-merges
