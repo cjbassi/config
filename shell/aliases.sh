@@ -113,7 +113,6 @@ alias ll="exa -Fl --group-directories-first --git --icons"
 alias mkdir="mkdir -p"
 alias rg="rg -S"
 alias rsync="rsync --progress"
-alias sshfs="sshfs -C -o reconnect"
 # alias time="time -p"
 
 
