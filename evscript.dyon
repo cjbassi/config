@@ -4,7 +4,7 @@ fn main() ~ evdevs, uinput {
 	should_escape := false
 	loop {
 		events := next_events(evdevs)
-		for i len(events) {
+		for i {
 			event := events[i]
 			xcape(mut should_escape, event, KEY_LEFTSHIFT(), [KEY_ESC()])
 		}
